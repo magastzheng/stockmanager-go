@@ -1,0 +1,4 @@
+########### CIM Java Project git ignore file ###########
+*.swp
+*~
+*.dat
