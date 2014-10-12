@@ -1,12 +1,8 @@
 //Parse the stock code and name from the HMTL page
-package main
+package stockhandler
 
 import(
     "fmt"
-    "os"
-    "io"
-    "bytes"
-    "parser"
     "strings"
 )
 
@@ -24,6 +20,14 @@ type StockHandler struct{
     tempStock Stock
 }
 
+func (h *StockHandler) Init() {
+    h.Stocks = make(map [string] Stock)
+    h.isTargetDiv = false
+    h.isStockLi = false
+    h.isStockLink = false
+    //h.tempStock = nil
+}
+
 func (h *StockHandler) OnStartElement(tag string, attrs map[string]string){
     //fmt.Println("Start: ", tag)
     if tag == "div" {
@@ -38,10 +42,10 @@ func (h *StockHandler) OnStartElement(tag string, attrs map[string]string){
         //fmt.Println("attrs: ", len(attrs), ok, h.isTargetDiv)
     } else if h.isTargetDiv && tag == "li" {
         h.isStockLi = true
-         fmt.Println("tag: ", tag, h.isStockLi)
+        //fmt.Println("tag: ", tag, h.isStockLi)
     } else if h.isStockLi && tag == "a" {
         h.isStockLink = true
-        fmt.Println("start: ", tag)
+        //fmt.Println("start: ", tag)
         h.tempStock = Stock{website: attrs["href"]}
     } else {
         //do nothing
@@ -88,7 +92,7 @@ func (h *StockHandler) Split(text string) (string, string) {
         name = st[0]
         id = strings.TrimRight(st[1], ")")
     } else {
-        fmt.Println("Parse name and id wrong")
+        //fmt.Println("Parse name and id wrong")
         name = ""
         id = ""
     }
@@ -96,31 +100,9 @@ func (h *StockHandler) Split(text string) (string, string) {
     return name, id
 }
 
-func main(){
-    filename := "stock_a-ha.dat"
-    file, err := os.Open(filename)
- 
-    if err != nil {
-        panic(err)
+func (h *StockHandler) PrintStocks(){
+    for k, st := range h.Stocks {
+        fmt.Println("key: ", k, "Id: ", st.id, " name: ", st.name, " website: ", st.website)
     }
-    defer file.Close()
-    
-    //content, err := ioutil.ReadFile(filename)
-    //if err != nil {
-    //    fmt.Println("Error to read file!")
-    //}
-    
-    chunks := bytes.NewBuffer(nil)
-    io.Copy(chunks, file)
-    str := string(chunks.Bytes())
-    handler := new(StockHandler)
-    parser := new(parser.TextParser)
-    parser.SetHandler(handler)
-    parser.ParseStr(str)
-    
-    fmt.Println(len(handler.Stocks))
-
-    //reader := bufio.NewReader(f)
-    //parser := new(StockHandler)
-    //parser.parseString(reader)
 }
+
