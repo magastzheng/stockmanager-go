@@ -1,7 +1,7 @@
 package parser
 
 import (
-    "fmt"
+    //"fmt"
     "strings"
 )
 
@@ -58,6 +58,10 @@ const (
     Semicolon = ';'
 )
 
+const (
+    Script = "SCRIPT"
+)
+
 const MAX_ATTR_NR = 1024
 
 const(
@@ -107,11 +111,21 @@ func (p *TextParser) IsSpace(ch rune) bool {
 }
 
 func (p *TextParser) IsAlpha(ch rune) bool {
-    return ('a' < ch && ch < 'z') || ( 'A' < ch && ch < 'Z')
+    return ('a' <= ch && ch <= 'z') || ( 'A' <= ch && ch <= 'Z')
 }
 
 func (p *TextParser) IsScriptElement(tag string) bool {
-    return strings.ToUpper(tag) == "SCRIPT"
+    return strings.ToUpper(tag) == Script
+}
+
+func (p *TextParser) IsNormalText() bool {
+    if p.current + 1 < p.length && p.buffer[p.current + 1] == Slash && p.current + 2 + len(Script) < p.length {
+        nextStr := string(p.buffer[p.current + 2: p.current + 2 + len(Script)])
+        //fmt.Println("IsNormalText(): ", nextStr)
+        return !p.IsScriptElement(nextStr)
+    }
+
+    return false
 }
 
 func (p *TextParser) IsDocType(tag string) bool {
@@ -151,6 +165,7 @@ func (p *TextParser) Parse(){
                 }
 
             case STAT_AFTER_LT:
+                
                 if ch == Question {
                     p.status = STAT_PROCESS_INSTRUCTION
                 } else if ch == Slash {
@@ -162,9 +177,11 @@ func (p *TextParser) Parse(){
                 } else {
                     //do nothing
                 }
+
+                //fmt.Println("STAT_AFTER_LT: ", string(ch), " Status: ", p.status)
             case STAT_START_TAG:
                 //parse start tag
-				fmt.Println("current: ", p.current, " char: " , string(ch))
+				//fmt.Println("STAT_START_TAG: ", string(ch))
                 p.ParseStartTag()
                 p.status = STAT_NONE
             case STAT_END_TAG:
@@ -177,6 +194,7 @@ func (p *TextParser) Parse(){
                 p.status = STAT_NONE
             case STAT_TEXT:
                 //parse text
+                // fmt.Println("STAT_TEXT: ", string(ch))
                 p.ParseText()
                 p.status = STAT_NONE
             case STAT_PRE_COMMENT1:
@@ -190,11 +208,11 @@ func (p *TextParser) Parse(){
                     if p.current + 7 < p.length {
                         text = string(p.buffer[p.current: p.current + 7])
                     }
-                    fmt.Println("Comment: ", text)
+                    //fmt.Println("Comment: ", text)
                     if p.IsDocType(text) {
                         p.status = STAT_DOCTYPE
                     } else {
-                        fmt.Println("do nothing in <!")
+                        //fmt.Println("do nothing in <!")
                     }
                 }
             case STAT_PRE_COMMENT2:
@@ -246,6 +264,12 @@ func (p *TextParser) ParseAttributes(endch rune) map[string]string {
                     names := p.buffer[start: p.current]
                     name = string(names)
                     status = STAT_PRE_VALUE
+                } else if ch == Gt {
+                    // the case as <script src="" lang="" defer></script>
+                    //fmt.Println("======", string(p.buffer[p.current]))
+                    status = STAT_END
+                } else {
+                    // do nothing to get more key name
                 }
             case STAT_PRE_VALUE:
                 if ch == Quot || ch == Apos {
@@ -275,7 +299,7 @@ func (p *TextParser) ParseAttributes(endch rune) map[string]string {
 
 func (p *TextParser) ParseStartTag() {
     status := STAT_NAME
-    start := p.current - 1
+    start := p.current - 1 
     end := p.current
     isTag := true
     attrs := make(map[string]string)
@@ -320,7 +344,7 @@ func (p *TextParser) ParseStartTag() {
     tag := string(names)
     p.isScript = p.IsScriptElement(tag)
     p.handler.OnStartElement(tag, attrs)
-	fmt.Println("start-parser: ", tag)
+	//fmt.Println("start-parser: ", tag)
     if ch == Slash {
         //if it is a self-close element, read more a char '>' to end it
         p.current += 1
@@ -364,7 +388,7 @@ func (p *TextParser) ParsePI() {
 
     tag := string(p.buffer[start:end])
     p.handler.OnPIElement(tag, attrs)
-    fmt.Println("PI: ", tag, " current ", p.current)
+    //fmt.Println("PI: ", tag, " current ", p.current)
     for ; p.buffer[p.current] != Gt && p.current < p.length; p.current++ {
         //read continue to end the element
     }
@@ -422,11 +446,11 @@ func (p *TextParser) ParseComment() {
 }
 
 func (p *TextParser) ParseDoctype() {
-    start := p.current
+    //start := p.current
     for ; p.buffer[p.current] != Gt && p.current < p.length; p.current++ {
         //read continue to end the element
     }
-    fmt.Println("DocType: ", string(p.buffer[start: p.current]))
+    //fmt.Println("DocType: ", string(p.buffer[start: p.current]))
 }
 
 func (p *TextParser) ParseEndTag() {
@@ -488,7 +512,7 @@ func (p *TextParser) ParseEntity() []rune {
         }
     }
     
-    fmt.Println("current ", p.current, " length ", p.length)
+    //fmt.Println("current ", p.current, " length ", p.length)
     return nil
 }
 
@@ -498,21 +522,28 @@ func (p *TextParser) ParseText() {
     start := p.current
     end := p.current
     stext := []rune{p.buffer[start]}
+
+    //str := ""
     for ; p.current < p.length; p.current++ {
         ch := p.buffer[p.current]
-        
+        //str += string(ch)
         //TODO: handle the script text
         //read < and end of the parsing
         if ch == Lt {
-            if p.current > start {
+            if p.isScript && p.IsNormalText() {
             
+            } else {
+
+                if p.current > start {
+            
+                }
+            
+                end = p.current
+            
+                //return back a char
+                p.current = p.current - 1
+                break;
             }
-            
-            end = p.current
-            
-            //return back a char
-            p.current = p.current - 1
-            break;
         } else if ch == And {
             //read & and parse the entity
             entity := p.ParseEntity()
@@ -524,6 +555,7 @@ func (p *TextParser) ParseText() {
         }
     }
     
+    //fmt.Println("Text: ", str)
     if p.current > start {
         text := p.buffer[start: end]
         p.handler.OnText(string(text))
