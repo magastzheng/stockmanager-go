@@ -7,9 +7,9 @@ import(
 )
 
 type Stock struct{
-    id string
-    name string
-    website string
+    Id string
+    Name string
+    Website string
 }
 
 type StockHandler struct{
@@ -46,7 +46,7 @@ func (h *StockHandler) OnStartElement(tag string, attrs map[string]string){
     } else if h.isStockLi && tag == "a" {
         h.isStockLink = true
         //fmt.Println("start: ", tag)
-        h.tempStock = Stock{website: attrs["href"]}
+        h.tempStock = Stock{Website: attrs["href"]}
     } else {
         //do nothing
     }
@@ -59,13 +59,13 @@ func (h *StockHandler) OnEndElement(tag string) {
         h.isStockLi = false
     } else if h.isStockLi && tag == "a" && h.isStockLink{
         h.isStockLink = false
-        h.Stocks[h.tempStock.id] = h.tempStock
+        h.Stocks[h.tempStock.Id] = h.tempStock
     }
 }
 
 func (h *StockHandler) OnText(text string) {
     if h.isStockLink {
-        h.tempStock.name, h.tempStock.id = h.Split(text)
+        h.tempStock.Name, h.tempStock.Id = h.Split(text)
     }
 }
 func (h *StockHandler) OnComment(text string) {
@@ -102,7 +102,7 @@ func (h *StockHandler) Split(text string) (string, string) {
 
 func (h *StockHandler) PrintStocks(){
     for k, st := range h.Stocks {
-        fmt.Println("key: ", k, "Id: ", st.id, " name: ", st.name, " website: ", st.website)
+        fmt.Println("key: ", k, "Id: ", st.Id, " name: ", st.Name, " website: ", st.Website)
     }
 }
 
