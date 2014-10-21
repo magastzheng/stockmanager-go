@@ -1,0 +1,20 @@
+{
+	"sites":{
+		"baseUrl" : "http://app.finance.ifeng.com/hq/list.php",
+		"categories": [
+			{
+				"type": "stock_a",
+				"class": "ha",
+				"exchange": "EX$$$$XSHG"
+			},{
+				"type": "stock_a",
+				"class": "sa",
+				"exchange": "EX$$$$XSHE"
+			},{
+				"type": "stock_a",
+				"class": "gem",
+				"exchange": "EX$$$$XSHE"
+			}	
+		]
+	}
+}
