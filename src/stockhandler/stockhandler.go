@@ -106,3 +106,10 @@ func (h *StockHandler) PrintStocks(){
     }
 }
 
+func NewStockHandler() *StockHandler {
+    s := new(StockHandler)
+    s.Init()
+
+    return s
+}
+

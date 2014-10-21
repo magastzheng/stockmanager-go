@@ -1,13 +1,8 @@
-package maind
+package download
 
 import (
-    "fmt"
     "net/http"
     "io/ioutil"
-    "os"
-    "config"
-    "parser"
-    "stockhandler"
 )
 
 //http://app.finance.ifeng.com/hq/list.php
@@ -25,9 +20,9 @@ func (s *StockDownloader) GetUrl(baseUrl, typ, class string) string {
 func (s *StockDownloader) GetPage(baseUrl, typ, class string) string {
     url := s.GetUrl(baseUrl, typ, class)
     resp, err := http.Get(url)
-
     if err != nil {
-        fmt.Print("Network error!\n")
+        //fmt.Print("Network error!\n")
+        panic(err)
     }
     
     defer resp.Body.Close()
@@ -41,21 +36,6 @@ func (s *StockDownloader) GetPage(baseUrl, typ, class string) string {
     return result
 }
 
-func maind() {
-    const baseUrl string = "http://app.finance.ifeng.com/hq/list.php"
-    const typ = "stock_a"
-    const class = "ha"
-    s := new(StockDownloader)
-    res := s.GetPage(baseUrl, typ, class)
-
-    fmt.Println("length: %d ", len(res))
-
-    fileName := typ + "-" + class + ".dat"
-    file, err := os.Create(fileName)
-    if err != nil {
-        fmt.Println(err.Error())
-    }
-
-    defer file.Close()
-    file.WriteString(res)
+func NewDownloader() *StockDownloader {
+    return &StockDownloader{}
 }

@@ -561,3 +561,10 @@ func (p *TextParser) ParseText() {
         p.handler.OnText(string(text))
     }
 }
+
+func NewTextParser(handler Handler) *TextParser {
+    p := new(TextParser)
+    p.SetHandler(handler)
+
+    return p
+}

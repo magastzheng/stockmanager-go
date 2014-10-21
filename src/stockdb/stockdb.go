@@ -9,8 +9,8 @@ import (
 )
 
 type StockDatabase struct {
-   Dbtype string
-   Dbcon string
+   dbtype string
+   dbcon string
 }
 
 func (s *StockDatabase) CheckError(err error) {
@@ -20,7 +20,7 @@ func (s *StockDatabase) CheckError(err error) {
 }
 
 func (s *StockDatabase) InsertStock(exch string, stock stockhandler.Stock) int {
-    db, err := sql.Open(s.Dbtype, s.Dbcon)
+    db, err := sql.Open(s.dbtype, s.dbcon)
     s.CheckError(err)
 
     stmt, err := db.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
@@ -41,7 +41,7 @@ func (s *StockDatabase) InsertStock(exch string, stock stockhandler.Stock) int {
 }
 
 func (s *StockDatabase) DeleteStock(stock stockhandler.Stock) int {
-    db, err := sql.Open(s.Dbtype, s.Dbcon)
+    db, err := sql.Open(s.dbtype, s.dbcon)
     s.CheckError(err)
 
     stmt, err := db.Prepare("delete from stocklist where id=?")
@@ -63,7 +63,7 @@ func (s *StockDatabase) DeleteStock(stock stockhandler.Stock) int {
 }
 
 func (s *StockDatabase) UpdateStock(stock stockhandler.Stock) int {
-    db, err := sql.Open(s.Dbtype, s.Dbcon)
+    db, err := sql.Open(s.dbtype, s.dbcon)
     s.CheckError(err)
 
     stmt, err := db.Prepare("update stocklist set name=? where id=?")
@@ -82,4 +82,11 @@ func (s *StockDatabase) UpdateStock(stock stockhandler.Stock) int {
 
     db.Close()
     return 0
+}
+
+func NewStockDatabase(dbtype string, dbcon string) *StockDatabase {
+    return &StockDatabase{
+        dbtype: dbtype,
+        dbcon: dbcon,
+    }
 }

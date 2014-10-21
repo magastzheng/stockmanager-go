@@ -26,8 +26,9 @@ func Test_ParseStr(t *testing.T){
     io.Copy(chunks, file)
     str := string(chunks.Bytes())
     handler := new(HtmlHandler)
-    parser := new(TextParser)
-    parser.SetHandler(handler)
+    //parser := new(TextParser)
+    //parser.SetHandler(handler)
+    parser := NewTextParser(handler)
     parser.ParseStr(str)
     
     //fmt.Println(len(handler.Stocks))

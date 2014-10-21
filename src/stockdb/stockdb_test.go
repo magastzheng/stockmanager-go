@@ -7,10 +7,8 @@ import (
 )
 
 func Test_StockDatabaseInsert(t *testing.T) {
-    stdb := StockDatabase{}
-    stdb.Dbtype = "mysql"
-    stdb.Dbcon = "root@/chinastock"
-
+    stdb := NewStockDatabase("mysql", "root@/chinastock")
+    
     stock := stockhandler.Stock{}
     stock.Id = "1234"
     stock.Name = "test"
