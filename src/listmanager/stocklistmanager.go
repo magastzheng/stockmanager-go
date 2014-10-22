@@ -35,6 +35,7 @@ func (s *StockListManager) Process() {
         pageStr := s.download.GetPage(baseUrl, c.Type, c.Class)
         s.parser.ParseStr(pageStr)
         fmt.Println(len(s.handler.Stocks))
+        s.db.TranInsertStock(c.Exchange, s.handler.Stocks)
         //exchange := c.Exchange
         //for _, st := range s.handler.Stocks {
         //    fmt.Println(id)
