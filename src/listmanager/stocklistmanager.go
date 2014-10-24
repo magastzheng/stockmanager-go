@@ -6,7 +6,7 @@ import(
     "stockdb"
     "parser"
     "stockhandler"
-    "fmt"
+    //"fmt"
     "os"
     //"encoding/json"
 )
@@ -40,8 +40,8 @@ func (s *StockListManager) Process() {
         handler := stockhandler.NewStockHandler()
         parser := parser.NewTextParser(handler)
         parser.ParseStr(pageStr)
-        fmt.Println(len(handler.Stocks))
-        stockstr := handler.ToJson()
+        //fmt.Println(len(handler.Stocks))
+        //stockstr := handler.ToJson()
         //s.WriteFile(c.Type + c.Class, stockstr)
         s.db.TranInsertStock(c.Exchange, handler.Stocks)
         //exchange := c.Exchange

@@ -110,6 +110,26 @@ func (s *StockDatabase) TranInsertStock(exch string, stocks map[string] stockhan
     return 0
 }
 
+func (s *StockDatabase) QueryStock(id string) stockhandler.Stock {
+    db, err := sql.Open(s.dbtype, s.dbcon)
+    s.CheckError(err)
+    defer db.Close()
+
+    stmt, err := db.Prepare("select * from stocklist where id = ?")
+    s.CheckError(err)
+    defer stmt.Close()
+    
+    var stockid, stockname, exchange, website string
+    err = stmt.QueryRow(id).Scan(&stockid, &stockname, &exchange, &website)
+    s.CheckError(err)
+
+    return stockhandler.Stock{
+        Id: stockid,
+        Name: stockname,
+        Website: website,
+    }
+}
+
 func NewStockDatabase(dbtype string, dbcon string) *StockDatabase {
     return &StockDatabase{
         dbtype: dbtype,

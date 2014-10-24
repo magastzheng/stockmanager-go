@@ -18,4 +18,12 @@ func Test_StockDatabaseInsert(t *testing.T) {
 
     res = stdb.InsertStock("Sh", stock)
     fmt.Println(res)
+
+    res = stdb.DeleteStock(stock)
+}
+
+func Test_StockDatabaseQuery(t *testing.T) {
+    stdb := NewStockDatabase("mysql", "root@/chinastock")
+    stock := stdb.QueryStock("601005")
+    fmt.Println(stock)
 }
