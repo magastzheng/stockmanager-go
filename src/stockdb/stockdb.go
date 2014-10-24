@@ -4,8 +4,8 @@ import (
     "database/sql"
     _ "github.com/go-sql-driver/mysql"
     "stockhandler"
-    "strconv"
-    "fmt"
+    //"strconv"
+    //"fmt"
 )
 
 type StockDatabase struct {
@@ -26,15 +26,15 @@ func (s *StockDatabase) InsertStock(exch string, stock stockhandler.Stock) int {
     stmt, err := db.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
     s.CheckError(err)
     
-    id, err := strconv.Atoi(stock.Id)
+    //id, err := strconv.Atoi(stock.Id)
+    //s.CheckError(err)
+
+    res, err := stmt.Exec(stock.Id, stock.Name, exch, stock.Website)
     s.CheckError(err)
 
-    res, err := stmt.Exec(id, stock.Name, exch, stock.Website)
-    s.CheckError(err)
-
-    newid, err := res.LastInsertId()
-    s.CheckError(err)
-    fmt.Println(newid)
+    _, reserr := res.LastInsertId()
+    s.CheckError(reserr)
+    //fmt.Println(newid)
     
     db.Close()
     return 0
@@ -47,16 +47,16 @@ func (s *StockDatabase) DeleteStock(stock stockhandler.Stock) int {
     stmt, err := db.Prepare("delete from stocklist where id=?")
     s.CheckError(err)
     
-    id, err := strconv.Atoi(stock.Id)
+    //id, err := strconv.Atoi(stock.Id)
+    //s.CheckError(err)
+    
+    res, err := stmt.Exec(stock.Id)
     s.CheckError(err)
     
-    res, err := stmt.Exec(id)
-    s.CheckError(err)
-    
-    affect, err := res.RowsAffected()
-    s.CheckError(err)
+    _, reserr := res.RowsAffected()
+    s.CheckError(reserr)
 
-    fmt.Println(affect)
+    //fmt.Println(affect)
 
     db.Close()
     return 0
@@ -69,17 +69,43 @@ func (s *StockDatabase) UpdateStock(stock stockhandler.Stock) int {
     stmt, err := db.Prepare("update stocklist set name=? where id=?")
     s.CheckError(err)
     
-    id, err := strconv.Atoi(stock.Id)
+    //id, err := strconv.Atoi(stock.Id)
+    //s.CheckError(err)
+    
+    res, err := stmt.Exec(stock.Name, stock.Id)
     s.CheckError(err)
     
-    res, err := stmt.Exec(stock.Name, id)
-    s.CheckError(err)
-    
-    affect, err := res.RowsAffected()
-    s.CheckError(err)
+    _, reserr := res.RowsAffected()
+    s.CheckError(reserr)
 
-    fmt.Println(affect)
+    //fmt.Println(affect)
 
+    db.Close()
+    return 0
+}
+
+func (s *StockDatabase) TranInsertStock(exch string, stocks map[string] stockhandler.Stock) int {
+    db, err := sql.Open(s.dbtype, s.dbcon)
+    s.CheckError(err)
+	
+	tx, err := db.Begin()
+	s.CheckError(err)
+	
+	for key, stock := range stocks {
+		stmt, err := tx.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
+		s.CheckError(err)
+		
+		//id, err := strconv.Atoi(key)
+		//s.CheckError(err)
+
+		_, reserr := stmt.Exec(key, stock.Name, exch, stock.Website)
+		s.CheckError(reserr)
+		//fmt.Println(res)
+	}
+	
+	err = tx.Commit()
+	s.CheckError(err)
+	
     db.Close()
     return 0
 }

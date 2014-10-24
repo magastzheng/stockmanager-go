@@ -4,6 +4,7 @@ package stockhandler
 import(
     "fmt"
     "strings"
+    "encoding/json"
 )
 
 type Stock struct{
@@ -104,6 +105,15 @@ func (h *StockHandler) PrintStocks(){
     for k, st := range h.Stocks {
         fmt.Println("key: ", k, "Id: ", st.Id, " name: ", st.Name, " website: ", st.Website)
     }
+}
+
+func (h *StockHandler) ToJson() string {
+    b, err := json.Marshal(h.Stocks)
+    if err != nil {
+        panic(err)
+    }
+
+    return string(b)
 }
 
 func NewStockHandler() *StockHandler {
