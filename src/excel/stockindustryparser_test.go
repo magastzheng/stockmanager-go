@@ -7,7 +7,7 @@ import(
 )
 
 func Test_Parse(t *testing.T) {
-    parser := excel.NewParser("../resource/csrcindustry.xlsx")
+    parser := excel.NewStockIndustryParser("../resource/csrcindustry.xlsx")
     fmt.Println(len(parser.Rows))
     fmt.Println("BigMap", len(parser.BigMap))
     fmt.Println("MinorMap", len(parser.MinorMap))

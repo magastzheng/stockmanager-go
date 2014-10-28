@@ -5,3 +5,8 @@ func CheckError(err error) {
         panic(err)
     }
 }
+
+func IsStringNotEmpty(s string) bool {
+    // s != ""
+    return len(s) > 0
+}

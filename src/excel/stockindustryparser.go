@@ -32,13 +32,13 @@ type RowInfo struct {
     MinorName_en string
 }
 
-type IndustryParser struct {
+type StockIndustryParser struct {
     MinorMap map[int] MinorIndustry
     BigMap map[string] Industry
     Rows []*RowInfo
 }
 
-func (p *IndustryParser) Parse(filename string) {
+func (p *StockIndustryParser) Parse(filename string) {
     file, err := xlsx.OpenFile(filename)
     if err != nil {
         panic(err)
@@ -110,8 +110,8 @@ func (p *IndustryParser) Parse(filename string) {
     }
 }
 
-func NewParser(filename string) *IndustryParser {
-    parser := new(IndustryParser)
+func NewStockIndustryParser(filename string) *StockIndustryParser {
+    parser := new(StockIndustryParser)
     parser.Parse(filename)
 
     return parser
