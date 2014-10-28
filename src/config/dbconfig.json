@@ -1,0 +1,7 @@
+{
+	"dbitems": [{
+		"name": "chinastock",
+		"dbtype": "mysql",
+		"dbcon": "root@/chinastock"
+	}]
+}

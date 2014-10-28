@@ -1,12 +1,13 @@
-package config
+package config_test
 
 import (
     "testing"
+    "config"
     "fmt"
 )
 
-func Test_Parsejson(t *testing.T){
+func Test_ParseStocklistjson(t *testing.T){
     filename := "stocklist.json"
-    config := Parse(filename)
-    fmt.Println(config.Sites.BaseUrl)
+    c := config.Parse(filename)
+    fmt.Println(c.Sites.BaseUrl)
 }
