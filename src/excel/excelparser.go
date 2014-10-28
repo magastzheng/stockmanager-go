@@ -109,3 +109,10 @@ func (p *IndustryParser) Parse(filename string) {
         }
     }
 }
+
+func NewParser(filename string) *IndustryParser {
+    parser := new(IndustryParser)
+    parser.Parse(filename)
+
+    return parser
+}
