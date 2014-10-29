@@ -15,7 +15,7 @@ func (m *IndustryManager) Init() {
     dbconfig := config.NewDBConfig("../config/dbconfig.json")
     m.config = dbconfig.GetConfig("chinastock")
 
-    m.parser = excel.StockIndustryParser("../resource/csrcindustry.xlsx")
+    m.parser = excel.NewIndustryParser("../resource/hyflbz.xlsx")
 }
 
 func (m *IndustryManager) Process() {

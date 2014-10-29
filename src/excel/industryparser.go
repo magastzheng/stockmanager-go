@@ -63,7 +63,8 @@ func (p *IndustryParser) ParseIndustryRow(bigCode string, newStd bool, rows []*x
 					rowInfo.Column3 = value
 			}//end of swtich
 		} //end of cells
-		
+	    
+        //fmt.Println(rowInfo)
 		if newStd {
 			p.NewRows = append(p.NewRows, rowInfo)
 		} else {
@@ -91,9 +92,9 @@ func (p *IndustryParser) ParseIndustryRow(bigCode string, newStd bool, rows []*x
 				} else {
 					bigInds.Name_en = rowInfo.Column2
 				}
+                p.BigMap[bigCode] = bigInds
 			}
 		} else {
-			bigCode = ""
             if !util.IsStringNotEmpty(rowInfo.Column2) {
                 return bigCode
             }
@@ -118,11 +119,14 @@ func (p *IndustryParser) ParseIndustryRow(bigCode string, newStd bool, rows []*x
 				p.MinorMap[minorCode] = minorInds
 			} else {
 				minorInds := p.MinorMap[minorCode]
+
 				if newStd {
 					minorInds.Name = rowInfo.Column3
 				} else {
 					minorInds.Name_en = rowInfo.Column3
 				}
+                
+                p.MinorMap[minorCode] = minorInds
 			}
 		}
 	}
