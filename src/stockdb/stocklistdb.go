@@ -115,7 +115,7 @@ func (s *StockDatabase) QueryStock(id string) stockhandler.Stock {
     s.CheckError(err)
     defer db.Close()
 
-    stmt, err := db.Prepare("select * from stocklist where id = ?")
+    stmt, err := db.Prepare("select id, name, exchange, website from stocklist where id = ?")
     s.CheckError(err)
     defer stmt.Close()
     

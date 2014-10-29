@@ -1,13 +1,14 @@
-package stockdb
+package stockdb_test
 
 import (
     "testing"
     "stockhandler"
+    "stockdb"
     "fmt"
 )
 
 func Test_StockDatabaseInsert(t *testing.T) {
-    stdb := NewStockDatabase("mysql", "root@/chinastock")
+    stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
     
     stock := stockhandler.Stock{}
     stock.Id = "1234"
@@ -23,7 +24,7 @@ func Test_StockDatabaseInsert(t *testing.T) {
 }
 
 func Test_StockDatabaseQuery(t *testing.T) {
-    stdb := NewStockDatabase("mysql", "root@/chinastock")
+    stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
     stock := stdb.QueryStock("601005")
     fmt.Println(stock)
 }
