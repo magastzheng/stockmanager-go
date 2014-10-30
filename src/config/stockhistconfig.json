@@ -1,0 +1,10 @@
+{
+    "sources": [{
+            "id": "sina",
+            "url": "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/%v.phtml"
+        },{
+			"id": "sina-season",
+			"url": "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/%v.phtml?year=%v&jidu=%v"
+		}    
+    ]
+}
