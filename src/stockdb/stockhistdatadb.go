@@ -60,7 +60,7 @@ func (s *StockHistDataDB) Update(code string, d stockhandler.StockHistData) int 
     return 0
 }
 
-func (s *StockHistDataDB) QueryIndustry(code string, date string) stockhandler.StockHistData {
+func (s *StockHistDataDB) Query(code string, date string) stockhandler.StockHistData {
     db := s.Open()
     
     stmt, err := db.Prepare("select code, date, open, close, highest, lowest, volume, money from stockhistdata where code = ? and date = ?")
