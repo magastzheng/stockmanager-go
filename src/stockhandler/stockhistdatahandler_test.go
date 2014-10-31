@@ -21,6 +21,15 @@ func Test_StockHistDataHandler(t *testing.T) {
     parser.ParseStr(str)
     
     fmt.Println(handler.Code)
-    fmt.Println(handler.Data)
+    //fmt.Println(handler.Data)
+    PrintHistData(handler.Data)
+}
+
+func PrintHistData(datas []stockhandler.StockHistData) {
+    format := "Date: %v, open: %v, close: %v, high: %v, low: %v, volume: %v, money: %v"
+    for i, d := range datas {
+        s := fmt.Sprintf(format, d.Date, d.Open, d.Close, d.Highest, d.Lowest, d.Volume, d.Money)
+        fmt.Println(i, s)
+    }
 }
 
