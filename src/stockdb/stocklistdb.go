@@ -1,60 +1,54 @@
 package stockdb
 
 import (
-    "database/sql"
+    //"database/sql"
     _ "github.com/go-sql-driver/mysql"
     "stockhandler"
+    "util"
     //"strconv"
-    //"fmt"
+    "fmt"
 )
 
 type StockDatabase struct {
-   dbtype string
-   dbcon string
+   DBBase
 }
 
-func (s *StockDatabase) CheckError(err error) {
-    if err != nil {
-        panic(err)
-    }
-}
-
-func (s *StockDatabase) InsertStock(exch string, stock stockhandler.Stock) int {
-    db, err := sql.Open(s.dbtype, s.dbcon)
-    s.CheckError(err)
+func (s *StockDatabase) Insert(exch string, stock stockhandler.Stock) int {
+    db := s.Open()
 
     stmt, err := db.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
-    s.CheckError(err)
+    util.CheckError(err)
+    defer stmt.Close()
     
     //id, err := strconv.Atoi(stock.Id)
     //s.CheckError(err)
 
     res, err := stmt.Exec(stock.Id, stock.Name, exch, stock.Website)
-    s.CheckError(err)
+    util.CheckError(err)
 
     _, reserr := res.LastInsertId()
-    s.CheckError(reserr)
+    util.CheckError(reserr)
     //fmt.Println(newid)
     
     db.Close()
     return 0
 }
 
-func (s *StockDatabase) DeleteStock(stock stockhandler.Stock) int {
-    db, err := sql.Open(s.dbtype, s.dbcon)
-    s.CheckError(err)
+func (s *StockDatabase) Delete(stock stockhandler.Stock) int {
+    db := s.Open()
 
     stmt, err := db.Prepare("delete from stocklist where id=?")
-    s.CheckError(err)
+    util.CheckError(err)
+    defer stmt.Close()
     
     //id, err := strconv.Atoi(stock.Id)
     //s.CheckError(err)
     
     res, err := stmt.Exec(stock.Id)
-    s.CheckError(err)
+    util.CheckError(err)
     
     _, reserr := res.RowsAffected()
-    s.CheckError(reserr)
+    util.CheckError(reserr)
 
     //fmt.Println(affect)
 
@@ -62,21 +56,20 @@ func (s *StockDatabase) DeleteStock(stock stockhandler.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) UpdateStock(stock stockhandler.Stock) int {
-    db, err := sql.Open(s.dbtype, s.dbcon)
-    s.CheckError(err)
+func (s *StockDatabase) Update(stock stockhandler.Stock) int {
+    db := s.Open()
 
     stmt, err := db.Prepare("update stocklist set name=? where id=?")
-    s.CheckError(err)
+    util.CheckError(err)
     
     //id, err := strconv.Atoi(stock.Id)
     //s.CheckError(err)
     
     res, err := stmt.Exec(stock.Name, stock.Id)
-    s.CheckError(err)
+    util.CheckError(err)
     
     _, reserr := res.RowsAffected()
-    s.CheckError(reserr)
+    util.CheckError(reserr)
 
     //fmt.Println(affect)
 
@@ -84,44 +77,42 @@ func (s *StockDatabase) UpdateStock(stock stockhandler.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) TranInsertStock(exch string, stocks map[string] stockhandler.Stock) int {
-    db, err := sql.Open(s.dbtype, s.dbcon)
-    s.CheckError(err)
+func (s *StockDatabase) TranInsert(exch string, stocks map[string] stockhandler.Stock) int {
+    db := s.Open()
 	
 	tx, err := db.Begin()
-	s.CheckError(err)
+	util.CheckError(err)
 	
 	for key, stock := range stocks {
 		stmt, err := tx.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
-		s.CheckError(err)
+		util.CheckError(err)
 		
 		//id, err := strconv.Atoi(key)
 		//s.CheckError(err)
 
 		_, reserr := stmt.Exec(key, stock.Name, exch, stock.Website)
-		s.CheckError(reserr)
+		util.CheckError(reserr)
 		//fmt.Println(res)
 	}
 	
 	err = tx.Commit()
-	s.CheckError(err)
+	util.CheckError(err)
 	
     db.Close()
     return 0
 }
 
-func (s *StockDatabase) QueryStock(id string) stockhandler.Stock {
-    db, err := sql.Open(s.dbtype, s.dbcon)
-    s.CheckError(err)
+func (s *StockDatabase) Query(id string) stockhandler.Stock {
+    db := s.Open()
     defer db.Close()
 
     stmt, err := db.Prepare("select id, name, exchange, website from stocklist where id = ?")
-    s.CheckError(err)
+    util.CheckError(err)
     defer stmt.Close()
     
     var stockid, stockname, exchange, website string
     err = stmt.QueryRow(id).Scan(&stockid, &stockname, &exchange, &website)
-    s.CheckError(err)
+    util.CheckError(err)
 
     return stockhandler.Stock{
         Id: stockid,
@@ -130,9 +121,67 @@ func (s *StockDatabase) QueryStock(id string) stockhandler.Stock {
     }
 }
 
+func (s *StockDatabase) QueryIds() []string {
+    db := s.Open()
+    defer db.Close()
+   
+    rows, err := db.Query("select count(id) from stocklist")
+    util.CheckError(err)
+
+    var count int
+    for rows.Next() {
+        err = rows.Scan(&count)
+    }
+    //fmt.Println("Total:", count)
+
+    rows, err = db.Query("select id from stocklist")
+    util.CheckError(err)
+    
+    //Get column names
+    //columns, err := rows.Columns()
+    //util.CheckError(err)
+    //make a slice for the values
+    //values := make([]sql.RawBytes, len(columns))
+    
+    //scanArgs := make([]interface{}, len(values))
+    //for i := range values {
+    //    scanArgs[i] = &values[i]
+    //}
+    
+    ids := make([]string, count + 1)
+
+    total := 0
+    var id string
+    for rows.Next() {
+         //err = rows.Scan(scanArgs...)
+         err = rows.Scan(&id)
+         util.CheckError(err)
+         
+         total++
+         //var value string
+         //for _, col := range values {
+         //   if col == nil {
+         //       value = "NULL"
+         //   } else {
+         //       value = string(col)
+         //   }
+         //   
+            //fmt.Println(i, value)
+         //   ids = append(ids, value)
+         //}
+
+         ids = append(ids, id)
+    }
+    
+    fmt.Println(total)
+    return ids
+}
+
 func NewStockDatabase(dbtype string, dbcon string) *StockDatabase {
     return &StockDatabase{
-        dbtype: dbtype,
-        dbcon: dbcon,
+        DBBase: DBBase{
+            Dbtype: dbtype,
+            Dbcon: dbcon,
+        },
     }
 }

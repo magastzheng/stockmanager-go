@@ -15,16 +15,23 @@ func Test_StockDatabaseInsert(t *testing.T) {
     stock.Name = "test"
     stock.Website = "http://www.1234.com"
     
-    res := stdb.DeleteStock(stock)
+    res := stdb.Delete(stock)
 
-    res = stdb.InsertStock("Sh", stock)
+    res = stdb.Insert("Sh", stock)
     fmt.Println(res)
 
-    res = stdb.DeleteStock(stock)
+    res = stdb.Delete(stock)
 }
 
 func Test_StockDatabaseQuery(t *testing.T) {
     stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
-    stock := stdb.QueryStock("601005")
+    stock := stdb.Query("601005")
     fmt.Println(stock)
+}
+
+func Test_StockDatabaseQueryIds(t *testing.T) {
+    stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
+    ids := stdb.QueryIds()
+    fmt.Println("ID num:", len(ids))
+    //fmt.Println(ids)
 }
