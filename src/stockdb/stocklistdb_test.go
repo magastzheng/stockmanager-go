@@ -33,5 +33,5 @@ func Test_StockDatabaseQueryIds(t *testing.T) {
     stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
     ids := stdb.QueryIds()
     fmt.Println("ID num:", len(ids))
-    //fmt.Println(ids)
+    fmt.Println(ids)
 }

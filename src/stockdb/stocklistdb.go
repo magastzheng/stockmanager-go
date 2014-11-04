@@ -6,7 +6,7 @@ import (
     "stockhandler"
     "util"
     //"strconv"
-    "fmt"
+    //"fmt"
 )
 
 type StockDatabase struct {
@@ -148,16 +148,16 @@ func (s *StockDatabase) QueryIds() []string {
     //    scanArgs[i] = &values[i]
     //}
     
-    ids := make([]string, count + 1)
+    ids := make([]string, 0, count + 1)
 
-    total := 0
+    //total := 0
     var id string
     for rows.Next() {
          //err = rows.Scan(scanArgs...)
          err = rows.Scan(&id)
          util.CheckError(err)
          
-         total++
+         //total++
          //var value string
          //for _, col := range values {
          //   if col == nil {
@@ -173,7 +173,7 @@ func (s *StockDatabase) QueryIds() []string {
          ids = append(ids, id)
     }
     
-    fmt.Println(total)
+    //fmt.Println(total)
     return ids
 }
 

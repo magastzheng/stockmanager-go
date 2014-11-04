@@ -6,20 +6,20 @@ import (
     "parser"
     "stockdb"
     "config"
+    "time"
+    "util"
 )
 
 type StockHistDataManager struct {
     downloader *download.StockHistDownloader
-    parser *parser.TextParser
-    handler *stockhandler.StockHistDataHandler
+    //parser *parser.TextParser
+    //handler *stockhandler.StockHistDataHandler
     stocklistdb *stockdb.StockDatabase
     db *stockdb.StockHistDataDB
 }
 
 func (m *StockHistDataManager) Init() {
     m.downloader = download.NewStockHistDownloader()
-    m.handler = stockhandler.NewStockHistDataHandler()
-    m.parser = parser.NewTextParser(m.handler)
 
     dbconfig := config.NewDBConfig("../config/dbconfig.json")
     config := dbconfig.GetConfig("chinastock")
@@ -28,7 +28,48 @@ func (m *StockHistDataManager) Init() {
 }
 
 func (m *StockHistDataManager) Process() {
-   //fmt.Println("text") 
+    ids := m.stocklistdb.QueryIds()
+    //ids := []string{"002468"}
+    for _, id := range ids {
+        if util.IsStringNotEmpty(id) {
+            data := m.GetStockData(id)
+            m.db.TranInsert(id, data)
+        }
+    }
+}
+
+func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHistData {
+    mainPage := m.downloader.GetMainPage(code)
+    handler := stockhandler.NewStockHistDataHandler()
+    mparser := parser.NewTextParser(handler)
+    mparser.ParseStr(mainPage)
+    
+    mainData := handler.Data
+    now := time.Now()
+    nowYear := now.Year()
+    nowMonth := int(now.Month())
+    maxSeason := 1 + int((nowMonth - 1) / 3)
+    for _, year := range handler.Years {
+        if year == nowYear {
+            for i := 1; i < maxSeason; i ++ {
+                seasonPage := m.downloader.GetSeasonPage(code, year, i)
+                shandler := stockhandler.NewStockHistDataHandler()
+                sparser := parser.NewTextParser(shandler)
+                sparser.ParseStr(seasonPage)
+                mainData = append(mainData, shandler.Data...)
+            }
+        } else if year > 0 {
+            for i := 1; i <= 4; i ++ {
+                seasonPage := m.downloader.GetSeasonPage(code, year, i)
+                shandler := stockhandler.NewStockHistDataHandler()
+                sparser := parser.NewTextParser(shandler)
+                sparser.ParseStr(seasonPage)
+                mainData = append(mainData, shandler.Data...)
+            }
+        }
+    }
+
+    return mainData
 }
 
 func NewStockHistDataManager() *StockHistDataManager{

@@ -9,6 +9,8 @@ import (
 const ( 
     HistDivClass = "tagmain"
     HistTableId = "FundHoldSharesTable"
+    HistFormName = "daily"
+    HistSelectName = "year"
 )
 
 type StockHistData struct {
@@ -24,6 +26,10 @@ type StockHistData struct {
 type StockHistDataHandler struct {
     Code string
     Data [] StockHistData
+    Years [] int
+    isTargetForm bool
+    isTargetSelectYear bool
+    isTargetOptionYear bool
     isTargetDiv bool
     isTargetTable bool
     isTargetHead bool
@@ -39,7 +45,11 @@ type StockHistDataHandler struct {
 }
 
 func (h *StockHistDataHandler) Init() {
-    h.Data = make([]StockHistData, 10, 92)
+    h.Data = make([]StockHistData, 0, 92)
+    h.Years = make([]int, 0, 30)
+    h.isTargetForm = false
+    h.isTargetSelectYear = false
+    h.isTargetOptionYear = false
     h.isTargetDiv = false
     h.isTargetTable = false
     h.isTargetHead = false
@@ -63,6 +73,35 @@ func (h *StockHistDataHandler) OnStartElement(tag string, attrs map[string]strin
                 h.isTargetDiv = true
             } else if h.isTargetTd {
                 h.isTargetTdDiv = true
+            }
+        case "form":
+            if h.isTargetDiv {
+                var name string
+                var ok bool
+                name, ok = attrs["name"]
+                if ok && name == HistFormName {
+                    h.isTargetForm = true
+                }
+            }
+        case "select":
+            if h.isTargetForm {
+                var name string
+                var ok bool
+                name, ok = attrs["name"]
+                if ok && name == HistSelectName {
+                    h.isTargetSelectYear = true
+                }
+            }
+        case "option":
+            if h.isTargetSelectYear {
+                h.isTargetOptionYear = true
+                var value string
+                var ok bool
+                value, ok = attrs["value"]
+                if ok && util.IsStringNotEmpty(value) {
+                    year := util.ToInt(value)
+                    h.Years = append(h.Years, year)
+                }
             }
         case "table":
             if h.isTargetDiv {
@@ -114,6 +153,18 @@ func (h *StockHistDataHandler) OnEndElement(tag string) {
             } else if h.isTargetTd {
                 h.isTargetTdDiv = false
             }
+        case "form":
+            if h.isTargetDiv && h.isTargetForm {
+                h.isTargetForm = false
+            }
+        case "select":
+            if h.isTargetForm && h.isTargetSelectYear {
+                h.isTargetSelectYear = false
+            }
+        case "option":
+            if h.isTargetSelectYear && h.isTargetOptionYear {
+                h.isTargetOptionYear = false
+            }
         case "table":
             if h.isTargetDiv && h.isTargetTable {
                 h.isTargetTable = false
@@ -137,6 +188,9 @@ func (h *StockHistDataHandler) OnEndElement(tag string) {
                     //reset the readed <TD> number
                     h.targetTdNum = 0
                     if h.targetTrNum > 1 {
+                        //if len(h.tempData.Date) == 0 {
+                        //    fmt.Println(h.tempData)
+                        //}
                         h.Data = append(h.Data, h.tempData)
                     }
                 }

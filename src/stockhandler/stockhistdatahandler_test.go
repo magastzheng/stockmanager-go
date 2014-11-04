@@ -22,6 +22,7 @@ func Test_StockHistDataHandler(t *testing.T) {
     
     fmt.Println(handler.Code)
     //fmt.Println(handler.Data)
+    fmt.Println(handler.Years)
     PrintHistData(handler.Data)
 }
 
