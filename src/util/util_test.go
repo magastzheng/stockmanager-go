@@ -12,6 +12,4 @@ func Test_IsStringNotEmpty(t *testing.T){
     }
 }
 
-func Test_WriteFile(t *testing.T) {
-    util.WriteFile("test.test", "Hello, Test!")
-}
+

@@ -8,6 +8,7 @@ import (
     "config"
     "time"
     "util"
+    "fmt"
 )
 
 type StockHistDataManager struct {
@@ -28,12 +29,13 @@ func (m *StockHistDataManager) Init() {
 }
 
 func (m *StockHistDataManager) Process() {
-    ids := m.stocklistdb.QueryIds()
-    //ids := []string{"002468"}
+    //ids := m.stocklistdb.QueryIds()
+    ids := []string{"000002"}
     for _, id := range ids {
         if util.IsStringNotEmpty(id) {
             data := m.GetStockData(id)
-            m.db.TranInsert(id, data)
+            fmt.Println(data)
+            //m.db.TranInsert(id, data)
         }
     }
 }
@@ -43,6 +45,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
     handler := stockhandler.NewStockHistDataHandler()
     mparser := parser.NewTextParser(handler)
     mparser.ParseStr(mainPage)
+    //util.WriteFile("../resource/code.dat", mainPage)
     
     mainData := handler.Data
     now := time.Now()
@@ -53,6 +56,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
         if year == nowYear {
             for i := 1; i < maxSeason; i ++ {
                 seasonPage := m.downloader.GetSeasonPage(code, year, i)
+                //util.WriteFile("
                 shandler := stockhandler.NewStockHistDataHandler()
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
