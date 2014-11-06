@@ -62,6 +62,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
                 shandler := stockhandler.NewStockHistDataHandler()
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
+                m.WriteSeasonData(code, year, i, shandler.Data)
                 mainData = append(mainData, shandler.Data...)
             }
         } else if year > 0 {
@@ -71,6 +72,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
                 shandler := stockhandler.NewStockHistDataHandler()
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
+                m.WriteSeasonData(code, year, i, shandler.Data)
                 mainData = append(mainData, shandler.Data...)
             }
         }
@@ -89,6 +91,13 @@ func (m *StockHistDataManager) WriteMainPage(code, content string) {
     format := "../data/%v/%v.dat"
     filename := fmt.Sprintf(format, code, code)
     util.WriteFile(filename, content)
+}
+
+func (m *StockHistDataManager) WriteSeasonData(code string, year int, season int, data []stockhandler.StockHistData) {
+    format := "../data/%v/%v-%v-%v-data.dat"
+    filename := fmt.Sprintf(format, code, code, year, season)
+    dataStr := fmt.Sprintf("%#v", data)
+    util.WriteFile(filename, dataStr)
 }
 
 func (m *StockHistDataManager) WriteData(code string, data []stockhandler.StockHistData) {

@@ -191,6 +191,8 @@ func (h *StockHistDataHandler) OnEndElement(tag string) {
                         //if len(h.tempData.Date) == 0 {
                         //    fmt.Println(h.tempData)
                         //}
+                        //o := fmt.Sprintf("Each row: %#v", h.tempData)
+                        //fmt.Println(o)
                         h.Data = append(h.Data, h.tempData)
                     }
                 }
@@ -207,12 +209,26 @@ func (h *StockHistDataHandler) OnEndElement(tag string) {
 }
 
 func (h *StockHistDataHandler) OnText(text string) {
-    if h.isTargetTd && h.isTargetTdDiv && h.isTargetTdAnchor {
-        h.tempData.Date = strings.TrimSpace(text)
-    } else if h.isTargetTd && h.isTargetTdDiv && h.targetTrNum > 1 {
+    //if h.isTargetTd && h.isTargetTdDiv {
+    //    h.tempData.Date = strings.TrimSpace(text)
+    //    if len(h.tempData.Date) == 0 && h.isTargetTdAnchor {
+    //        h.tempData.Date = strings.TrimSpace(text)
+    //    }
+    //} else 
+    if h.isTargetTd && h.isTargetTdDiv && h.targetTrNum > 1 {
         switch h.targetTdNum {
             case 1:
-                //tempData.
+                date := strings.TrimSpace(text)
+                if len(h.tempData.Date) == 0 {
+                    if len(date) > 0 {
+                        h.tempData.Date = date
+                    }
+                }
+                //if len(h.tempData.Date) == 0 && h.isTargetTdAnchor {
+                    //fmt.Println("Before", h.tempData.Date)
+                //    h.tempData.Date = strings.TrimSpace(text)
+                    //fmt.Println("After", h.tempData.Date)
+                //}
             case 2:
                 h.tempData.Open = util.ToFloat32(text)
             case 3:

@@ -11,6 +11,7 @@ import (
 
 func Test_StockHistDataHandler(t *testing.T) {
     filename := "../resource/stockhistdata.dat"
+    //filename := "../resource/000002-2007-3.dat"
     chunks, err := ioutil.ReadFile(filename)
     util.CheckError(err)
     str := string(chunks)
