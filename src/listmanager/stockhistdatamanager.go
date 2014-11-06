@@ -34,7 +34,8 @@ func (m *StockHistDataManager) Process() {
     for _, id := range ids {
         if util.IsStringNotEmpty(id) {
             data := m.GetStockData(id)
-            fmt.Println(data)
+            m.WriteData(id, data)
+            //fmt.Println(data)
             //m.db.TranInsert(id, data)
         }
     }
@@ -46,6 +47,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
     mparser := parser.NewTextParser(handler)
     mparser.ParseStr(mainPage)
     //util.WriteFile("../resource/code.dat", mainPage)
+    m.WriteMainPage(code, mainPage)
     
     mainData := handler.Data
     now := time.Now()
@@ -56,7 +58,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
         if year == nowYear {
             for i := 1; i < maxSeason; i ++ {
                 seasonPage := m.downloader.GetSeasonPage(code, year, i)
-                //util.WriteFile("
+                m.WriteSeasonPage(code, seasonPage, year, i)
                 shandler := stockhandler.NewStockHistDataHandler()
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
@@ -65,6 +67,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
         } else if year > 0 {
             for i := 1; i <= 4; i ++ {
                 seasonPage := m.downloader.GetSeasonPage(code, year, i)
+                m.WriteSeasonPage(code, seasonPage, year, i)
                 shandler := stockhandler.NewStockHistDataHandler()
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
@@ -74,6 +77,25 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
     }
 
     return mainData
+}
+
+func (m *StockHistDataManager) WriteSeasonPage(code, content string, year, season int) {
+    format := "../data/%v/%v-%v-%v.dat"
+    filename := fmt.Sprintf(format, code, code, year, season)
+    util.WriteFile(filename, content)
+}
+
+func (m *StockHistDataManager) WriteMainPage(code, content string) {
+    format := "../data/%v/%v.dat"
+    filename := fmt.Sprintf(format, code, code)
+    util.WriteFile(filename, content)
+}
+
+func (m *StockHistDataManager) WriteData(code string, data []stockhandler.StockHistData) {
+    format := "../data/%v/%v-data.dat"
+    filename := fmt.Sprintf(format, code, code)
+    dataStr := fmt.Sprintf("%#v", data)
+    util.WriteFile(filename, dataStr)
 }
 
 func NewStockHistDataManager() *StockHistDataManager{
