@@ -29,14 +29,14 @@ func (m *StockHistDataManager) Init() {
 }
 
 func (m *StockHistDataManager) Process() {
-    //ids := m.stocklistdb.QueryIds()
-    ids := []string{"000002"}
+    ids := m.stocklistdb.QueryIds()
+    //ids := []string{"000002"}
     for _, id := range ids {
         if util.IsStringNotEmpty(id) {
             data := m.GetStockData(id)
-            m.WriteData(id, data)
+            //m.WriteData(id, data)
             //fmt.Println(data)
-            //m.db.TranInsert(id, data)
+            m.db.TranInsert(id, data)
         }
     }
 }
@@ -46,8 +46,7 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
     handler := stockhandler.NewStockHistDataHandler()
     mparser := parser.NewTextParser(handler)
     mparser.ParseStr(mainPage)
-    //util.WriteFile("../resource/code.dat", mainPage)
-    m.WriteMainPage(code, mainPage)
+    //m.WriteMainPage(code, mainPage)
     
     mainData := handler.Data
     now := time.Now()
@@ -58,21 +57,21 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
         if year == nowYear {
             for i := 1; i < maxSeason; i ++ {
                 seasonPage := m.downloader.GetSeasonPage(code, year, i)
-                m.WriteSeasonPage(code, seasonPage, year, i)
+                //m.WriteSeasonPage(code, seasonPage, year, i)
                 shandler := stockhandler.NewStockHistDataHandler()
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
-                m.WriteSeasonData(code, year, i, shandler.Data)
+                //m.WriteSeasonData(code, year, i, shandler.Data)
                 mainData = append(mainData, shandler.Data...)
             }
         } else if year > 0 {
             for i := 1; i <= 4; i ++ {
                 seasonPage := m.downloader.GetSeasonPage(code, year, i)
-                m.WriteSeasonPage(code, seasonPage, year, i)
+                //m.WriteSeasonPage(code, seasonPage, year, i)
                 shandler := stockhandler.NewStockHistDataHandler()
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
-                m.WriteSeasonData(code, year, i, shandler.Data)
+                //m.WriteSeasonData(code, year, i, shandler.Data)
                 mainData = append(mainData, shandler.Data...)
             }
         }
