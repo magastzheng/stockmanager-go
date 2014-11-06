@@ -194,9 +194,10 @@ func (p *TextParser) Parse(){
                 p.status = STAT_NONE
             case STAT_TEXT:
                 //parse text
-                // fmt.Println("STAT_TEXT: ", string(ch))
+                //fmt.Println("STAT_TEXT: ", string(ch))
                 p.ParseText()
                 p.status = STAT_NONE
+				//fmt.Println("STAT_TEXT **END", string(p.buffer[p.current - 2: p.current + 2]))
             case STAT_PRE_COMMENT1:
                 if ch == Dash {
                     p.status = STAT_PRE_COMMENT2
@@ -215,6 +216,8 @@ func (p *TextParser) Parse(){
                         //fmt.Println("do nothing in <!")
                     }
                 }
+
+				//fmt.Println("COMMENT: ", string(ch))
             case STAT_PRE_COMMENT2:
                 if ch == Dash {
                     p.status = STAT_COMMENT
@@ -277,16 +280,26 @@ func (p *TextParser) ParseAttributes(endch rune) map[string]string {
                     status = STAT_VALUE
                     valueEnd = ch
                     start = p.current + 1
-                }
+                } else {
+					//the case as <tr class=xss font="test"></tr>
+					status = STAT_VALUE
+					valueEnd = Blank
+					start = p.current
+				}
             case STAT_VALUE:
                 if ch == valueEnd {
                     values := p.buffer[start:p.current]
                     value = string(values)
                     attrs[name] = value
                     status = STAT_PRE_KEY
+                } else if ch == Gt {
+					values := p.buffer[start: p.current]
+					value = string(values)
+                    attrs[name] = value
+					status = STAT_END
                 } else {
-                    //do nothing
-                }
+					//do nothing
+				}
         }
 
         if status == STAT_END {
@@ -414,23 +427,32 @@ func (p *TextParser) ParseComment() {
     completed := false 
     for ; p.current < p.length; p.current++ {
         ch := p.buffer[p.current]
-
         switch status {
             case STAT_COMMENT:
                 if ch == Dash {
                     status = STAT_MINUS1
-                }
+                } else if ch == Gt {
+					//fmt.Println("STAT_COMMET: ", string(ch), "more: ", string(p.buffer[p.current - 2: p.current + 2]))
+				}
+
             case STAT_MINUS1:
                 if ch == Dash {
                     status = STAT_MINUS2
-                } else {
+                //} else if ch == Gt{
+					//there are some case as <!---------> 
+				//	completed = true
+				//	break
+				} else {
                     status = STAT_COMMENT
                 }
             case STAT_MINUS2:
                 if ch == Gt {
                     completed = true
                     break
-                } else {
+                } else if ch == Dash {
+					//there are some case as <!--------->
+					status = STAT_MINUS2
+				} else {
                     status = STAT_COMMENT
                 }
         }

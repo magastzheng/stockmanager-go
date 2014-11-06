@@ -1,0 +1,2824 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>深A_A股列表_财经_凤凰网</title>
+<script src="http://img.ifeng.com/tres/pub_res/BX/BX.1.0.1.U.js" type="text/javascript"></script>
+<script src="http://img.ifeng.com/tres/pub_res/BX/festival.2007.js"></script>
+<link type="text/css" rel="stylesheet" href="http://img.ifeng.com/tres/pub_res/css/basic.css" media="screen" />
+<style type="text/css">
+.container{margin:15px auto 0;width:1000px;}
+.container h2{font-size:20px;font-family:"黑体";color:#666;padding-bottom:12px;}
+.label {
+	float: left; width:1000px;border-bottom:3px solid #4972C4;
+}
+.label li {
+	display: block; background:#F2F2F2;border:1px solid #C9C9C9;font:bold 12px/22px Arial, Helvetica, sans-serif;float: left; WIDTH: 80px; TEXT-ALIGN: center;
+	color:#0269C5;height:22px;
+}
+.label li a{color:#0269C5;display: block;line-height:22px;WIDTH: 80px;}
+.label li a:hover{display: block;WIDTH: 80px;line-height:22px;}
+.label li.current {
+	background:#4972C4;color:#fff;font-family:Arial, Helvetica, sans-serif;border:none;width:80px;height:24px;
+}
+.label li.current a{color:#fff}
+
+.result {margin:0 0 20px 0;}
+.result p{float:left;width:948px;padding-bottom:10px;border-bottom:1px solid #D8D8D8;}
+.result p a{float:left;padding:0 18px;background:url("http://img.ifeng.com/tres/finance/myfinance/line.jpg") no-repeat right center;color:#0269C5}
+.result p a.focus{color:#000;font-weight:bold;}
+.result p a.none{background:none;}
+.result{width:948px;border-bottom:1px solid #D8D8D8;padding:10px 0;}
+.result ul{width:850px;margin:0 auto;}
+.result ul li{float:left;width:170px;line-height:30px;text-align:left;}
+.result ul li a{color:#1C5082;}
+
+.ad {background:#F0F0F0 none repeat scroll 0 0;height:90px;text-align:center;width:1000px;}
+.mainStop {margin:0 auto;padding:10px 0 0;width:950px;}
+.dotline {
+background:transparent url(http://img.ifeng.com/tres/finance/deco/2009/0424/icon_dotline.gif) repeat-x scroll 0 0;
+height:1px;
+margin:15px 0;
+width:100%;
+}
+</style>
+
+</head>
+
+<body>
+
+<script src="http://img.ifeng.com/tres/pub_res/BX/BX.1.0.1.U.js"></script>
+<!--页头代码开始-->
+<!--test2-->
+<script src="http://y0.ifengimg.com/20140822/inice.min.js"></script>
+<script src="http://img.ifeng.com/tres/pub_res/BX/festival.2010.js"></script>
+<style type="text/css" media="screen"> 
+/*.theDate2 { float: left; width: 283px; height: 25px; padding-left: 8px; line-height: 25px; background: #F8F8F8; margin: 8px 0 0 13px; display: inline; }100402*/
+body { border: 0px; }
+.nav .navList a.Ared, .nav .navList a.Ared:hover{color:#8F1D21;}/*100726d*/
+.nav .navList a.Ared2, .nav .navList a.Ared2:hover{color:#8F1D21; text-decoration:none;}/*100726d*/
+.nav .navList a.Ared3, .nav .navList a.Ared3:hover{color:#ba2636;}/*100726d*/
+.nav { width: 1000px; margin: 0 auto 8px auto; padding: 8px 0 5px 0; border-bottom: 10px #2b2b2b solid; background: #fff; }/*100402*/
+/*.spaceA { width: 1000px; height: 1px; margin: 0px; padding: 0px; font-size: 1px; line-height: 0px; float: left; } 100402*/
+.nav .navM { width: 100%; margin: 0px; float: left; }
+.nav .navL { width: 100%; margin: 0px; float: left; height: 54px; overflow: inherit !important; *overflow: inherit !important; overflow: hidden;}/*100426*/
+.nav .Lines { border-top: 1px #e7e7e7 solid; }
+.nav .Lines01 { border-top: 1px #e7e7e7 solid; border-bottom: 1px #e7e7e7 solid; height: 27px; }
+.nav .bo { width: 100%; height: 10px; margin: 0px; padding: 0px; background: #2b2b2b; font-size: 1px; line-height: 0px; float: left; }
+/*.nav .bo .space { width: 1004px; height: 10px; float: left; } 100402*/
+.navCalendar, .navList, .nextNav { float: left; margin-left:9px; _margin-left:4px; display: inline; }/*100426*/
+.Cooperation, .navFind, .navFocus, .navProposal { float: right; margin-right:9px; _margin-right:4px; }/*100402*/
+.nav .navCalendar { width: 400px; padding: 4px 0 0 5px; }
+.nav .Cooperation { padding: 4px 0 0; text-align: right;width:400px;}
+.nav .Cooperation a:hover, .nav .Cooperation a:visited { color: #2B2B2B; }
+.nav .navLogo { float: left; padding:0px; display: inline; width:220px;}/*100908*/
+/*.nav .navLogo { float: left; width: 196px; overflow: hidden; padding:0px; display: inline;} 100426*/
+.nav .navLogo1{ float:left; display:block; border:0px;}/*100331*/
+.nav .navLogo2{ float:left; display:block; border:0px; margin-top:6px;}/*100426*/
+
+.nav .webSj{width:74px; background:url(http://img.ifeng.com/tres/pub_res/final_image/websj.gif) no-repeat 0 33px; overflow:hidden;padding:30px 0 0 12px; line-height:18px; float:left;}/*100426*/
+.nav .webZm{width:74px; background:url(http://img.ifeng.com/tres/phoenix/icon_sb.gif) no-repeat 0 33px; overflow:hidden;padding:30px 0 0 13px; line-height:18px; float:left;}/*100426*/
+ 
+.nav .navFind { width: 348px; padding: 23px 0 4px; }/*100426*/
+.nav .navFind span { float: left; }
+.nav .navFind .text { width: 182px; height: 16px; padding: 2px 0 0 5px; margin-top: 1px !important; *margin-top: 0px !important;margin-top:0;margin-right:7px; _margin-right:3px;background:#fff;border:1px solid #819bb4;color:#646464;font-size:12px;}/*100402*/
+.nav .navFind .sel { width: 80px; height: 16px; margin: 1px 9px 0 0; _margin-right:4px; padding: 2px 0 0 11px; border: 1px solid #819bb4; border-right: none; background: #fff url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/nav0416_04.gif) no-repeat right center; font-size: 12px; color: #646464; cursor: pointer; }/*100402*/
+.nav .navFind .button { width: 51px; height: 20px; padding: 1px 0 0 2px; margin: 1px 0 0; border: none; background: url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/navFind.gif) no-repeat 0 0; color: #000; font-weight: bold; cursor: pointer; }
+#searchFormOption { position: relative; float: left; z-index: 80; }
+#loginFldselectop { position: absolute; border: 1px solid #DFDFDF; top: 20px; left: 0px; width: 73px; background: #fff; z-index: 99; }
+#loginFldselectop li { line-height: 20px; height: 20px; }
+#loginFldselectop li a { line-height: 20px; height: 20px; text-decoration: none; color: #000000; padding-left: 11px; }
+.nav .navList { width:772px;}/*100324*/
+.nav .navList li { border-left: 1px #e7e7e7 solid; padding: 5px 4px 0; height: 22px; float: left; line-height: 18px; }
+.nav .navList .end { border-left: 1px #e7e7e7 solid; border-right: 1px #e7e7e7 solid;}
+#navCurrent { border-right: 1px #fff solid; border-left: none; background: #2b2b2b url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/nav0416_07.gif) no-repeat left; color: #fff; padding: 4px 5px 0 7px; height: 23px; float: left; }
+#navCurrent a { color: #fff; }
+.nav .navList a:hover, .nav .navList a:visited { color: #2B2B2B; }
+.nav .navFocus {float:right;padding:5px 0 0 5px;color:#ba2636;line-height:18px}
+.nav .navFocus a { line-height: 18px; }
+.nav .navV a, .nav .navTmp a, .nav .navVIP a, .nav .ifengPlay a, .nav .tvPlay a, .nav .navWap a { color: #ba2636; }
+.nav .navV { width: 37px; background: url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/nav0416_14.gif) no-repeat 1px 4px; padding: 0 0 0 17px; float: left; }
+.nav .navTmp { width: 37px; float: left; }/*100324*/
+/*.nav .navVIP { width: 42px; background: url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/nav0416_09.gif) no-repeat 24px 3px; float: left; }*/
+.nav .ifengPlay { width: 37px; float: left; }/*100324*/
+.nav .tvPlay {width:50px; background:url(http://img.ifeng.com/logo/tvlogo.gif) no-repeat 0px 0px; padding:0 0 0 15px; float:left;}/*100409*/
+.nav .navWap { width: 30px; background: url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/nav0416_06.gif) no-repeat 0px 2px; padding: 0 0 0 11px; float: left; }
+.nav .moreWap { width: 14px; margin: 1px 0 0; float: left; position: relative; }
+.nav .moreWap .next { width: 160px; height: 48px; border: 1px #e7e7e7 solid; background: #fff; position: absolute; top: 0px; left: -146px; z-index: 90; }
+.nav .navV a:hover, .nav .navV a:visited { color: #BA2636; }
+.nav .navVIP a:hover, .nav .navVIP a:visited { color: #BA2636; }
+.nav .ifengPlay a:hover, .nav .ifengPlay a:visited { color: #BA2636; }
+.nav .tvPlay a:hover, .nav .tvPlay a:visited { color: #BA2636; }
+.nav .navWap a:hover, .nav .navWap a:visited { color: #BA2636; }
+.nav .navWa a:hover, .nav .navWa a:visited { color: #BA2636; }
+.nav .moreWap a:hover, .nav .moreWap a:visited { color: #004276; }
+.nav .nextNav { padding: 8px 0 0 3px; line-height: 18px; }/*100331*/
+.nav .nextNav a {line-height:18px; padding:0 7px; float:left; background:url(http://img.ifeng.com/tres/TemplateRes/14731/14731/images/general_head/shux.gif) right center no-repeat;word-break:keep-all;}/*100320*/
+.nav .navProposal { width: 100px; text-align: right; padding: 8px 0 0; }
+.navB { width: 1000px; height: 57px; margin: 0 auto; }
+.navBLines { border-top: 1px #f2f2f2 solid; }
+.navBLines01 { border-top: 1px #f2f2f2 solid; border-bottom: 1px #f2f2f2 solid; }
+.navB .navBLeft { width: 123px; height: 49px; padding: 8px 0 0 14px; border-right: 1px #f2f2f2 solid; float: left; }
+.navB .navBRight { width: 862px; float: left; }
+.navB .navBRight .navBRtop { width: 862px; float: left; }
+.navB .navBRight .navBRtop .navBRTLeft { width: 635px; float: left; }
+.navB .navBRight .navBRtop .navBRTRight { width: 209px; padding: 6px 18px 0 0; float: right; }
+.navB .navBRTLeft ul { }
+.navB .navBRTLeft li { border-left: 1px #f2f2f2 solid; padding: 5px 6px 0 7px; height: 22px; float: left; line-height: 18px; }
+.navB .navBRTLeft .end { border-left: 1px #f2f2f2 solid; border-right: 1px #f2f2f2 solid; }
+.navB .navBRTLeft ul .current { border-right: 1px #fff solid; border-left: none; background: #2b2b2b url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/nav0416_07.gif) no-repeat left; color: #fff; padding: 4px 5px 0 8px; height: 23px; float: left; }
+.navB .navBRTLeft ul .current a { color: #fff; }
+.navB .navBRight .navBRtop .navBRTRight { text-align: right; }
+.navB .navBRTRight a { padding: 0 0 0 8px; }
+.navB .navBRight .navBRbot { width: 862px; float: left; padding: 6px 0 0 0; line-height: 18px; }
+.navB .navBRbot a { line-height: 18px; padding: 0 7px 0 8px; }
+a { color: #2b2b2b; }
+.black { color: #000; }
+.clear { clear: both; height: 0px; margin: 0 auto; font-size: 0px; line-height: 0px;}
+.LightGrey01, .LightGrey01 a { color: #2b2b2b; }
+.LightGrey02, .LightGrey02 a { color: #666; }
+.LightGrey03, .LightGrey03 a { color: #999; }
+.LightGrey04, .LightGrey04 a { color: #d9d9d9; }
+.LightGrey05, .LightGrey05 a { color: #e7e7e7; }
+.white, .white a { color: #fff; }
+.LightWhite, .LightWhite a { color: #f3f3f3; }
+.red, .red a, .red a:hover, .red a:visited { color: #ba2636; }
+.LightBlue01, .LightBlue01 a, .LightBlue01 a:hover { color: #004276; }
+.LightBlue02, .LightBlue02 a { color: #007bbb; }
+.fz11 { font: 11px Arial; color: #666; }
+.fz12 { font-size: 12px; }
+.fz14 { font-size: 14px; }
+.fz16 { font-size: 16px; }
+.fz18 { font-size: 18px; font-family: simhei; }
+.fz20 { font-size: 20px; font-family: simhei; }
+.line18, .line18 a { line-height: 18px; }
+.line20, .line20 a { line-height: 20px; }
+.line22, .line22 a { line-height: 22px; }
+.line24, .line24 a { line-height: 18px; }
+.bol { font-weight: bold; }
+.bolNo { font-weight: normal; }
+.lineul18 li, .lineul18 li a { line-height: 18px; }
+</style>
+<div class="nav" style="overflow: visible">
+<div class="navM Lines"><!--100426-->
+<div class="navCalendar line18">
+<!--100528 begin-->
+<span><script>FestivalDay.show();</script>&nbsp;</span><span id="nav_weather"></span>
+<script src="http://finance.ifeng.com/js/nav_weather.js" language="javascript" defer></script>
+<!--100528 end-->
+		</div>
+		<div class="Cooperation LightGrey01">
+		<a href="http://gongyi.ifeng.com/" target="_blank">公益</a>&nbsp;|&nbsp;<a href="http://culture.ifeng.com/" target="_blank">文化</a>&nbsp;|&nbsp;<a href="http://fo.ifeng.com/" target="_blank">佛教</a>&nbsp;|&nbsp;<a href="http://media.ifeng.com/" target="_blank">传媒</a>&nbsp;|&nbsp;<a href="http://mag.book.ifeng.com/" target="_blank">杂志</a>&nbsp;|&nbsp;<a href="http://play.ifeng.com/" target="_blank">爱玩</a>&nbsp;|&nbsp;<a href="http://zhongyi.ifeng.com/" target="_blank">中医</a>
+		</div>
+	</div>
+	<div class="navL"><!--100426-->
+		<div class="navLogo">
+			<a href="http://www.ifeng.com/" target="_blank"><img src="http://img.ifeng.com/logo/festival/logo_chanel_ifeng.gif" class="navLogo1" /></a>
+                        			<a href="http://finance.ifeng.com/" target="_blank"><img src="http://img.ifeng.com/logo/channel/logo_chanel_caijing.gif" class="navLogo2" /></a>
+                       			<div class="clear"></div>
+		</div>
+		<div class="webSj red"><a href="http://3g.ifeng.com/3g/finance.html" target="_blank">手机凤凰网</a></div>
+                <div class="webZm red"><a href="http://app.finance.ifeng.com/shortcut.php?site=finance.ifeng.com/" target="_blank">加入桌面</a></div>
+
+
+<!-- search begin -->
+<script src="http://m0.ifengimg.com/keywords.js"></script>
+<div class="navFind" style="position: relative;z-index:80;">
+ <form id="search_form" method="get" action="http://search.ifeng.com/sofeng/search.action" target="_blank" onsubmit="return Tourl();">
+    <span>
+	    <input id="keyword" type="text" name="q" value="" class="text" autocomplete="off" onclick="header_search.clean_default(this.value)" onblur="header_search.set_default(this.value)" />
+		<input id="param1" type="hidden" name="c" value="1" />
+		<input id="param2" type="hidden" name="" value="" disabled="disabled" />
+    </span> 
+	<div id="searchFormOption">
+		<span id="loginUl" onclick="header_search.show_option()" style="cursor: default;" class="sel">站内</span> 
+		<ul id="loginFldselectop" style="display: none;" onmouseout="header_search.out_option()" onmouseover="header_search.over_option()">
+			<li id="ra1" style="cursor: default;" onmouseover="this.style.background='#e7e7e7'" onmouseout="this.style.background='white'"><a onclick="header_search.select_option('站内')" style="width: 100%; display: block; height: 17px;">站内</a></li>
+			<li id="ra2" style="cursor: default;" onmouseover="this.style.background='#e7e7e7'" onmouseout="this.style.background='white'"><a onclick="header_search.select_option('站外')" style="width: 100%; display: block; height: 17px;">站外</a></li>
+			<li id="ra3" style="cursor: default;" onmouseover="this.style.background='#e7e7e7'" onmouseout="this.style.background='white'"><a onclick="header_search.select_option('证券')" style="width: 100%; display: block; height: 17px;">证券</a></li>
+			<li id="ra4" style="cursor: default;" onmouseover="this.style.background='#e7e7e7'" onmouseout="this.style.background='white'"><a onclick="header_search.select_option('汽车')" style="width: 100%; display: block; height: 17px;">汽车</a></li>
+			<li id="ra0" style="cursor: default;" onmouseover="this.style.background='#e7e7e7'" onmouseout="this.style.background='white'"><a onclick="header_search.select_option('视频')" style="width: 100%; display: block; height: 17px;">视频</a></li>
+		</ul>
+	</div>
+
+	<span>
+	<input type="submit" value="搜索" class="button" style="cursor: pointer;" />
+    </span>
+    <div class="clear"></div>
+	<style type="text/css"> 
+	<!--
+	.stockList{position:absolute;top:45px;left:0;width:300px; border:1px solid #195184; background:#fff; z-index:999;}
+	.stockList a,.stockList a:visited{color:#0A5EA6;}
+	.stockList .tab td{border-bottom:1px solid #ECECEC; height:21px!important;*height:20px!important;height:20px; padding-left:12px; text-align:left; color:#333;}
+	.stockList .tab tr.current{background:#194E80;}
+	.stockList .tab tr.current td{color:#fff;background:#194E80;}
+	.stockList .tab tr.current td a{color:#fff;}
+	.stockList .red{color:#f00;}
+	-->
+	</style>
+    <div id="suggest_list" class="stockList" style="display: none;" onfocus="finance_suggest.display('inline')" onblur="" onmouseover="finance_suggest.display('inline')" onmouseout="finance_suggest.display('none')"></div>
+	<div class="clear"></div>
+  </form>
+  <script>
+	function Tourl(){
+		var key_v= document.getElementById("loginUl").innerHTML;
+		if(key_v=="视频"){
+			document.forms["search_form"].action = "http://so.v.ifeng.com/video"; 
+		}
+		return true;
+	}
+</script>
+</div>
+<script src="http://finance.ifeng.com/js/nav_search.js" defer></script>
+<!-- search end -->
+ </div>
+ 
+	<div class="navM Lines01"><div class="navList">
+				<ul id="navlistbox">
+				<li id="navA01"><a href="http://www.ifeng.com/" target="_blank">首页</a></li>
+				<li id="navA02"><a href="http://news.ifeng.com/" target="_blank">资讯</a></li>
+				<li id="navA03"><a href="http://news.ifeng.com/taiwan/" target="_blank">台湾</a></li>
+				<li id="navA04"><a href="http://opinion.ifeng.com/" target="_blank">评论</a></li>
+				<li id="navA05"><a href="http://finance.ifeng.com/" target="_blank">财经</a></li>
+				<li id="navA06"><a href="http://auto.ifeng.com/" target="_blank">汽车</a></li>
+				<li id="navA20"><a href="http://tech.ifeng.com/" target="_blank">科技</a></li>
+				<li id="navA24"><a href="http://house.ifeng.com/" target="_blank">房产</a></li>
+				<li id="navA08"><a href="http://ent.ifeng.com/" target="_blank">娱乐</a></li>
+                                <li id="navA23"><a href="http://astro.ifeng.com/" target="_blank">星座</a></li>
+
+				<li id="navA17"><a href="http://fashion.ifeng.com/" target="_blank">时尚</a></li>
+				<li id="navA07"><a href="http://news.ifeng.com/sports/" target="_blank">体育</a></li>
+				<li id="navA09"><a href="http://news.ifeng.com/mil/" target="_blank">军事</a></li>
+				<li id="navA10"><a href="http://news.ifeng.com/history/" target="_blank">历史</a></li>
+				<li id="navA12"><a href="http://book.ifeng.com/" target="_blank">读书</a></li>
+				<li id="navA21"><a href="http://edu.ifeng.com/" target="_blank">教育</a></li>
+				<li id="navA14"><a href="http://health.ifeng.com/" target="_blank">健康</a></li>
+				<li id="navA19"><a href="http://baby.ifeng.com/" target="_blank">亲子</a></li>
+				<li id="navA22"><a href="http://games.ifeng.com/" target="_blank">游戏</a></li>
+				<li id="navA18"><a href="http://city.ifeng.com/" target="_blank">城市</a></li>			
+				<li id="navA16"><a href="http://bbs.ifeng.com/" target="_blank">论坛</a></li>
+				<li id="navA15"><a href="http://blog.ifeng.com/" target="_blank">博报</a></li>
+			    <li id="navA23" class="end"><a href="http://t.ifeng.com/" target="_blank" class="Ared3" style="color:#ba2636">微博</a></li>
+				</ul>
+			</div>
+			<script>
+				var _currentSiteUrl = "http://finance.ifeng.com/";
+				(function(){
+				var navlistbox = document.getElementById('navlistbox');
+				var navs = navlistbox.getElementsByTagName('a');
+				for(var i=0;i<navs.length;i++)
+				{
+					if(navs[i].href == _currentSiteUrl)
+					{
+						navs[i].parentNode.id = 'navCurrent';
+						break;
+					}
+				}
+			})();
+			</script>
+			<div class="navFocus" style=" border-right:1px solid #e7e7e7; padding-right:5px; height:22px;">
+				<div class="navV"><a href="http://v.ifeng.com/" target="_blank">视频</a>·</div>
+				<div class="navTmp"><a href="http://v.ifeng.com/documentary/index.shtml" target="_blank">纪实</a>·</div>
+				<div class="ifengPlay"><a href="http://v.ifeng.com/live/" target="_blank">直播</a></div>
+				<div class="tvPlay"><a href="http://phtv.ifeng.com/" target="_blank">凤凰卫视</a></div>
+			</div> </div>
+	<div class="navM">
+	    	                	    		<div class="nextNav LightBlue01" style="width:870px;">
+			<div id="navB8">
+			<a href="http://finance.ifeng.com/news" target="_blank">新闻</a>
+<a href="http://finance.ifeng.com/opinion" target="_blank">评论</a>
+<a href="http://finance.ifeng.com/column" target="_blank">专栏</a>
+<a href="http://finance.ifeng.com/news/industry" target="_blank">产经</a>
+<a href="http://finance.ifeng.com/news/bgt" target="_blank">消费</a>
+<a href="http://finance.ifeng.com/video" target="_blank">视频</a>
+<a href="http://finance.ifeng.com/zhuanti" target="_blank">专题</a>
+<a href="http://finance.ifeng.com/fund/" target="_blank">基金</a>
+<a href="http://finance.ifeng.com/money" target="_blank">理财</a>
+<a href="http://finance.ifeng.com/bank" target="_blank">银行</a>
+<a href="http://finance.ifeng.com/money/insurance/hydt" target="_blank">保险</a>
+<a href="http://finance.ifeng.com/forex" target="_blank">外汇</a>
+<a href="http://finance.ifeng.com/future/qhzx" target="_blank">期货</a>
+<a href="http://finance.ifeng.com/gold" target="_blank">贵金属</a>
+<a href="http://finance.ifeng.com/collection" target="_blank">收藏</a>
+<a href="http://job.finance.ifeng.com" target="_blank">职场</a>
+<a href="http://leadership.finance.ifeng.com" target="_blank">管理</a>
+<a href="http://3g.finance.ifeng.com" target="_blank">3G</a>
+<a href="http://finance.ifeng.com/company" target="_blank">企业</a>
+<a href="http://finance.ifeng.com/people" target="_blank">人物</a>
+<a href="http://app.finance.ifeng.com/calendar" target="_blank">日历</a>
+<a href="http://finance.ifeng.com/stock" target="_blank">股票</a>
+<a href="http://finance.ifeng.com/app/hq" target="_blank">行情</a>
+<a href="http://app.finance.ifeng.com/data/" target="_blank">数据</a>
+<a href="http://finance.ifeng.com/report/" target="_blank">研报</a>
+<a href="http://finance.ifeng.com/stock/jshq" target="_blank">大盘</a>
+<a href="http://finance.ifeng.com/stock/ssgs" target="_blank">公司</a>
+<a href="http://finance.ifeng.com/jigou" target="_blank">机构</a>
+<a href="http://finance.ifeng.com/stock/ggpj" target="_blank">评级</a>
+<a href="http://finance.ifeng.com/stock/zjlx" target="_blank">主力</a>
+<a href="http://finance.ifeng.com/stock/gszs" target="_blank">荐股</a>
+<a href="http://tjzj.finance.ifeng.com/" target="_blank">图解</a>
+<a href="http://finance.ifeng.com/ipo" target="_blank">新股</a>
+<a href="http://finance.ifeng.com/hk" target="_blank">港股</a>
+<a href="http://finance.ifeng.com/usstock" target="_blank">美股</a>
+<a href="http://finance.ifeng.com/gem" target="_blank">创业板</a>
+<a href="http://finance.ifeng.com/toprank" target="_blank">排行</a>
+<a href="http://finance.ifeng.com/rt_channel" target="_blank">滚动</a>
+<a href="http://baike.finance.ifeng.com" target="_blank">百科</a>
+<a href="http://finance.ifeng.com/stock/special/lhbdp/" target="_blank">黑马</a>
+<a href="http://guba.finance.ifeng.com/" target="_blank">股吧</a>
+
+<a href="http://blog.finance.ifeng.com" target="_blank" style="background:none;">博客</a>
+			</div>
+		</div>
+				<div class="navProposal LightBlue01 line18" style="width:100px;">
+		<span class="LightBlue01 line18"><a href="http://www.ifeng.com/corp/feedback/" target="_blank">提点意见</a></span>
+		<span><a href="http://finance.ifeng.com/rss/" target="_blank"><img src="http://img.ifeng.com/tres/pub_res/indexhead_image/cjrss.gif" border="0" /></a>
+		</span>
+                </div>			
+			</div>
+	<!--100310a begin-->
+	<div class="clear"></div>
+	<!--100310a end-->
+</div>
+<div class="container">
+
+<div class="dotline" ></div>
+
+	<h2>股票/基金/债券列表</h2>
+	<div class="label">
+		<ul>
+			<li class="current"><a href="list.php?type=stock_a">A股</a></li> <!-- 沪深指数 沪A 深A 权证 -->
+			<li ><a href="list.php?type=stock_b">B股</a></li>   <!-- 沪B 深B -->
+			<li ><a href="list.php?type=hkstock">港股</a></li>  <!-- 股票 窝轮 -->
+			<li ><a href="list.php?type=usstock">美股</a></li>  <!-- 股票 指数 -->
+			<li ><a href="list.php?type=fund">基金</a></li>  <!-- 封闭式基金 开放式基金: 全部 股票型  债券型 混合型 货币型   -->
+			<li ><a href="list.php?type=bond">债券</a></li>  <!-- 沪国债	沪企债	沪转债	回购 深国债	深企债	深转债	 -->
+		</ul>
+	</div>
+
+	<div class="clear"></div>
+	<div class="result">
+	<p>
+		<a href="list.php?type=stock_a&class=zs" class="unfocus">指数   </a><a href="list.php?type=stock_a&class=ha" class="unfocus">沪A   </a><a href="list.php?type=stock_a&class=sa" class="focus">深A   </a><a href="list.php?type=stock_a&class=qz" class="unfocus">权证   </a><a href="list.php?type=stock_a&class=gem" class="unfocus">创业板   </a>	</p>
+		<ul>
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000001/index.shtml" target="_blank">平安银行(000001)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000002/index.shtml" target="_blank">万  科Ａ(000002)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000004/index.shtml" target="_blank">国农科技(000004)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000005/index.shtml" target="_blank">世纪星源(000005)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000006/index.shtml" target="_blank">深振业Ａ(000006)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000007/index.shtml" target="_blank">零七股份(000007)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000008/index.shtml" target="_blank">宝利来(000008)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000009/index.shtml" target="_blank">中国宝安(000009)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000010/index.shtml" target="_blank">深华新(000010)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000011/index.shtml" target="_blank">深物业A(000011)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000012/index.shtml" target="_blank">南  玻Ａ(000012)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000014/index.shtml" target="_blank">沙河股份(000014)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000016/index.shtml" target="_blank">深康佳Ａ(000016)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000017/index.shtml" target="_blank">深中华A(000017)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000018/index.shtml" target="_blank">中冠A(000018)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000019/index.shtml" target="_blank">深深宝Ａ(000019)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000020/index.shtml" target="_blank">深华发Ａ(000020)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000021/index.shtml" target="_blank">长城开发(000021)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000022/index.shtml" target="_blank">深赤湾Ａ(000022)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000023/index.shtml" target="_blank">深天地Ａ(000023)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000024/index.shtml" target="_blank">招商地产(000024)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000025/index.shtml" target="_blank">特  力Ａ(000025)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000026/index.shtml" target="_blank">飞亚达Ａ(000026)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000027/index.shtml" target="_blank">深圳能源(000027)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000028/index.shtml" target="_blank">国药一致(000028)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000029/index.shtml" target="_blank">深深房Ａ(000029)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000030/index.shtml" target="_blank">富奥股份(000030)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000031/index.shtml" target="_blank">中粮地产(000031)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000032/index.shtml" target="_blank">深桑达Ａ(000032)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000033/index.shtml" target="_blank">*ST新都(000033)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000034/index.shtml" target="_blank">深信泰丰(000034)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000035/index.shtml" target="_blank">中国天楹(000035)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000036/index.shtml" target="_blank">华联控股(000036)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000037/index.shtml" target="_blank">深南电Ａ(000037)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000038/index.shtml" target="_blank">深大通(000038)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000039/index.shtml" target="_blank">中集集团(000039)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000040/index.shtml" target="_blank">宝安地产(000040)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000042/index.shtml" target="_blank">中洲控股(000042)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000043/index.shtml" target="_blank">中航地产(000043)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000045/index.shtml" target="_blank">深纺织Ａ(000045)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000046/index.shtml" target="_blank">泛海控股(000046)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000048/index.shtml" target="_blank">康达尔(000048)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000049/index.shtml" target="_blank">德赛电池(000049)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000050/index.shtml" target="_blank">深天马Ａ(000050)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000055/index.shtml" target="_blank">方大集团(000055)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000056/index.shtml" target="_blank">深国商(000056)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000058/index.shtml" target="_blank">深 赛 格(000058)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000059/index.shtml" target="_blank">华锦股份(000059)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000060/index.shtml" target="_blank">中金岭南(000060)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000061/index.shtml" target="_blank">农 产 品(000061)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000062/index.shtml" target="_blank">深圳华强(000062)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000063/index.shtml" target="_blank">中兴通讯(000063)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000065/index.shtml" target="_blank">北方国际(000065)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000066/index.shtml" target="_blank">长城电脑(000066)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000068/index.shtml" target="_blank">华控赛格(000068)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000069/index.shtml" target="_blank">华侨城Ａ(000069)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000070/index.shtml" target="_blank">特发信息(000070)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000078/index.shtml" target="_blank">海王生物(000078)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000088/index.shtml" target="_blank">盐 田 港(000088)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000089/index.shtml" target="_blank">深圳机场(000089)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000090/index.shtml" target="_blank">天健集团(000090)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000096/index.shtml" target="_blank">广聚能源(000096)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000099/index.shtml" target="_blank">中信海直(000099)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000100/index.shtml" target="_blank">TCL 集团(000100)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000150/index.shtml" target="_blank">宜华地产(000150)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000151/index.shtml" target="_blank">中成股份(000151)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000153/index.shtml" target="_blank">丰原药业(000153)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000155/index.shtml" target="_blank">川化股份(000155)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000156/index.shtml" target="_blank">华数传媒(000156)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000157/index.shtml" target="_blank">中联重科(000157)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000158/index.shtml" target="_blank">常山股份(000158)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000159/index.shtml" target="_blank">国际实业(000159)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000301/index.shtml" target="_blank">东方市场(000301)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000333/index.shtml" target="_blank">美的集团(000333)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000338/index.shtml" target="_blank">潍柴动力(000338)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000400/index.shtml" target="_blank">许继电气(000400)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000401/index.shtml" target="_blank">冀东水泥(000401)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000402/index.shtml" target="_blank">金 融 街(000402)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000403/index.shtml" target="_blank">*ST生化(000403)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000404/index.shtml" target="_blank">华意压缩(000404)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000407/index.shtml" target="_blank">胜利股份(000407)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000408/index.shtml" target="_blank">金谷源(000408)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000409/index.shtml" target="_blank">山东地矿(000409)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000410/index.shtml" target="_blank">沈阳机床(000410)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000411/index.shtml" target="_blank">英特集团(000411)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000413/index.shtml" target="_blank">东旭光电(000413)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000415/index.shtml" target="_blank">渤海租赁(000415)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000416/index.shtml" target="_blank">民生控股(000416)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000417/index.shtml" target="_blank">合肥百货(000417)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000418/index.shtml" target="_blank">小天鹅Ａ(000418)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000419/index.shtml" target="_blank">通程控股(000419)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000420/index.shtml" target="_blank">吉林化纤(000420)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000421/index.shtml" target="_blank">南京中北(000421)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000422/index.shtml" target="_blank">湖北宜化(000422)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000423/index.shtml" target="_blank">东阿阿胶(000423)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000425/index.shtml" target="_blank">徐工机械(000425)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000426/index.shtml" target="_blank">兴业矿业(000426)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000428/index.shtml" target="_blank">华天酒店(000428)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000429/index.shtml" target="_blank">粤高速Ａ(000429)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000430/index.shtml" target="_blank">张家界(000430)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000488/index.shtml" target="_blank">晨鸣纸业(000488)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000498/index.shtml" target="_blank">山东路桥(000498)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000501/index.shtml" target="_blank">鄂武商Ａ(000501)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000502/index.shtml" target="_blank">绿景控股(000502)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000503/index.shtml" target="_blank">海虹控股(000503)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000504/index.shtml" target="_blank">*ST传媒(000504)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000505/index.shtml" target="_blank">珠江控股(000505)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000506/index.shtml" target="_blank">中润资源(000506)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000507/index.shtml" target="_blank">珠海港(000507)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000509/index.shtml" target="_blank">华塑控股(000509)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000510/index.shtml" target="_blank">金路集团(000510)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000511/index.shtml" target="_blank">烯碳新材(000511)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000513/index.shtml" target="_blank">丽珠集团(000513)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000514/index.shtml" target="_blank">渝 开 发(000514)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000515/index.shtml" target="_blank">攀渝钛业(000515)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000516/index.shtml" target="_blank">开元投资(000516)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000517/index.shtml" target="_blank">荣安地产(000517)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000518/index.shtml" target="_blank">四环生物(000518)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000519/index.shtml" target="_blank">江南红箭(000519)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000520/index.shtml" target="_blank">*ST凤凰(000520)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000521/index.shtml" target="_blank">美菱电器(000521)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000522/index.shtml" target="_blank">白云山Ａ(000522)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000523/index.shtml" target="_blank">广州浪奇(000523)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000524/index.shtml" target="_blank">东方宾馆(000524)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000525/index.shtml" target="_blank">红 太 阳(000525)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000526/index.shtml" target="_blank">银润投资(000526)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000527/index.shtml" target="_blank">美的电器(000527)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000528/index.shtml" target="_blank">柳    工(000528)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000529/index.shtml" target="_blank">广弘控股(000529)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000530/index.shtml" target="_blank">大冷股份(000530)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000531/index.shtml" target="_blank">穗恒运Ａ(000531)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000532/index.shtml" target="_blank">力合股份(000532)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000533/index.shtml" target="_blank">万 家 乐(000533)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000534/index.shtml" target="_blank">万泽股份(000534)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000536/index.shtml" target="_blank">华映科技(000536)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000537/index.shtml" target="_blank">广宇发展(000537)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000538/index.shtml" target="_blank">云南白药(000538)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000539/index.shtml" target="_blank">粤电力Ａ(000539)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000540/index.shtml" target="_blank">中天城投(000540)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000541/index.shtml" target="_blank">佛山照明(000541)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000543/index.shtml" target="_blank">皖能电力(000543)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000544/index.shtml" target="_blank">中原环保(000544)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000545/index.shtml" target="_blank">金浦钛业(000545)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000546/index.shtml" target="_blank">光华控股(000546)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000547/index.shtml" target="_blank">闽福发Ａ(000547)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000548/index.shtml" target="_blank">湖南投资(000548)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000550/index.shtml" target="_blank">江铃汽车(000550)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000551/index.shtml" target="_blank">创元科技(000551)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000552/index.shtml" target="_blank">靖远煤电(000552)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000553/index.shtml" target="_blank">沙隆达Ａ(000553)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000554/index.shtml" target="_blank">泰山石油(000554)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000555/index.shtml" target="_blank">神州信息(000555)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000557/index.shtml" target="_blank">*ST广夏(000557)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000558/index.shtml" target="_blank">莱茵置业(000558)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000559/index.shtml" target="_blank">万向钱潮(000559)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000560/index.shtml" target="_blank">昆百大Ａ(000560)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000561/index.shtml" target="_blank">烽火电子(000561)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000562/index.shtml" target="_blank">宏源证券(000562)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000563/index.shtml" target="_blank">陕国投Ａ(000563)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000564/index.shtml" target="_blank">西安民生(000564)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000565/index.shtml" target="_blank">渝三峡Ａ(000565)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000566/index.shtml" target="_blank">海南海药(000566)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000567/index.shtml" target="_blank">海德股份(000567)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000568/index.shtml" target="_blank">泸州老窖(000568)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000569/index.shtml" target="_blank">长城股份(000569)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000570/index.shtml" target="_blank">苏常柴Ａ(000570)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000571/index.shtml" target="_blank">新大洲Ａ(000571)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000572/index.shtml" target="_blank">海马汽车(000572)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000573/index.shtml" target="_blank">粤宏远Ａ(000573)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000576/index.shtml" target="_blank">广东甘化(000576)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000578/index.shtml" target="_blank">盐湖集团(000578)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000581/index.shtml" target="_blank">威孚高科(000581)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000582/index.shtml" target="_blank">北部湾港(000582)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000584/index.shtml" target="_blank">友利控股(000584)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000585/index.shtml" target="_blank">东北电气(000585)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000586/index.shtml" target="_blank">汇源通信(000586)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000587/index.shtml" target="_blank">金叶珠宝(000587)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000589/index.shtml" target="_blank">黔轮胎Ａ(000589)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000590/index.shtml" target="_blank">紫光古汉(000590)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000591/index.shtml" target="_blank">桐 君 阁(000591)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000592/index.shtml" target="_blank">平潭发展(000592)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000593/index.shtml" target="_blank">大通燃气(000593)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000594/index.shtml" target="_blank">*ST国恒(000594)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000595/index.shtml" target="_blank">西北轴承(000595)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000596/index.shtml" target="_blank">古井贡酒(000596)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000597/index.shtml" target="_blank">东北制药(000597)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000598/index.shtml" target="_blank">兴蓉投资(000598)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000599/index.shtml" target="_blank">青岛双星(000599)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000600/index.shtml" target="_blank">建投能源(000600)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000601/index.shtml" target="_blank">韶能股份(000601)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000602/index.shtml" target="_blank">金马集团(000602)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000603/index.shtml" target="_blank">盛达矿业(000603)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000605/index.shtml" target="_blank">渤海股份(000605)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000606/index.shtml" target="_blank">青海明胶(000606)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000607/index.shtml" target="_blank">华智控股(000607)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000608/index.shtml" target="_blank">阳光股份(000608)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000609/index.shtml" target="_blank">绵世股份(000609)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000610/index.shtml" target="_blank">西安旅游(000610)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000611/index.shtml" target="_blank">内蒙发展(000611)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000612/index.shtml" target="_blank">焦作万方(000612)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000613/index.shtml" target="_blank">大东海A(000613)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000615/index.shtml" target="_blank">湖北金环(000615)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000616/index.shtml" target="_blank">亿城投资(000616)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000617/index.shtml" target="_blank">石油济柴(000617)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000619/index.shtml" target="_blank">海螺型材(000619)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000620/index.shtml" target="_blank">新华联(000620)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000622/index.shtml" target="_blank">恒立实业(000622)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000623/index.shtml" target="_blank">吉林敖东(000623)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000625/index.shtml" target="_blank">长安汽车(000625)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000626/index.shtml" target="_blank">如意集团(000626)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000627/index.shtml" target="_blank">天茂集团(000627)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000628/index.shtml" target="_blank">高新发展(000628)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000629/index.shtml" target="_blank">攀钢钒钛(000629)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000630/index.shtml" target="_blank">铜陵有色(000630)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000631/index.shtml" target="_blank">顺发恒业(000631)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000632/index.shtml" target="_blank">三木集团(000632)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000633/index.shtml" target="_blank">合金投资(000633)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000635/index.shtml" target="_blank">英 力 特(000635)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000636/index.shtml" target="_blank">风华高科(000636)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000637/index.shtml" target="_blank">茂化实华(000637)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000638/index.shtml" target="_blank">万方发展(000638)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000639/index.shtml" target="_blank">西王食品(000639)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000650/index.shtml" target="_blank">仁和药业(000650)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000651/index.shtml" target="_blank">格力电器(000651)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000652/index.shtml" target="_blank">泰达股份(000652)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000655/index.shtml" target="_blank">金岭矿业(000655)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000656/index.shtml" target="_blank">金科股份(000656)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000657/index.shtml" target="_blank">中钨高新(000657)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000659/index.shtml" target="_blank">*ST中富(000659)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000661/index.shtml" target="_blank">长春高新(000661)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000662/index.shtml" target="_blank">索芙特(000662)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000663/index.shtml" target="_blank">永安林业(000663)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000665/index.shtml" target="_blank">湖北广电(000665)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000666/index.shtml" target="_blank">经纬纺机(000666)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000667/index.shtml" target="_blank">美好集团(000667)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000668/index.shtml" target="_blank">荣丰控股(000668)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000669/index.shtml" target="_blank">金鸿能源(000669)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000670/index.shtml" target="_blank">盈方微(000670)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000671/index.shtml" target="_blank">阳 光 城(000671)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000672/index.shtml" target="_blank">上峰水泥(000672)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000673/index.shtml" target="_blank">当代东方(000673)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000676/index.shtml" target="_blank">思达高科(000676)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000677/index.shtml" target="_blank">恒天海龙(000677)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000678/index.shtml" target="_blank">襄阳轴承(000678)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000679/index.shtml" target="_blank">大连友谊(000679)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000680/index.shtml" target="_blank">山推股份(000680)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000681/index.shtml" target="_blank">视觉中国(000681)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000682/index.shtml" target="_blank">东方电子(000682)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000683/index.shtml" target="_blank">远兴能源(000683)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000685/index.shtml" target="_blank">中山公用(000685)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000686/index.shtml" target="_blank">东北证券(000686)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000687/index.shtml" target="_blank">恒天天鹅(000687)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000688/index.shtml" target="_blank">建新矿业(000688)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000690/index.shtml" target="_blank">宝新能源(000690)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000691/index.shtml" target="_blank">亚太实业(000691)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000692/index.shtml" target="_blank">惠天热电(000692)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000693/index.shtml" target="_blank">华泽钴镍(000693)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000695/index.shtml" target="_blank">滨海能源(000695)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000697/index.shtml" target="_blank">炼石有色(000697)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000698/index.shtml" target="_blank">沈阳化工(000698)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000700/index.shtml" target="_blank">模塑科技(000700)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000701/index.shtml" target="_blank">厦门信达(000701)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000702/index.shtml" target="_blank">正虹科技(000702)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000703/index.shtml" target="_blank">恒逸石化(000703)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000705/index.shtml" target="_blank">浙江震元(000705)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000707/index.shtml" target="_blank">双环科技(000707)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000708/index.shtml" target="_blank">大冶特钢(000708)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000709/index.shtml" target="_blank">河北钢铁(000709)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000710/index.shtml" target="_blank">天兴仪表(000710)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000711/index.shtml" target="_blank">天伦置业(000711)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000712/index.shtml" target="_blank">锦龙股份(000712)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000713/index.shtml" target="_blank">丰乐种业(000713)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000715/index.shtml" target="_blank">中兴商业(000715)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000716/index.shtml" target="_blank">南方食品(000716)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000717/index.shtml" target="_blank">韶钢松山(000717)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000718/index.shtml" target="_blank">苏宁环球(000718)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000719/index.shtml" target="_blank">大地传媒(000719)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000720/index.shtml" target="_blank">新能泰山(000720)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000721/index.shtml" target="_blank">西安饮食(000721)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000722/index.shtml" target="_blank">湖南发展(000722)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000723/index.shtml" target="_blank">美锦能源(000723)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000725/index.shtml" target="_blank">京东方Ａ(000725)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000726/index.shtml" target="_blank">鲁  泰Ａ(000726)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000727/index.shtml" target="_blank">华东科技(000727)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000728/index.shtml" target="_blank">国元证券(000728)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000729/index.shtml" target="_blank">燕京啤酒(000729)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000731/index.shtml" target="_blank">四川美丰(000731)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000732/index.shtml" target="_blank">泰禾集团(000732)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000733/index.shtml" target="_blank">振华科技(000733)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000735/index.shtml" target="_blank">罗 牛 山(000735)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000736/index.shtml" target="_blank">中房地产(000736)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000737/index.shtml" target="_blank">南风化工(000737)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000738/index.shtml" target="_blank">中航动控(000738)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000739/index.shtml" target="_blank">普洛药业(000739)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000748/index.shtml" target="_blank">长城信息(000748)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000750/index.shtml" target="_blank">国海证券(000750)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000751/index.shtml" target="_blank">锌业股份(000751)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000752/index.shtml" target="_blank">西藏发展(000752)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000753/index.shtml" target="_blank">漳州发展(000753)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000755/index.shtml" target="_blank">*ST三维(000755)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000756/index.shtml" target="_blank">新华制药(000756)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000757/index.shtml" target="_blank">浩物股份(000757)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000758/index.shtml" target="_blank">中色股份(000758)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000759/index.shtml" target="_blank">中百集团(000759)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000760/index.shtml" target="_blank">斯太尔(000760)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000761/index.shtml" target="_blank">本钢板材(000761)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000762/index.shtml" target="_blank">西藏矿业(000762)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000766/index.shtml" target="_blank">通化金马(000766)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000767/index.shtml" target="_blank">漳泽电力(000767)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000768/index.shtml" target="_blank">中航飞机(000768)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000776/index.shtml" target="_blank">广发证券(000776)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000777/index.shtml" target="_blank">中核科技(000777)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000778/index.shtml" target="_blank">新兴铸管(000778)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000779/index.shtml" target="_blank">*ST派神(000779)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000780/index.shtml" target="_blank">平庄能源(000780)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000782/index.shtml" target="_blank">美达股份(000782)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000783/index.shtml" target="_blank">长江证券(000783)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000785/index.shtml" target="_blank">武汉中商(000785)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000786/index.shtml" target="_blank">北新建材(000786)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000788/index.shtml" target="_blank">北大医药(000788)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000789/index.shtml" target="_blank">江西水泥(000789)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000790/index.shtml" target="_blank">华神集团(000790)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000791/index.shtml" target="_blank">甘肃电投(000791)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000792/index.shtml" target="_blank">盐湖股份(000792)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000793/index.shtml" target="_blank">华闻传媒(000793)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000795/index.shtml" target="_blank">太原刚玉(000795)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000796/index.shtml" target="_blank">易食股份(000796)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000797/index.shtml" target="_blank">中国武夷(000797)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000798/index.shtml" target="_blank">中水渔业(000798)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000799/index.shtml" target="_blank">酒 鬼 酒(000799)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000800/index.shtml" target="_blank">一汽轿车(000800)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000801/index.shtml" target="_blank">四川九洲(000801)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000802/index.shtml" target="_blank">北京文化(000802)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000803/index.shtml" target="_blank">金宇车城(000803)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000806/index.shtml" target="_blank">银河投资(000806)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000807/index.shtml" target="_blank">云铝股份(000807)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000809/index.shtml" target="_blank">铁岭新城(000809)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000810/index.shtml" target="_blank">华润锦华(000810)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000811/index.shtml" target="_blank">烟台冰轮(000811)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000812/index.shtml" target="_blank">陕西金叶(000812)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000813/index.shtml" target="_blank">天山纺织(000813)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000815/index.shtml" target="_blank">美利纸业(000815)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000816/index.shtml" target="_blank">江淮动力(000816)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000818/index.shtml" target="_blank">方大化工(000818)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000819/index.shtml" target="_blank">岳阳兴长(000819)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000820/index.shtml" target="_blank">金城股份(000820)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000821/index.shtml" target="_blank">京山轻机(000821)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000822/index.shtml" target="_blank">*ST海化(000822)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000823/index.shtml" target="_blank">超声电子(000823)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000825/index.shtml" target="_blank">太钢不锈(000825)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000826/index.shtml" target="_blank">桑德环境(000826)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000828/index.shtml" target="_blank">东莞控股(000828)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000829/index.shtml" target="_blank">天音控股(000829)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000830/index.shtml" target="_blank">鲁西化工(000830)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000831/index.shtml" target="_blank">五矿稀土(000831)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000833/index.shtml" target="_blank">贵糖股份(000833)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000835/index.shtml" target="_blank">四川圣达(000835)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000836/index.shtml" target="_blank">鑫茂科技(000836)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000837/index.shtml" target="_blank">秦川机床(000837)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000838/index.shtml" target="_blank">国兴地产(000838)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000839/index.shtml" target="_blank">中信国安(000839)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000848/index.shtml" target="_blank">承德露露(000848)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000850/index.shtml" target="_blank">华茂股份(000850)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000851/index.shtml" target="_blank">高鸿股份(000851)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000852/index.shtml" target="_blank">江钻股份(000852)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000856/index.shtml" target="_blank">冀东装备(000856)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000858/index.shtml" target="_blank">五 粮 液(000858)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000859/index.shtml" target="_blank">国风塑业(000859)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000860/index.shtml" target="_blank">顺鑫农业(000860)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000861/index.shtml" target="_blank">海印股份(000861)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000862/index.shtml" target="_blank">银星能源(000862)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000863/index.shtml" target="_blank">三湘股份(000863)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000868/index.shtml" target="_blank">安凯客车(000868)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000869/index.shtml" target="_blank">张  裕Ａ(000869)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000875/index.shtml" target="_blank">吉电股份(000875)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000876/index.shtml" target="_blank">新 希 望(000876)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000877/index.shtml" target="_blank">天山股份(000877)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000878/index.shtml" target="_blank">云南铜业(000878)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000880/index.shtml" target="_blank">潍柴重机(000880)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000881/index.shtml" target="_blank">大连国际(000881)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000882/index.shtml" target="_blank">华联股份(000882)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000883/index.shtml" target="_blank">湖北能源(000883)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000885/index.shtml" target="_blank">同力水泥(000885)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000886/index.shtml" target="_blank">海南高速(000886)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000887/index.shtml" target="_blank">中鼎股份(000887)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000888/index.shtml" target="_blank">峨眉山Ａ(000888)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000889/index.shtml" target="_blank">茂业物流(000889)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000890/index.shtml" target="_blank">法 尔 胜(000890)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000892/index.shtml" target="_blank">星美联合(000892)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000893/index.shtml" target="_blank">东凌粮油(000893)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000895/index.shtml" target="_blank">双汇发展(000895)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000897/index.shtml" target="_blank">津滨发展(000897)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000898/index.shtml" target="_blank">鞍钢股份(000898)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000899/index.shtml" target="_blank">赣能股份(000899)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000900/index.shtml" target="_blank">现代投资(000900)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000901/index.shtml" target="_blank">航天科技(000901)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000902/index.shtml" target="_blank">新洋丰(000902)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000903/index.shtml" target="_blank">云内动力(000903)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000905/index.shtml" target="_blank">厦门港务(000905)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000906/index.shtml" target="_blank">物产中拓(000906)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000908/index.shtml" target="_blank">天一科技(000908)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000909/index.shtml" target="_blank">数源科技(000909)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000910/index.shtml" target="_blank">大亚科技(000910)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000911/index.shtml" target="_blank">南宁糖业(000911)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000912/index.shtml" target="_blank">泸 天 化(000912)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000913/index.shtml" target="_blank">钱江摩托(000913)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000915/index.shtml" target="_blank">山大华特(000915)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000916/index.shtml" target="_blank">华北高速(000916)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000917/index.shtml" target="_blank">电广传媒(000917)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000918/index.shtml" target="_blank">嘉凯城(000918)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000919/index.shtml" target="_blank">金陵药业(000919)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000920/index.shtml" target="_blank">南方汇通(000920)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000921/index.shtml" target="_blank">海信科龙(000921)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000922/index.shtml" target="_blank">佳电股份(000922)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000923/index.shtml" target="_blank">河北宣工(000923)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000925/index.shtml" target="_blank">众合机电(000925)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000926/index.shtml" target="_blank">福星股份(000926)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000927/index.shtml" target="_blank">一汽夏利(000927)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000928/index.shtml" target="_blank">中钢国际(000928)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000929/index.shtml" target="_blank">兰州黄河(000929)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000930/index.shtml" target="_blank">中粮生化(000930)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000931/index.shtml" target="_blank">中 关 村(000931)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000932/index.shtml" target="_blank">华菱钢铁(000932)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000933/index.shtml" target="_blank">神火股份(000933)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000935/index.shtml" target="_blank">四川双马(000935)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000936/index.shtml" target="_blank">华西股份(000936)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000937/index.shtml" target="_blank">冀中能源(000937)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000938/index.shtml" target="_blank">紫光股份(000938)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000939/index.shtml" target="_blank">凯迪电力(000939)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000948/index.shtml" target="_blank">南天信息(000948)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000949/index.shtml" target="_blank">新乡化纤(000949)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000950/index.shtml" target="_blank">建峰化工(000950)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000951/index.shtml" target="_blank">中国重汽(000951)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000952/index.shtml" target="_blank">广济药业(000952)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000953/index.shtml" target="_blank">河池化工(000953)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000955/index.shtml" target="_blank">欣龙控股(000955)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000957/index.shtml" target="_blank">中通客车(000957)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000958/index.shtml" target="_blank">东方能源(000958)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000959/index.shtml" target="_blank">首钢股份(000959)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000960/index.shtml" target="_blank">锡业股份(000960)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000961/index.shtml" target="_blank">中南建设(000961)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000962/index.shtml" target="_blank">东方钽业(000962)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000963/index.shtml" target="_blank">华东医药(000963)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000965/index.shtml" target="_blank">天保基建(000965)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000966/index.shtml" target="_blank">长源电力(000966)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000967/index.shtml" target="_blank">上风高科(000967)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000968/index.shtml" target="_blank">煤 气 化(000968)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000969/index.shtml" target="_blank">安泰科技(000969)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000970/index.shtml" target="_blank">中科三环(000970)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000971/index.shtml" target="_blank">蓝鼎控股(000971)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000972/index.shtml" target="_blank">新中基(000972)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000973/index.shtml" target="_blank">佛塑科技(000973)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000975/index.shtml" target="_blank">银泰资源(000975)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000976/index.shtml" target="_blank">春晖股份(000976)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000977/index.shtml" target="_blank">浪潮信息(000977)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000978/index.shtml" target="_blank">桂林旅游(000978)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000979/index.shtml" target="_blank">中弘股份(000979)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000980/index.shtml" target="_blank">金马股份(000980)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000981/index.shtml" target="_blank">银亿股份(000981)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000982/index.shtml" target="_blank">中银绒业(000982)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000983/index.shtml" target="_blank">西山煤电(000983)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000985/index.shtml" target="_blank">大庆华科(000985)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000987/index.shtml" target="_blank">广州友谊(000987)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000988/index.shtml" target="_blank">华工科技(000988)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000989/index.shtml" target="_blank">九 芝 堂(000989)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000990/index.shtml" target="_blank">诚志股份(000990)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000993/index.shtml" target="_blank">闽东电力(000993)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000995/index.shtml" target="_blank">皇台酒业(000995)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000996/index.shtml" target="_blank">中国中期(000996)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000997/index.shtml" target="_blank">新 大 陆(000997)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000998/index.shtml" target="_blank">隆平高科(000998)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz000999/index.shtml" target="_blank">华润三九(000999)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz001696/index.shtml" target="_blank">宗申动力(001696)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz001896/index.shtml" target="_blank">豫能控股(001896)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002001/index.shtml" target="_blank">新 和 成(002001)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002002/index.shtml" target="_blank">鸿达兴业(002002)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002003/index.shtml" target="_blank">伟星股份(002003)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002004/index.shtml" target="_blank">华邦颖泰(002004)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002005/index.shtml" target="_blank">德豪润达(002005)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002006/index.shtml" target="_blank">*ST精功(002006)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002007/index.shtml" target="_blank">华兰生物(002007)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002008/index.shtml" target="_blank">大族激光(002008)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002009/index.shtml" target="_blank">天奇股份(002009)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002010/index.shtml" target="_blank">传化股份(002010)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002011/index.shtml" target="_blank">盾安环境(002011)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002012/index.shtml" target="_blank">凯恩股份(002012)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002013/index.shtml" target="_blank">中航机电(002013)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002014/index.shtml" target="_blank">永新股份(002014)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002015/index.shtml" target="_blank">*ST霞客(002015)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002016/index.shtml" target="_blank">世荣兆业(002016)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002017/index.shtml" target="_blank">东信和平(002017)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002018/index.shtml" target="_blank">华星化工(002018)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002019/index.shtml" target="_blank">鑫富药业(002019)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002020/index.shtml" target="_blank">京新药业(002020)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002021/index.shtml" target="_blank">中捷股份(002021)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002022/index.shtml" target="_blank">科华生物(002022)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002023/index.shtml" target="_blank">海特高新(002023)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002024/index.shtml" target="_blank">苏宁云商(002024)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002025/index.shtml" target="_blank">航天电器(002025)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002026/index.shtml" target="_blank">山东威达(002026)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002027/index.shtml" target="_blank">七喜控股(002027)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002028/index.shtml" target="_blank">思源电气(002028)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002029/index.shtml" target="_blank">七 匹 狼(002029)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002030/index.shtml" target="_blank">达安基因(002030)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002031/index.shtml" target="_blank">巨轮股份(002031)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002032/index.shtml" target="_blank">苏 泊 尔(002032)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002033/index.shtml" target="_blank">丽江旅游(002033)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002034/index.shtml" target="_blank">美 欣 达(002034)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002035/index.shtml" target="_blank">华帝股份(002035)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002036/index.shtml" target="_blank">宜科科技(002036)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002037/index.shtml" target="_blank">久联发展(002037)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002038/index.shtml" target="_blank">双鹭药业(002038)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002039/index.shtml" target="_blank">黔源电力(002039)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002040/index.shtml" target="_blank">南 京 港(002040)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002041/index.shtml" target="_blank">登海种业(002041)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002042/index.shtml" target="_blank">华孚色纺(002042)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002043/index.shtml" target="_blank">兔 宝 宝(002043)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002044/index.shtml" target="_blank">江苏三友(002044)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002045/index.shtml" target="_blank">国光电器(002045)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002046/index.shtml" target="_blank">轴研科技(002046)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002047/index.shtml" target="_blank">宝鹰股份(002047)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002048/index.shtml" target="_blank">宁波华翔(002048)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002049/index.shtml" target="_blank">同方国芯(002049)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002050/index.shtml" target="_blank">三花股份(002050)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002051/index.shtml" target="_blank">中工国际(002051)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002052/index.shtml" target="_blank">同洲电子(002052)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002053/index.shtml" target="_blank">云南盐化(002053)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002054/index.shtml" target="_blank">德美化工(002054)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002055/index.shtml" target="_blank">得润电子(002055)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002056/index.shtml" target="_blank">横店东磁(002056)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002057/index.shtml" target="_blank">中钢天源(002057)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002058/index.shtml" target="_blank">威 尔 泰(002058)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002059/index.shtml" target="_blank">云南旅游(002059)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002060/index.shtml" target="_blank">粤 水 电(002060)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002061/index.shtml" target="_blank">江山化工(002061)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002062/index.shtml" target="_blank">宏润建设(002062)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002063/index.shtml" target="_blank">远光软件(002063)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002064/index.shtml" target="_blank">华峰氨纶(002064)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002065/index.shtml" target="_blank">东华软件(002065)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002066/index.shtml" target="_blank">瑞泰科技(002066)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002067/index.shtml" target="_blank">景兴纸业(002067)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002068/index.shtml" target="_blank">黑猫股份(002068)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002069/index.shtml" target="_blank">獐 子 岛(002069)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002070/index.shtml" target="_blank">众和股份(002070)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002071/index.shtml" target="_blank">长城影视(002071)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002072/index.shtml" target="_blank">德棉股份(002072)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002073/index.shtml" target="_blank">软控股份(002073)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002074/index.shtml" target="_blank">东源电器(002074)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002075/index.shtml" target="_blank">沙钢股份(002075)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002076/index.shtml" target="_blank">雪 莱 特(002076)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002077/index.shtml" target="_blank">大港股份(002077)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002078/index.shtml" target="_blank">太阳纸业(002078)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002079/index.shtml" target="_blank">苏州固锝(002079)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002080/index.shtml" target="_blank">中材科技(002080)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002081/index.shtml" target="_blank">金 螳 螂(002081)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002082/index.shtml" target="_blank">栋梁新材(002082)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002083/index.shtml" target="_blank">孚日股份(002083)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002084/index.shtml" target="_blank">海鸥卫浴(002084)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002085/index.shtml" target="_blank">万丰奥威(002085)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002086/index.shtml" target="_blank">东方海洋(002086)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002087/index.shtml" target="_blank">新野纺织(002087)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002088/index.shtml" target="_blank">鲁阳股份(002088)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002089/index.shtml" target="_blank">新 海 宜(002089)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002090/index.shtml" target="_blank">金智科技(002090)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002091/index.shtml" target="_blank">江苏国泰(002091)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002092/index.shtml" target="_blank">中泰化学(002092)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002093/index.shtml" target="_blank">国脉科技(002093)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002094/index.shtml" target="_blank">青岛金王(002094)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002095/index.shtml" target="_blank">生 意 宝(002095)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002096/index.shtml" target="_blank">南岭民爆(002096)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002097/index.shtml" target="_blank">山河智能(002097)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002098/index.shtml" target="_blank">浔兴股份(002098)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002099/index.shtml" target="_blank">海翔药业(002099)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002100/index.shtml" target="_blank">天康生物(002100)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002101/index.shtml" target="_blank">广东鸿图(002101)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002102/index.shtml" target="_blank">冠福股份(002102)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002103/index.shtml" target="_blank">广博股份(002103)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002104/index.shtml" target="_blank">恒宝股份(002104)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002105/index.shtml" target="_blank">信隆实业(002105)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002106/index.shtml" target="_blank">莱宝高科(002106)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002107/index.shtml" target="_blank">沃华医药(002107)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002108/index.shtml" target="_blank">沧州明珠(002108)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002109/index.shtml" target="_blank">兴化股份(002109)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002110/index.shtml" target="_blank">三钢闽光(002110)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002111/index.shtml" target="_blank">威海广泰(002111)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002112/index.shtml" target="_blank">三变科技(002112)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002113/index.shtml" target="_blank">天润控股(002113)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002114/index.shtml" target="_blank">罗平锌电(002114)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002115/index.shtml" target="_blank">三维通信(002115)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002116/index.shtml" target="_blank">中国海诚(002116)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002117/index.shtml" target="_blank">东港股份(002117)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002118/index.shtml" target="_blank">紫鑫药业(002118)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002119/index.shtml" target="_blank">康强电子(002119)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002120/index.shtml" target="_blank">新海股份(002120)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002121/index.shtml" target="_blank">科陆电子(002121)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002122/index.shtml" target="_blank">天马股份(002122)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002123/index.shtml" target="_blank">荣信股份(002123)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002124/index.shtml" target="_blank">天邦股份(002124)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002125/index.shtml" target="_blank">湘潭电化(002125)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002126/index.shtml" target="_blank">银轮股份(002126)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002127/index.shtml" target="_blank">*ST新民(002127)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002128/index.shtml" target="_blank">露天煤业(002128)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002129/index.shtml" target="_blank">中环股份(002129)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002130/index.shtml" target="_blank">沃尔核材(002130)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002131/index.shtml" target="_blank">利欧股份(002131)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002132/index.shtml" target="_blank">恒星科技(002132)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002133/index.shtml" target="_blank">广宇集团(002133)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002134/index.shtml" target="_blank">*ST普林(002134)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002135/index.shtml" target="_blank">东南网架(002135)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002136/index.shtml" target="_blank">安 纳 达(002136)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002137/index.shtml" target="_blank">实 益 达(002137)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002138/index.shtml" target="_blank">顺络电子(002138)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002139/index.shtml" target="_blank">拓邦股份(002139)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002140/index.shtml" target="_blank">东华科技(002140)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002141/index.shtml" target="_blank">蓉胜超微(002141)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002142/index.shtml" target="_blank">宁波银行(002142)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002143/index.shtml" target="_blank">高金食品(002143)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002144/index.shtml" target="_blank">宏达高科(002144)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002145/index.shtml" target="_blank">中核钛白(002145)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002146/index.shtml" target="_blank">荣盛发展(002146)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002147/index.shtml" target="_blank">方圆支承(002147)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002148/index.shtml" target="_blank">北纬通信(002148)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002149/index.shtml" target="_blank">西部材料(002149)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002150/index.shtml" target="_blank">通润装备(002150)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002151/index.shtml" target="_blank">北斗星通(002151)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002152/index.shtml" target="_blank">广电运通(002152)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002153/index.shtml" target="_blank">石基信息(002153)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002154/index.shtml" target="_blank">报 喜 鸟(002154)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002155/index.shtml" target="_blank">辰州矿业(002155)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002156/index.shtml" target="_blank">通富微电(002156)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002157/index.shtml" target="_blank">正邦科技(002157)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002158/index.shtml" target="_blank">汉钟精机(002158)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002159/index.shtml" target="_blank">三特索道(002159)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002160/index.shtml" target="_blank">*ST常铝(002160)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002161/index.shtml" target="_blank">远 望 谷(002161)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002162/index.shtml" target="_blank">斯米克(002162)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002163/index.shtml" target="_blank">*ST三鑫(002163)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002164/index.shtml" target="_blank">*ST东力(002164)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002165/index.shtml" target="_blank">红 宝 丽(002165)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002166/index.shtml" target="_blank">莱茵生物(002166)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002167/index.shtml" target="_blank">东方锆业(002167)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002168/index.shtml" target="_blank">深圳惠程(002168)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002169/index.shtml" target="_blank">智光电气(002169)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002170/index.shtml" target="_blank">芭田股份(002170)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002171/index.shtml" target="_blank">精诚铜业(002171)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002172/index.shtml" target="_blank">澳洋科技(002172)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002173/index.shtml" target="_blank">千足珍珠(002173)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002174/index.shtml" target="_blank">游族网络(002174)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002175/index.shtml" target="_blank">广陆数测(002175)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002176/index.shtml" target="_blank">江特电机(002176)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002177/index.shtml" target="_blank">御银股份(002177)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002178/index.shtml" target="_blank">延华智能(002178)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002179/index.shtml" target="_blank">中航光电(002179)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002180/index.shtml" target="_blank">万 力 达(002180)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002181/index.shtml" target="_blank">粤 传 媒(002181)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002182/index.shtml" target="_blank">云海金属(002182)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002183/index.shtml" target="_blank">怡 亚 通(002183)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002184/index.shtml" target="_blank">海得控制(002184)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002185/index.shtml" target="_blank">华天科技(002185)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002186/index.shtml" target="_blank">全 聚 德(002186)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002187/index.shtml" target="_blank">广百股份(002187)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002188/index.shtml" target="_blank">新 嘉 联(002188)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002189/index.shtml" target="_blank">利达光电(002189)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002190/index.shtml" target="_blank">成飞集成(002190)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002191/index.shtml" target="_blank">劲嘉股份(002191)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002192/index.shtml" target="_blank">路翔股份(002192)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002193/index.shtml" target="_blank">山东如意(002193)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002194/index.shtml" target="_blank">武汉凡谷(002194)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002195/index.shtml" target="_blank">海隆软件(002195)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002196/index.shtml" target="_blank">方正电机(002196)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002197/index.shtml" target="_blank">证通电子(002197)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002198/index.shtml" target="_blank">嘉应制药(002198)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002199/index.shtml" target="_blank">东晶电子(002199)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002200/index.shtml" target="_blank">云投生态(002200)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002201/index.shtml" target="_blank">九鼎新材(002201)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002202/index.shtml" target="_blank">金风科技(002202)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002203/index.shtml" target="_blank">海亮股份(002203)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002204/index.shtml" target="_blank">大连重工(002204)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002205/index.shtml" target="_blank">国统股份(002205)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002206/index.shtml" target="_blank">海 利 得(002206)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002207/index.shtml" target="_blank">准油股份(002207)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002208/index.shtml" target="_blank">合肥城建(002208)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002209/index.shtml" target="_blank">达 意 隆(002209)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002210/index.shtml" target="_blank">飞马国际(002210)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002211/index.shtml" target="_blank">宏达新材(002211)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002212/index.shtml" target="_blank">南洋股份(002212)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002213/index.shtml" target="_blank">特 尔 佳(002213)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002214/index.shtml" target="_blank">大立科技(002214)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002215/index.shtml" target="_blank">诺 普 信(002215)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002216/index.shtml" target="_blank">三全食品(002216)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002217/index.shtml" target="_blank">*ST合泰(002217)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002218/index.shtml" target="_blank">拓日新能(002218)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002219/index.shtml" target="_blank">恒康医疗(002219)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002220/index.shtml" target="_blank">天宝股份(002220)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002221/index.shtml" target="_blank">东华能源(002221)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002222/index.shtml" target="_blank">福晶科技(002222)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002223/index.shtml" target="_blank">鱼跃医疗(002223)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002224/index.shtml" target="_blank">三 力 士(002224)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002225/index.shtml" target="_blank">濮耐股份(002225)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002226/index.shtml" target="_blank">江南化工(002226)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002227/index.shtml" target="_blank">奥 特 迅(002227)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002228/index.shtml" target="_blank">合兴包装(002228)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002229/index.shtml" target="_blank">鸿博股份(002229)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002230/index.shtml" target="_blank">科大讯飞(002230)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002231/index.shtml" target="_blank">奥维通信(002231)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002232/index.shtml" target="_blank">启明信息(002232)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002233/index.shtml" target="_blank">塔牌集团(002233)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002234/index.shtml" target="_blank">*ST民和(002234)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002235/index.shtml" target="_blank">安妮股份(002235)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002236/index.shtml" target="_blank">大华股份(002236)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002237/index.shtml" target="_blank">恒邦股份(002237)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002238/index.shtml" target="_blank">天威视讯(002238)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002239/index.shtml" target="_blank">金 飞 达(002239)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002240/index.shtml" target="_blank">威华股份(002240)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002241/index.shtml" target="_blank">歌尔声学(002241)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002242/index.shtml" target="_blank">九阳股份(002242)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002243/index.shtml" target="_blank">通产丽星(002243)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002244/index.shtml" target="_blank">滨江集团(002244)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002245/index.shtml" target="_blank">澳洋顺昌(002245)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002246/index.shtml" target="_blank">北化股份(002246)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002247/index.shtml" target="_blank">帝龙新材(002247)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002248/index.shtml" target="_blank">*ST东数(002248)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002249/index.shtml" target="_blank">大洋电机(002249)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002250/index.shtml" target="_blank">联化科技(002250)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002251/index.shtml" target="_blank">步 步 高(002251)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002252/index.shtml" target="_blank">上海莱士(002252)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002253/index.shtml" target="_blank">川大智胜(002253)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002254/index.shtml" target="_blank">泰和新材(002254)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002255/index.shtml" target="_blank">海陆重工(002255)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002256/index.shtml" target="_blank">彩虹精化(002256)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002258/index.shtml" target="_blank">利尔化学(002258)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002259/index.shtml" target="_blank">升达林业(002259)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002260/index.shtml" target="_blank">伊 立 浦(002260)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002261/index.shtml" target="_blank">拓维信息(002261)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002262/index.shtml" target="_blank">恩华药业(002262)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002263/index.shtml" target="_blank">大 东 南(002263)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002264/index.shtml" target="_blank">新 华 都(002264)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002265/index.shtml" target="_blank">西仪股份(002265)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002266/index.shtml" target="_blank">浙富控股(002266)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002267/index.shtml" target="_blank">陕天然气(002267)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002268/index.shtml" target="_blank">卫 士 通(002268)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002269/index.shtml" target="_blank">美邦服饰(002269)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002270/index.shtml" target="_blank">法因数控(002270)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002271/index.shtml" target="_blank">东方雨虹(002271)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002272/index.shtml" target="_blank">川润股份(002272)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002273/index.shtml" target="_blank">水晶光电(002273)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002274/index.shtml" target="_blank">华昌化工(002274)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002275/index.shtml" target="_blank">桂林三金(002275)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002276/index.shtml" target="_blank">万马股份(002276)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002277/index.shtml" target="_blank">友阿股份(002277)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002278/index.shtml" target="_blank">神开股份(002278)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002279/index.shtml" target="_blank">久其软件(002279)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002280/index.shtml" target="_blank">新世纪(002280)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002281/index.shtml" target="_blank">光迅科技(002281)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002282/index.shtml" target="_blank">博深工具(002282)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002283/index.shtml" target="_blank">天润曲轴(002283)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002284/index.shtml" target="_blank">亚太股份(002284)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002285/index.shtml" target="_blank">世联行(002285)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002286/index.shtml" target="_blank">保龄宝(002286)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002287/index.shtml" target="_blank">奇正藏药(002287)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002288/index.shtml" target="_blank">超华科技(002288)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002289/index.shtml" target="_blank">宇顺电子(002289)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002290/index.shtml" target="_blank">禾盛新材(002290)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002291/index.shtml" target="_blank">星期六(002291)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002292/index.shtml" target="_blank">奥飞动漫(002292)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002293/index.shtml" target="_blank">罗莱家纺(002293)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002294/index.shtml" target="_blank">信立泰(002294)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002295/index.shtml" target="_blank">精艺股份(002295)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002296/index.shtml" target="_blank">辉煌科技(002296)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002297/index.shtml" target="_blank">博云新材(002297)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002298/index.shtml" target="_blank">鑫龙电器(002298)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002299/index.shtml" target="_blank">圣农发展(002299)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002300/index.shtml" target="_blank">太阳电缆(002300)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002301/index.shtml" target="_blank">齐心文具(002301)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002302/index.shtml" target="_blank">西部建设(002302)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002303/index.shtml" target="_blank">美盈森(002303)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002304/index.shtml" target="_blank">洋河股份(002304)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002305/index.shtml" target="_blank">南国置业(002305)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002306/index.shtml" target="_blank">中科云网(002306)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002307/index.shtml" target="_blank">北新路桥(002307)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002308/index.shtml" target="_blank">威创股份(002308)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002309/index.shtml" target="_blank">中利科技(002309)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002310/index.shtml" target="_blank">东方园林(002310)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002311/index.shtml" target="_blank">海大集团(002311)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002312/index.shtml" target="_blank">三泰电子(002312)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002313/index.shtml" target="_blank">日海通讯(002313)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002314/index.shtml" target="_blank">雅致股份(002314)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002315/index.shtml" target="_blank">焦点科技(002315)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002316/index.shtml" target="_blank">键桥通讯(002316)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002317/index.shtml" target="_blank">众生药业(002317)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002318/index.shtml" target="_blank">久立特材(002318)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002319/index.shtml" target="_blank">乐通股份(002319)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002320/index.shtml" target="_blank">海峡股份(002320)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002321/index.shtml" target="_blank">华英农业(002321)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002322/index.shtml" target="_blank">理工监测(002322)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002323/index.shtml" target="_blank">中联电气(002323)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002324/index.shtml" target="_blank">普利特(002324)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002325/index.shtml" target="_blank">洪涛股份(002325)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002326/index.shtml" target="_blank">永太科技(002326)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002327/index.shtml" target="_blank">富安娜(002327)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002328/index.shtml" target="_blank">新朋股份(002328)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002329/index.shtml" target="_blank">皇氏乳业(002329)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002330/index.shtml" target="_blank">得利斯(002330)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002331/index.shtml" target="_blank">皖通科技(002331)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002332/index.shtml" target="_blank">仙琚制药(002332)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002333/index.shtml" target="_blank">罗普斯金(002333)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002334/index.shtml" target="_blank">英威腾(002334)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002335/index.shtml" target="_blank">科华恒盛(002335)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002336/index.shtml" target="_blank">人人乐(002336)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002337/index.shtml" target="_blank">赛象科技(002337)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002338/index.shtml" target="_blank">奥普光电(002338)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002339/index.shtml" target="_blank">积成电子(002339)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002340/index.shtml" target="_blank">格林美(002340)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002341/index.shtml" target="_blank">新纶科技(002341)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002342/index.shtml" target="_blank">巨力索具(002342)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002343/index.shtml" target="_blank">禾欣股份(002343)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002344/index.shtml" target="_blank">海宁皮城(002344)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002345/index.shtml" target="_blank">潮宏基(002345)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002346/index.shtml" target="_blank">柘中建设(002346)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002347/index.shtml" target="_blank">泰尔重工(002347)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002348/index.shtml" target="_blank">高乐股份(002348)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002349/index.shtml" target="_blank">精华制药(002349)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002350/index.shtml" target="_blank">北京科锐(002350)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002351/index.shtml" target="_blank">漫步者(002351)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002352/index.shtml" target="_blank">鼎泰新材(002352)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002353/index.shtml" target="_blank">杰瑞股份(002353)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002354/index.shtml" target="_blank">科冕木业(002354)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002355/index.shtml" target="_blank">兴民钢圈(002355)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002356/index.shtml" target="_blank">浩宁达(002356)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002357/index.shtml" target="_blank">富临运业(002357)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002358/index.shtml" target="_blank">森源电气(002358)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002359/index.shtml" target="_blank">齐星铁塔(002359)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002360/index.shtml" target="_blank">同德化工(002360)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002361/index.shtml" target="_blank">神剑股份(002361)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002362/index.shtml" target="_blank">汉王科技(002362)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002363/index.shtml" target="_blank">隆基机械(002363)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002364/index.shtml" target="_blank">中恒电气(002364)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002365/index.shtml" target="_blank">永安药业(002365)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002366/index.shtml" target="_blank">丹甫股份(002366)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002367/index.shtml" target="_blank">康力电梯(002367)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002368/index.shtml" target="_blank">太极股份(002368)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002369/index.shtml" target="_blank">卓翼科技(002369)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002370/index.shtml" target="_blank">亚太药业(002370)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002371/index.shtml" target="_blank">七星电子(002371)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002372/index.shtml" target="_blank">伟星新材(002372)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002373/index.shtml" target="_blank">千方科技(002373)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002374/index.shtml" target="_blank">丽鹏股份(002374)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002375/index.shtml" target="_blank">亚厦股份(002375)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002376/index.shtml" target="_blank">新北洋(002376)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002377/index.shtml" target="_blank">国创高新(002377)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002378/index.shtml" target="_blank">章源钨业(002378)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002379/index.shtml" target="_blank">鲁丰环保(002379)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002380/index.shtml" target="_blank">科远股份(002380)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002381/index.shtml" target="_blank">双箭股份(002381)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002382/index.shtml" target="_blank">蓝帆医疗(002382)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002383/index.shtml" target="_blank">合众思壮(002383)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002384/index.shtml" target="_blank">东山精密(002384)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002385/index.shtml" target="_blank">大北农(002385)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002386/index.shtml" target="_blank">天原集团(002386)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002387/index.shtml" target="_blank">黑牛食品(002387)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002388/index.shtml" target="_blank">新亚制程(002388)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002389/index.shtml" target="_blank">南洋科技(002389)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002390/index.shtml" target="_blank">信邦制药(002390)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002391/index.shtml" target="_blank">长青股份(002391)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002392/index.shtml" target="_blank">北京利尔(002392)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002393/index.shtml" target="_blank">力生制药(002393)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002394/index.shtml" target="_blank">联发股份(002394)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002395/index.shtml" target="_blank">双象股份(002395)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002396/index.shtml" target="_blank">星网锐捷(002396)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002397/index.shtml" target="_blank">梦洁家纺(002397)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002398/index.shtml" target="_blank">建研集团(002398)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002399/index.shtml" target="_blank">海普瑞(002399)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002400/index.shtml" target="_blank">省广股份(002400)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002401/index.shtml" target="_blank">中海科技(002401)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002402/index.shtml" target="_blank">和而泰(002402)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002403/index.shtml" target="_blank">爱仕达(002403)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002404/index.shtml" target="_blank">嘉欣丝绸(002404)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002405/index.shtml" target="_blank">四维图新(002405)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002406/index.shtml" target="_blank">远东传动(002406)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002407/index.shtml" target="_blank">多氟多(002407)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002408/index.shtml" target="_blank">齐翔腾达(002408)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002409/index.shtml" target="_blank">雅克科技(002409)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002410/index.shtml" target="_blank">广联达(002410)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002411/index.shtml" target="_blank">九九久(002411)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002412/index.shtml" target="_blank">汉森制药(002412)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002413/index.shtml" target="_blank">常发股份(002413)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002414/index.shtml" target="_blank">高德红外(002414)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002415/index.shtml" target="_blank">海康威视(002415)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002416/index.shtml" target="_blank">爱施德(002416)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002417/index.shtml" target="_blank">三元达(002417)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002418/index.shtml" target="_blank">康盛股份(002418)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002419/index.shtml" target="_blank">天虹商场(002419)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002420/index.shtml" target="_blank">毅昌股份(002420)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002421/index.shtml" target="_blank">达实智能(002421)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002422/index.shtml" target="_blank">科伦药业(002422)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002423/index.shtml" target="_blank">中原特钢(002423)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002424/index.shtml" target="_blank">贵州百灵(002424)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002425/index.shtml" target="_blank">凯撒股份(002425)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002426/index.shtml" target="_blank">胜利精密(002426)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002427/index.shtml" target="_blank">尤夫股份(002427)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002428/index.shtml" target="_blank">云南锗业(002428)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002429/index.shtml" target="_blank">兆驰股份(002429)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002430/index.shtml" target="_blank">杭氧股份(002430)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002431/index.shtml" target="_blank">棕榈园林(002431)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002432/index.shtml" target="_blank">九安医疗(002432)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002433/index.shtml" target="_blank">太安堂(002433)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002434/index.shtml" target="_blank">万里扬(002434)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002435/index.shtml" target="_blank">长江润发(002435)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002436/index.shtml" target="_blank">兴森科技(002436)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002437/index.shtml" target="_blank">誉衡药业(002437)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002438/index.shtml" target="_blank">江苏神通(002438)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002439/index.shtml" target="_blank">启明星辰(002439)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002440/index.shtml" target="_blank">闰土股份(002440)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002441/index.shtml" target="_blank">众业达(002441)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002442/index.shtml" target="_blank">龙星化工(002442)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002443/index.shtml" target="_blank">金洲管道(002443)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002444/index.shtml" target="_blank">巨星科技(002444)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002445/index.shtml" target="_blank">中南重工(002445)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002446/index.shtml" target="_blank">盛路通信(002446)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002447/index.shtml" target="_blank">壹桥苗业(002447)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002448/index.shtml" target="_blank">中原内配(002448)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002449/index.shtml" target="_blank">国星光电(002449)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002450/index.shtml" target="_blank">康得新(002450)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002451/index.shtml" target="_blank">摩恩电气(002451)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002452/index.shtml" target="_blank">长高集团(002452)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002453/index.shtml" target="_blank">天马精化(002453)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002454/index.shtml" target="_blank">松芝股份(002454)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002455/index.shtml" target="_blank">百川股份(002455)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002456/index.shtml" target="_blank">欧菲光(002456)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002457/index.shtml" target="_blank">青龙管业(002457)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002458/index.shtml" target="_blank">益生股份(002458)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002459/index.shtml" target="_blank">*ST天业(002459)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002460/index.shtml" target="_blank">赣锋锂业(002460)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002461/index.shtml" target="_blank">珠江啤酒(002461)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002462/index.shtml" target="_blank">嘉事堂(002462)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002463/index.shtml" target="_blank">沪电股份(002463)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002464/index.shtml" target="_blank">金利科技(002464)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002465/index.shtml" target="_blank">海格通信(002465)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002466/index.shtml" target="_blank">天齐锂业(002466)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002467/index.shtml" target="_blank">二六三(002467)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002468/index.shtml" target="_blank">艾迪西(002468)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002469/index.shtml" target="_blank">三维工程(002469)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002470/index.shtml" target="_blank">金正大(002470)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002471/index.shtml" target="_blank">中超电缆(002471)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002472/index.shtml" target="_blank">双环传动(002472)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002473/index.shtml" target="_blank">圣莱达(002473)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002474/index.shtml" target="_blank">榕基软件(002474)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002475/index.shtml" target="_blank">立讯精密(002475)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002476/index.shtml" target="_blank">宝莫股份(002476)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002477/index.shtml" target="_blank">雏鹰农牧(002477)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002478/index.shtml" target="_blank">常宝股份(002478)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002479/index.shtml" target="_blank">富春环保(002479)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002480/index.shtml" target="_blank">新筑股份(002480)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002481/index.shtml" target="_blank">双塔食品(002481)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002482/index.shtml" target="_blank">广田股份(002482)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002483/index.shtml" target="_blank">润邦股份(002483)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002484/index.shtml" target="_blank">江海股份(002484)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002485/index.shtml" target="_blank">希努尔(002485)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002486/index.shtml" target="_blank">嘉麟杰(002486)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002487/index.shtml" target="_blank">大金重工(002487)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002488/index.shtml" target="_blank">金固股份(002488)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002489/index.shtml" target="_blank">浙江永强(002489)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002490/index.shtml" target="_blank">山东墨龙(002490)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002491/index.shtml" target="_blank">通鼎光电(002491)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002492/index.shtml" target="_blank">恒基达鑫(002492)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002493/index.shtml" target="_blank">荣盛石化(002493)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002494/index.shtml" target="_blank">华斯股份(002494)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002495/index.shtml" target="_blank">佳隆股份(002495)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002496/index.shtml" target="_blank">辉丰股份(002496)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002497/index.shtml" target="_blank">雅化集团(002497)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002498/index.shtml" target="_blank">汉缆股份(002498)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002499/index.shtml" target="_blank">科林环保(002499)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002500/index.shtml" target="_blank">山西证券(002500)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002501/index.shtml" target="_blank">利源精制(002501)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002502/index.shtml" target="_blank">骅威股份(002502)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002503/index.shtml" target="_blank">搜于特(002503)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002504/index.shtml" target="_blank">东光微电(002504)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002505/index.shtml" target="_blank">大康牧业(002505)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002506/index.shtml" target="_blank">*ST超日(002506)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002507/index.shtml" target="_blank">涪陵榨菜(002507)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002508/index.shtml" target="_blank">老板电器(002508)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002509/index.shtml" target="_blank">天广消防(002509)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002510/index.shtml" target="_blank">天汽模(002510)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002511/index.shtml" target="_blank">中顺洁柔(002511)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002512/index.shtml" target="_blank">达华智能(002512)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002513/index.shtml" target="_blank">蓝丰生化(002513)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002514/index.shtml" target="_blank">宝馨科技(002514)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002515/index.shtml" target="_blank">金字火腿(002515)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002516/index.shtml" target="_blank">江苏旷达(002516)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002517/index.shtml" target="_blank">泰亚股份(002517)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002518/index.shtml" target="_blank">科士达(002518)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002519/index.shtml" target="_blank">银河电子(002519)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002520/index.shtml" target="_blank">日发精机(002520)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002521/index.shtml" target="_blank">齐峰新材(002521)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002522/index.shtml" target="_blank">浙江众成(002522)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002523/index.shtml" target="_blank">天桥起重(002523)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002524/index.shtml" target="_blank">光正集团(002524)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002526/index.shtml" target="_blank">山东矿机(002526)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002527/index.shtml" target="_blank">新时达(002527)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002528/index.shtml" target="_blank">英飞拓(002528)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002529/index.shtml" target="_blank">海源机械(002529)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002530/index.shtml" target="_blank">丰东股份(002530)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002531/index.shtml" target="_blank">天顺风能(002531)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002532/index.shtml" target="_blank">新界泵业(002532)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002533/index.shtml" target="_blank">金杯电工(002533)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002534/index.shtml" target="_blank">杭锅股份(002534)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002535/index.shtml" target="_blank">林州重机(002535)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002536/index.shtml" target="_blank">西泵股份(002536)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002537/index.shtml" target="_blank">海立美达(002537)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002538/index.shtml" target="_blank">司尔特(002538)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002539/index.shtml" target="_blank">新都化工(002539)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002540/index.shtml" target="_blank">亚太科技(002540)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002541/index.shtml" target="_blank">鸿路钢构(002541)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002542/index.shtml" target="_blank">中化岩土(002542)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002543/index.shtml" target="_blank">万和电气(002543)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002544/index.shtml" target="_blank">杰赛科技(002544)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002545/index.shtml" target="_blank">东方铁塔(002545)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002546/index.shtml" target="_blank">新联电子(002546)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002547/index.shtml" target="_blank">春兴精工(002547)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002548/index.shtml" target="_blank">金新农(002548)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002549/index.shtml" target="_blank">凯美特气(002549)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002550/index.shtml" target="_blank">千红制药(002550)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002551/index.shtml" target="_blank">尚荣医疗(002551)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002552/index.shtml" target="_blank">宝鼎重工(002552)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002553/index.shtml" target="_blank">南方轴承(002553)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002554/index.shtml" target="_blank">惠博普(002554)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002555/index.shtml" target="_blank">顺荣股份(002555)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002556/index.shtml" target="_blank">辉隆股份(002556)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002557/index.shtml" target="_blank">洽洽食品(002557)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002558/index.shtml" target="_blank">世纪游轮(002558)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002559/index.shtml" target="_blank">亚威股份(002559)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002560/index.shtml" target="_blank">通达股份(002560)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002561/index.shtml" target="_blank">徐家汇(002561)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002562/index.shtml" target="_blank">兄弟科技(002562)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002563/index.shtml" target="_blank">森马服饰(002563)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002564/index.shtml" target="_blank">张化机(002564)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002565/index.shtml" target="_blank">上海绿新(002565)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002566/index.shtml" target="_blank">益盛药业(002566)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002567/index.shtml" target="_blank">唐人神(002567)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002568/index.shtml" target="_blank">百润股份(002568)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002569/index.shtml" target="_blank">步森股份(002569)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002570/index.shtml" target="_blank">贝因美(002570)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002571/index.shtml" target="_blank">德力股份(002571)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002572/index.shtml" target="_blank">索菲亚(002572)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002573/index.shtml" target="_blank">国电清新(002573)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002574/index.shtml" target="_blank">明牌珠宝(002574)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002575/index.shtml" target="_blank">群兴玩具(002575)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002576/index.shtml" target="_blank">通达动力(002576)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002577/index.shtml" target="_blank">雷柏科技(002577)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002578/index.shtml" target="_blank">闽发铝业(002578)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002579/index.shtml" target="_blank">中京电子(002579)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002580/index.shtml" target="_blank">圣阳股份(002580)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002581/index.shtml" target="_blank">万昌科技(002581)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002582/index.shtml" target="_blank">好想你(002582)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002583/index.shtml" target="_blank">海能达(002583)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002584/index.shtml" target="_blank">西陇化工(002584)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002585/index.shtml" target="_blank">双星新材(002585)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002586/index.shtml" target="_blank">围海股份(002586)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002587/index.shtml" target="_blank">奥拓电子(002587)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002588/index.shtml" target="_blank">史丹利(002588)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002589/index.shtml" target="_blank">瑞康医药(002589)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002590/index.shtml" target="_blank">万安科技(002590)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002591/index.shtml" target="_blank">恒大高新(002591)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002592/index.shtml" target="_blank">八菱科技(002592)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002593/index.shtml" target="_blank">日上集团(002593)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002594/index.shtml" target="_blank">比亚迪(002594)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002595/index.shtml" target="_blank">豪迈科技(002595)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002596/index.shtml" target="_blank">海南瑞泽(002596)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002597/index.shtml" target="_blank">金禾实业(002597)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002598/index.shtml" target="_blank">山东章鼓(002598)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002599/index.shtml" target="_blank">盛通股份(002599)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002600/index.shtml" target="_blank">江粉磁材(002600)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002601/index.shtml" target="_blank">佰利联(002601)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002602/index.shtml" target="_blank">世纪华通(002602)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002603/index.shtml" target="_blank">以岭药业(002603)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002604/index.shtml" target="_blank">龙力生物(002604)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002605/index.shtml" target="_blank">姚记扑克(002605)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002606/index.shtml" target="_blank">大连电瓷(002606)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002607/index.shtml" target="_blank">亚夏汽车(002607)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002608/index.shtml" target="_blank">舜天船舶(002608)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002609/index.shtml" target="_blank">捷顺科技(002609)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002610/index.shtml" target="_blank">爱康科技(002610)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002611/index.shtml" target="_blank">东方精工(002611)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002612/index.shtml" target="_blank">朗姿股份(002612)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002613/index.shtml" target="_blank">北玻股份(002613)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002614/index.shtml" target="_blank">蒙发利(002614)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002615/index.shtml" target="_blank">哈尔斯(002615)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002616/index.shtml" target="_blank">长青集团(002616)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002617/index.shtml" target="_blank">露笑科技(002617)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002618/index.shtml" target="_blank">丹邦科技(002618)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002619/index.shtml" target="_blank">巨龙管业(002619)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002620/index.shtml" target="_blank">瑞和股份(002620)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002621/index.shtml" target="_blank">大连三垒(002621)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002622/index.shtml" target="_blank">永大集团(002622)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002623/index.shtml" target="_blank">亚玛顿(002623)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002624/index.shtml" target="_blank">金磊股份(002624)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002625/index.shtml" target="_blank">龙生股份(002625)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002626/index.shtml" target="_blank">金达威(002626)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002627/index.shtml" target="_blank">宜昌交运(002627)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002628/index.shtml" target="_blank">成都路桥(002628)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002629/index.shtml" target="_blank">仁智油服(002629)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002630/index.shtml" target="_blank">华西能源(002630)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002631/index.shtml" target="_blank">德尔家居(002631)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002632/index.shtml" target="_blank">道明光学(002632)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002633/index.shtml" target="_blank">申科股份(002633)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002634/index.shtml" target="_blank">棒杰股份(002634)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002635/index.shtml" target="_blank">安洁科技(002635)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002636/index.shtml" target="_blank">金安国纪(002636)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002637/index.shtml" target="_blank">赞宇科技(002637)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002638/index.shtml" target="_blank">勤上光电(002638)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002639/index.shtml" target="_blank">雪人股份(002639)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002640/index.shtml" target="_blank">百圆裤业(002640)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002641/index.shtml" target="_blank">永高股份(002641)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002642/index.shtml" target="_blank">荣之联(002642)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002643/index.shtml" target="_blank">烟台万润(002643)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002644/index.shtml" target="_blank">佛慈制药(002644)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002645/index.shtml" target="_blank">华宏科技(002645)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002646/index.shtml" target="_blank">青青稞酒(002646)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002647/index.shtml" target="_blank">宏磊股份(002647)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002648/index.shtml" target="_blank">卫星石化(002648)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002649/index.shtml" target="_blank">博彦科技(002649)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002650/index.shtml" target="_blank">加加食品(002650)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002651/index.shtml" target="_blank">利君股份(002651)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002652/index.shtml" target="_blank">扬子新材(002652)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002653/index.shtml" target="_blank">海思科(002653)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002654/index.shtml" target="_blank">万润科技(002654)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002655/index.shtml" target="_blank">共达电声(002655)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002656/index.shtml" target="_blank">卡奴迪路(002656)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002657/index.shtml" target="_blank">中科金财(002657)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002658/index.shtml" target="_blank">雪迪龙(002658)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002659/index.shtml" target="_blank">中泰桥梁(002659)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002660/index.shtml" target="_blank">茂硕电源(002660)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002661/index.shtml" target="_blank">克明面业(002661)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002662/index.shtml" target="_blank">京威股份(002662)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002663/index.shtml" target="_blank">普邦园林(002663)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002664/index.shtml" target="_blank">信质电机(002664)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002665/index.shtml" target="_blank">首航节能(002665)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002666/index.shtml" target="_blank">德联集团(002666)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002667/index.shtml" target="_blank">鞍重股份(002667)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002668/index.shtml" target="_blank">奥马电器(002668)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002669/index.shtml" target="_blank">康达新材(002669)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002670/index.shtml" target="_blank">华声股份(002670)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002671/index.shtml" target="_blank">龙泉股份(002671)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002672/index.shtml" target="_blank">东江环保(002672)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002673/index.shtml" target="_blank">西部证券(002673)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002674/index.shtml" target="_blank">兴业科技(002674)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002675/index.shtml" target="_blank">东诚药业(002675)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002676/index.shtml" target="_blank">顺威股份(002676)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002677/index.shtml" target="_blank">浙江美大(002677)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002678/index.shtml" target="_blank">珠江钢琴(002678)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002679/index.shtml" target="_blank">福建金森(002679)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002680/index.shtml" target="_blank">黄海机械(002680)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002681/index.shtml" target="_blank">奋达科技(002681)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002682/index.shtml" target="_blank">龙洲股份(002682)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002683/index.shtml" target="_blank">宏大爆破(002683)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002684/index.shtml" target="_blank">猛狮科技(002684)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002685/index.shtml" target="_blank">华东重机(002685)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002686/index.shtml" target="_blank">亿利达(002686)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002687/index.shtml" target="_blank">乔治白(002687)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002688/index.shtml" target="_blank">金河生物(002688)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002689/index.shtml" target="_blank">博林特(002689)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002690/index.shtml" target="_blank">美亚光电(002690)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002691/index.shtml" target="_blank">石中装备(002691)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002692/index.shtml" target="_blank">远程电缆(002692)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002693/index.shtml" target="_blank">双成药业(002693)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002694/index.shtml" target="_blank">顾地科技(002694)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002695/index.shtml" target="_blank">煌上煌(002695)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002696/index.shtml" target="_blank">百洋股份(002696)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002697/index.shtml" target="_blank">红旗连锁(002697)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002698/index.shtml" target="_blank">博实股份(002698)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002699/index.shtml" target="_blank">美盛文化(002699)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002700/index.shtml" target="_blank">新疆浩源(002700)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002701/index.shtml" target="_blank">奥瑞金(002701)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002702/index.shtml" target="_blank">海欣食品(002702)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002703/index.shtml" target="_blank">浙江世宝(002703)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002705/index.shtml" target="_blank">新宝股份(002705)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002706/index.shtml" target="_blank">良信电器(002706)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002707/index.shtml" target="_blank">众信旅游(002707)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002708/index.shtml" target="_blank">光洋股份(002708)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002709/index.shtml" target="_blank">天赐材料(002709)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002711/index.shtml" target="_blank">欧浦钢网(002711)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002712/index.shtml" target="_blank">思美传媒(002712)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002713/index.shtml" target="_blank">东易日盛(002713)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002714/index.shtml" target="_blank">牧原股份(002714)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002715/index.shtml" target="_blank">登云股份(002715)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002716/index.shtml" target="_blank">金贵银业(002716)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002717/index.shtml" target="_blank">岭南园林(002717)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002718/index.shtml" target="_blank">友邦吊顶(002718)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002719/index.shtml" target="_blank">麦趣尔(002719)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002721/index.shtml" target="_blank">金一文化(002721)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002722/index.shtml" target="_blank">金轮股份(002722)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002723/index.shtml" target="_blank">金莱特(002723)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002724/index.shtml" target="_blank">海洋王(002724)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002725/index.shtml" target="_blank">跃岭股份(002725)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002726/index.shtml" target="_blank">龙大肉食(002726)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002727/index.shtml" target="_blank">一心堂(002727)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002728/index.shtml" target="_blank">台城制药(002728)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002729/index.shtml" target="_blank">好利来(002729)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002730/index.shtml" target="_blank">电光科技(002730)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002731/index.shtml" target="_blank">萃华珠宝(002731)</a></li>
+			
+						<li><a href="http://finance.ifeng.com/app/hq/stock/sz002999/index.shtml" target="_blank">发行测试(002999)</a></li>
+			
+		</ul>		
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	
+<!-- 底部栏目导航 end -->
+</div>
+
+<style>
+	.footer { width: 1000px; margin: 0 auto; }
+	.footer .footlink { color: #000; height: 28px; line-height: 28px; padding-top: 15px; border-top: 1px solid #fff; overflow: hidden; }
+	.footer .footlink a { color: #000; }
+	.footer .footlink span { padding: 0 5px; }
+	.footer .fk_l { float: left; }
+	.footer .fk_r { width: 200px; float: right; }
+	.footer .fk_r ul { overflow: hidden; }
+	.footer .fk_r ul li { height: 28px; line-height: 28px; overflow: hidden; float: left; }
+	.footer .fk_r ul .l_bg001 { background: url(http://y1.ifengimg.com/38716b164e0f5e63/2013/0716/nav0416_14.gif) no-repeat left 9px; padding-left: 19px; }
+	.footer .fk_r ul .l_bg002 { background: url(http://y3.ifengimg.com/9db17ab793eef980/2013/0403/nav0416_17.gif) no-repeat left 9px; padding-left: 17px; margin-left: 18px; }
+	.footer .copyright { font-family: Arial; color: #666; height: 28px; line-height: 28px; text-align: center; overflow: hidden; }
+	.footer .copyright span { font-family: "宋体"; }
+</style>
+<div class="footer mt02" id="footer">
+	<div class="footlink clearfix">
+		<div class="fk_l">
+			<a href="http://www.ifeng.com/corp/about/intro/" target="_blank">凤凰新媒体介绍</a><span>|</span><a href="http://ir.ifeng.com/" target="_blank">投资者关系 Investor Relations</a><span>|</span><a href="http://biz.ifeng.com/" target="_blank">广告服务</a><span>|</span><a href="http://career.ifeng.com/" target="_blank">诚征英才</a><span>|</span><a href="http://www.ifeng.com/corp/privacy/" target="_blank">保护隐私权</a><span>|</span><a href="http://www.ifeng.com/corp/exemption/" target="_blank">免责条款</a><span>|</span><a href="http://help.ifeng.com/" target="_blank">意见反馈</a><span>|</span><a href="http://phtv.ifeng.com/intro/" target="_blank">凤凰卫视介绍</a>
+		</div>
+		<div class="fk_r">
+			<ul class="clearfix">
+				<li class="l_bg001"><a href="http://v.ifeng.com/" target="_blank" title="视频">视频</a></li>
+				<li>·<a href="http://v.ifeng.com/documentary/index.shtml" target="_blank" title="纪实">纪实</a></li>
+				<li>·<a href="http://v.ifeng.com/live/" target="_blank" title="直播">直播</a></li>
+				<li class="l_bg002"><a href="http://phtv.ifeng.com/" target="_blank" title="凤凰卫视">凤凰卫视</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="copyright"><span>凤凰新媒体&nbsp;版权所有</span>&nbsp;&nbsp;&nbsp;&nbsp;Copyright © 2013 Phoenix New Media Limited All Rights Reserved.</div>
+</div>
+<script>
+if((typeof device==="object")&&device.type!=="pc"){
+document.getElementById("footer").style.display="none";
+}
+</script>
+<script>var sta_collection_time = new Date().getTime();</script>
+<script src="http://y0.ifengimg.com/20140429/sta_collection.3.3.15.min.js" id="sta_collection_new"></script>
+<script src="http://m0.ifengimg.com/ifeng/sources/120331-iImpression.js"></script>
+<script>try{aptracker.collection();}catch(e){}</script>
+<!-- START WRating v1.0 -->
+<script type="text/javascript" src="http://y2.ifengimg.com/e01ed39fc2da5d4a/2014/0113/wrating.js"></script>
+<script type="text/javascript">
+	var vjAcc = "860010-2063990101";
+	var wrUrl = "http://ifeng.wrating.com/";
+	vjTrack("");
+</script>
+<noscript><img src="http://ifeng.wrating.com/a.gif?a=&c=860010-2063990101" width="1" height="1"/></noscript>
+<!-- END WRating v1.0 -->
+<!--[if !IE]>footer.140729<![endif]-->
+</body>
+</html>

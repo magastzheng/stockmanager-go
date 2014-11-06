@@ -9,7 +9,7 @@ import (
 
 func Test_ParseStr(t *testing.T){
     t.Log("test start")
-    filename := "../stock_a-ha.dat"
+    filename := "../resource/stocklist_sa.dat"
     file, err := os.Open(filename)
  
     if err != nil {
