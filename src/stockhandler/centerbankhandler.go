@@ -70,11 +70,11 @@ func (h *CenterBankHandler) OnEndElement(tag string) {
 				fmt.Println("Total td: ", h.tdNum)
 				h.tdNum = 0
 				h.Data = append(h.Data, h.row)
-				var str string
-				for k, v := range h.row {
-					str += fmt.Sprintf("%v:%v ", k, v)
-				}
-				fmt.Println(h.trNum, str)
+				//var str string
+				//for k, v := range h.row {
+				//	str += fmt.Sprintf("%v:%v ", k, v)
+				//}
+				//fmt.Println(h.trNum, str)
             }
         case "td":
             if h.isTargetTd {
@@ -113,7 +113,8 @@ func (h *CenterBankHandler) OnError(line int, row int, message string) {
 func (h *CenterBankHandler) Output() {
 	fmt.Println("rows: ", h.trNum)
 	for _, row := range h.Data {
-		var str string
+		//var str string
+        str := fmt.Sprintf("# %v #", len(row))
 		for k, v := range row {
 			str += fmt.Sprintf("%v: %v    ", k, v)
 		}

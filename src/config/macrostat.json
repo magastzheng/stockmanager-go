@@ -1,0 +1,16 @@
+{
+    "host": "http://data.stats.gov.cn",
+    "root": "/quotas/init?t=1415326670041&dbcode=hgyd&dimension=zb&selectedCodeId=",
+    "children": [
+        {
+            "uri":"/quotas/getchildren",
+            "data":"code=%v&level=1&dbcode=hgyd&dimension=zb"
+        },
+        {
+            "uri": "/quotas/getchildren",
+            "data": "dbcode=hgyd&dimension=zb&code=%v&level=2"
+        }
+    ],
+    "time": "/time/init?t=1415326670043&dbcode=hgyd&dimension=sj",
+    "data": "/workspace/index?a=l&tmp=1415325963372&m=hgyd&index=%v&region=000000&time=-1,198301&selectId=000000&third=region"
+}
