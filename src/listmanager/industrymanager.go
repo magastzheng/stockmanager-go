@@ -26,4 +26,11 @@ func (m *IndustryManager) Process() {
     minordb.TranInsertIndustry(m.parser.MinorMap)
 }
 
+func NewIndustryManager()*IndustryManager{
+    m := new(IndustryManager)
+    m.Init()
+
+    return m
+}
+
 

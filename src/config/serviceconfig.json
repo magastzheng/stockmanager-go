@@ -1,16 +1,16 @@
 {
-	¡°services":[{
+	"services":[{
 		"id": "sina-price",
-		"host": "http://money.finance.sina.com.cn"
+		"host": "http://money.finance.sina.com.cn",
 		"apis":[{
 			"key": "current",
 			"method": "GET",
-			"uri": "/corp/go.php/vMS_MarketHistory/stockid/%v.phtml"
+			"uri": "/corp/go.php/vMS_MarketHistory/stockid/%v.phtml",
 			"data": ""
 		},{
 			"key": "history",
 			"method": "GET",
-			"uri": "/corp/go.php/vMS_MarketHistory/stockid/%v.phtml?year=%v&jidu=%v"
+			"uri": "/corp/go.php/vMS_MarketHistory/stockid/%v.phtml?year=%v&jidu=%v",
 			"data": ""
 		}]
 	},{
@@ -19,33 +19,32 @@
 		"apis": [{
 			"key": "indexroot",
 			"method": "GET",
-			"uri": "/quotas/init?t=1415326670041&dbcode=hgyd&dimension=zb&selectedCodeId="
+			"uri": "/quotas/init?t=1415326670041&dbcode=hgyd&dimension=zb&selectedCodeId=",
 			"data": ""
 		},
 		{
-			"key": "children1"
-			"uri": "/quotas/getchildren"
+			"key": "children1",
+			"uri": "/quotas/getchildren",
 			"method": "POST",
 			"data": "code=%v&level=1&dbcode=hgyd&dimension=zb"
 		},
 		{
-			"key": "children2"
-			"uri": "/quotas/getchildren"
+			"key": "children2",
+			"uri": "/quotas/getchildren",
 			"method": "POST",
 			"data": "dbcode=hgyd&dimension=zb&code=%v&level=2"
 		},
 		{
-			"key": "timeperiod"
-			"uri": "/time/init?t=1415326670043&dbcode=hgyd&dimension=sj"
+			"key": "timeperiod",
+			"uri": "/time/init?t=1415326670043&dbcode=hgyd&dimension=sj",
 			"method": "GET",
-			"data":
+			"data": ""
 		}, 
 		{
-			"key": "data"
-			"uri": "/workspace/index?a=l&tmp=1415325963372&m=hgyd&index=%v&region=000000&time=-1,
-	198301&selectId=000000&third=region"
+			"key": "data",
+			"uri": "/workspace/index?a=l&tmp=1415325963372&m=hgyd&index=%v&region=000000&time=-1,198301&selectId=000000&third=region",
 			"method": "GET",
-			"data":	
+			"data":	""
 		}
 		]
 	}]

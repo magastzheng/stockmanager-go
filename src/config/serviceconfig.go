@@ -7,20 +7,20 @@ import(
 )
 
 type ServiceAPI struct {
-    Key string
-    Method string
-    Uri string
-    Data string
+    Key string `json: "key"`
+    Method string `json: "method"`
+    Uri string  `json: "uri"`
+    Data string `json: "data"`
 }
 
 type ServiceItem struct {
-    Id string
-    Host string
-    Apis [] ServiceAPI
+    Id string   `json: "id"`
+    Host string `json: "host"`
+    Apis [] ServiceAPI  `json: "apis"`
 }
 
 type ServiceConfig struct {
-    Services [] ServiceItem
+    Services [] ServiceItem `json: "services"`
 }
 
 type ServiceConfigManager struct {
@@ -63,7 +63,7 @@ func (m *ServiceConfigManager) GetConfig(id, key string) ServiceAPI {
 
 func NewServiceConfigManager() *ServiceConfigManager{
     m := new(ServiceConfigManager)
-    m.Parse()
+    m.Parse("serviceconfig.json")
 
     return m
 }

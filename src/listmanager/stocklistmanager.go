@@ -19,7 +19,8 @@ type StockListManager struct {
     db *stockdb.StockDatabase
 }
 
-func (s *StockListManager) Init(filename string) {
+func (s *StockListManager) Init() {
+    const filename = "../config/stocklist.json"
     s.config = config.Parse(filename)
     s.download = download.NewDownloader()
     //s.handler = stockhandler.NewStockHandler()
@@ -61,4 +62,10 @@ func (s *StockListManager) WriteFile(filename string, content string) {
     }
 
     file.WriteString(content)
+}
+
+func NewStockListManager() *StockListManager {
+    m := new(StockListManager)
+    m.Init()
+    return m
 }

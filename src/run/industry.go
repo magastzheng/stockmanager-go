@@ -1,13 +1,14 @@
-package listmanager_test
+package main
 
 import (
-    "testing"
     "listmanager"
+    "fmt"
 )
 
-func Test_Industry(t *testing.T) {
+func main() {
     manager := listmanager.NewIndustryManager()
     manager.Process()
+    fmt.Println("Industry complete!")
 }
 
 
