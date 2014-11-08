@@ -12,8 +12,24 @@
 			"method": "GET",
 			"uri": "/corp/go.php/vMS_MarketHistory/stockid/%v.phtml?year=%v&jidu=%v",
 			"data": ""
-		}]
+		},{
+            "key": "realtime",
+            "method": "GET",
+            "uri": "http://hq.sinajs.cn/list=%v%v",
+            "data": ""
+        }
+        ]
 	},{
+    	"id": "sina-realtime",
+		"host": "http://hq.sinajs.cn",
+		"apis":[{
+            "key": "realtime",
+            "method": "GET",
+            "uri": "/list=%v%v",
+            "data": ""
+        }
+        ]
+    },{
 		"id": "nationstat",
 		"host": "http://data.stats.gov.cn",
 		"apis": [{

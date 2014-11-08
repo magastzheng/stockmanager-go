@@ -61,9 +61,10 @@ func (m *ServiceConfigManager) GetConfig(id, key string) ServiceAPI {
     return api
 }
 
-func NewServiceConfigManager() *ServiceConfigManager{
+func NewServiceConfigManager(filename string) *ServiceConfigManager{
     m := new(ServiceConfigManager)
-    m.Parse("serviceconfig.json")
+    //m.Parse("./serviceconfig.json")
+    m.Parse(filename)
 
     return m
 }
