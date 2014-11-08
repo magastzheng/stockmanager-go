@@ -6,7 +6,6 @@ import (
     "util"
     "bytes"
     "fmt"
-    "github.com/golang/glog"
 )
 
 func HttpGet(url string) string {
@@ -16,7 +15,7 @@ func HttpGet(url string) string {
     if err != nil {
         //TODO: It will use log here
         fmt.Println(err)
-        glog.Error(err)
+        util.NewLog().Error("URL: ", url, err)
         return ""
     }
     
@@ -35,7 +34,7 @@ func HttpPost(url, data string) string {
     if err != nil {
         //TODO: It will use log here
         fmt.Println(err)
-        glog.Error(err)
+        util.NewLog().Error("URL: ", url, "Data: ", data, err)
         return ""
     }
 

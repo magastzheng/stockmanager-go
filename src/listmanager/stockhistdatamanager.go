@@ -17,6 +17,7 @@ type StockHistDataManager struct {
     //handler *stockhandler.StockHistDataHandler
     stocklistdb *stockdb.StockDatabase
     db *stockdb.StockHistDataDB
+    logger *util.StockLog
 }
 
 func (m *StockHistDataManager) Init() {
@@ -26,6 +27,7 @@ func (m *StockHistDataManager) Init() {
     config := dbconfig.GetConfig("chinastock")
     m.stocklistdb = stockdb.NewStockDatabase(config.Dbtype, config.Dbcon)
     m.db = stockdb.NewStockHistDataDB(config.Dbtype, config.Dbcon)
+    m.logger = util.NewLog()
 }
 
 func (m *StockHistDataManager) Process() {
@@ -34,6 +36,7 @@ func (m *StockHistDataManager) Process() {
     for _, id := range ids {
         if util.IsStringNotEmpty(id) {
             data := m.GetStockData(id)
+            m.logger.Info("Complete to handle:", id)
             //m.WriteData(id, data)
             //fmt.Println(data)
             m.db.TranInsert(id, data)
@@ -49,6 +52,9 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
     //m.WriteMainPage(code, mainPage)
     
     mainData := handler.Data
+    if len(mainData) == 0 {
+        m.log(code, -1, -1)
+    }
     now := time.Now()
     nowYear := now.Year()
     nowMonth := int(now.Month())
@@ -62,6 +68,9 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
                 //m.WriteSeasonData(code, year, i, shandler.Data)
+                if len(shandler.Data) == 0 {
+                    m.log(code, year, i)
+                }
                 mainData = append(mainData, shandler.Data...)
             }
         } else if year > 0 {
@@ -72,6 +81,9 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
                 sparser := parser.NewTextParser(shandler)
                 sparser.ParseStr(seasonPage)
                 //m.WriteSeasonData(code, year, i, shandler.Data)
+                if len(shandler.Data) == 0 {
+                    m.log(code, year, i)
+                }
                 mainData = append(mainData, shandler.Data...)
             }
         }
@@ -79,6 +91,10 @@ func (m *StockHistDataManager) GetStockData(code string) []stockhandler.StockHis
 
     return mainData
 }
+
+func (m *StockHistDataManager) log(code string, year, season int) {
+    m.logger.Error("[historical-data]: miss: ", code, year, season)
+} 
 
 func (m *StockHistDataManager) WriteSeasonPage(code, content string, year, season int) {
     format := "../data/%v/%v-%v-%v.dat"

@@ -2,11 +2,14 @@ package main
 
 import(
     "listmanager"
-    "fmt"
+    //"fmt"
+    "util"
 )
 
 func main() {
+    logger := util.NewLog()
+    logger.Info("Start to get historical data")
     manager := listmanager.NewStockHistDataManager()
     manager.Process()
-    fmt.Println("Stock Historical Data complete!")
+    logger.Info("Stock Historical Data complete!")
 }
