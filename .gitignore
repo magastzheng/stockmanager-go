@@ -5,3 +5,5 @@
 *.txt
 *.text
 *.swo
+*.log
+*.exe
