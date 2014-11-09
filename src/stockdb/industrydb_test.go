@@ -8,7 +8,7 @@ import (
 )
 
 func Test_BigIndustryInsert(t *testing.T) {
-    db := stockdb.NewIndustryDB("mysql", "root@/chinastock")
+    db := stockdb.NewIndustryDB("chinastock")
     industry := excel.Industry {
         BigCode: "A",
         Name: "测试",

@@ -8,7 +8,7 @@ import(
 )
 
 func Test_StockHistDataInsert(t *testing.T){
-    db := stockdb.NewStockHistDataDB("mysql", "root@/chinastock")
+    db := stockdb.NewStockHistDataDB("chinastock")
     data := stockhandler.StockHistData{
         Date: "2014-10-31",
         Open: 3.15,

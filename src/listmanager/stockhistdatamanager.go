@@ -5,7 +5,6 @@ import (
     "stockhandler"
     "parser"
     "stockdb"
-    "config"
     "time"
     "util"
     "fmt"
@@ -13,8 +12,6 @@ import (
 
 type StockHistDataManager struct {
     downloader *download.StockHistDownloader
-    //parser *parser.TextParser
-    //handler *stockhandler.StockHistDataHandler
     stocklistdb *stockdb.StockDatabase
     db *stockdb.StockHistDataDB
     logger *util.StockLog
@@ -22,11 +19,8 @@ type StockHistDataManager struct {
 
 func (m *StockHistDataManager) Init() {
     m.downloader = download.NewStockHistDownloader()
-
-    dbconfig := config.NewDBConfig("../config/dbconfig.json")
-    config := dbconfig.GetConfig("chinastock")
-    m.stocklistdb = stockdb.NewStockDatabase(config.Dbtype, config.Dbcon)
-    m.db = stockdb.NewStockHistDataDB(config.Dbtype, config.Dbcon)
+    m.stocklistdb = stockdb.NewStockDatabase("chinastock")
+    m.db = stockdb.NewStockHistDataDB("chinastock")
     m.logger = util.NewLog()
 }
 

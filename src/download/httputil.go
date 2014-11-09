@@ -5,14 +5,17 @@ import (
     "io/ioutil"
     "util"
     "bytes"
-    "fmt"
+    //"fmt"
 )
 
 func HttpGet(url string) string {
     resp, err := http.Get(url)
+    if resp == nil {
+        return ""
+    }
     defer resp.Body.Close()
     //util.CheckError(err)
-    if resp == nil || err != nil {
+    if err != nil {
         util.NewLog().Error("URL: ", url, err)
         return ""
     }
@@ -30,6 +33,9 @@ func HttpGet(url string) string {
 func HttpPost(url, data string) string {
     buf := []byte(data)
     resp, err := http.Post(url, "application/json", bytes.NewReader(buf))
+    if resp == nil {
+        return ""
+    } 
     defer resp.Body.Close()
     if err != nil {
         util.NewLog().Error("URL: ", url, "Data: ", data, err)

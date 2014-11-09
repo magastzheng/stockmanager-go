@@ -21,12 +21,12 @@ func (l *StockLog) Init(){
         log.Fatalln("Cannot open log file: ", l.filename, err)
     }
 
-    l.logger = log.New(logfile, "[Info]", log.Llongfile | log.LstdFlags)
+    //l.logger = log.New(logfile, "[Info]", log.Llongfile | log.LstdFlags)
+    l.logger = log.New(logfile, "[Info]", log.LstdFlags)
     l.logger.Println("Success to initialize the logging!")
 }
 
 func (l *StockLog) Error(v ... interface{}) {
-    l.logger.Println("Error start")
     l.logger.SetPrefix("[Error]")
     l.logger.Println(v)
 }

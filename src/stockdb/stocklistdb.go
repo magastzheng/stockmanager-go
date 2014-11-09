@@ -9,6 +9,11 @@ import (
     //"fmt"
 )
 
+type StockIdExchange struct {
+    Id string
+    Exchange string
+}
+
 type StockDatabase struct {
    DBBase
 }
@@ -125,7 +130,8 @@ func (s *StockDatabase) QueryIds() []string {
     db := s.Open()
     defer db.Close()
    
-    rows, err := db.Query("select count(id) from stocklist")
+    //rows, err := db.Query("select count(id) from stocklist")
+    rows, err := db.Query("select count(id) from stocklist where id not in (select distinct code from stockhistdata)")
     util.CheckError(err)
 
     var count int
@@ -134,7 +140,8 @@ func (s *StockDatabase) QueryIds() []string {
     }
     //fmt.Println("Total:", count)
 
-    rows, err = db.Query("select id from stocklist")
+    //rows, err = db.Query("select id from stocklist")
+    rows, err = db.Query("select id from stocklist where id not in (select distinct code from stockhistdata)")
     util.CheckError(err)
     
     //Get column names
@@ -156,7 +163,7 @@ func (s *StockDatabase) QueryIds() []string {
          //err = rows.Scan(scanArgs...)
          err = rows.Scan(&id)
          util.CheckError(err)
-         
+           
          //total++
          //var value string
          //for _, col := range values {
@@ -177,11 +184,61 @@ func (s *StockDatabase) QueryIds() []string {
     return ids
 }
 
-func NewStockDatabase(dbtype string, dbcon string) *StockDatabase {
-    return &StockDatabase{
-        DBBase: DBBase{
-            Dbtype: dbtype,
-            Dbcon: dbcon,
-        },
+func (s *StockDatabase) GetIdExchange() []StockIdExchange {
+    db := s.Open()
+    defer db.Close()
+   
+    rows, err := db.Query("select count(id) from stocklist")
+    util.CheckError(err)
+
+    var count int
+    for rows.Next() {
+        err = rows.Scan(&count)
     }
+    //fmt.Println("Total:", count)
+
+    rows, err = db.Query("select id, exchange from stocklist")
+    util.CheckError(err)
+    
+    //Get column names
+    //columns, err := rows.Columns()
+    //util.CheckError(err)
+    //make a slice for the values
+    //values := make([]sql.RawBytes, len(columns))
+    
+    //scanArgs := make([]interface{}, len(values))
+    //for i := range values {
+    //    scanArgs[i] = &values[i]
+    //}
+    
+    idexchs := make([]StockIdExchange, 0, count + 1)
+
+    //total := 0
+    var id, exch string
+    for rows.Next() {
+         //err = rows.Scan(scanArgs...)
+         err = rows.Scan(&id, &exch)
+         util.CheckError(err)
+         
+         idexch := StockIdExchange{
+            Id: id,
+            Exchange: exch,
+         }
+
+         idexchs = append(idexchs, idexch)
+    }
+    
+    return idexchs
+}
+
+func NewStockDatabase(dbname string) *StockDatabase {
+    stdb := new(StockDatabase)
+    stdb.Init(dbname)
+    return stdb
+    //return &StockDatabase{
+    //    DBBase: DBBase{
+    //        Dbtype: dbtype,
+    //        Dbcon: dbcon,
+    //    },
+    //}
 }

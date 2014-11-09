@@ -108,11 +108,8 @@ func (s *StockHistDataDB) TranInsert(code string, datas [] stockhandler.StockHis
     return 0
 } 
 
-func NewStockHistDataDB(dbtype string, dbcon string) *StockHistDataDB {
-    return &StockHistDataDB{
-        DBBase: DBBase{
-            Dbtype: dbtype,
-            Dbcon: dbcon,
-        },
-    }
+func NewStockHistDataDB(dbname string) *StockHistDataDB {
+    stdb := new(StockHistDataDB)
+    stdb.Init(dbname)
+    return stdb
 }

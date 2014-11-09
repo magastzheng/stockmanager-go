@@ -1,22 +1,13 @@
 package stockdb
 
 import (
-    "database/sql"
     _ "github.com/go-sql-driver/mysql"
     "excel"
     "util"
 )
 
 type IndustryDatabase struct {
-    dbtype string
-    dbcon string
-}
-
-func (s* IndustryDatabase) Open() *sql.DB {
-    db, err := sql.Open(s.dbtype, s.dbcon)
-    util.CheckError(err)
-    
-    return db
+    DBBase
 }
 
 func (s *IndustryDatabase) InsertIndustry(industry excel.Industry) int {
@@ -112,9 +103,8 @@ func (s *IndustryDatabase) TranInsertIndustry(industries map[string] excel.Indus
     return 0
 } 
 
-func NewIndustryDB(dbtype string, dbcon string) *IndustryDatabase {
-    return &IndustryDatabase{
-        dbtype: dbtype,
-        dbcon: dbcon,
-    }
+func NewIndustryDB(dbname string) *IndustryDatabase {
+    stdb := new(IndustryDatabase)
+    stdb.Init(dbname)
+    return stdb
 }

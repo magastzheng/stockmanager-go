@@ -2,10 +2,10 @@ package listmanager
 
 import(
     "download"
-    "config"
     "stockdb"
     "parser"
     "stockhandler"
+    "config"
     //"fmt"
     "os"
     //"encoding/json"
@@ -14,8 +14,6 @@ import(
 type StockListManager struct {
     config config.StockListConfig
     download *download.StockDownloader
-    //parser *parser.TextParser
-    //handler *stockhandler.StockHandler
     db *stockdb.StockDatabase
 }
 
@@ -23,9 +21,7 @@ func (s *StockListManager) Init() {
     const filename = "../config/stocklist.json"
     s.config = config.Parse(filename)
     s.download = download.NewDownloader()
-    //s.handler = stockhandler.NewStockHandler()
-    //s.parser = parser.NewTextParser(s.handler)
-    s.db = stockdb.NewStockDatabase("mysql", "root@/chinastock?charset=utf8")
+    s.db = stockdb.NewStockDatabase("chinastock")
 }
 
 func (s *StockListManager) Process() {
