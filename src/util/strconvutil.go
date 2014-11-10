@@ -7,8 +7,17 @@ import (
     "strings"
 )
 
-func ToInt(s string) int {
+func GetIntStr(s string) string {
     s = strings.TrimSpace(s)
+    if strings.Contains(s, ".") {
+        s = strings.Split(s, ".")[0]
+    }
+
+    return s
+}
+
+func ToInt(s string) int {
+    s = GetIntStr(s)
     i, err := strconv.Atoi(s)
     if err != nil {
         fmt.Println(err)
@@ -18,7 +27,7 @@ func ToInt(s string) int {
 }
 
 func ToInt64(s string) int64 {
-    s = strings.TrimSpace(s)
+    s = GetIntStr(s)
     i, err := strconv.ParseInt(s, 10, 64)
     if err != nil {
         fmt.Println(err)
