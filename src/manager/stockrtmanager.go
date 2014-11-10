@@ -5,7 +5,7 @@ import(
     "parser"
     "stockdb"
     "util"
-    "fmt"
+    //"fmt"
 )
 
 type StockRtDataManager struct{
@@ -34,8 +34,8 @@ func (m *StockRtDataManager) Process() {
         p.ParseStr(str)
         data := p.Data
         
-        fmt.Println(data)
-        //m.datadb.Insert(idexch.Id, data)
+        //fmt.Println(data)
+        m.datadb.Insert(idexch.Id, data)
     }
 }
 

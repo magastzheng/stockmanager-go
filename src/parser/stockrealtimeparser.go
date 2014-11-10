@@ -23,7 +23,7 @@ func (p *StockRtParser) ParseStr(data string) {
     start := strings.Index(data, "\"")
     end := strings.LastIndex(data, "\"")
     validData := data[start+1:end]
-    fmt.Println(validData)
+    //fmt.Println(validData)
     values := strings.Split(validData, ",")
     fmt.Println(values)
 

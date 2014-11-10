@@ -18,12 +18,14 @@ type NationStatManager struct {
     downloader *download.NationStatDownloader
     parser *parser.NSParser
     logger *util.StockLog
+    idxmap map[string] string
 }
 
 func (m *NationStatManager) Init() {
     m.downloader = download.NewNationStatDownloader()
     m.parser = parser.NewNSParser()
     m.logger = util.NewLog()
+    m.idxmap = make(map[string] string)
 }
 
 func (m *NationStatManager) Process() {
@@ -39,6 +41,8 @@ func (m *NationStatManager) Process() {
             m.GetIndex(root, 1)
         }
     }
+
+    m.WriteIndex()
 }
 
 func (m *NationStatManager) GetIndex(idxdata entity.NSIndex, level int) {
@@ -72,6 +76,11 @@ func (m *NationStatManager) GetData(ids []string, start string, end string) {
     m.WriteData(ids, start, end, datastr)
     nsvalue := m.parser.ParseData(datastr)
     m.WriteValue(ids, start, end, nsvalue.TableData)
+
+    indexes := nsvalue.Value.Index
+    for _, idx := range indexes {
+        m.idxmap[idx.Id] = idx.Name
+    }
 }
 
 func (m *NationStatManager) WriteIndexData(id string, level int, content string) {
@@ -97,6 +106,17 @@ func (m *NationStatManager) WriteValue(ids []string, start string, end string, d
     for k, v := range data{
         content += k + ": " + v + "\n"
     }
+    util.WriteFile(filename, content)
+}
+
+func (m *NationStatManager) WriteIndex() {
+    filename := "../data/macroindex.dat"
+
+    var content string
+    for k, v := range m.idxmap {
+        content += fmt.Sprintf("%v: %v\n", k, v)
+    }
+
     util.WriteFile(filename, content)
 }
 
