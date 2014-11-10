@@ -1,0 +1,32 @@
+[{
+	"id": "A01",
+	"name": "价格指数",
+	"ifData": "0",
+	"isParent": true,
+	"pId": "1",
+	"ename": "价格指数"
+},
+{
+	"ename": "工业",
+	"pId": "1",
+	"ifData": "0",
+	"isParent": true,
+	"id": "A02",
+	"name": "工业"
+},
+{
+	"isParent": true,
+	"ifData": "0",
+	"id": "A03",
+	"pId": "1",
+	"ename": "固定资产投资(不含农户)",
+	"name": "固定资产投资(不含农户)"
+},
+{
+	"pId": "1",
+	"name": "房地产",
+	"id": "A04",
+	"ifData": "0",
+	"isParent": true,
+	"ename": "房地产"
+}]

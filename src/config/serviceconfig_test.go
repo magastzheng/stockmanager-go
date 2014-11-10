@@ -6,10 +6,18 @@ import(
     "fmt"
 )
 
-func Test_ParseServiceConfig(t *testing.T) {
+func Test_ParseServiceConfig_Service(t *testing.T) {
     m := config.NewServiceConfigManager("serviceconfig.json")
-    res := m.GetConfig("sina-price", "current")
+    res, _ := m.GetService("sina-price")
     fmt.Println(res)
-    res = m.GetConfig("sina-price", "realtime")
+    res, _ = m.GetService("nationstat")
+    fmt.Println(res)
+}
+
+func Test_ParseServiceConfig_Api(t *testing.T) {
+    m := config.NewServiceConfigManager("serviceconfig.json")
+    res := m.GetApi("sina-price", "current")
+    fmt.Println(res)
+    res = m.GetApi("sina-price", "realtime")
     fmt.Println(res)
 }

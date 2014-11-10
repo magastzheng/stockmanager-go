@@ -23,3 +23,14 @@ func Test_HttpPost(t *testing.T) {
         t.Error("Cannot post")
     }
 }
+
+func Test_HttpPostForm(t *testing.T) {
+    url := "http://data.stats.gov.cn/quotas/getchildren"
+    query := "code=A0B&level=1&dbcode=hgyd&dimension=zb"
+    result := download.HttpPostForm(url, query)
+    if len(result) > 0 {
+        t.Log(result)
+    } else {
+        t.Error("Cannot post form")
+    }
+}

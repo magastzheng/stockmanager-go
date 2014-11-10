@@ -51,6 +51,12 @@
 			"data": "dbcode=hgyd&dimension=zb&code=%v&level=2"
 		},
 		{
+			"key": "children3",
+			"uri": "/quotas/getchildren",
+			"method": "POST",
+			"data": "dbcode=hgyd&dimension=zb&code=%v&level=3"
+		},
+		{
 			"key": "timeperiod",
 			"uri": "/time/init?t=1415326670043&dbcode=hgyd&dimension=sj",
 			"method": "GET",
@@ -58,7 +64,7 @@
 		}, 
 		{
 			"key": "data",
-			"uri": "/workspace/index?a=l&tmp=1415325963372&m=hgyd&index=%v&region=000000&time=-1,198301&selectId=000000&third=region",
+			"uri": "/workspace/index?a=l&tmp=1415325963372&m=hgyd&index=%v&region=000000&time=%v&selectId=000000&third=region",
 			"method": "GET",
 			"data":	""
 		}

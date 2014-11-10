@@ -4,6 +4,8 @@ import(
     "encoding/json"
     "io/ioutil"
     "util"
+    //"fmt"
+    //"os"
 )
 
 type ServiceAPI struct {
@@ -28,25 +30,41 @@ type ServiceConfigManager struct {
 }
 
 func (m *ServiceConfigManager) Parse(filename string) {
+    //dir, err := os.Getwd()
+    //if err != nil {
+    //    fmt.Println(err)
+    //}
+    //fmt.Println("dir:", dir)
+
     chunks, err := ioutil.ReadFile(filename)
-    util.CheckError(err)
+    //util.CheckError(err)
+    if err != nil {
+        //fmt.Println("Cannot read file:", filename, err)
+        panic(err)
+    }
 
     err = json.Unmarshal(chunks, &m.config)
     util.CheckError(err)
 }
 
-func (m *ServiceConfigManager) GetConfig(id, key string) ServiceAPI {
+func (m *ServiceConfigManager) GetService(id string) (ServiceItem, bool) {
     var item ServiceItem
-    isExist := false
+    var ok bool = false
     items := m.config.Services
-
+    
     for _, v := range items {
         if v.Id == id {
             item = v
-            isExist = true
+            ok = true
             break
         }
     }
+
+    return item, ok
+}
+
+func (m *ServiceConfigManager) GetApi(id, key string) ServiceAPI {
+    item, isExist := m.GetService(id)
     
     var api ServiceAPI
     if isExist {
