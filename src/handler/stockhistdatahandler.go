@@ -1,9 +1,10 @@
-package stockhandler
+package handler
 
 import (
     //"fmt"
     "strings"
     "util"
+    "entity"
 )
 
 const ( 
@@ -13,19 +14,9 @@ const (
     HistSelectName = "year"
 )
 
-type StockHistData struct {
-    Date string
-    Open float32
-    Highest float32
-    Close float32
-    Lowest float32
-    Volume int
-    Money int
-}
-
 type StockHistDataHandler struct {
     Code string
-    Data [] StockHistData
+    Data [] entity.StockHistData
     Years [] int
     isTargetForm bool
     isTargetSelectYear bool
@@ -41,11 +32,11 @@ type StockHistDataHandler struct {
     isTargetTdAnchor bool
     targetTrNum int
     targetTdNum int
-    tempData StockHistData
+    tempData entity.StockHistData
 }
 
 func (h *StockHistDataHandler) Init() {
-    h.Data = make([]StockHistData, 0, 92)
+    h.Data = make([]entity.StockHistData, 0, 92)
     h.Years = make([]int, 0, 30)
     h.isTargetForm = false
     h.isTargetSelectYear = false
@@ -125,7 +116,7 @@ func (h *StockHistDataHandler) OnStartElement(tag string, attrs map[string]strin
                     h.isTargetTr = true
                     
                     if h.targetTrNum > 1 {
-                        h.tempData = StockHistData{}
+                        h.tempData = entity.StockHistData{}
                     }
                 }
             }

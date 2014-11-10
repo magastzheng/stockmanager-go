@@ -1,4 +1,4 @@
-package listmanager
+package manager
 
 import (
     "excel"

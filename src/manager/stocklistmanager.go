@@ -1,10 +1,10 @@
-package listmanager
+package manager
 
 import(
     "download"
     "stockdb"
     "parser"
-    "stockhandler"
+    "handler"
     "config"
     //"fmt"
     "os"
@@ -34,15 +34,15 @@ func (s *StockListManager) Process() {
         pageStr := s.download.GetPage(baseUrl, c.Type, c.Class)
         
         //s.parser.ParseStr(pageStr)
-        handler := stockhandler.NewStockHandler()
-        parser := parser.NewTextParser(handler)
+        h := handler.NewStockHandler()
+        parser := parser.NewTextParser(h)
         parser.ParseStr(pageStr)
-        //fmt.Println(len(handler.Stocks))
-        //stockstr := handler.ToJson()
+        //fmt.Println(len(h.Stocks))
+        //stockstr := h.ToJson()
         //s.WriteFile(c.Type + c.Class, stockstr)
-        s.db.TranInsert(c.Exchange, handler.Stocks)
+        s.db.TranInsert(c.Exchange, h.Stocks)
         //exchange := c.Exchange
-        //for _, st := range s.handler.Stocks {
+        //for _, st := range s.h.Stocks {
         //    fmt.Println(id)
         //    s.db.DeleteStock(st)
         //    s.db.InsertStock(exchange, st)

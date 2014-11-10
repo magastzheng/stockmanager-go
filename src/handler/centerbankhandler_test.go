@@ -1,8 +1,8 @@
-package stockhandler_test
+package handler_test
 
 import(
     "parser"
-	"stockhandler"
+	"handler"
 	"testing"
 	"io/ioutil"
 	"fmt"
@@ -15,11 +15,11 @@ func Test_CenterBankHandler(t *testing.T) {
 	util.CheckError(err)
 
 	str := string(chunks)
-	handler := stockhandler.NewCenterBankHandler()
+	h := handler.NewCenterBankHandler()
 
-	parser := parser.NewTextParser(handler)
+	parser := parser.NewTextParser(h)
 	parser.ParseStr(str)
-	//fmt.Println(handler.Data)
-	fmt.Println(len(handler.Data))
-	handler.Output();
+	//fmt.Println(h.Data)
+	fmt.Println(len(h.Data))
+	h.Output();
 }

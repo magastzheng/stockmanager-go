@@ -3,50 +3,15 @@ package parser
 import(
     "encoding/json"
     "util"
+    "entity"
 )
-
-type NSBase struct {
-    Id string `json: "id"`
-    Name string `json: "name"`
-}
-
-type NSRegion struct {
-    NSBase
-    EName string `json: "ename"`
-}
-
-type NSIndex struct {
-    NSRegion
-    IfData string `json: "ifData"`
-    IsParent bool `json: "isParent"`
-    PId string `json: "pId"`
-}
-
-type NSDataIndex struct {
-    NSRegion
-    Unit string `json: "unit"`
-    Eunit string `json: "eunit"`
-    Note string `json: "note"`
-    Enote string `json: "enote"`
-}
-
-type NSValue struct {
-    Region []NSRegion `json: "region"`
-    Index []NSDataIndex `json: "index"`
-    Time []NSBase `json: "time"`
-}
-
-type NSData struct {
-    TableData map[string] string `json: "tableData"`
-    Value NSValue `json: "value"`
-}
 
 type NSParser struct{
 
 }
 
-func (p *NSParser) ParseData(data string) NSData {
-    var nsdata NSData
+func (p *NSParser) ParseData(data string) entity.NSData {
+    var nsdata entity.NSData
     bytes := []byte(data)
     err := json.Unmarshal(bytes, &nsdata)
     if err != nil {
@@ -57,8 +22,8 @@ func (p *NSParser) ParseData(data string) NSData {
     return nsdata
 }
 
-func (p *NSParser) ParseIndex(data string) []NSIndex {
-    var nsdata []NSIndex
+func (p *NSParser) ParseIndex(data string) []entity.NSIndex {
+    var nsdata []entity.NSIndex
     bytes := []byte(data)
     err := json.Unmarshal(bytes, &nsdata)
     if err != nil {
@@ -69,8 +34,8 @@ func (p *NSParser) ParseIndex(data string) []NSIndex {
     return nsdata
 }
 
-func (p *NSParser) ParsePeriod(data string) []NSBase {
-    var nsdata []NSBase
+func (p *NSParser) ParsePeriod(data string) []entity.NSBase {
+    var nsdata []entity.NSBase
     bytes := []byte(data)
     err := json.Unmarshal(bytes, &nsdata)
     if err != nil {

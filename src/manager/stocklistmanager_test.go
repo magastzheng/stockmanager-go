@@ -1,14 +1,14 @@
-package listmanager_test
+package manager_test
 
 import(
     "testing"
-    "listmanager"
+    "manager"
     //"fmt"
 )
 
 func Test_Process(t *testing.T) {
     //s := new(StockListManager)
     //s.Init("../config/stocklist.json")
-    s := listmanager.NewStockListManager()
+    s := manager.NewStockListManager()
     s.Process()
 }

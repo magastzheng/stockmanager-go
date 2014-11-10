@@ -2,7 +2,7 @@ package stockdb_test
 
 import (
     "testing"
-    "stockhandler"
+    "entity"
     "stockdb"
     "fmt"
 )
@@ -10,7 +10,7 @@ import (
 func Test_StockDatabaseInsert(t *testing.T) {
     //stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
     stdb := stockdb.NewStockDatabase("chinastock")
-    stock := stockhandler.Stock{}
+    stock := entity.Stock{}
     stock.Id = "1234"
     stock.Name = "test"
     stock.Website = "http://www.1234.com"

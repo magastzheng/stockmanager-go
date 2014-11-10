@@ -1,7 +1,7 @@
 package parser
 
 import(
-    "stockhandler"
+    "entity"
     //"io/ioutil"
     "strings"
     "util"
@@ -9,7 +9,7 @@ import(
 )
 
 type StockRtParser struct {
-    Data stockhandler.StockHistData
+    Data entity.StockHistData
 }
 
 func (p *StockRtParser) ParseStr(data string) {
@@ -27,7 +27,7 @@ func (p *StockRtParser) ParseStr(data string) {
     values := strings.Split(validData, ",")
     fmt.Println(values)
 
-    p.Data = stockhandler.StockHistData{}
+    p.Data = entity.StockHistData{}
     for i, v := range values {
         switch i {
             case 1:

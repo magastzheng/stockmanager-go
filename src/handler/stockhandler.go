@@ -1,28 +1,23 @@
 //Parse the stock code and name from the HMTL page
-package stockhandler
+package handler
 
 import(
     "fmt"
     "strings"
     "encoding/json"
+    "entity"
 )
 
-type Stock struct{
-    Id string
-    Name string
-    Website string
-}
-
 type StockHandler struct{
-    Stocks map [string] Stock
+    Stocks map [string] entity.Stock
     isTargetDiv bool
     isStockLi bool
     isStockLink bool
-    tempStock Stock
+    tempStock entity.Stock
 }
 
 func (h *StockHandler) Init() {
-    h.Stocks = make(map [string] Stock)
+    h.Stocks = make(map [string] entity.Stock)
     h.isTargetDiv = false
     h.isStockLi = false
     h.isStockLink = false
@@ -47,7 +42,7 @@ func (h *StockHandler) OnStartElement(tag string, attrs map[string]string){
     } else if h.isStockLi && tag == "a" {
         h.isStockLink = true
         //fmt.Println("start: ", tag)
-        h.tempStock = Stock{Website: attrs["href"]}
+        h.tempStock = entity.Stock{Website: attrs["href"]}
     } else {
         //do nothing
     }

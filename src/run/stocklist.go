@@ -1,12 +1,12 @@
 package main
 
 import (
-    "listmanager"
+    "manager"
     "fmt"
 )
 
 func main() {
-    manager := listmanager.NewStockListManager()
-    manager.Process()
+    m := manager.NewStockListManager()
+    m.Process()
     fmt.Println("Stock list run complete!")
 }

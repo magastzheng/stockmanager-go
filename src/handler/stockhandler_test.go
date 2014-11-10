@@ -1,8 +1,9 @@
 //Parse the stock code and name from the HMTL page
-package stockhandler
+package handler_test
 
 import(
     "testing"
+    "handler"
     "fmt"
     "os"
     "io"
@@ -22,17 +23,17 @@ func Test_StockHandler(t *testing.T){
     chunks := bytes.NewBuffer(nil)
     io.Copy(chunks, file)
     str := string(chunks.Bytes())
-    handler := new(StockHandler)
-    handler.Init()
+    h := new(handler.StockHandler)
+    h.Init()
     parser := new(parser.TextParser)
-    parser.SetHandler(handler)
+    parser.SetHandler(h)
     parser.ParseStr(str)
     
-    fmt.Println(len(handler.Stocks))
-    //handler.PrintStocks()
-    //fmt.Println("600725", handler.Stocks["600725"].id)
+    fmt.Println(len(h.Stocks))
+    //h.PrintStocks()
+    //fmt.Println("600725", h.Stocks["600725"].id)
     
-    if len(handler.Stocks) == 982 {
+    if len(h.Stocks) == 982 {
         t.Log("Pass")
     } else {
         t.Error("The total stock number is wrong!")

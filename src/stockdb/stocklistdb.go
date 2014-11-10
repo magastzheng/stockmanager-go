@@ -3,7 +3,7 @@ package stockdb
 import (
     //"database/sql"
     _ "github.com/go-sql-driver/mysql"
-    "stockhandler"
+    "entity"
     "util"
     //"strconv"
     //"fmt"
@@ -18,7 +18,7 @@ type StockDatabase struct {
    DBBase
 }
 
-func (s *StockDatabase) Insert(exch string, stock stockhandler.Stock) int {
+func (s *StockDatabase) Insert(exch string, stock entity.Stock) int {
     db := s.Open()
 
     stmt, err := db.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
@@ -39,7 +39,7 @@ func (s *StockDatabase) Insert(exch string, stock stockhandler.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) Delete(stock stockhandler.Stock) int {
+func (s *StockDatabase) Delete(stock entity.Stock) int {
     db := s.Open()
 
     stmt, err := db.Prepare("delete from stocklist where id=?")
@@ -61,7 +61,7 @@ func (s *StockDatabase) Delete(stock stockhandler.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) Update(stock stockhandler.Stock) int {
+func (s *StockDatabase) Update(stock entity.Stock) int {
     db := s.Open()
 
     stmt, err := db.Prepare("update stocklist set name=? where id=?")
@@ -82,7 +82,7 @@ func (s *StockDatabase) Update(stock stockhandler.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) TranInsert(exch string, stocks map[string] stockhandler.Stock) int {
+func (s *StockDatabase) TranInsert(exch string, stocks map[string] entity.Stock) int {
     db := s.Open()
 	
 	tx, err := db.Begin()
@@ -107,7 +107,7 @@ func (s *StockDatabase) TranInsert(exch string, stocks map[string] stockhandler.
     return 0
 }
 
-func (s *StockDatabase) Query(id string) stockhandler.Stock {
+func (s *StockDatabase) Query(id string) entity.Stock {
     db := s.Open()
     defer db.Close()
 
@@ -119,7 +119,7 @@ func (s *StockDatabase) Query(id string) stockhandler.Stock {
     err = stmt.QueryRow(id).Scan(&stockid, &stockname, &exchange, &website)
     util.CheckError(err)
 
-    return stockhandler.Stock{
+    return entity.Stock{
         Id: stockid,
         Name: stockname,
         Website: website,

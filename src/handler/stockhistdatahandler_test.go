@@ -1,8 +1,8 @@
-package stockhandler_test
+package handler_test
 
 import (
     "testing"
-    "stockhandler"
+    "handler"
     "fmt"
     "parser"
     "io/ioutil"
@@ -15,19 +15,19 @@ func Test_StockHistDataHandler(t *testing.T) {
     chunks, err := ioutil.ReadFile(filename)
     util.CheckError(err)
     str := string(chunks)
-    handler := stockhandler.NewStockHistDataHandler()
-    handler.Init()
+    h := handler.NewStockHistDataHandler()
+    h.Init()
 
-    parser := parser.NewTextParser(handler)
+    parser := parser.NewTextParser(h)
     parser.ParseStr(str)
     
-    fmt.Println(handler.Code)
-    //fmt.Println(handler.Data)
-    fmt.Println(handler.Years)
-    PrintHistData(handler.Data)
+    fmt.Println(h.Code)
+    //fmt.Println(h.Data)
+    fmt.Println(h.Years)
+    PrintHistData(h.Data)
 }
 
-func PrintHistData(datas []stockhandler.StockHistData) {
+func PrintHistData(datas []handler.StockHistData) {
     format := "Date: %v, open: %v, close: %v, high: %v, low: %v, volume: %v, money: %v"
     for i, d := range datas {
         s := fmt.Sprintf(format, d.Date, d.Open, d.Close, d.Highest, d.Lowest, d.Volume, d.Money)

@@ -2,7 +2,7 @@ package stockdb
 
 import(
     _ "github.com/go-sql-driver/mysql"
-    "stockhandler"
+    "entity"
     "util"
 )
 
@@ -10,7 +10,7 @@ type StockHistDataDB struct {
     DBBase
 }
 
-func (s *StockHistDataDB) Insert(code string, d stockhandler.StockHistData) int {
+func (s *StockHistDataDB) Insert(code string, d entity.StockHistData) int {
     db := s.Open()
     stmt, err := db.Prepare("insert stockhistdata set code=?, date=?, open=?, close=?, highest=?, lowest=?, volume=?, money=?")
     util.CheckError(err)
@@ -43,7 +43,7 @@ func (s *StockHistDataDB) Delete(code string, date string) int {
     return 0
 }
 
-func (s *StockHistDataDB) Update(code string, d stockhandler.StockHistData) int {
+func (s *StockHistDataDB) Update(code string, d entity.StockHistData) int {
     db := s.Open()
     
     stmt, err := db.Prepare("update stockhistdata set open=?, close=?, highest=?, lowest=?, volume=?, money=? where code=? and date=?")
@@ -60,7 +60,7 @@ func (s *StockHistDataDB) Update(code string, d stockhandler.StockHistData) int 
     return 0
 }
 
-func (s *StockHistDataDB) Query(code string, date string) stockhandler.StockHistData {
+func (s *StockHistDataDB) Query(code string, date string) entity.StockHistData {
     db := s.Open()
     
     stmt, err := db.Prepare("select code, date, open, close, highest, lowest, volume, money from stockhistdata where code = ? and date = ?")
@@ -75,7 +75,7 @@ func (s *StockHistDataDB) Query(code string, date string) stockhandler.StockHist
 
     db.Close()
 
-    return stockhandler.StockHistData{
+    return entity.StockHistData{
         Date: newdate,
         Open: open,
         Close: close,
@@ -86,7 +86,7 @@ func (s *StockHistDataDB) Query(code string, date string) stockhandler.StockHist
     }
 }
 
-func (s *StockHistDataDB) TranInsert(code string, datas [] stockhandler.StockHistData) int {
+func (s *StockHistDataDB) TranInsert(code string, datas [] entity.StockHistData) int {
     db := s.Open()
     
     tx, err := db.Begin()

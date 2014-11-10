@@ -3,13 +3,13 @@ package stockdb_test
 import(
     "testing"
     "stockdb"
-    "stockhandler"
+    "entity"
     "fmt"
 )
 
 func Test_StockHistDataInsert(t *testing.T){
     db := stockdb.NewStockHistDataDB("chinastock")
-    data := stockhandler.StockHistData{
+    data := entity.StockHistData{
         Date: "2014-10-31",
         Open: 3.15,
         Close: 2.46,

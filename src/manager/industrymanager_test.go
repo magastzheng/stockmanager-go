@@ -1,14 +1,13 @@
-package main
+package manager_test
 
 import (
+    "testing"
     "manager"
-    "fmt"
 )
 
-func main() {
+func Test_Industry(t *testing.T) {
     m := manager.NewIndustryManager()
     m.Process()
-    fmt.Println("Industry complete!")
 }
 
 

@@ -41,7 +41,7 @@ func (s *StockDownloader) GetPage(baseUrl, typ, class string) string {
     return result
 }
 
-func maind() {
+func main() {
     const baseUrl string = "http://app.finance.ifeng.com/hq/list.php"
     const typ = "stock_a"
     const class = "ha"
