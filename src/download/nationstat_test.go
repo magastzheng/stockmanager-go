@@ -14,20 +14,20 @@ func Test_NationStatGetRoot(t *testing.T) {
 
 func Test_NationStatGetChild(t *testing.T){
     d := download.NewNationStatDownloader()
-    codes := []string{"A01"}
-    result := d.GetChild(codes, 1)
+    code := "A01"
+    result := d.GetChild(code, 1)
     if len(result) == 0 {
         t.Error("Cannot get level 1")
     }
 
-    codes = []string{"A0101"}
-    result = d.GetChild(codes, 2)
+    code = "A0101"
+    result = d.GetChild(code, 2)
     if len(result) == 0 {
         t.Error("Cannot get level 2")
     }
 
-    codes = []string{"A010101"}
-    result = d.GetChild(codes, 3)
+    code = "A010101"
+    result = d.GetChild(code, 3)
     if len(result) == 0 {
         t.Error("Cannot get level 3")
     }

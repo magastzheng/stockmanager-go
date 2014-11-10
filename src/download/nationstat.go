@@ -45,16 +45,16 @@ func (d *NationStatDownloader) GetRoot() string {
     return HttpGet(d.root.Uri)
 }
 
-func (d *NationStatDownloader) GetChild(codes []string, level int) string {
+func (d *NationStatDownloader) GetChild(code string, level int) string {
     var result string
-    querycode := strings.Join(codes, ",")
+    //querycode := strings.Join(codes, ",")
     switch level {
         case 1:
-            result = d.GetServiceData(d.child1, querycode)
+            result = d.GetServiceData(d.child1, code)
         case 2:
-            result = d.GetServiceData(d.child2, querycode)
+            result = d.GetServiceData(d.child2, code)
         case 3:
-            result = d.GetServiceData(d.child3, querycode)
+            result = d.GetServiceData(d.child3, code)
     }
 
     return result
