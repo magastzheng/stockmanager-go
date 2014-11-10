@@ -83,17 +83,19 @@ func (m *NationStatManager) WriteIndexData(id string, level int, content string)
 func (m *NationStatManager) WriteData(ids []string, start, end, content string) {
     idstr := strings.Join(ids, "-")
     format := "../data/data-%v-%v-%v.dat"
-    filename := fmt.Sprintf(format, idstr, start, end)
+    filename := fmt.Sprintf(format, ids[0], start, end)
+    content += idstr + "\n" + content
     util.WriteFile(filename, content)
 }
 
 func (m *NationStatManager) WriteValue(ids []string, start string, end string, data map[string]string) {
     idstr := strings.Join(ids, "-")
+
     format := "../data/actualdata-%v-%v-%v.dat"
-    filename := fmt.Sprintf(format, idstr, start, end)
-    var content string
+    filename := fmt.Sprintf(format, ids[0], start, end)
+    content := idstr + "\n"
     for k, v := range data{
-        content += "key: " + k + "|value: " + v + ","
+        content += k + ": " + v + "\n"
     }
     util.WriteFile(filename, content)
 }
