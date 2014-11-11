@@ -24,7 +24,7 @@ func Test_NSParseData(t *testing.T){
 }
 
 func Test_NSParseIndexData(t *testing.T){
-    filename := "../resource/nationstat-index.dat"
+    filename := "../resource/nationstat-index-fail.dat"
     bytes, err := ioutil.ReadFile(filename)
     util.CheckError(err)
     data := string(bytes)
@@ -36,6 +36,9 @@ func Test_NSParseIndexData(t *testing.T){
         t.Error("Parse index json data wrong")
     }
     
+    fmt.Println("Length: ", len(result))
+    fmt.Println(result)
+
     for _, v := range result {
         str := fmt.Sprintf("Id: %v, Name: %v, PId: %v, EName: %v, IfData: %v, IsParent: %v", v.Id, v.Name, v.PId, v.EName, v.IfData, v.IsParent)
         fmt.Println(str)

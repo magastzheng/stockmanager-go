@@ -14,7 +14,7 @@ type NSIndex struct {
     NSRegion
     IfData string `json: "ifData"`
     IsParent bool `json: "isParent"`
-    PId string `json: "pId"`
+    PId string `json: "pId,string"`
 }
 
 type NSDataIndex struct {
