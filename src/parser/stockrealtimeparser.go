@@ -5,7 +5,7 @@ import(
     //"io/ioutil"
     "strings"
     "util"
-    "fmt"
+    //"fmt"
 )
 
 type StockRtParser struct {
@@ -25,7 +25,7 @@ func (p *StockRtParser) ParseStr(data string) {
     validData := data[start+1:end]
     //fmt.Println(validData)
     values := strings.Split(validData, ",")
-    fmt.Println(values)
+    //fmt.Println(values)
 
     p.Data = entity.StockHistData{}
     for i, v := range values {

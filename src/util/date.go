@@ -39,7 +39,7 @@ func IsLeapYear(year int) bool {
 
 func LastDay(year, month int) int {
     day := Days[month]
-    if IsLeapYear(year) {
+    if IsLeapYear(year) && month == 2 {
         day += 1
     }
 

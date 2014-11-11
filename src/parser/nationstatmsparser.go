@@ -4,7 +4,7 @@ import(
     "entity"
     "util"
     "strings"
-    "fmt"
+    //"fmt"
 )
 
 type NSMSParser struct {
@@ -44,9 +44,12 @@ func (p *NSMSParser) Parse(mapData map[string] string) {
             case "A0B0102":
                 ms.M2pct = d
         }
+
+        //fmt.Println(ms)
+        tempMap[date] = ms
     }
     
-    fmt.Println(len(tempMap))
+    //fmt.Println(len(tempMap))
     for _, v := range tempMap {
         p.Data = append(p.Data, v)
     }
@@ -60,13 +63,13 @@ func (p *NSMSParser) ParseKey(key string) (id, date string) {
         return 
     }
     
-    fmt.Println("key: ", key)
+    //fmt.Println("key: ", key)
     id = strings.TrimSpace(keys[0])
     t := util.ParseDate(keys[2])
 
-    fmt.Println(id, t)
+    //fmt.Println(id, t)
     date = t.Format("2006-01-02")
-    fmt.Println(date)
+    //fmt.Println("Key: ", key, " label: ", keys[2], " date: ", date)
     return id, date
 }
 
