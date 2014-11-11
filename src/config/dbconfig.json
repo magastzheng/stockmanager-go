@@ -3,5 +3,9 @@
 		"name": "chinastock",
 		"dbtype": "mysql",
 		"dbcon": "root@/chinastock"
+	},{
+		"name": "macroindecis",
+		"dbtype": "mysql",
+		"dbcon": "root@/macroindecis"
 	}]
 }
