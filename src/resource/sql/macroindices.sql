@@ -4,11 +4,11 @@ drop table if exists moneysupply;
 
 create table moneysupply(
     date date not null primary key,
-    m0 float,
+    m0 decimal(15,2) default null,
     m0pct float,
-    m1 float,
+    m1 decimal(15,2) default null,
     m1pct float,
-    m2 float,
+    m2 decimal(15,2) default null,
     m2pct float
 );
 

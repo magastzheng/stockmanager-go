@@ -18,7 +18,6 @@ func (p *NSMSParser) Parse(mapData map[string] string) {
     for k, v := range mapData {
         id, date := p.ParseKey(k)
         
-        //fmt.Println(id, date)
         ms, ok := tempMap[date]
         if !ok {
             ms = entity.MoneySupply{
@@ -28,28 +27,24 @@ func (p *NSMSParser) Parse(mapData map[string] string) {
             tempMap[date] = ms
         }
         
-        //fmt.Println(v)
-        d := util.ToFloat32(v)
         switch id {
             case "A0B0105":
-                ms.M0 = d
+                ms.M0 = util.ToFloat64(v)
             case "A0B0103":
-                ms.M1 = d
+                ms.M1 = util.ToFloat64(v)
             case "A0B0101":
-                ms.M2 = d
+                ms.M2 = util.ToFloat64(v)
             case "A0B0106":
-                ms.M0pct = d
+                ms.M0pct = util.ToFloat32(v)
             case "A0B0104":
-                ms.M1pct = d
+                ms.M1pct = util.ToFloat32(v)
             case "A0B0102":
-                ms.M2pct = d
+                ms.M2pct = util.ToFloat32(v)
         }
 
-        //fmt.Println(ms)
         tempMap[date] = ms
     }
     
-    //fmt.Println(len(tempMap))
     for _, v := range tempMap {
         p.Data = append(p.Data, v)
     }
@@ -63,11 +58,9 @@ func (p *NSMSParser) ParseKey(key string) (id, date string) {
         return 
     }
     
-    //fmt.Println("key: ", key)
     id = strings.TrimSpace(keys[0])
     t := util.ParseDate(keys[2])
 
-    //fmt.Println(id, t)
     date = t.Format("2006-01-02")
     //fmt.Println("Key: ", key, " label: ", keys[2], " date: ", date)
     return id, date

@@ -31,7 +31,6 @@ func (m *NSMSManager) Process() {
     
     count := len(m.parser.Data)
     if count > 0 {
-        //fmt.Println(m.parser.Data)
         m.logger.Info("Insert the money supply into database")
         m.db.TranInsert(m.parser.Data)
         m.logger.Info("Complete to insert money supply into database: ", count)
