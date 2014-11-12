@@ -17,7 +17,7 @@ drop table if exists mfgpmi;
 create table mfgpmi(
     date date not null primary key,
     pmi float,
-    prodution float,
+    production float,
     neworder float,
     newexportorder float,
     inhandorder float,
@@ -42,7 +42,7 @@ create table nonmfgpmi(
     inventory float,
     iminputprice float,
     subscriptionprice float,
-    emploees float,
+    employees float,
     supplierdeliverytime float,
     bizactexpectation float
 );
