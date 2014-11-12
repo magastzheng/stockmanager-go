@@ -1,0 +1,144 @@
+PMI
+INDEX = (P1*1) + (P2*0.5) + (P3*0)
+P1 = Percentage number of answers that reported an improvement.
+P2 = Percentage number of answers that reported no change.
+P3 = Percentage number of answers that reported a deterioration.
+
+New orders (0.3), Output (0.25) - 产出, Employment (0.2), Suppliers' Delivery Times (0.15), Stocks of purchases (0.1)
+
+中国
+
+Date
+Consumer Expectation Index
+Consumer Satisfaction Index
+Consumer Confidence Index
+  
+2011.06
+111.4
+103.2
+108.1
+
+This is set up by the China Federation of Logistics & Purchasing and National Bureau of Statistics and was first launched in July 2005. PMI reading above 50 points indicates that the manufacturing economy is generally expanding and that the economy is generally declining when the reading fells below 50 points. The manufacturing PMI is a composite index based on the diffusion indices for the five major components with the following weightings: new orders (30%), output (25%),employment (20%), supplier delivery times (15%), and inventories (10%).
+
+PMI综合指数计算公式如下：PMI=订单×30%+生产×25%+雇员×20%+配送×15%+存货×10%。
+=============Parent: A0901 mfgpmi
+A090101: 制造业采购经理指数:pmi:Manufacturing Purchasing Managers Index
+A090102: 生产指数:production:production index
+A090103: 新订单指数:neworder: The new orders index
+A090104: 新出口订单指数:newexportorder: The new export orders index
+A090105: 在手订单指数:inhandorder: In hand orders index
+A090106: 产成品库存指数:finishedgoodsinventory: Finished goods inventory index
+A090107: 采购量指数:purchasingvolume: Procurement volume index
+A090108: 进口指数:import: Import index
+A090109: 主要原材料购进价格指数:mainrawmaterialpurchaseprice: The purchase price index of major raw materials
+A09010A: 原材料库存指数:rawmaterialsinventory: inventory index of raw materials
+A09010B: 从业人员指数:employees: Practitioners index
+A09010C: 供应商配送时间指数:supplierdeliverytime: The supplier delivery time index
+A09010D: 生产经营活动预期指数:productionbusinessactivitiesexpectation: Production and business activities expectation index //The production and business operation activities expectations index
+
+
+=============Parent: A0902 非制造业
+A090201: 非制造业商务活动指数: pmi: non-manufacturing purchasing manager index//Non manufacturing business activity index
+A090202: 新订单指数: neworder:
+A090203: 新出口订单指数: newexportorder
+A090204: 在手订单指数: inhandorder
+A090205: 存货指数: inventory: Inventory index
+A090206: 中间投入价格指数: intermediateinputprice: Intermediate input price index 
+A090207: 收费价格指数: subscriptionprice: subscription price index(认购价格指数)//The price index
+A090208: 从业人员指数: employees: employees index
+A090209: 供应商配送时间指数: supplierdeliverytime
+A09020A: 业务活动预期指数: businessactivityexpectation: Business activities expectation index
+
+
+
+1. ("Main  Indicators of Provincial Capitals and Cities Specially Designated in the State Plan ")Gross Regional Product(current prices)
+2. (price) Sales Indices of Indemnificatory Housing
+3.(price)Price Indices for Small Farm Tools 
+4. (Price)Price Indices for Materials 
+5. (Price)Price Indices for Large Animals 
+6. (Price)Price Indices for Labor Cost 
+7. (Price)Consumer Price Indices 
+8. (Price)Consumer Price Indices of Urban Households 
+9. (Price)Consumer Price Indices of Rural Households 
+10. (Price)Consumer Price Indices for Food 
+11. (Price)Consumer Price Indices for Grain 
+12. (Price)Consumer Price Indices for Oil and Fat 
+13. (Price)Consumer Price Indices for Meat, Poultry and Processed Products 
+14. (Price)Consumer Price Indices for Eggs 
+15. (Price)Consumer Price Indices for Aquatic Products 
+16. (Price)Consumer Price Indices for Vegetable 
+17. (Price)Consumer Price Indices for Fresh Vegetable 
+18. (Price)Consumer Price Indices for Dried and Fresh Melons and Fruits 
+19. (Price)Consumer Price Indices for Fresh Fruits 
+20. (Price)Consumer Price Indices for Dining Out 
+21. (Price)Consumer Price Indices for Tobacco, Liquor and Articles
+22. (Price)Consumer Price Indices for Tobacco
+23. (Price)Consumer Price Indices for Liquor
+24. (Price)Consumer Price Indices for Clothing
+25. (Price)Consumer Price Indices for Garments 
+26. (Price)Consumer Price Indices for Clothing Material 
+27. (Price)Consumer Price Indices for Footgear and Hats 
+28. (Price)Consumer Price Indices for Clothing Manufacturing Services 
+29. (Price)Consumer Price Indices for Household Facilities, Articles and Services 
+30. (Price)Consumer Price Indices for Durable Consumer Goods 
+31. (Price)Consumer Price Indices for Interior Decorations 
+32. (Price)Consumer Price Indices for Bed Articles 
+33. (Price)Consumer Price Indices for Daily Use Household Articles 
+34. (Price)Consumer Price Indices for Household Services and Maintenance and Renovation 
+35. (Price)Consumer Price Indices for Health Care and Personal Articles 
+36. (Price)Consumer Price Indices for Health Care 
+37. (Price)Consumer Price Indices for Medical Instrument and Articles 
+38. (Price)Consumer Price Indices for Traditional Chinese Medicine 
+39. (Price)Consumer Price Indices for Western Medicine 
+40. (Price)Consumer Price Indices for Health Care Appliances and Articles 
+
+http://www.stats.gov.cn/english/PressRelease/201410/t20141015_622811.html
+Consumer Prices
+　Of which: Urban
+　　　　 Rural
+　Of which: Food
+　　　　 Non food
+　Of which: Consumer Goods
+　　　　 Services
+　Of which: Excluding Food and Energy
+　Of which: Excluding Fresh Vegetables and Fresh Fruits
+By Commodity Categories
+　I. Food
+　　Grain
+　　Grease
+　　Meat, Poultry and Related Products
+　　　　Of which: Pork
+　　　　　　　　Beef
+　　　　　　　　Mutton
+　　Eggs
+　　Aquatic Products
+　　Fresh Vegetables
+　　Fresh Fruits
+　　Milk and dairy Products
+　II. Tobacco, Liquor and Articles
+　　Tobacco
+　　Liquor
+　III. Clothing
+　　Clothing
+　　Shoes
+　　Clothing Processing Service
+　IV. Household Facilities, Articles and Maintenance Services
+　　Durable Consumers
+　　Household Services and Processing, Maintenance Service
+　V. Health Care and Personal Articles
+　　Chinese Herbal Medicines and Proprietary Chinese Medicines
+　　Western Medicines
+　　Health Care Services
+　VI. Transportation and Communication
+　　Transportation Facilities
+　　Fuels and Parts for Vehicles
+　　Vehicle Use and Maintenance
+　　Communication Facilities
+　　Communication Services
+　VII. Recreation, Education, Culture Articles and Services
+　　Education Services
+　　Tourism
+　VIII. Residence
+　　Building and its Decoration Materials
+　　House Renting
+　　Water, Electricity, and Fuel
