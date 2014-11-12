@@ -3,11 +3,12 @@ package parser
 import(
     "entity"
     "util"
-    "strings"
+    //"strings"
     //"fmt"
 )
 
 type NSMSParser struct {
+    NSParserBase
     Data []entity.MoneySupply
 }
 
@@ -20,10 +21,7 @@ func (p *NSMSParser) Parse(mapData map[string] string) {
         
         ms, ok := tempMap[date]
         if !ok {
-            ms = entity.MoneySupply{
-                Date: date,
-            }
-
+            ms.Date = date
             tempMap[date] = ms
         }
         
@@ -48,22 +46,6 @@ func (p *NSMSParser) Parse(mapData map[string] string) {
     for _, v := range tempMap {
         p.Data = append(p.Data, v)
     }
-}
-
-//key format as: id_000000_yyyyMM
-func (p *NSMSParser) ParseKey(key string) (id, date string) {
-    keys := strings.Split(key, "_")
-    if len(keys) != 3 {
-        util.NewLog().Error("Fail to parse the nation stat key: ", key)
-        return 
-    }
-    
-    id = strings.TrimSpace(keys[0])
-    t := util.ParseDate(keys[2])
-
-    date = t.Format("2006-01-02")
-    //fmt.Println("Key: ", key, " label: ", keys[2], " date: ", date)
-    return id, date
 }
 
 func NewNSMSParser() *NSMSParser {
