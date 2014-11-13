@@ -47,3 +47,50 @@ create table nonmfgpmi(
     bizactexpectation float
 );
 
+create table currentcpi(
+    cpi float,
+    food float,
+    tobaccoliquor float,
+    clothing float
+    housefacility float,
+    health float,
+    transport float,
+    recreationedu float,
+    residence float
+);
+
+create table currenturbancpi(
+    cpi float,
+    food float,
+    tobaccoliquor float,
+    clothing float
+    housefacility float,
+    health float,
+    transport float,
+    recreationedu float,
+    residence float
+);
+
+create table currentruralcpi(
+    cpi float,
+    food float,
+    tobaccoliquor float,
+    clothing float
+    housefacility float,
+    health float,
+    transport float,
+    recreationedu float,
+    residence float
+);
+
+
+create table foodcpi(
+    grain float,
+    grease float,
+    meat float,
+    egg float,
+    aquatic float,
+    vegetable float,
+    fruit float/*,
+    milk float*/
+);
