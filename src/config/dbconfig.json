@@ -7,5 +7,9 @@
 		"name": "macroindecis",
 		"dbtype": "mysql",
 		"dbcon": "root@/macroindecis"
-	}]
+	},{
+        "name":"stocktest",
+        "dbtype": "mysql",
+        "dbcon": "root@/stocktest"
+    }]
 }

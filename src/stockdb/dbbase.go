@@ -5,6 +5,7 @@ import (
     "util"
     _ "github.com/go-sql-driver/mysql"
     "config"
+    //"fmt"
 )
 
 type DBData struct {
@@ -40,31 +41,50 @@ func (s *DBBase) Open() *sql.DB {
     return db
 }
 
-
-func (s *DBBase)Insert(query string, data DBExecData) int {
+func (s *DBBase)ExecOnce(query string, args ... interface{}) int {
     db := s.Open()
     defer db.Close()
-    //rlen := len(data)
     
-    //stmt, err := db.Prepare(query)
-    //defer stmt.Close()
-    //if err != nil{
-    //    s.logger.Error("Cannot prepare the sql:", query, s.Dbtype, s.Dbcon)
-    //}
+    stmt, err := db.Prepare(query)
+    defer stmt.Close()
+    if err != nil{
+        s.logger.Error("Cannot prepare the sql:", query, s.Dbtype, s.Dbcon)
+        return -1
+    }
     
-    //res, err := stmt.Exec
+    res, err := stmt.Exec(args ...)
+    if err != nil {
+        s.logger.Error("Fail to execute the sql:", query, s.Dbtype, s.Dbcon, err)
+        return -1
+    }
+
+    _, reserr := res.RowsAffected()
+    if reserr != nil{
+        s.logger.Error("Fail to get the affected row:", query, s.Dbtype, s.Dbcon, err)
+        return -1
+    }
+
+    return 0
+}
+
+func (s *DBBase)Exec(query string, data DBExecData) int {
+    db := s.Open()
+    defer db.Close()
+    
     tx, err := db.Begin()
     if err != nil {
         s.logger.Error("Fail to begin the transaction", s.Dbtype, s.Dbcon)
+        return -1
     }
     for i, row := range data.Rows {
         stmt, err := tx.Prepare(query)
         defer stmt.Close()
         if err != nil{
-            s.logger.Error("Fail to prepare the sql:", query, i, s.Dbtype, s.Dbcon)
+            s.logger.Error("Fail to prepare the sql:", query, i, s.Dbtype, s.Dbcon, err)
         }
-
-        _, reserr := stmt.Exec(row)
+        
+        //fmt.Println(row)
+        _, reserr := stmt.Exec(row ... )
         if reserr != nil {
             s.logger.Error("Fail to execute the row in:", i, row)
         }
@@ -73,6 +93,7 @@ func (s *DBBase)Insert(query string, data DBExecData) int {
     err = tx.Commit()
     if err != nil {
         s.logger.Error("Cannot commit the transaction", s.Dbtype, s.Dbcon)
+        return -1
     }
 
     return 0
@@ -82,22 +103,22 @@ func (s *DBBase)Query(query string, args ... interface{}) DBData {
     db := s.Open()
     defer db.Close()
     
+    data := DBData{}
     var rows *sql.Rows
 	var err error
-    //if len(args) > 0 {
-        rows, err = db.Query(query, args ...)
-    //} else {
-    //    rows, err = db.Query(query)
-    //}
+    
+    rows, err = db.Query(query, args ...)
     defer rows.Close()
     
     if err != nil {
         s.logger.Error("Cannot execute the sql:", query, s.Dbtype, s.Dbcon, err)
+        return data
     }
     
     columns, err := rows.Columns()
     if err != nil {
         s.logger.Error("Cannot get the columns of rows:", s.Dbtype, s.Dbcon, err)
+        return data
     }
     
     clen := len(columns)
@@ -108,7 +129,7 @@ func (s *DBBase)Query(query string, args ... interface{}) DBData {
         scanArgs[i] = &values[i]
     }
     
-    data := DBData{Columns: columns}
+    data.Columns = columns
     data.Rows = make([][]string, 0)
     for rows.Next() {
         err = rows.Scan(scanArgs ...)
