@@ -5,6 +5,7 @@ import (
     "util"
     _ "github.com/go-sql-driver/mysql"
     "config"
+    "entity/dbentity"
     //"fmt"
 )
 
@@ -58,7 +59,7 @@ func (s *DBBase)ExecOnce(query string, args ... interface{}) int {
     return 0
 }
 
-func (s *DBBase)Exec(query string, data DBExecData) int {
+func (s *DBBase)Exec(query string, data dbentity.DBExecData) int {
     db := s.Open()
     defer db.Close()
     
@@ -90,11 +91,11 @@ func (s *DBBase)Exec(query string, data DBExecData) int {
     return 0
 }   
 
-func (s *DBBase)Query(query string, args ... interface{}) DBData {
+func (s *DBBase)Query(query string, args ... interface{}) dbentity.DBData {
     db := s.Open()
     defer db.Close()
     
-    data := DBData{}
+    data := dbentity.DBData{}
     var rows *sql.Rows
 	var err error
     

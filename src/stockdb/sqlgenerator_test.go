@@ -3,6 +3,7 @@ package stockdb_test
 import(
     "testing"
     "stockdb"
+    "entity/dbentity"
     "fmt"
 )
 
@@ -14,31 +15,31 @@ func Test_SqlGenerator_Insert(t *testing.T){
 }
 
 func Test_SqlGenerator_Create(t *testing.T){
-    col1 := stockdb.DBColumn{
+    col1 := dbentity.DBColumn{
         Name: "id",
         Type: "int",
         IsPK: true,
         IsNotNull: true,
     }
 
-    col2 := stockdb.DBColumn{
+    col2 := dbentity.DBColumn{
         Name: "name",
         Type: "varchar",
         Maxsize: 20,
         IsNotNull: true,
     }
 
-    col3 := stockdb.DBColumn{
+    col3 := dbentity.DBColumn{
         Name: "age",
         Type: "float",
         Maxsize: 10,
     }
 
 
-    cols := make([]*stockdb.DBColumn, 0)
+    cols := make([]*dbentity.DBColumn, 0)
     cols = append(cols, &col1, &col2, &col3)
     
-    table := stockdb.DBTable{
+    table := dbentity.DBTable{
         TableName: "test_generate_auto",
         Columns: cols,
     }

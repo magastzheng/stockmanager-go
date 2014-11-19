@@ -1,4 +1,4 @@
-package stockdb
+package dbentity
 
 const(
     Int = "int"
@@ -8,6 +8,7 @@ const(
     Decimal1 = "decimal1"
     Decimal2 = "decimal2"
     Decimal3 = "decimal3"
+    Decimal4 = "decimal4"
 )
 
 type DBColumn struct{

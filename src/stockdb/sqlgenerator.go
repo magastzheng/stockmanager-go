@@ -3,6 +3,7 @@ package stockdb
 import(
     "fmt"
     "bytes"
+    "entity/dbentity"
 )
 
 type SqlGenerator struct{
@@ -11,26 +12,28 @@ type SqlGenerator struct{
 
 func (g *SqlGenerator) getSqlType(ctype string, maxsize int) string {
     switch ctype{
-        case Int:
+        case dbentity.Int:
             return "int"
-        case Float:
+        case dbentity.Float:
             return "float"
-        case Varchar:
+        case dbentity.Varchar:
             return fmt.Sprintf("varchar(%d)", maxsize)
-        case Date:
+        case dbentity.Date:
             return "date"
-        case Decimal1:
+        case dbentity.Decimal1:
             return fmt.Sprintf("decimal(%d,%d)", maxsize, 1)
-        case Decimal2:
+        case dbentity.Decimal2:
             return fmt.Sprintf("decimal(%d,%d)", maxsize, 2)
-        case Decimal3:
+        case dbentity.Decimal3:
             return fmt.Sprintf("decimal(%d,%d)", maxsize, 3)
+        case dbentity.Decimal4:
+            return fmt.Sprintf("decimal(%d,%d)", maxsize, 4)
     }
 
     return fmt.Sprintf("char(%d)", maxsize)
 }
 
-func (g *SqlGenerator) GenerateCreate(table DBTable) string {
+func (g *SqlGenerator) GenerateCreate(table dbentity.DBTable) string {
     s := bytes.Buffer{}
     s.WriteString("create table ")
     s.WriteString(table.TableName)
