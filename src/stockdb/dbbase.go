@@ -8,15 +8,6 @@ import (
     //"fmt"
 )
 
-type DBData struct {
-    Columns []string
-    Rows [][]string
-}
-
-type DBExecData struct {
-    Rows [][]interface{}
-}
-
 type DBBase struct {
     Dbtype string
     Dbcon string
