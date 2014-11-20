@@ -28,6 +28,8 @@ func (g *SqlGenerator) getSqlType(ctype string, maxsize int) string {
             return fmt.Sprintf("decimal(%d,%d)", maxsize, 3)
         case dbentity.Decimal4:
             return fmt.Sprintf("decimal(%d,%d)", maxsize, 4)
+        case dbentity.HDecimal2:
+            return fmt.Sprintf("decimal(%d,%d)", maxsize, 2)
     }
 
     return fmt.Sprintf("char(%d)", maxsize)

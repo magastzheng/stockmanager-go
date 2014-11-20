@@ -9,6 +9,7 @@ const(
     Decimal2 = "decimal2"
     Decimal3 = "decimal3"
     Decimal4 = "decimal4"
+    HDecimal2 = "hdecimal2" // for the 20 numbers 2 decimal
 )
 
 type DBColumn struct{
