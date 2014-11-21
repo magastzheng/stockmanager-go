@@ -1,12 +1,12 @@
-package manager_test
+package dbcreator_test
 
 import(
     "testing"
-    "manager"
+    "dbcreator"
     //"fmt"
 )
 
-func Test_AccountDBManager_Process(t *testing.T){
-    m := manager.NewAccountDBManager()
+func Test_AccountDBCreator_Process(t *testing.T){
+    m := dbcreator.NewAccountDBCreator()
     m.Process()
 }

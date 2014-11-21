@@ -1,4 +1,4 @@
-package manager
+package dbcreator
 
 import(
     "stockdb"
@@ -9,19 +9,19 @@ import(
     "fmt"
 )
 
-type AccountDBManager struct {
+type AccountDBCreator struct {
     parser *excel.AccountColumnParser
     generator *stockdb.SqlGenerator
     logger *util.StockLog
 }
 
-func (m *AccountDBManager) Init(){
+func (m *AccountDBCreator) Init(){
     m.parser = excel.NewAccountColumnParser()
     m.generator = stockdb.NewSqlGenerator()
     m.logger = util.NewLog()
 }
 
-func (m *AccountDBManager) Process() {
+func (m *AccountDBCreator) Process() {
     m.parser.Parse("../resource/account/financialindexdb.xlsx")
     dbTabs := m.ConvertDB(m.parser.ColumnTableMap)
     
@@ -33,7 +33,7 @@ func (m *AccountDBManager) Process() {
     }
 }
 
-func (m *AccountDBManager) ConvertDB(tabMap map[string][]*acc.Column) []*db.DBTable {
+func (m *AccountDBCreator) ConvertDB(tabMap map[string][]*acc.Column) []*db.DBTable {
     comDBCols := make([]*db.DBColumn, 0)
     pcols, ok := tabMap[acc.Common]
     if ok {
@@ -78,8 +78,8 @@ func (m *AccountDBManager) ConvertDB(tabMap map[string][]*acc.Column) []*db.DBTa
     return dbTabs
 }
 
-func NewAccountDBManager() *AccountDBManager {
-    m := new(AccountDBManager)
+func NewAccountDBCreator() *AccountDBCreator {
+    m := new(AccountDBCreator)
     m.Init()
 
     return m
