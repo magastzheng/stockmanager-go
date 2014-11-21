@@ -44,7 +44,7 @@ func (m *FiManager) Process() {
     columnMap := m.ep.ColumnMap
 
     ids := m.listdb.QueryIds()
-    fmt.Println(ids)
+    //fmt.Println(ids)
 
     ids = ids[1:2]
     for _, id := range ids {
@@ -64,10 +64,12 @@ func (m *FiManager) Process() {
 
 func (m *FiManager) Insert(dh *acchandler.FiHandler, code string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column) {
     datedatamap := dh.DataMap
-    fmt.Println(datedatamap)
+    m.OutputDataMap(datedatamap)
+    //fmt.Println(datedatamap)
     colIdNameMap := make(map[string]string)
     for k, col := range columnMap{
-        colIdNameMap[col.Name] = k
+        //fmt.Println(col.Name, col.Column)
+        colIdNameMap[col.Column] = k
     }
     fmt.Println(colIdNameMap)
     //insert data by date
@@ -76,7 +78,10 @@ func (m *FiManager) Insert(dh *acchandler.FiHandler, code string, tables []*dben
         for _, table := range tables {
             cols := make([]string, 0)
             tabColNames := make([]string, 0)
-            //row := make
+            dbdata := dbentity.DBExecData{
+                Rows: make([][]interface{}, 0),
+            }
+            row := make([]interface{}, 0)
             for _, col := range table.Columns{
                 colName := col.Name
                 cols = append(cols, colName)
@@ -87,36 +92,38 @@ func (m *FiManager) Insert(dh *acchandler.FiHandler, code string, tables []*dben
                     tabColNames = append(tabColNames, colName)
                     m.logger.Error("Cannot find the column: ", colName, " while inserting table: ", table.TableName) 
                 }
-            }
-            
-            sql := m.generator.GenerateInsert(table.TableName, cols)
-            
-            row := make([]interface{}, 0)
-            for i, col := range tabColNames{
-                if col == "date" || cols[i] == "date" {
+                
+                if colName == "date"{
                     row = append(row, date)
-                } else if col == "code" {
+                } else if colName == "code" {
                     row = append(row, code)
-                }else {
-                    val, ok := dataMap[col]
+                } else {
+                    val, ok := dataMap[nm]
                     if ok {
+                        fmt.Println("**********", col, val)
                         row = append(row, val)
                     } else {
                         row = append(row, math.NaN())
                     }
                 }
             }
-
-            dbdata := dbentity.DBExecData{
-                Rows: make([][]interface{}, 0),
-            }
             
-            fmt.Println(sql, dbdata)
-
+            sql := m.generator.GenerateInsert(table.TableName, cols)
             dbdata.Rows = append(dbdata.Rows, row)
             m.db.Exec(sql, dbdata)
         } 
     } 
+}
+
+func (m *FiManager)OutputDataMap(dataMap map[string]map[string]float32) {
+    for date, dm := range dataMap {
+        s := fmt.Sprintf("=============Date: %s ============", date)
+        fmt.Println(s)
+        for k, v := range dm {
+            s = fmt.Sprintf("%v: %f", k, v)
+            fmt.Println(s)
+        }
+    }
 }
 
 func NewFiManager() *FiManager{
