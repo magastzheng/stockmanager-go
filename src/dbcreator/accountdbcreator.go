@@ -4,7 +4,7 @@ import(
     "stockdb"
     "excel"
     acc "entity/accountentity"
-    db "entity/dbentity"
+    "entity/dbentity"
     "util"
     "fmt"
 )
@@ -12,12 +12,14 @@ import(
 type AccountDBCreator struct {
     parser *excel.AccountColumnParser
     generator *stockdb.SqlGenerator
+    db *stockdb.AccountFinancialIndexDB
     logger *util.StockLog
 }
 
 func (m *AccountDBCreator) Init(){
     m.parser = excel.NewAccountColumnParser()
     m.generator = stockdb.NewSqlGenerator()
+    m.db = stockdb.NewAccountFinancialIndexDB("chinastock")
     m.logger = util.NewLog()
 }
 
@@ -31,14 +33,16 @@ func (m *AccountDBCreator) Process() {
         fmt.Println(sql)
         sqls = append(sqls, sql)
     }
+
+    m.db.Create(sqls)
 }
 
-func (m *AccountDBCreator) ConvertDB(tabMap map[string][]*acc.Column) []*db.DBTable {
-    comDBCols := make([]*db.DBColumn, 0)
+func (m *AccountDBCreator) ConvertDB(tabMap map[string][]*acc.Column) []*dbentity.DBTable {
+    comDBCols := make([]*dbentity.DBColumn, 0)
     pcols, ok := tabMap[acc.Common]
     if ok {
         for _, col := range pcols {
-            dbcol := db.DBColumn{
+            dbcol := dbentity.DBColumn{
                 Name: col.Column,
                 Type: col.Type,
                 Maxsize: col.Maxsize,
@@ -49,21 +53,21 @@ func (m *AccountDBCreator) ConvertDB(tabMap map[string][]*acc.Column) []*db.DBTa
         }
     }
     
-    dbTabs := make([]*db.DBTable, 0)
+    dbTabs := make([]*dbentity.DBTable, 0)
     for k, cols := range tabMap{
         if k == acc.Common {
             continue
         }
 
-        dbTab := db.DBTable{
+        dbTab := dbentity.DBTable{
             TableName: k,
         }
-        dbTab.Columns = make([]*db.DBColumn, 0)
-        dbTab.Keys = make([]*db.DBColumn, 0)
+        dbTab.Columns = make([]*dbentity.DBColumn, 0)
+        dbTab.Keys = make([]*dbentity.DBColumn, 0)
         dbTab.Columns = append(dbTab.Columns, comDBCols ... )
 
         for _, col := range cols {
-            dbcol := db.DBColumn{
+            dbcol := dbentity.DBColumn{
                 Name: col.Column,
                 Type: col.Type,
                 Maxsize: col.Maxsize,
