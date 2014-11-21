@@ -2,7 +2,9 @@ package config
 
 import (
     "encoding/json"
-    //"fmt"
+    "fmt"
+    "os"
+    "os/exec"
     "io/ioutil"
     "util"
 )
@@ -22,6 +24,8 @@ type DBConfigManager struct {
 }
 
 func (c *DBConfigManager) Parse(filename string) {
+    
+    fmt.Println(exec.LookPath(os.Args[0]))
     chunks, err := ioutil.ReadFile(filename)
     util.CheckError(err)
    

@@ -24,6 +24,15 @@ func (s *DBBase) Init(name string) {
     s.logger = util.NewLog()
 }
 
+func (s *DBBase) InitDB(filename, name string) {
+    dbconfig := config.NewDBConfig(filename)
+    config := dbconfig.GetConfig(name)
+    s.Dbtype = config.Dbtype
+    s.Dbcon = config.Dbcon
+
+    s.logger = util.NewLog()
+}
+
 func (s *DBBase) Open() *sql.DB {
     db, err := sql.Open(s.Dbtype, s.Dbcon)
     if err != nil {
@@ -37,6 +46,8 @@ func (s *DBBase)ExecOnce(query string, args ... interface{}) int {
     db := s.Open()
     defer db.Close()
     
+    s.logger.Info(query, args)
+
     stmt, err := db.Prepare(query)
     defer stmt.Close()
     if err != nil{

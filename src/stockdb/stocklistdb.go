@@ -130,8 +130,8 @@ func (s *StockListDB) QueryIds() []string {
     db := s.Open()
     defer db.Close()
    
-    //rows, err := db.Query("select count(id) from stocklist")
-    rows, err := db.Query("select count(id) from stocklist where id not in (select distinct code from stockhistdata)")
+    rows, err := db.Query("select count(id) from stocklist")
+    //rows, err := db.Query("select count(id) from stocklist where id not in (select distinct code from stockhistdata)")
     util.CheckError(err)
 
     var count int
@@ -140,8 +140,8 @@ func (s *StockListDB) QueryIds() []string {
     }
     //fmt.Println("Total:", count)
 
-    //rows, err = db.Query("select id from stocklist")
-    rows, err = db.Query("select id from stocklist where id not in (select distinct code from stockhistdata)")
+    rows, err = db.Query("select id from stocklist")
+    //rows, err = db.Query("select id from stocklist where id not in (select distinct code from stockhistdata)")
     util.CheckError(err)
     
     //Get column names
