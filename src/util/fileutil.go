@@ -2,6 +2,7 @@ package util
 
 import(
     "os"
+    "io/ioutil"
     "fmt"
     "strings"
 )
@@ -37,4 +38,14 @@ func WriteFile(filename string, content string) {
     }
 
     file.WriteString(content)
+}
+
+func ReadFile(filename string) string {
+    bytes, err := ioutil.ReadFile(filename)
+    if err != nil {
+        NewLog().Error("Cannot read file: ", filename, err)
+        fmt.Println("Cannot read file:", filename, err)
+    }
+
+    return string(bytes)
 }

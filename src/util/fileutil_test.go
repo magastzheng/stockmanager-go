@@ -17,3 +17,12 @@ func Test_WriteFileToFolder(t *testing.T) {
     os.RemoveAll(filename)
     os.Remove("../testfolder")
 }
+
+func Test_ReadFile(t *testing.T){
+    filename := "../resource/account/financialindex-600001.html"
+    res := util.ReadFile(filename)
+
+    if len(res) == 0 {
+        t.Error("Cannot read file")
+    }
+}
