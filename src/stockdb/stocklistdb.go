@@ -14,11 +14,11 @@ type StockIdExchange struct {
     Exchange string
 }
 
-type StockDatabase struct {
+type StockListDB struct {
    DBBase
 }
 
-func (s *StockDatabase) Insert(exch string, stock entity.Stock) int {
+func (s *StockListDB) Insert(exch string, stock entity.Stock) int {
     db := s.Open()
 
     stmt, err := db.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
@@ -39,7 +39,7 @@ func (s *StockDatabase) Insert(exch string, stock entity.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) Delete(stock entity.Stock) int {
+func (s *StockListDB) Delete(stock entity.Stock) int {
     db := s.Open()
 
     stmt, err := db.Prepare("delete from stocklist where id=?")
@@ -61,7 +61,7 @@ func (s *StockDatabase) Delete(stock entity.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) Update(stock entity.Stock) int {
+func (s *StockListDB) Update(stock entity.Stock) int {
     db := s.Open()
 
     stmt, err := db.Prepare("update stocklist set name=? where id=?")
@@ -82,7 +82,7 @@ func (s *StockDatabase) Update(stock entity.Stock) int {
     return 0
 }
 
-func (s *StockDatabase) TranInsert(exch string, stocks map[string] entity.Stock) int {
+func (s *StockListDB) TranInsert(exch string, stocks map[string] entity.Stock) int {
     db := s.Open()
 	
 	tx, err := db.Begin()
@@ -107,7 +107,7 @@ func (s *StockDatabase) TranInsert(exch string, stocks map[string] entity.Stock)
     return 0
 }
 
-func (s *StockDatabase) Query(id string) entity.Stock {
+func (s *StockListDB) Query(id string) entity.Stock {
     db := s.Open()
     defer db.Close()
 
@@ -126,7 +126,7 @@ func (s *StockDatabase) Query(id string) entity.Stock {
     }
 }
 
-func (s *StockDatabase) QueryIds() []string {
+func (s *StockListDB) QueryIds() []string {
     db := s.Open()
     defer db.Close()
    
@@ -184,7 +184,7 @@ func (s *StockDatabase) QueryIds() []string {
     return ids
 }
 
-func (s *StockDatabase) GetIdExchange() []StockIdExchange {
+func (s *StockListDB) GetIdExchange() []StockIdExchange {
     db := s.Open()
     defer db.Close()
    
@@ -231,11 +231,11 @@ func (s *StockDatabase) GetIdExchange() []StockIdExchange {
     return idexchs
 }
 
-func NewStockDatabase(dbname string) *StockDatabase {
-    stdb := new(StockDatabase)
+func NewStockListDB(dbname string) *StockListDB {
+    stdb := new(StockListDB)
     stdb.Init(dbname)
     return stdb
-    //return &StockDatabase{
+    //return &StockListDB{
     //    DBBase: DBBase{
     //        Dbtype: dbtype,
     //        Dbcon: dbcon,

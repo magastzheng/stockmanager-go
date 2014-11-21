@@ -13,11 +13,11 @@
 			"uri": "/corp/go.php/vMS_MarketHistory/stockid/%v.phtml?year=%v&jidu=%v",
 			"data": ""
 		},{
-            "key": "realtime",
-            "method": "GET",
-            "uri": "http://hq.sinajs.cn/list=%v%v",
-            "data": ""
-        }
+			"key": "financialindex",
+			"method": "GET",
+			"uri": "/corp/go.php/vFD_FinancialGuideLine/stockid/%s/displaytype/4.phtml",
+			"data": ""
+		}
         ]
 	},{
     	"id": "sina-realtime",

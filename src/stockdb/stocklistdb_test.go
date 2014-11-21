@@ -7,9 +7,9 @@ import (
     "fmt"
 )
 
-func Test_StockDatabaseInsert(t *testing.T) {
-    //stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
-    stdb := stockdb.NewStockDatabase("chinastock")
+func Test_StockListDBInsert(t *testing.T) {
+    //stdb := stockdb.NewStockListDB("mysql", "root@/chinastock")
+    stdb := stockdb.NewStockListDB("chinastock")
     stock := entity.Stock{}
     stock.Id = "1234"
     stock.Name = "test"
@@ -23,23 +23,23 @@ func Test_StockDatabaseInsert(t *testing.T) {
     res = stdb.Delete(stock)
 }
 
-func Test_StockDatabaseQuery(t *testing.T) {
-    //stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
-    stdb := stockdb.NewStockDatabase("chinastock")
+func Test_StockListDBQuery(t *testing.T) {
+    //stdb := stockdb.NewStockListDB("mysql", "root@/chinastock")
+    stdb := stockdb.NewStockListDB("chinastock")
     stock := stdb.Query("601005")
     fmt.Println(stock)
 }
 
-func Test_StockDatabaseQueryIds(t *testing.T) {
-    //stdb := stockdb.NewStockDatabase("mysql", "root@/chinastock")
-    stdb := stockdb.NewStockDatabase("chinastock")
+func Test_StockListDBQueryIds(t *testing.T) {
+    //stdb := stockdb.NewStockListDB("mysql", "root@/chinastock")
+    stdb := stockdb.NewStockListDB("chinastock")
     ids := stdb.QueryIds()
     fmt.Println("ID num:", len(ids))
     //fmt.Println(ids)
 }
 
-func Test_StockDatabaseIdExchange(t *testing.T){
-    stdb := stockdb.NewStockDatabase("chinastock")
+func Test_StockListDBIdExchange(t *testing.T){
+    stdb := stockdb.NewStockListDB("chinastock")
     idexchs := stdb.GetIdExchange()
     fmt.Println("IDEXCH num:", len(idexchs))
     //fmt.Println(idexchs)

@@ -14,14 +14,14 @@ import(
 type StockListManager struct {
     config config.StockListConfig
     download *download.StockDownloader
-    db *stockdb.StockDatabase
+    db *stockdb.StockListDB
 }
 
 func (s *StockListManager) Init() {
     const filename = "../config/stocklist.json"
     s.config = config.Parse(filename)
     s.download = download.NewDownloader()
-    s.db = stockdb.NewStockDatabase("chinastock")
+    s.db = stockdb.NewStockListDB("chinastock")
 }
 
 func (s *StockListManager) Process() {

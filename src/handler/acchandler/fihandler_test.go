@@ -19,8 +19,8 @@ func Test_FiHanlder(t *testing.T) {
     fmt.Println(len(h.DateMap))
     fmt.Println(len(h.DataMap))
 
-    //Output_FiHandler_DateMap(h.DateMap)
-    //Output_FiHandler_DataMap(h.DataMap)
+    Output_FiHandler_DateMap(h.DateMap)
+    Output_FiHandler_DataMap(h.DataMap)
 }
 
 func Output_FiHandler_DateMap(dateMap map[string]string) {

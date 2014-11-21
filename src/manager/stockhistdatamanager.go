@@ -13,14 +13,14 @@ import (
 
 type StockHistDataManager struct {
     downloader *download.StockHistDownloader
-    stocklistdb *stockdb.StockDatabase
+    stocklistdb *stockdb.StockListDB
     db *stockdb.StockHistDataDB
     logger *util.StockLog
 }
 
 func (m *StockHistDataManager) Init() {
     m.downloader = download.NewStockHistDownloader()
-    m.stocklistdb = stockdb.NewStockDatabase("chinastock")
+    m.stocklistdb = stockdb.NewStockListDB("chinastock")
     m.db = stockdb.NewStockHistDataDB("chinastock")
     m.logger = util.NewLog()
 }

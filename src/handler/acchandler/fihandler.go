@@ -12,8 +12,8 @@ const(
 )
 
 type FiHandler struct {
-    DateMap map[string]string
-    DataMap map[string]map[string]float32
+    DateMap map[string]string //date - url mapping
+    DataMap map[string]map[string]float32 // date - index - data mapping
     isTargetDiv bool
     isTargetTab bool
     isTargetDateTab bool

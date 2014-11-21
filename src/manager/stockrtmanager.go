@@ -10,14 +10,14 @@ import(
 
 type StockRtDataManager struct{
     downloader *download.StockRtDownloader
-    listdb *stockdb.StockDatabase
+    listdb *stockdb.StockListDB
     datadb *stockdb.StockHistDataDB
     logger *util.StockLog
 }
 
 func (m *StockRtDataManager) Init() {
     m.downloader = download.NewStockRtDownloader()
-    m.listdb = stockdb.NewStockDatabase("chinastock")
+    m.listdb = stockdb.NewStockListDB("chinastock")
     m.datadb = stockdb.NewStockHistDataDB("chinastock")
     m.logger = util.NewLog()
 }
