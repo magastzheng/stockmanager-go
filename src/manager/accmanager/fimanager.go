@@ -6,6 +6,7 @@ import(
     "parser"
     "excel"
     "handler/acchandler"
+    "download"
     "download/accdownload"
     acc "entity/accountentity"
     "entity/dbentity"
@@ -13,6 +14,7 @@ import(
     "math"
     //"github.com/axgle/mahonia"
     "code.google.com/p/mahonia"
+    "time"
     "fmt"
 )
 
@@ -24,63 +26,70 @@ type FiManager struct {
     listdb *stockdb.StockListDB
     down *accdownload.FiDownloader
     generator *stockdb.SqlGenerator
+    decoder mahonia.Decoder
     logger *util.StockLog
 }
 
 func (m *FiManager) Init() {
     m.ep = excel.NewAccountColumnParser()
     m.db = new(stockdb.AccountFinancialIndexDB)
-    m.db.InitDB("../../config/dbconfig.json", "chinastock")
+    m.db.InitDB("../config/dbconfig.json", "chinastock")
     m.listdb = new(stockdb.StockListDB)
-    m.listdb.InitDB("../../config/dbconfig.json", "chinastock")
+    m.listdb.InitDB("../config/dbconfig.json", "chinastock")
     m.down = accdownload.NewFiDownloader()
     m.generator = stockdb.NewSqlGenerator()
+    m.decoder = mahonia.NewDecoder("gbk")
     m.logger = util.NewLog()
 
-    m.ep.Parse("../../resource/account/financialindexdb.xlsx")
+    //m.ep.Parse("../../resource/account/financialindexdb.xlsx")
+    m.ep.Parse("../resource/account/financialindexdb.xlsx")
 }
 
 func (m *FiManager) Process() {
     
     dbTabMap := dbcreator.ConvertToDBColumn(m.ep.ColumnTableMap)
     columnMap := m.ep.ColumnMap
-
-    ids := m.listdb.QueryIds()
-    //fmt.Println(ids)
+    
+    now := time.Now()
+    year := fmt.Sprintf("%d", now.Year())
     
     //enc := mahonia.NewEncoder("UTF-8")
-    enc := mahonia.NewDecoder("gbk")
-    ids = ids[1:2]
+    
+    ids := m.listdb.QueryIds()
+    if len(ids) == 0 {
+        m.logger.Error("Cannot get stocklist from database")
+    } else {
+        m.logger.Info("Get the stocklist from database: ", len(ids)) 
+    }
+    //ids = ids[1:2]
     for _, id := range ids {
         data := m.down.GetData(id)
-        //filename := m.WriteFile(id, data)
-        //data = util.ReadFile(filename)
-        //fmt.Println(data)
-        //fmt.Println("=========convert===========")
-        data = enc.ConvertString(data)
-        //fmt.Println(data)
+        data = m.decoder.ConvertString(data)
+
         if len(data) == 0{
             m.logger.Error("Cannot get data of: ", id)
             continue
         }
-
+        
+        m.WriteFile(id, year, data)
         dh := acchandler.NewFiHandler()
         dp := parser.NewTextParser(dh)
         dp.ParseStr(data)
-        m.Insert(dh, id, dbTabMap, columnMap)
+        m.Insert(dh.DataMap, id, dbTabMap, columnMap)
+        
+        //handle historical financial index data
+        m.ProcessHist(year, id, dh.DateMap, dbTabMap, columnMap)
     }   
 }
 
-func (m *FiManager) Insert(dh *acchandler.FiHandler, code string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column) {
-    datedatamap := dh.DataMap
-    m.OutputDataMap(datedatamap)
-    //fmt.Println(datedatamap)
+func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column) {
+    //datedatamap := dh.DataMap
+    //m.OutputDataMap(datedatamap)
     colIdNameMap := make(map[string]string)
     for k, col := range columnMap{
-        //fmt.Println(col.Name, col.Column)
         colIdNameMap[col.Column] = k
     }
-    fmt.Println(colIdNameMap)
+    
     //insert data by date
     for date, dataMap := range datedatamap {
         //insert to each data
@@ -124,6 +133,27 @@ func (m *FiManager) Insert(dh *acchandler.FiHandler, code string, tables []*dben
     } 
 }
 
+func (m *FiManager) ProcessHist(currentYear, code string, dateUrlMap map[string]string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column){
+    for year, url := range dateUrlMap{
+        if year != currentYear {
+            data := download.HttpGet(url)
+            data = m.decoder.ConvertString(data)
+            
+            if len(data) == 0{
+                s := fmt.Sprintf("Cannot get data of: %s | year: %s | url: %s", code, year, url)
+                m.logger.Error(s)
+                continue
+            }
+
+            m.WriteFile(code, year, data)
+            dh := acchandler.NewFiHandler()
+            dp := parser.NewTextParser(dh)
+            dp.ParseStr(data)
+            m.Insert(dh.DataMap, code, tables, columnMap)
+        }
+    }
+}
+
 func (m *FiManager)OutputDataMap(dataMap map[string]map[string]float32) {
     for date, dm := range dataMap {
         s := fmt.Sprintf("=============Date: %s ============", date)
@@ -135,8 +165,9 @@ func (m *FiManager)OutputDataMap(dataMap map[string]map[string]float32) {
     }
 }
 
-func (m *FiManager)WriteFile(code, content string) string {
-    filename := fmt.Sprintf("../../data/%s.dat", code)
+func (m *FiManager)WriteFile(code, date, content string) string {
+    //filename := fmt.Sprintf("../../data/fi/%s/%s-%s.dat", code, code, date)
+    filename := fmt.Sprintf("../data/fi/%s/%s-%s.dat", code, code, date)
     util.WriteFile(filename, content)
 
     return filename
