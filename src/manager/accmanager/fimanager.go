@@ -11,6 +11,8 @@ import(
     "entity/dbentity"
     "util"
     "math"
+    //"github.com/axgle/mahonia"
+    "code.google.com/p/mahonia"
     "fmt"
 )
 
@@ -45,11 +47,18 @@ func (m *FiManager) Process() {
 
     ids := m.listdb.QueryIds()
     //fmt.Println(ids)
-
+    
+    //enc := mahonia.NewEncoder("UTF-8")
+    enc := mahonia.NewDecoder("gbk")
     ids = ids[1:2]
     for _, id := range ids {
         data := m.down.GetData(id)
-        
+        //filename := m.WriteFile(id, data)
+        //data = util.ReadFile(filename)
+        //fmt.Println(data)
+        //fmt.Println("=========convert===========")
+        data = enc.ConvertString(data)
+        //fmt.Println(data)
         if len(data) == 0{
             m.logger.Error("Cannot get data of: ", id)
             continue
@@ -124,6 +133,13 @@ func (m *FiManager)OutputDataMap(dataMap map[string]map[string]float32) {
             fmt.Println(s)
         }
     }
+}
+
+func (m *FiManager)WriteFile(code, content string) string {
+    filename := fmt.Sprintf("../../data/%s.dat", code)
+    util.WriteFile(filename, content)
+
+    return filename
 }
 
 func NewFiManager() *FiManager{
