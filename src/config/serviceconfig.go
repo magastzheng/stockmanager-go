@@ -4,7 +4,9 @@ import(
     "encoding/json"
     "io/ioutil"
     "util"
-    //"fmt"
+    "runtime"
+    "path/filepath"
+    "fmt"
     //"os"
 )
 
@@ -79,7 +81,14 @@ func (m *ServiceConfigManager) GetApi(id, key string) ServiceAPI {
     return api
 }
 
-func NewServiceConfigManager(filename string) *ServiceConfigManager{
+func NewServiceConfigManager() *ServiceConfigManager{
+    pc, filename, line, ok := runtime.Caller(0)
+    if pc < 0 || line < 0 || !ok {
+        fmt.Println("Cannot read the serviceconfig.json")
+        util.NewLog().Error("Cannot read the file serverconfig.json")
+    }
+    filename = filepath.Dir(filename) + "/" + "serviceconfig.json"
+
     m := new(ServiceConfigManager)
     //m.Parse("./serviceconfig.json")
     m.Parse(filename)

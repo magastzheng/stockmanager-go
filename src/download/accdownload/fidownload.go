@@ -12,7 +12,7 @@ type FiDownloader struct{
 
 func (d *FiDownloader) Init(){
     const id = "sina-price"
-    cm := config.NewServiceConfigManager("../../config/serviceconfig.json")
+    cm := config.NewServiceConfigManager()
     d.api = cm.GetApi(id, "financialindex")
 }
 

@@ -16,7 +16,8 @@ type DBBase struct {
 }
 
 func (s *DBBase) Init(name string) {
-    dbconfig := config.NewDBConfig("../config/dbconfig.json")
+    //dbconfig := config.NewDBConfig("../config/dbconfig.json")
+    dbconfig := config.NewDBConfig()
     config := dbconfig.GetConfig(name)
     s.Dbtype = config.Dbtype
     s.Dbcon = config.Dbcon
@@ -24,14 +25,14 @@ func (s *DBBase) Init(name string) {
     s.logger = util.NewLog()
 }
 
-func (s *DBBase) InitDB(filename, name string) {
-    dbconfig := config.NewDBConfig(filename)
-    config := dbconfig.GetConfig(name)
-    s.Dbtype = config.Dbtype
-    s.Dbcon = config.Dbcon
+//func (s *DBBase) InitDB(filename, name string) {
+//    dbconfig := config.NewDBConfig(filename)
+//    config := dbconfig.GetConfig(name)
+//    s.Dbtype = config.Dbtype
+//    s.Dbcon = config.Dbcon
 
-    s.logger = util.NewLog()
-}
+//    s.logger = util.NewLog()
+//}
 
 func (s *DBBase) Open() *sql.DB {
     db, err := sql.Open(s.Dbtype, s.Dbcon)

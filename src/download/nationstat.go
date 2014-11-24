@@ -17,7 +17,7 @@ type NationStatDownloader struct{
 
 func (d *NationStatDownloader) Init() {
     const id = "nationstat"
-    cm := config.NewServiceConfigManager("../config/serviceconfig.json")
+    cm := config.NewServiceConfigManager()
     //cm := config.NewServiceConfigManager1()
     d.root = cm.GetApi(id, "indexroot")
     d.child1 = cm.GetApi(id, "children1")

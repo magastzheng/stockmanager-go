@@ -16,6 +16,8 @@ import(
     "code.google.com/p/mahonia"
     "time"
     "fmt"
+    "runtime"
+    "path/filepath"
 )
 
 type FiManager struct {
@@ -33,16 +35,25 @@ type FiManager struct {
 func (m *FiManager) Init() {
     m.ep = excel.NewAccountColumnParser()
     m.db = new(stockdb.AccountFinancialIndexDB)
-    m.db.InitDB("../config/dbconfig.json", "chinastock")
+
+    m.db.Init("chinastock")
     m.listdb = new(stockdb.StockListDB)
-    m.listdb.InitDB("../config/dbconfig.json", "chinastock")
+    m.listdb.Init("chinastock")
     m.down = accdownload.NewFiDownloader()
     m.generator = stockdb.NewSqlGenerator()
     m.decoder = mahonia.NewDecoder("gbk")
     m.logger = util.NewLog()
+    
+    pc, filename, line, ok := runtime.Caller(0)
+    if pc < 0 || line < 0 || !ok {
+        fmt.Println("Cannot read the fimanager.json")
+        util.NewLog().Error("Cannot read the file fimanager.go")
+    }
+    filename = filepath.Dir(filename) + "/../../" + "resource/account/financialindexdb.xlsx"
 
     //m.ep.Parse("../../resource/account/financialindexdb.xlsx")
-    m.ep.Parse("../resource/account/financialindexdb.xlsx")
+    //filename = baseDir + "/" + 
+    m.ep.Parse(filename)
 }
 
 func (m *FiManager) Process() {
@@ -61,7 +72,7 @@ func (m *FiManager) Process() {
     } else {
         m.logger.Info("Get the stocklist from database: ", len(ids)) 
     }
-    //ids = ids[1:2]
+    ids = ids[1:2]
     for _, id := range ids {
         data := m.down.GetData(id)
         data = m.decoder.ConvertString(data)
@@ -118,7 +129,7 @@ func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code strin
                 } else {
                     val, ok := dataMap[nm]
                     if ok {
-                        fmt.Println("**********", col, val)
+                        //fmt.Println("**********", col, val)
                         row = append(row, val)
                     } else {
                         row = append(row, math.NaN())

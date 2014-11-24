@@ -25,7 +25,7 @@ func (s *StockRtDownloader) GetData(code, exchange string) string {
 }
 
 func NewStockRtDownloader() *StockRtDownloader{
-    cm := config.NewServiceConfigManager("../config/serviceconfig.json")
+    cm := config.NewServiceConfigManager()
     downloader := new(StockRtDownloader)
     downloader.config = cm.GetApi("sina-realtime", "realtime")
 
