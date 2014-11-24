@@ -17,6 +17,21 @@
 			"method": "GET",
 			"uri": "/corp/go.php/vFD_FinancialGuideLine/stockid/%s/displaytype/4.phtml",
 			"data": ""
+		},{
+			"key": "balancesheet",
+			"method": "GET",
+			"uri": "/corp/go.php/vDOWN_BalanceSheet/displaytype/4/stockid/%s/ctrl/all.phtml",
+			"data": ""
+		},{
+			"key": "income",
+			"method": "GET",
+			"uri": "/corp/go.php/vDOWN_ProfitStatement/displaytype/4/stockid/%s/ctrl/all.phtml",
+			"data": ""
+		},{
+			"key": "cashflow",
+			"method": "GET",
+			"uri": "/corp/go.php/vDOWN_CashFlow/displaytype/4/stockid/%s/ctrl/all.phtml",
+			"data": ""
 		}
         ]
 	},{

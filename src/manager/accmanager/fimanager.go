@@ -12,8 +12,6 @@ import(
     "entity/dbentity"
     "util"
     "math"
-    //"github.com/axgle/mahonia"
-    "code.google.com/p/mahonia"
     "time"
     "fmt"
     "runtime"
@@ -28,7 +26,6 @@ type FiManager struct {
     listdb *stockdb.StockListDB
     down *accdownload.FiDownloader
     generator *stockdb.SqlGenerator
-    decoder mahonia.Decoder
     logger *util.StockLog
 }
 
@@ -41,7 +38,6 @@ func (m *FiManager) Init() {
     m.listdb.Init("chinastock")
     m.down = accdownload.NewFiDownloader()
     m.generator = stockdb.NewSqlGenerator()
-    m.decoder = mahonia.NewDecoder("gbk")
     m.logger = util.NewLog()
     
     pc, filename, line, ok := runtime.Caller(0)
@@ -75,7 +71,6 @@ func (m *FiManager) Process() {
     //ids = ids[1:2]
     for _, id := range ids {
         data := m.down.GetData(id)
-        data = m.decoder.ConvertString(data)
 
         if len(data) == 0{
             m.logger.Error("Cannot get data of: ", id)
@@ -148,7 +143,6 @@ func (m *FiManager) ProcessHist(currentYear, code string, dateUrlMap map[string]
     for year, url := range dateUrlMap{
         if year != currentYear {
             data := download.HttpGet(url)
-            data = m.decoder.ConvertString(data)
             
             if len(data) == 0{
                 s := fmt.Sprintf("Cannot get data of: %s | year: %s | url: %s", code, year, url)
