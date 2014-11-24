@@ -72,7 +72,7 @@ func (m *FiManager) Process() {
     } else {
         m.logger.Info("Get the stocklist from database: ", len(ids)) 
     }
-    ids = ids[1:2]
+    //ids = ids[1:2]
     for _, id := range ids {
         data := m.down.GetData(id)
         data = m.decoder.ConvertString(data)
