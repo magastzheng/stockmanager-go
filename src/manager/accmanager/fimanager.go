@@ -54,7 +54,7 @@ func (m *FiManager) Init() {
 
 func (m *FiManager) Process() {
     
-    dbTabMap := dbcreator.ConvertToDBColumn(m.ep.ColumnTableMap)
+    dbTabMap := dbcreator.ConvertToDBColumn(m.ep.CategoryColumnMap)
     columnMap := m.ep.ColumnMap
     
     now := time.Now()
@@ -91,9 +91,19 @@ func (m *FiManager) Process() {
 func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column) {
     //datedatamap := dh.DataMap
     //m.OutputDataMap(datedatamap)
-    colIdNameMap := make(map[string]string)
+	
+	//there may be duplicated column: two Chinese index map to the same db colum
+    colIdNameMap := make(map[string][]string)
     for k, col := range columnMap{
-        colIdNameMap[col.Column] = k
+		cols, ok := colIdNameMap[col.Column]
+		if ok {
+			colIdNameMap[col.Column] = append(colIdNameMap[col.Column], k)
+		} else {
+			cols = make([]string, 0)
+			cols = append(cols, k)
+			colIdNameMap[col.Column] = cols
+		}
+        //colIdNameMap[col.Column] = k
     }
     
     //insert data by date
@@ -101,7 +111,7 @@ func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code strin
         //insert to each data
         for _, table := range tables {
             cols := make([]string, 0)
-            tabColNames := make([]string, 0)
+            //tabColNames := make([]string, 0)
             dbdata := dbentity.DBExecData{
                 Rows: make([][]interface{}, 0),
             }
@@ -109,11 +119,20 @@ func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code strin
             for _, col := range table.Columns{
                 colName := col.Name
                 cols = append(cols, colName)
-                nm, ok := colIdNameMap[colName]
+                nmarr, ok := colIdNameMap[colName]
+				collen := 0
+				var nm, nm2 string
                 if ok {
-                    tabColNames = append(tabColNames, nm)
+                    //tabColNames = append(tabColNames, nm)
+					collen = len(nmarr)
+					if collen > 0 {
+						nm = nmarr[0]
+						if collen > 1 {
+							nm2 = nmarr[1]
+						}
+					}
                 } else {
-                    tabColNames = append(tabColNames, colName)
+                    //tabColNames = append(tabColNames, colName)
                     m.logger.Error("Cannot find the column: ", colName, " while inserting table: ", table.TableName) 
                 }
                 
@@ -126,7 +145,14 @@ func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code strin
                     if ok {
                         //fmt.Println("**********", col, val)
                         row = append(row, val)
-                    } else {
+                    } else if collen > 1 {
+						val, ok = dataMap[nm2]
+						if ok {
+							row = append(row, val)
+						} else {
+							row = append(row, math.NaN())
+						}
+					}else{
                         row = append(row, math.NaN())
                     }
                 }

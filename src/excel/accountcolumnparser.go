@@ -9,9 +9,10 @@ import(
 )
 
 type AccountColumnParser struct{
-    //use to create the database table
-    ColumnTableMap map[string][]*acc.Column
-    //use to parse the excel/html data
+    //use to create the database table, the key is table/common name
+    CategoryColumnMap map[string][]*acc.Column
+    //use to parse the excel/html data, where the key is "name" column in excel
+	//It will be a Chinese name as utf-8 encoding in our definition.
     ColumnMap map[string]*acc.Column
     logger *util.StockLog
 }
@@ -23,7 +24,7 @@ func (p *AccountColumnParser)Parse(filename string) {
         p.logger.Error("Cannot open the excel:", filename, err)
         return
     }
-    p.ColumnTableMap = make(map[string][]*acc.Column)
+    p.CategoryColumnMap = make(map[string][]*acc.Column)
     p.ColumnMap = make(map[string]*acc.Column)
     for i, sheet := range file.Sheets{
         fmt.Println(i, sheet.Name)
@@ -92,14 +93,14 @@ func (p *AccountColumnParser) ParseRow(rows []*xlsx.Row) {
             }
             
             if (isCommon || isTable) && isNormal {
-                ccols, ok := p.ColumnTableMap[parentColName]
+                ccols, ok := p.CategoryColumnMap[parentColName]
                 if !ok {
                     ccols = make([]*acc.Column, 0)
                     ccols = append(ccols, &column)
-                    p.ColumnTableMap[parentColName] = ccols
+                    p.CategoryColumnMap[parentColName] = ccols
                 } else {
                     ccols = append(ccols, &column)
-                    p.ColumnTableMap[parentColName] = ccols
+                    p.CategoryColumnMap[parentColName] = ccols
                 }
             }
 
