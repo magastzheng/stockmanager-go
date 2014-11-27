@@ -6,7 +6,7 @@ import(
     "parser"
     "excel"
     "handler/acchandler"
-    "download"
+    //"download"
     "download/accdownload"
     acc "entity/accountentity"
     "entity/dbentity"
@@ -27,6 +27,7 @@ type FiManager struct {
     down *accdownload.FiDownloader
     generator *stockdb.SqlGenerator
     logger *util.StockLog
+    baseDir string
 }
 
 func (m *FiManager) Init() {
@@ -45,16 +46,16 @@ func (m *FiManager) Init() {
         fmt.Println("Cannot read the fimanager.json")
         util.NewLog().Error("Cannot read the file fimanager.go")
     }
-    filename = filepath.Dir(filename) + "/../../" + "resource/account/financialindexdb.xlsx"
 
-    //m.ep.Parse("../../resource/account/financialindexdb.xlsx")
-    //filename = baseDir + "/" + 
+    m.baseDir = filepath.Dir(filename) + "/../../"
+    filename = m.baseDir + "resource/account/financialindexdb.xlsx"
+
     m.ep.Parse(filename)
 }
 
 func (m *FiManager) Process() {
     
-    dbTabMap := dbcreator.ConvertToDBColumn(m.ep.CategoryColumnMap)
+    tables := dbcreator.ConvertToDBTable(m.ep.CategoryColumnMap)
     columnMap := m.ep.ColumnMap
     
     now := time.Now()
@@ -68,7 +69,7 @@ func (m *FiManager) Process() {
     } else {
         m.logger.Info("Get the stocklist from database: ", len(ids)) 
     }
-    //ids = ids[1:2]
+    ids = ids[1:2]
     for _, id := range ids {
         data := m.down.GetData(id)
 
@@ -81,17 +82,56 @@ func (m *FiManager) Process() {
         dh := acchandler.NewFiHandler()
         dp := parser.NewTextParser(dh)
         dp.ParseStr(data)
-        m.Insert(dh.DataMap, id, dbTabMap, columnMap)
+
+        //m.OutputDataMap(dh.DataMap)
+        m.Insert(dh.DataMap, id, tables, columnMap)
         
         //handle historical financial index data
-        m.ProcessHist(year, id, dh.DateMap, dbTabMap, columnMap)
+        m.ProcessHist(year, id, dh.DateMap, tables, columnMap)
     }   
 }
 
+func (m *FiManager) ProcessHist(currentYear, code string, dateUrlMap map[string]string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column){
+    for year, url := range dateUrlMap{
+        if year != currentYear {
+            data := m.down.GetHistData(url)
+            
+            if len(data) == 0{
+                s := fmt.Sprintf("Cannot get data of: %s | year: %s | url: %s", code, year, url)
+                m.logger.Error(s)
+                continue
+            }
+
+            m.WriteFile(code, year, data)
+            dh := acchandler.NewFiHandler()
+            dp := parser.NewTextParser(dh)
+            dp.ParseStr(data)
+
+            //m.OutputDataMap(dh.DataMap)
+            m.Insert(dh.DataMap, code, tables, columnMap)
+        }
+    }
+}
+
+func (m *FiManager) GetTableSql(tables []*dbentity.DBTable) map[string]string{
+    tabSql := make(map[string]string)
+    for _, table := range tables {
+        cols := make([]string, 0)
+        for _, col := range table.Columns{
+            colName := col.Name
+            cols = append(cols, colName)
+        }
+
+        sql := m.generator.GenerateInsert(table.TableName, cols)
+        tabSql[table.TableName] = sql
+    }
+
+    return tabSql
+}
+
 func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column) {
-    //datedatamap := dh.DataMap
-    //m.OutputDataMap(datedatamap)
-	
+    tabSqlMap := m.GetTableSql(tables)
+
 	//there may be duplicated column: two Chinese index map to the same db colum
     colIdNameMap := make(map[string][]string)
     for k, col := range columnMap{
@@ -110,79 +150,53 @@ func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code strin
     for date, dataMap := range datedatamap {
         //insert to each data
         for _, table := range tables {
-            cols := make([]string, 0)
-            //tabColNames := make([]string, 0)
             dbdata := dbentity.DBExecData{
                 Rows: make([][]interface{}, 0),
             }
             row := make([]interface{}, 0)
             for _, col := range table.Columns{
                 colName := col.Name
-                cols = append(cols, colName)
-                nmarr, ok := colIdNameMap[colName]
-				collen := 0
-				var nm, nm2 string
-                if ok {
-                    //tabColNames = append(tabColNames, nm)
-					collen = len(nmarr)
-					if collen > 0 {
-						nm = nmarr[0]
-						if collen > 1 {
-							nm2 = nmarr[1]
-						}
-					}
-                } else {
-                    //tabColNames = append(tabColNames, colName)
-                    m.logger.Error("Cannot find the column: ", colName, " while inserting table: ", table.TableName) 
-                }
-                
                 if colName == "date"{
                     row = append(row, date)
                 } else if colName == "code" {
                     row = append(row, code)
                 } else {
-                    val, ok := dataMap[nm]
+                    nmarr, ok := colIdNameMap[colName]
                     if ok {
-                        //fmt.Println("**********", col, val)
-                        row = append(row, val)
-                    } else if collen > 1 {
-						val, ok = dataMap[nm2]
-						if ok {
-							row = append(row, val)
-						} else {
-							row = append(row, math.NaN())
-						}
-					}else{
-                        row = append(row, math.NaN())
+                        var val float32
+                        hasVal := false
+                        for _, nm := range nmarr{
+                            val, ok = dataMap[nm]
+                            if ok {
+                                hasVal = true
+                                row = append(row, val)
+                                break
+                            }
+                        }
+                        if !hasVal {
+                            row = append(row, math.NaN())
+                        }
+                    } else {
+                        m.logger.Error("Cannot find the column: ", colName, " while inserting table: ", table.TableName)
                     }
                 }
             }
             
-            sql := m.generator.GenerateInsert(table.TableName, cols)
+            //sql := m.generator.GenerateInsert(table.TableName, cols)
             dbdata.Rows = append(dbdata.Rows, row)
-            m.db.Exec(sql, dbdata)
+            m.db.Exec(tabSqlMap[table.TableName], dbdata)
         } 
     } 
 }
 
-func (m *FiManager) ProcessHist(currentYear, code string, dateUrlMap map[string]string, tables []*dbentity.DBTable, columnMap map[string]*acc.Column){
-    for year, url := range dateUrlMap{
-        if year != currentYear {
-            data := download.HttpGet(url)
-            
-            if len(data) == 0{
-                s := fmt.Sprintf("Cannot get data of: %s | year: %s | url: %s", code, year, url)
-                m.logger.Error(s)
-                continue
-            }
-
-            m.WriteFile(code, year, data)
-            dh := acchandler.NewFiHandler()
-            dp := parser.NewTextParser(dh)
-            dp.ParseStr(data)
-            m.Insert(dh.DataMap, code, tables, columnMap)
-        }
+func (m *FiManager) ClearDB() {
+    tables := dbcreator.ConvertToDBTable(m.ep.CategoryColumnMap)
+    tabNames := make([]string, 0)
+    for _, table := range tables {
+        tabNames = append(tabNames, table.TableName)
     }
+
+    m.db.Clear(tabNames)
 }
 
 func (m *FiManager)OutputDataMap(dataMap map[string]map[string]float32) {
@@ -197,8 +211,7 @@ func (m *FiManager)OutputDataMap(dataMap map[string]map[string]float32) {
 }
 
 func (m *FiManager)WriteFile(code, date, content string) string {
-    //filename := fmt.Sprintf("../../data/fi/%s/%s-%s.dat", code, code, date)
-    filename := fmt.Sprintf("../data/fi/%s/%s-%s.dat", code, code, date)
+    filename := fmt.Sprintf("%sdata/fi/%s/%s-%s.dat", m.baseDir, code, code, date)
     util.WriteFile(filename, content)
 
     return filename

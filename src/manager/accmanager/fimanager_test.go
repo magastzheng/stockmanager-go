@@ -8,5 +8,6 @@ import(
 
 func Test_FiManager_Process(t *testing.T){
     m := accmanager.NewFiManager()
+    m.ClearDB()
     m.Process()
 }

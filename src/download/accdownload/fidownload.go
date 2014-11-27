@@ -25,6 +25,11 @@ func (d *FiDownloader) GetData(code string) string{
     return d.decoder.ConvertString(result)
 }
 
+func (d *FiDownloader) GetHistData(url string) string{
+    result := download.HttpGet(url)
+    return d.decoder.ConvertString(result)
+}
+
 func NewFiDownloader() *FiDownloader{
     d := new(FiDownloader)
     d.Init()

@@ -23,7 +23,7 @@ func (m *AccountDBCreator) Init(){
 
 func (m *AccountDBCreator) Process() {
     m.parser.Parse("../resource/account/financialindexdb.xlsx")
-    dbTabs := ConvertToDBColumn(m.parser.CategoryColumnMap)
+    dbTabs := ConvertToDBTable(m.parser.CategoryColumnMap)
     
     sqls := make([]string, 0)
     for _, dbTab := range dbTabs {
