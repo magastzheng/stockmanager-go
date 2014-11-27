@@ -4,6 +4,8 @@ import(
     "testing"
     "excel"
     "io/ioutil"
+	"fmt"
+	"code.google.com/p/mahonia"
 )
 
 func Test_TestAccountParser(t *testing.T){
@@ -15,7 +17,18 @@ func Test_TestAccountParser(t *testing.T){
     }
     
     data := string(buf)
-
+	decoder := mahonia.NewDecoder("gbk")
+	data = decoder.ConvertString(data)
     p := excel.NewAccountParser()
-    p.Parse(data)
+    dataMap := p.Parse(data)
+	Output_DataMap(dataMap)
+}
+
+func Output_DataMap(dataMap map[string]map[string]float32){
+	for date, datakeyval := range dataMap{
+		fmt.Println("=======", date, "=========")
+		for k, v := range datakeyval{
+			fmt.Println(k, "\t:", v)
+		}
+	}
 }

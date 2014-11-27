@@ -4,6 +4,7 @@ import(
     "testing"
     "util"
     "fmt"
+	"time"
 )
 
 func Test_ParseDate(t *testing.T){
@@ -98,5 +99,15 @@ func Test_LastDay(t *testing.T){
     } else {
         t.Error("Wrong to get the last day: ", y, m, ret)
     }
+}
+
+func Test_FormatDate(t *testing.T){
+	date, _ := time.Parse("20060102", "20141127")
+	result := util.FormatDate(date)
+	if result == "2014-11-27" {
+		t.Log("Success to format date")
+	} else {
+		t.Error("Fail to format date as: yyyy-MM-dd")
+	}
 }
 

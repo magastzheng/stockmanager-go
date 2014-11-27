@@ -5,6 +5,8 @@ import(
     //"fmt"
 )
 
+const DateFormat = "2006-01-02"
+
 var DefaultDate time.Time = time.Time{}
 var Days = [13]int{-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 
@@ -44,4 +46,8 @@ func LastDay(year, month int) int {
     }
 
     return day
+}
+
+func FormatDate(date time.Time) string {
+	return date.Format(DateFormat)
 }
