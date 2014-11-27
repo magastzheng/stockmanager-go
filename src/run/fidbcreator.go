@@ -5,6 +5,6 @@ import(
 )
 
 func main() {
-    m := dbcreator.NewAccountDBCreator()
+    m := dbcreator.NewFiDBCreator()
     m.Process()
 }

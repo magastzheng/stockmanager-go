@@ -4,29 +4,27 @@ import(
     "stockdb"
     "excel"
     "util"
+	"entity/dbentity"
     //"fmt"
 )
 
-type AccountDBCreator struct {
+type AccDBCreatorBase struct {
     parser *excel.AccountColumnParser
     generator *stockdb.SqlGenerator
     db *stockdb.AccountFinancialIndexDB
     logger *util.StockLog
 }
 
-func (m *AccountDBCreator) Init(){
+func (m *AccDBCreatorBase) Init(){
     m.parser = excel.NewAccountColumnParser()
     m.generator = stockdb.NewSqlGenerator()
     m.db = stockdb.NewAccountFinancialIndexDB("chinastock")
     m.logger = util.NewLog()
 }
 
-func (m *AccountDBCreator) Process() {
-    m.parser.Parse("../resource/account/financialindexdb.xlsx")
-    dbTabs := ConvertToDBTable(m.parser.CategoryColumnMap)
-    
-    sqls := make([]string, 0)
-    for _, dbTab := range dbTabs {
+func (m *AccDBCreatorBase) CreateDB(tables []*dbentity.DBTable) {
+	sqls := make([]string, 0)
+    for _, dbTab := range tables {
         sql := m.generator.GenerateCreate(*dbTab)
         //fmt.Println(sql)
         sqls = append(sqls, sql)
@@ -35,9 +33,3 @@ func (m *AccountDBCreator) Process() {
     m.db.Create(sqls)
 }
 
-func NewAccountDBCreator() *AccountDBCreator {
-    m := new(AccountDBCreator)
-    m.Init()
-
-    return m
-}

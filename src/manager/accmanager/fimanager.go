@@ -6,7 +6,6 @@ import(
     "parser"
     "excel"
     "handler/acchandler"
-    //"download"
     "download/accdownload"
     acc "entity/accountentity"
     "entity/dbentity"
@@ -18,14 +17,9 @@ import(
 type FiManager struct {
 	AccManagerBase
     ep *excel.AccountColumnParser
-    //dp *parser.TextParser
-    //dh *acchandler.FiHandler
     db *stockdb.AccountFinancialIndexDB
     listdb *stockdb.StockListDB
     down *accdownload.FiDownloader
-    //generator *stockdb.SqlGenerator
-    //logger *util.StockLog
-    //baseDir string
 }
 
 func (m *FiManager) Init() {
