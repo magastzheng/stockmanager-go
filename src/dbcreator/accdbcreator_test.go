@@ -8,6 +8,7 @@ import(
 
 func Test_FiDBCreator_Process(t *testing.T){
     m := dbcreator.NewAccDBCreator()
-    m.Process()
+    //m.Process()
+	m.Delete()
 }
 

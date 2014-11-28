@@ -2,16 +2,22 @@ package accmanager
 
 import(
     "stockdb"
-    //"dbcreator"
+    "dbcreator"
     //"parser"
     "excel"
     //"handler/acchandler"
     "download/accdownload"
-    //acc "entity/accountentity"
+    acc "entity/accountentity"
     //"entity/dbentity"
     "util"
     //"time"
     "fmt"
+)
+
+const(
+    Balance = "balancesheet"
+    Income = "incomestatement"
+    Cashflow = "cashflowstatement"
 )
 
 type AccountManager struct{
@@ -21,6 +27,8 @@ type AccountManager struct{
     db *stockdb.AccountFinancialIndexDB
     listdb *stockdb.StockListDB
     down *accdownload.AccountDownloader
+
+    sheets []string
 }
 
 func (m *AccountManager) Init() {
@@ -37,13 +45,12 @@ func (m *AccountManager) Init() {
     filename := m.baseDir + "resource/account/accountdb.xlsx"
 
     m.ep.Parse(filename)
+
+    m.sheets = make([]string, 0)
+    m.sheets = append(m.sheets, Balance, Income, Cashflow)
 }
 
 func (m *AccountManager) Process() {
-    tables := dbcreator.ConvertToDBTable(m.ep.CategoryColumnMap)
-    columnMap := m.ep.ColumnMap
-    tableSqlMap := m.GetTableSql(tables)
-
     ids := m.listdb.QueryIds()
     if len(ids) == 0 {
         m.logger.Error("Cannot get stocklist from database")
@@ -51,24 +58,67 @@ func (m *AccountManager) Process() {
         m.logger.Info("Get the stocklist from database: ", len(ids)) 
     }
     ids = ids[1:2]
+    
+    for _, sheet := range m.sheets {
+        m.ProcessSheet(sheet, ids, m.ep.ColumnMap)
+    }
+}
+
+func (m *AccountManager) ProcessSheet(sheet string, ids []string, columnMap map[string]*acc.Column) {
+    categoryMap := m.ep.GetSheetMap(sheet)
+    tables := dbcreator.ConvertToDBTable(categoryMap)
+    tableSqlMap := m.GetTableSql(tables)
+    
     for _, id := range ids {
-        data := m.down.GetBalanceData(id)
+        var data string 
+        switch sheet{
+            case Balance:
+                data = m.down.GetBalanceData(id)
+            case Income:
+                data = m.down.GetIncomeData(id)
+            case Cashflow:
+                data = m.down.GetCashFlowData(id)
+        }
+        
 
         if len(data) == 0{
-            m.logger.Error("Cannot get data of: ", id)
+            m.logger.Error("Cannot get data of: ", sheet, " code: ", id)
             continue
         }
         
-        m.WriteFile(id, "bs", data)
+        m.WriteFile(id, sheet, data)
         dateDataMap := m.dp.Parse(data)
         m.Output(dateDataMap)
         
-        dbData := m.GetTableData(dateDataMap, id, tables, columnMap)
+        tabdbData := m.GetTableData(dateDataMap, id, tables, columnMap)
+        for name, sql := range tableSqlMap{
+            tabData, ok := tabdbData[name]
+            if ok {
+                m.db.Exec(sql, tabData)
+            } else {
+                m.logger.Error("There is no data to insert:", name)
+            }
+        }
     }   
 }
 
-func (m *AccountManager)WriteFile(code, type, content string) string {
-    filename := fmt.Sprintf("%sdata/account/%s/%s-%s.dat", m.baseDir, code, type, code)
+func (m *AccountManager) ClearDB() {
+    
+    for _, sheet := range m.sheets {
+        categoryMap := m.ep.GetSheetMap(sheet)
+        tables := dbcreator.ConvertToDBTable(categoryMap)
+
+        tabNames := make([]string, 0)
+        for _, table := range tables {
+            tabNames = append(tabNames, table.TableName)
+        }
+
+        m.db.Clear(tabNames)
+    }
+}
+
+func (m *AccountManager)WriteFile(code, stype, content string) string {
+    filename := fmt.Sprintf("%sdata/account/%s/%s-%s.dat", m.baseDir, code, stype, code)
     util.WriteFile(filename, content)
 
     return filename

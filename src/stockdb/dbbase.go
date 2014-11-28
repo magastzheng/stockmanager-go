@@ -90,13 +90,13 @@ func (s *DBBase)Exec(query string, data dbentity.DBExecData) int {
         //fmt.Println(row)
         _, reserr := stmt.Exec(row ... )
         if reserr != nil {
-            s.logger.Error("Fail to execute the row in:", i, row)
+            s.logger.Error("Fail to execute the row in:", query, i, s.Dbtype, s.Dbcon, row, reserr)
         }
     }
     
     err = tx.Commit()
     if err != nil {
-        s.logger.Error("Cannot commit the transaction", s.Dbtype, s.Dbcon)
+        s.logger.Error("Cannot commit the transaction: ", query, s.Dbtype, s.Dbcon)
         return -1
     }
 

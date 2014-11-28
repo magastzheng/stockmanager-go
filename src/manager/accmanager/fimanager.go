@@ -20,6 +20,8 @@ type FiManager struct {
     db *stockdb.AccountFinancialIndexDB
     listdb *stockdb.StockListDB
     down *accdownload.FiDownloader
+	
+	categoryMap map[string][]*acc.Column
 }
 
 func (m *FiManager) Init() {
@@ -35,11 +37,12 @@ func (m *FiManager) Init() {
     filename := m.baseDir + "resource/account/financialindexdb.xlsx"
 
     m.ep.Parse(filename)
+	m.categoryMap = m.ep.GetSheetMap("findex")
 }
 
 func (m *FiManager) Process() {
-    
-    tables := dbcreator.ConvertToDBTable(m.ep.CategoryColumnMap)
+    categoryMap := m.ep.GetSheetMap("findex")
+    tables := dbcreator.ConvertToDBTable(categoryMap)
     columnMap := m.ep.ColumnMap
     
     now := time.Now()
@@ -109,7 +112,7 @@ func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code strin
 }
 
 func (m *FiManager) ClearDB() {
-    tables := dbcreator.ConvertToDBTable(m.ep.CategoryColumnMap)
+    tables := dbcreator.ConvertToDBTable(m.categoryMap)
     tabNames := make([]string, 0)
     for _, table := range tables {
         tabNames = append(tabNames, table.TableName)

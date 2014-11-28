@@ -89,8 +89,9 @@ func (m *AccManagerBase) GetTableData(datedatamap map[string]map[string]float32,
                         }
                     } else {
                         m.logger.Error("Cannot find the column: ", colName, " while inserting table: ", table.TableName)
-						//skip of the case because it will fail to insert db even if it continue
-						break
+						
+                        //some data may not include all the table column
+						row = append(row, math.NaN())
                     }
                 }
             }

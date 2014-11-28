@@ -8,6 +8,7 @@ import(
 
 func Test_AccountManager_Process(t *testing.T){
     m := accmanager.NewAccountManager()
+    m.ClearDB()
     m.Process()
 }
 

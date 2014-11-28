@@ -5,7 +5,7 @@ import(
     "excel"
     "util"
 	"entity/dbentity"
-    //"fmt"
+    "fmt"
 )
 
 type AccDBCreatorBase struct {
@@ -31,5 +31,15 @@ func (m *AccDBCreatorBase) CreateDB(tables []*dbentity.DBTable) {
     }
 
     m.db.Create(sqls)
+}
+
+func (m *AccDBCreatorBase) DropDB(tables []*dbentity.DBTable){
+	sqls := make([]string, 0)
+	for _, dbTab := range tables {
+		sql := fmt.Sprintf("drop table %s", dbTab.TableName)
+		sqls = append(sqls, sql)
+	}
+	
+	m.db.Create(sqls)
 }
 

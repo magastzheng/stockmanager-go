@@ -10,7 +10,8 @@ type FiDBCreator struct{
 
 func (m *FiDBCreator) Process() {
     m.parser.Parse("../resource/account/financialindexdb.xlsx")
-    dbTabs := ConvertToDBTable(m.parser.CategoryColumnMap) 
+	category := m.parser.GetSheetMap("findex")
+    dbTabs := ConvertToDBTable(category) 
 
     m.CreateDB(dbTabs)
 }
