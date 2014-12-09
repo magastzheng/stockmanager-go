@@ -1,0 +1,6 @@
+深圳股票代码(excel)-html table
+http://www.szse.cn/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1110&tab1PAGENUM=1&ENCODE=1&TABKEY=tab1
+
+
+当天交易
+http://www.szse.cn/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1815_stock&txtBeginDate=2014-12-09&txtEndDate=2014-12-09&tab1PAGENUM=166&tab1PAGECOUNT=166&tab1RECORDCOUNT=1651&ENCODE=1&TABKEY=tab1
