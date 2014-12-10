@@ -85,6 +85,16 @@
 		}
 		]
 	},{
+		"id": "shse-query",
+		"host": "http://query.sse.com.cn",
+		"apis": [{
+			"key": "company",
+			"method": "GET",
+			"uri": "/commonQuery.do?jsonCallBack=jsonp%d&_=%d&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_MSXX_C&productid=%s",
+			"data": ""
+		}	
+		]
+	},{
 		"id": "shse",
 		"host": "http://www.sse.com.cn",
 		"apis": [{
@@ -106,6 +116,11 @@
 			"key": "company",
 			"method": "GET",
 			"uri": "/commonQuery.do?jsonCallBack=jsonp%d&_=%d&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_MSXX_C&productid=%s",
+			"data": ""
+		},{
+			"key": "company-an",
+			"method": "GET",
+			"uri": "/assortment/stock/list/stockdetails/company/index.shtml?COMPANY_CODE=%s&SecurityCode=",
 			"data": ""
 		}]
 	},{

@@ -1048,3 +1048,15 @@ http://www.sse.com.cn/assortment/stock/list/stockdetails/company/index.shtml?COM
 
 交易概况
 http://www.sse.com.cn/market/dealingdata/overview/stock/abshare/absharedealmonth_index.shtml?YEAR=2013&prodType=9&sytle=1
+
+
+
+http://query.sse.com.cn/commonQuery.do?jsonCallBack=jsonp1418209317794&_=1418209322846&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_C&productid=600000
+Referer:http://www.sse.com.cn/assortment/stock/list/stockdetails/company/index.shtml?COMPANY_CODE=600000&SecurityCode=
+
+http://query.sse.com.cn/commonQuery.do?jsonCallBack=jsonp1418209317795&_=1418209322848&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_C&productid=600000
+Referer:http://www.sse.com.cn/assortment/stock/list/stockdetails/company/index.shtml?COMPANY_CODE=600000&SecurityCode=
+http://query.sse.com.cn/commonQuery.do?jsonCallBack=jsonp1418209317796&_=1418209322849&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_AGSSR_C&productid=600000
+Referer:http://www.sse.com.cn/assortment/stock/list/stockdetails/company/index.shtml?COMPANY_CODE=600000&SecurityCode=
+
+
