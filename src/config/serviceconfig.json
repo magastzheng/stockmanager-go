@@ -105,7 +105,7 @@
 		},{
 			"key": "company",
 			"method": "GET",
-			"uri": "/commonQuery.do?jsonCallBack=jsonp1418205769347&_=1418205841721&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_MSXX_C&productid=600000",
+			"uri": "/commonQuery.do?jsonCallBack=jsonp%d&_=%d&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_MSXX_C&productid=%s",
 			"data": ""
 		}]
 	},{

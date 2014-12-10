@@ -3,6 +3,8 @@ package download
 import(
     "fmt"
     "config"
+    "time"
+    "math/rand"
 )
 
 type SHSEDownloader struct {
@@ -27,8 +29,12 @@ func (d *SHSEDownloader) GetList() string {
 
 func (d *SHSEDownloader) GetCompanyInfo(code string) string{
     fmt.Println(d.companyapi.Uri)
-    url := fmt.Sprintf(d.companyapi.Uri, code)
+    
+    rand.Seed(time.Now().UnixNano())
+    randn := rand.Int63()
+    url := fmt.Sprintf(d.companyapi.Uri, randn, randn, code)
     //return HttpGet(url)
+    fmt.Println("after:", url)
     header := make(map[string]string)
     header["Referer"] = url
     return HttpGetWithHeader(url, header)
