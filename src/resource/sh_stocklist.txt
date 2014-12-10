@@ -1045,3 +1045,6 @@ return _t;}
 获取公司信息
 http://www.sse.com.cn/assortment/stock/list/stockdetails/company/index.shtml?COMPANY_CODE=600000
 
+
+交易概况
+http://www.sse.com.cn/market/dealingdata/overview/stock/abshare/absharedealmonth_index.shtml?YEAR=2013&prodType=9&sytle=1

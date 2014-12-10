@@ -84,5 +84,43 @@
 			"data":	""
 		}
 		]
+	},{
+		"id": "shse",
+		"host": "http://www.sse.com.cn",
+		"apis": [{
+			"key": "stocklist",
+			"method": "GET",
+			"uri": "/js/common/ssesuggestdata.js",
+			"data": ""
+		},{
+			"key": "companyinfo",
+			"method": "GET",
+			"uri": "/assortment/stock/list/stockdetails/company/index.shtml?COMPANY_CODE=%s&SecurityCode=",
+			"data": ""
+		},{
+			"key": "tradesummary",
+			"method": "GET",
+			"uri": "/market/dealingdata/overview/stock/abshare/absharedealmonth_index.shtml?YEAR=%d&prodType=9&sytle=1",
+			"data": ""
+		},{
+			"key": "company",
+			"method": "GET",
+			"uri": "/commonQuery.do?jsonCallBack=jsonp1418205769347&_=1418205841721&isPagination=false&sqlId=COMMON_SSE_ZQPZ_GP_GPLB_MSXX_C&productid=600000",
+			"data": ""
+		}]
+	},{
+		"id": "szse",
+		"host": "http://www.szse.cn",
+		"apis": [{
+			"key": "stocklist",
+			"method": "GET",
+			"uri": "/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1110&tab1PAGENUM=1&ENCODE=1&TABKEY=tab1",
+			"data": ""
+		},{
+			"key": "tradedaily",
+			"method": "GET",
+			"uri": "/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1815_stock&txtBeginDate=%s&txtEndDate=%s&tab1PAGENUM=166&tab1PAGECOUNT=166&tab1RECORDCOUNT=1651&ENCODE=1&TABKEY=tab1",
+			"data": ""
+		}]
 	}]
 }

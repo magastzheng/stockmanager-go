@@ -32,6 +32,43 @@ func HttpGet(url string) string {
     return result
 }
 
+func HttpGetWithHeader(url string, header map[string]string) string {
+    req, err := http.NewRequest("GET", url, nil)
+	
+	for k, v := range header {
+		req.Header.Set(k, v)
+	}
+	if err != nil {
+		util.NewLog().Error("URL: ", url, " header: ", header, err)
+	}
+	
+	client := new(http.Client)
+	resp, err := client.Do(req)
+	
+	if err != nil {
+		util.NewLog().Error("URL: ", url, " header: ", header, err)
+	}
+	
+    if resp == nil {
+        return ""
+    }
+	
+    defer resp.Body.Close()
+    if err != nil {
+        util.NewLog().Error("URL: ", url, err)
+        return ""
+    }
+    
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        util.NewLog().Error("URL: ", url, err)
+        return ""
+    }
+
+    result := string(body)
+    return result
+}
+
 func HttpPost(url, data string) string {
     buf := []byte(data)
     resp, err := http.Post(url, "application/json", bytes.NewReader(buf))

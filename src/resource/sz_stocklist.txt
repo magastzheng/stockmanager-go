@@ -4,3 +4,18 @@ http://www.szse.cn/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1110&tab1PA
 
 当天交易
 http://www.szse.cn/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1815_stock&txtBeginDate=2014-12-09&txtEndDate=2014-12-09&tab1PAGENUM=166&tab1PAGECOUNT=166&tab1RECORDCOUNT=1651&ENCODE=1&TABKEY=tab1
+
+
+http://www.szse.cn/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1803&txtQueryDate=2014-12-10%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&ENCODE=1&TABKEY=tab1
+
+深圳市场
+/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1803&amp;txtQueryDate=2014-12-10                          &ENCODE=1&TABKEY=tab1
+
+深圳主板
+/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1803&amp;txtQueryDate=2014-12-10                          &ENCODE=1&TABKEY=tab2
+
+深圳中小企业
+/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1803&amp;txtQueryDate=2014-12-10                          &ENCODE=1&TABKEY=tab3
+
+深圳创业板
+/szseWeb/FrontController.szse?ACTIONID=8&CATALOGID=1803&amp;txtQueryDate=2014-12-10                          &ENCODE=1&TABKEY=tab4
