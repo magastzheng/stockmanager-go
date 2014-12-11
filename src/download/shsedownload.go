@@ -30,46 +30,27 @@ func (d *SHSEDownloader) Init() {
 }
 
 func (d *SHSEDownloader) GetList() string {
-    fmt.Println(d.listapi.Uri)
     return HttpGet(d.listapi.Uri)
 }
 
-func (d *SHSEDownloader) GetCompanyInfo(code string) string{
-    fmt.Println(d.companyapi.Uri)
-    fmt.Println(d.certapi.Uri)
-
+func (d *SHSEDownloader) getData(code string, urifmt string) string {
     rand.Seed(time.Now().UnixNano())
     randf := rand.Float32()
 
     randn := int(randf * (100000000+1))
-
-    url := fmt.Sprintf(d.companyapi.Uri, randn, randn, code)
+    url := fmt.Sprintf(urifmt, randn, randn, code)
     certurl := fmt.Sprintf(d.certapi.Uri, code)
     header := make(map[string]string)
     header["Referer"] = certurl
-    //return HttpGet(url)
-    fmt.Println("after:", url)
-    fmt.Println("Referer:", header, certurl)
     return HttpGetWithHeader(url, header)
 }
 
+func (d *SHSEDownloader) GetCompanyInfo(code string) string{
+    return d.getData(code, d.companyapi.Uri)
+}
+
 func (d *SHSEDownloader) GetCompanyIncpt(code string) string{
-    fmt.Println(d.compincptapi.Uri)
-    fmt.Println(d.certapi.Uri)
-
-    rand.Seed(time.Now().UnixNano())
-    randf := rand.Float32()
-
-    randn := int(randf * (100000000+1))
-
-    url := fmt.Sprintf(d.compincptapi.Uri, randn, randn, code)
-    certurl := fmt.Sprintf(d.certapi.Uri, code)
-    header := make(map[string]string)
-    header["Referer"] = certurl
-    //return HttpGet(url)
-    fmt.Println("after:", url)
-    fmt.Println("Referer:", header, certurl)
-    return HttpGetWithHeader(url, header)
+    return d.getData(code, d.compincptapi.Uri)
 }
 
 func NewSHSEDownloader() *SHSEDownloader{
