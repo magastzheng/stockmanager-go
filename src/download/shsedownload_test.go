@@ -24,3 +24,9 @@ func Test_SHSEDownloader_GetCompanyInfo(t *testing.T) {
     util.WriteFile("../data/shse600000.dat", res) 
 }
 
+func Test_SHSEDownloader_GetCompanyIncpt(t *testing.T){
+    d := download.NewSHSEDownloader()
+    res := d.GetCompanyIncpt("600000")
+
+    fmt.Println(res)
+}
