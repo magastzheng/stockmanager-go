@@ -120,9 +120,11 @@ func (s *StockListDB) Query(id string) entity.Stock {
     util.CheckError(err)
 
     return entity.Stock{
-        Id: stockid,
-        Name: stockname,
-        Website: website,
+        entity.StockItem{
+            stockid,
+            stockname,
+        },
+        website,
     }
 }
 

@@ -1,0 +1,20 @@
+{
+	"countries":[{
+		"id" : "CHS",
+		"exchanges": [
+			{
+				"code": "EX$$$$XSHG",
+				"region": "Shanghai",
+				"name": "Shanghai Security Exchange"
+			},{
+				"code": "EX$$$$XSHE",
+				"region": "Shenzhen",
+				"name": "Shenzhen Security Exchange"
+			},{
+				"code": "EX$$$$XHKE",
+				"region": "Hongkong",
+				"name": "Hongkong Security Exchange"
+			}	
+		]
+	}]
+}

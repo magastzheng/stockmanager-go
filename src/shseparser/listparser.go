@@ -10,14 +10,14 @@ import(
 )
 
 type ListParser struct{
-    
+    Stocks []entity.StockItem
 }
 
-func (p* ListParser) Parse(data string){
+func (p* ListParser) Parse(data string) int {
     srd := strings.NewReader(data)
     brd := bufio.NewReader(srd)
 
-    stlist := make([]entity.StockItem, 0)
+    p.Stocks = make([]entity.StockItem, 0)
     
     row := 0
     for line, err := brd.ReadString('\n'); err ==  nil; line, err = brd.ReadString('\n') {
@@ -33,29 +33,28 @@ func (p* ListParser) Parse(data string){
         stbuf := re.Find([]byte(line))
         stline := string(stbuf)
         if len(stline) > 0 {
-            //codepattern := `val:\"\d+\"`
-            //namepattern := `val2:\"\.+\"`
-            //recode, _ := regexp.Compile(codepattern)
-            //codebuf := recode.Find([]byte(line))
-
-            //rename, _ := regexp.Compile(namepattern)
-            //namebuf := rename.Find([]byte(line))
-
-            //fmt.Println(string(codebuf), string(namebuf))
             
-            for pos := strings.Index(stline, "\""); pos > 0; pos = strings.Index(stline, "\"") {
+            arrval := make([]string, 0)
+            for pos := strings.Index(stline, "\""); pos != -1; pos = strings.Index(stline, "\"") {
                 stline = string(stline[pos + 1:])
                 end := strings.Index(stline, "\"")
                 val := string(stline[:end])
                 stline = string(stline[end+1:])
-                fmt.Println(val, pos, end, stline)
+                arrval = append(arrval, val)
             }
+            
+            stock := entity.StockItem{
+                Id: arrval[0],
+                Name: arrval[1],
+            }
+
+            p.Stocks = append(p.Stocks, stock)
         }
 
         row++
     }
 
-    fmt.Println(stlist)
+    return row
 }
 
 func NewListParser() *ListParser{

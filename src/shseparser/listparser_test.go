@@ -15,6 +15,9 @@ func Test_LisParser_Parse(t *testing.T){
     }
     src := string(buf)
     p := shseparser.NewListParser()
-    p.Parse(src)
+    row := p.Parse(src)
+    fmt.Println(row)
+    fmt.Println(len(p.Stocks))
+    fmt.Println(p.Stocks)
 }
 
