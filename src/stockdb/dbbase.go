@@ -12,7 +12,7 @@ import (
 type DBBase struct {
     Dbtype string
     Dbcon string
-    logger *util.StockLog
+    Logger *util.StockLog
 }
 
 func (s *DBBase) Init(name string) {
@@ -22,7 +22,7 @@ func (s *DBBase) Init(name string) {
     s.Dbtype = config.Dbtype
     s.Dbcon = config.Dbcon
 
-    s.logger = util.NewLog()
+    s.Logger = util.NewLog()
 }
 
 //func (s *DBBase) InitDB(filename, name string) {
@@ -31,13 +31,13 @@ func (s *DBBase) Init(name string) {
 //    s.Dbtype = config.Dbtype
 //    s.Dbcon = config.Dbcon
 
-//    s.logger = util.NewLog()
+//    s.Logger = util.NewLog()
 //}
 
 func (s *DBBase) Open() *sql.DB {
     db, err := sql.Open(s.Dbtype, s.Dbcon)
     if err != nil {
-        s.logger.Error("Cannot open database: ", s.Dbtype, s.Dbcon, err)
+        s.Logger.Error("Cannot open database: ", s.Dbtype, s.Dbcon, err)
     }
     
     return db
@@ -47,24 +47,24 @@ func (s *DBBase)ExecOnce(query string, args ... interface{}) int {
     db := s.Open()
     defer db.Close()
     
-    s.logger.Info(query, args)
+    s.Logger.Info(query, args)
 
     stmt, err := db.Prepare(query)
     defer stmt.Close()
     if err != nil{
-        s.logger.Error("Cannot prepare the sql:", query, s.Dbtype, s.Dbcon)
+        s.Logger.Error("Cannot prepare the sql:", query, s.Dbtype, s.Dbcon)
         return -1
     }
     
     res, err := stmt.Exec(args ...)
     if err != nil {
-        s.logger.Error("Fail to execute the sql:", query, s.Dbtype, s.Dbcon, err)
+        s.Logger.Error("Fail to execute the sql:", query, s.Dbtype, s.Dbcon, err)
         return -1
     }
 
     _, reserr := res.RowsAffected()
     if reserr != nil{
-        s.logger.Error("Fail to get the affected row:", query, s.Dbtype, s.Dbcon, err)
+        s.Logger.Error("Fail to get the affected row:", query, s.Dbtype, s.Dbcon, err)
         return -1
     }
 
@@ -77,26 +77,26 @@ func (s *DBBase)Exec(query string, data dbentity.DBExecData) int {
     
     tx, err := db.Begin()
     if err != nil {
-        s.logger.Error("Fail to begin the transaction", s.Dbtype, s.Dbcon)
+        s.Logger.Error("Fail to begin the transaction", s.Dbtype, s.Dbcon)
         return -1
     }
     for i, row := range data.Rows {
         stmt, err := tx.Prepare(query)
         defer stmt.Close()
         if err != nil{
-            s.logger.Error("Fail to prepare the sql:", query, i, s.Dbtype, s.Dbcon, err)
+            s.Logger.Error("Fail to prepare the sql:", query, i, s.Dbtype, s.Dbcon, err)
         }
         
         //fmt.Println(row)
         _, reserr := stmt.Exec(row ... )
         if reserr != nil {
-            s.logger.Error("Fail to execute the row in:", query, i, s.Dbtype, s.Dbcon, row, reserr)
+            s.Logger.Error("Fail to execute the row in:", query, i, s.Dbtype, s.Dbcon, row, reserr)
         }
     }
     
     err = tx.Commit()
     if err != nil {
-        s.logger.Error("Cannot commit the transaction: ", query, s.Dbtype, s.Dbcon)
+        s.Logger.Error("Cannot commit the transaction: ", query, s.Dbtype, s.Dbcon)
         return -1
     }
 
@@ -115,13 +115,13 @@ func (s *DBBase)Query(query string, args ... interface{}) dbentity.DBData {
     defer rows.Close()
     
     if err != nil {
-        s.logger.Error("Cannot execute the sql:", query, s.Dbtype, s.Dbcon, err)
+        s.Logger.Error("Cannot execute the sql:", query, s.Dbtype, s.Dbcon, err)
         return data
     }
     
     columns, err := rows.Columns()
     if err != nil {
-        s.logger.Error("Cannot get the columns of rows:", s.Dbtype, s.Dbcon, err)
+        s.Logger.Error("Cannot get the columns of rows:", s.Dbtype, s.Dbcon, err)
         return data
     }
     
@@ -138,7 +138,7 @@ func (s *DBBase)Query(query string, args ... interface{}) dbentity.DBData {
     for rows.Next() {
         err = rows.Scan(scanArgs ...)
         if err != nil {
-            s.logger.Error("Cannot read the rows:", s.Dbtype, s.Dbcon, err)
+            s.Logger.Error("Cannot read the rows:", s.Dbtype, s.Dbcon, err)
         }
 
         var value string

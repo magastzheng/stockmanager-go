@@ -42,7 +42,7 @@ func (h *StockHandler) OnStartElement(tag string, attrs map[string]string){
     } else if h.isStockLi && tag == "a" {
         h.isStockLink = true
         //fmt.Println("start: ", tag)
-        h.tempStock = entity.Stock{Website: attrs["href"]}
+        h.tempStock = entity.Stock{}
     } else {
         //do nothing
     }
@@ -98,7 +98,7 @@ func (h *StockHandler) Split(text string) (string, string) {
 
 func (h *StockHandler) PrintStocks(){
     for k, st := range h.Stocks {
-        fmt.Println("key: ", k, "Id: ", st.Id, " name: ", st.Name, " website: ", st.Website)
+        fmt.Println("key: ", k, "Id: ", st.Id, " name: ", st.Name)
     }
 }
 

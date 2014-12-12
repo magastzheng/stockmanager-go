@@ -10,14 +10,14 @@ import(
 )
 
 type ListParser struct{
-    Stocks []entity.StockItem
+    Stocks []entity.Stock
 }
 
 func (p* ListParser) Parse(data string) int {
     srd := strings.NewReader(data)
     brd := bufio.NewReader(srd)
 
-    p.Stocks = make([]entity.StockItem, 0)
+    p.Stocks = make([]entity.Stock, 0)
     
     row := 0
     for line, err := brd.ReadString('\n'); err ==  nil; line, err = brd.ReadString('\n') {
@@ -43,7 +43,7 @@ func (p* ListParser) Parse(data string) int {
                 arrval = append(arrval, val)
             }
             
-            stock := entity.StockItem{
+            stock := entity.Stock{
                 Id: arrval[0],
                 Name: arrval[1],
             }

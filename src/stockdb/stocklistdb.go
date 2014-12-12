@@ -18,17 +18,17 @@ type StockListDB struct {
    DBBase
 }
 
-func (s *StockListDB) Insert(exch string, stock entity.Stock) int {
+func (s *StockListDB) Insert(stock entity.Stock) int {
     db := s.Open()
 
-    stmt, err := db.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
+    stmt, err := db.Prepare("insert stocklist set id=?, name=?, exchange=?")
     util.CheckError(err)
     defer stmt.Close()
     
     //id, err := strconv.Atoi(stock.Id)
     //s.CheckError(err)
 
-    res, err := stmt.Exec(stock.Id, stock.Name, exch, stock.Website)
+    res, err := stmt.Exec(stock.Id, stock.Name, stock.Exchange)
     util.CheckError(err)
 
     _, reserr := res.LastInsertId()
@@ -82,20 +82,20 @@ func (s *StockListDB) Update(stock entity.Stock) int {
     return 0
 }
 
-func (s *StockListDB) TranInsert(exch string, stocks map[string] entity.Stock) int {
+func (s *StockListDB) TranInsert(stocks map[string] entity.Stock) int {
     db := s.Open()
 	
 	tx, err := db.Begin()
 	util.CheckError(err)
 	
 	for key, stock := range stocks {
-		stmt, err := tx.Prepare("insert stocklist set id=?, name=?, exchange=?, website=?")
+		stmt, err := tx.Prepare("insert stocklist set id=?, name=?, exchange=?")
 		util.CheckError(err)
 		
 		//id, err := strconv.Atoi(key)
 		//s.CheckError(err)
 
-		_, reserr := stmt.Exec(key, stock.Name, exch, stock.Website)
+		_, reserr := stmt.Exec(key, stock.Name, stock.Exchange)
 		util.CheckError(reserr)
 		//fmt.Println(res)
 	}
@@ -111,20 +111,18 @@ func (s *StockListDB) Query(id string) entity.Stock {
     db := s.Open()
     defer db.Close()
 
-    stmt, err := db.Prepare("select id, name, exchange, website from stocklist where id = ?")
+    stmt, err := db.Prepare("select id, name, exchange from stocklist where id = ?")
     util.CheckError(err)
     defer stmt.Close()
     
-    var stockid, stockname, exchange, website string
-    err = stmt.QueryRow(id).Scan(&stockid, &stockname, &exchange, &website)
+    var stockid, stockname, exchange string
+    err = stmt.QueryRow(id).Scan(&stockid, &stockname, &exchange)
     util.CheckError(err)
 
     return entity.Stock{
-        entity.StockItem{
-            stockid,
-            stockname,
-        },
-        website,
+            Id: stockid,
+            Name: stockname,
+            Exchange: exchange,
     }
 }
 
@@ -186,7 +184,7 @@ func (s *StockListDB) QueryIds() []string {
     return ids
 }
 
-func (s *StockListDB) GetIdExchange() []StockIdExchange {
+func (s *StockListDB) GetIdExchange() []entity.Stock {
     db := s.Open()
     defer db.Close()
    
@@ -213,7 +211,7 @@ func (s *StockListDB) GetIdExchange() []StockIdExchange {
     //    scanArgs[i] = &values[i]
     //}
     
-    idexchs := make([]StockIdExchange, 0, count + 1)
+    idexchs := make([]entity.Stock, 0, count + 1)
 
     //total := 0
     var id, exch string
@@ -222,7 +220,7 @@ func (s *StockListDB) GetIdExchange() []StockIdExchange {
          err = rows.Scan(&id, &exch)
          util.CheckError(err)
          
-         idexch := StockIdExchange{
+         idexch := entity.Stock{
             Id: id,
             Exchange: exch,
          }
@@ -237,10 +235,4 @@ func NewStockListDB(dbname string) *StockListDB {
     stdb := new(StockListDB)
     stdb.Init(dbname)
     return stdb
-    //return &StockListDB{
-    //    DBBase: DBBase{
-    //        Dbtype: dbtype,
-    //        Dbcon: dbcon,
-    //    },
-    //}
 }

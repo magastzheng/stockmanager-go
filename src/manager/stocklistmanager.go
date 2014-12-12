@@ -40,7 +40,12 @@ func (s *StockListManager) Process() {
         //fmt.Println(len(h.Stocks))
         //stockstr := h.ToJson()
         //s.WriteFile(c.Type + c.Class, stockstr)
-        s.db.TranInsert(c.Exchange, h.Stocks)
+        for k, v := range h.Stocks {
+            v.Exchange = c.Exchange
+            h.Stocks[k] = v
+        }
+
+        s.db.TranInsert(h.Stocks)
         //exchange := c.Exchange
         //for _, st := range s.h.Stocks {
         //    fmt.Println(id)

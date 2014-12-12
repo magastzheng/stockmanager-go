@@ -1,11 +1,12 @@
 package entity
 
-type StockItem struct{
+type Stock struct{
     Id string
     Name string
+    Exchange string
 }
 
-type Stock struct{
-    StockItem
+type StockSummary struct{
+    Stock
     Website string
 }
