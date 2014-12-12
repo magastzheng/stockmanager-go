@@ -29,6 +29,7 @@ func (m *SHSEListManager) Process() {
     stockids := m.db.QueryIds()
     shnewstocks := m.ProcessShanghai(stockids)
     fmt.Println("New added: ", len(shnewstocks))
+    fmt.Println(shnewstocks)
     
     //for _, c := range categories {
         //fmt.Println(i,c)

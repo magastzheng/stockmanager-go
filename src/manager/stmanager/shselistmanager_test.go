@@ -2,7 +2,7 @@ package manager_test
 
 import(
     "testing"
-    "manager"
+    manager "manager/stmanager"
     //"fmt"
     //"os"
     //"encoding/json"
