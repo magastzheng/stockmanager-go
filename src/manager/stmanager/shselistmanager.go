@@ -3,11 +3,13 @@ package manager
 import(
     "download"
     "stockdb"
+    "stockdb/stsummary"
     "shseparser"
     "config"
-    "fmt"
+    //"fmt"
     "os"
     "entity"
+    "util"
     //"encoding/json"
 )
 
@@ -16,6 +18,8 @@ type SHSEListManager struct {
     exchmanager *config.ExchangeConfigManager
     download *download.SHSEDownloader
     db *stockdb.StockListDB
+    newdb *stsummary.StockListDB
+    logger *util.StockLog
 }
 
 func (m *SHSEListManager) Init() {
@@ -23,13 +27,17 @@ func (m *SHSEListManager) Init() {
     m.exchmanager = config.NewExchangeConfigManager()
     m.download = download.NewSHSEDownloader()
     m.db = stockdb.NewStockListDB("chinastock")
+    m.newdb = stsummary.NewStockListDB("chinastock", "newstocklist")
+    m.logger = util.NewLog()
 }
 
 func (m *SHSEListManager) Process() {
     stockids := m.db.QueryIds()
     shnewstocks := m.ProcessShanghai(stockids)
-    fmt.Println("New added: ", len(shnewstocks))
-    fmt.Println(shnewstocks)
+    if len(shnewstocks) > 0 {
+        m.logger.Info("New stock added from Shanghai SE:", len(shnewstocks))
+        m.newdb.TranInsert(shnewstocks)
+    }
     
     //for _, c := range categories {
         //fmt.Println(i,c)
