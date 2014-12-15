@@ -1,219 +1,104 @@
 package szsehandler
 
 import(
+    "handler"
     "strings"
     "util"
     //"fmt"
 )
 
 const(
-    FIDivClass = "tagmain"
-    FITabId = "BalanceSheetNewTable0"
+    STTabClass = "cls-data-table"
+    STTrHead = "cls-data-tr-head"
+    STTrData = "cls-data-tr"
 )
 
-type StockListHandler struct {
-    DateMap map[string]string //date - url mapping
-    DataMap map[string]map[string]float32 // date - index - data mapping
-    isTargetDiv bool
-    isTargetTab bool
-    isTargetDateTab bool
-    isTargetTBody bool
-    isTargetDataTr bool
-    isTargetDateTr bool
-    isTargetDataTd bool
-    isTargetDateTd bool
-    isTargetStrong bool
-    isTargetAnch bool
-    ignoreTr bool
-    //tabNum int
-    trNum int
-    tdNum int
-    tempUrl string
+type Company struct {
+    Code string
+    AbbrName string
+    Name string
+    Name_en string
+    RegAddr string
+    InceptDate string
+    TotalShares_A int
+    FlowShares_A int
+    Code_B string
+    InceptDate_B string
+    TotalShares_B int
+    FlowShares_B int
+    Region string
+    State string
+    City string
+    Industry string
+    Website string
+}
 
-    reportDates []string
-    tempRowData []float32
-    tempRowId string
+type StockListHandler struct {
+    handler.HandlerBase
+    Companies []Company
+    tempComp Company
+
+    isTargetTab bool
+    isTargetTr bool
+    isTargetTd bool
+    tdNum int
 }
 
 func (h *StockListHandler) Init() {
-    h.DateMap = make(map[string]string)
-    h.DataMap = make(map[string]map[string]float32)
-    h.isTargetDiv = false
-    h.isTargetTab = false
-    h.isTargetDateTab = false
-    h.isTargetTBody = false
-    h.isTargetDataTr = false
-    h.isTargetDateTr = false
-    h.isTargetDataTd = false
-    h.isTargetDateTd = false
-    h.isTargetStrong = false
-    h.isTargetAnch = false
-    h.ignoreTr = false
+    h.Companies = make([]Company, 0)
     
-    //h.tabNum = 0
-    h.trNum = 0
+    h.isTargetTab = false
+    h.isTargetTr = false
+    h.isTargetTd = false
     h.tdNum = 0
-    h.tempUrl = ""
-    h.reportDates = make([]string, 0)
-    //h.tempRowData = make([]float32, 0)
-    h.tempRowId = ""
 }
 
 func (h * StockListHandler) OnStartElement(tag string, attrs map[string]string) {
-    //fmt.Println(tag, attrs)
-    switch tag {
-        case "div":
-            clsname, ok := attrs["class"]
-            if ok && clsname == FIDivClass {
-                h.isTargetDiv = true
-                //fmt.Println(tag, attrs)
-            }
-        case "table":
-            if h.isTargetDiv {
-                tabId, ok := attrs["id"]
-                _, ok2 := attrs["class"]
+    clsname, ok := attrs["class"]
 
-                if ok && tabId == FITabId {
-                    h.isTargetTab = true
-                } else if !ok2{
-                    h.isTargetDateTab = true
-                }
-            }
-        case "tbody":
-            if h.isTargetTab {
-                h.isTargetTBody = true
+    switch tag {
+        case "table":
+            if ok && clsname == STTabClass {
+                h.isTargetTab = true
             }
         case "tr":
-            if h.isTargetTBody {
-                h.isTargetDataTr = true
-                h.trNum++
-                h.tempRowData = make([]float32, len(h.reportDates))
-            } else if h.isTargetDateTab {
-                h.isTargetDateTr = true
-                h.trNum++
-            } else {
-                //do nothing
+            if h.isTargetTab {
+                if ok && clsname == STTrData {
+                    h.isTargetTr = true
+                    h.tempComp = Company{}
+                }
             }
         case "td":
-            if h.isTargetDataTr {
-                h.isTargetDataTd = true
+            if h.isTargetTr {
+                h.isTargetTd = true
                 h.tdNum++
-
-                cspan, ok := attrs["colspan"]
-                if ok && len(cspan) > 0 {
-                    h.ignoreTr = true
-                }
-            } else if h.isTargetDateTab || h.isTargetDateTr {
-                h.isTargetDateTd = true
-                h.tdNum++
-            } else {
-                //do nothing
-            }
-        case "strong":
-            if h.isTargetDataTd || h.isTargetDateTd {
-                h.isTargetStrong = true
-            }
-        case "a":
-            if h.isTargetDataTd || h.isTargetDateTd {
-                h.isTargetAnch = true
-                h.tempUrl = attrs["href"]
             }
     }
 }
     
 func (h *StockListHandler) OnEndElement(tag string) {
     switch tag {
-        case "div":
-            if h.isTargetDiv {
-               h.isTargetDiv = false 
-            }
         case "table":
-            if h.isTargetDiv {
-                if h.isTargetDateTab {
-                    h.isTargetDateTab = false
-                } else if h.isTargetTab {
-                    h.isTargetTab = false
-                    h.trNum = 0
-                } else {
-                    //do nothing
-                }
-            }
-        case "tbody":
-            if h.isTargetTab && h.isTargetTBody{
-                h.trNum = 0
+            if h.isTargetTable {
+                h.isTargetTable = false
             }
         case "tr":
-            if h.isTargetTBody && h.isTargetDataTr {
-                h.isTargetDataTr = false
-                h.tdNum = 0
-                if !h.ignoreTr && h.trNum > 1 {
-                    h.AddData()
-                }
-                
-                if h.ignoreTr {
-                    h.ignoreTr = false
-                }
-            } else if h.isTargetDateTab && h.isTargetDateTr {
-                h.isTargetDateTr = false
+            if h.isTargetTable && h.isTargetTr {
+                h.isTargetTr = false
+                h.Companies = append(h.Companies, h.tempComp)
                 h.tdNum = 0
             }
         case "td":
-            if h.isTargetDataTr && h.isTargetDataTd {
-                h.isTargetDataTd = false
-            } else if (h.isTargetDateTab || h.isTargetDateTr) && h.isTargetDateTd {
-                h.isTargetDateTd = false
-            }
-        case "strong":
-            if (h.isTargetDataTd || h.isTargetDateTd) && h.isTargetStrong {
-                h.isTargetStrong = false
-            }
-        case "a":
-            if (h.isTargetDataTd || h.isTargetDateTd) && h.isTargetAnch {
-                h.isTargetAnch = false
-                h.tempUrl = ""
+            if h.isTargetTr && h.isTargetTd {
+                h.isTargetTd = false
             }
     }
 }
 
 func (h *StockListHandler) OnText(text string) {
-    if h.isTargetDateTd && h.isTargetAnch {
-        h.DateMap[text] = h.tempUrl
-    } else if h.isTargetDataTd {
-        text = strings.TrimSpace(text)
-        if h.trNum == 1 {
-            //fmt.Println(text)
-            h.reportDates = append(h.reportDates, text)
-        } else if !h.ignoreTr {
-            if h.tdNum == 1 {
-                h.tempRowId = text
-            } else if h.tdNum > 1{
-                value := util.ToFloat32(text)
-                h.tempRowData[h.tdNum - 1] = value
-            } else {
-                //do nothing
-            }
-        }
-    }
-}
-
-func (h *StockListHandler) OnComment(text string) {
-    //fmt.Println("Comment: ", text)
-}
-
-func (h *StockListHandler) OnPIElement(tag string, attrs map[string]string) {
-    //fmt.Println("PI: ", tag)
-
-    //for k, v := range attrs {
-     //   fmt.Println(k, v)
-    //}
-}
-
-func (h *StockListHandler) OnCData(text string){
-    //fmt.Println("CData: ", text)
-}
-
-func (h *StockListHandler) OnError(line int, row int, message string) {
-    //do nothing
+    if h.isTargetTd {
+        
+    } 
 }
 
 func (h *StockListHandler) AddData() {
