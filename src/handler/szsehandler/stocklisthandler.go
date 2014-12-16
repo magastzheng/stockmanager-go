@@ -187,7 +187,7 @@ func (h *StockListHandler) Output() {
     content := ""
     for _, c := range h.Companies {
         //fmt.Println(c.ToString())
-        content += c.ToString()
+        content += c.ToString() + "\n"
     }
 
     util.WriteFile("Output.txt", content)

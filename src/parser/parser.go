@@ -499,7 +499,10 @@ func (p *TextParser) ParseEntity() []rune {
     isSpace := false
     for ; p.current < p.length; p.current ++ {
         ch := p.buffer[p.current]
-        if ch == Semicolon {
+        if ch == Lt {
+            p.current = p.current - 1
+            break
+        }else if ch == Semicolon {
             isSemicolon = true
             break
         } else if p.IsSpace(ch) {
@@ -532,6 +535,8 @@ func (p *TextParser) ParseEntity() []rune {
         }else{
             return en
         }
+    }else{
+        return p.buffer[start: p.current]
     }
     
     //fmt.Println("current ", p.current, " length ", p.length)
