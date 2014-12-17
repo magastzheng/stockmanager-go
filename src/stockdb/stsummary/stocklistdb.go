@@ -35,18 +35,23 @@ func (s *StockListDB) Insert(stock entity.Stock) int {
     
     sql := s.getSql(ListInsert)
     stmt, err := db.Prepare(sql)
-    util.CheckError(err)
     defer stmt.Close()
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
     
-    //id, err := strconv.Atoi(stock.Id)
-    //s.CheckError(err)
-
     res, err := stmt.Exec(stock.Id, stock.Name, stock.Exchange)
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 
     _, reserr := res.LastInsertId()
-    util.CheckError(reserr)
-    //fmt.Println(newid)
+    if reserr != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
+        return -1
+    }
     
     return 0
 }
@@ -58,13 +63,22 @@ func (s *StockListDB) Delete(stock entity.Stock) int {
     sql := s.getSql(ListDelete)
     stmt, err := db.Prepare(sql)
     defer stmt.Close()
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 
     res, err := stmt.Exec(stock.Id)
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
     
     _, reserr := res.RowsAffected()
-    util.CheckError(reserr)
+    if reserr != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
+        return -1
+    }
 
     return 0
 }
@@ -76,13 +90,22 @@ func (s *StockListDB) Update(stock entity.Stock) int {
     sql := s.getSql(ListUpdate)
     stmt, err := db.Prepare(sql)
     defer stmt.Close()
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 
     res, err := stmt.Exec(stock.Name, stock.Id)
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
     
     _, reserr := res.RowsAffected()
-    util.CheckError(reserr)
+    if reserr != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
+        return -1
+    }
 
     return 0
 }
@@ -93,42 +116,59 @@ func (s *StockListDB) TranInsert(stocks []entity.Stock) int {
 	
     sql := s.getSql(ListInsert)
 	tx, err := db.Begin()
-	util.CheckError(err)
+	if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 	
 	for _, stock := range stocks {
 		stmt, err := tx.Prepare(sql)
         defer stmt.Close()
-		util.CheckError(err)
+        if err != nil {
+            s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+            continue
+        }
+        
 		_, reserr := stmt.Exec(stock.Id, stock.Name, stock.Exchange)
-		util.CheckError(reserr)
+        if reserr != nil {
+            s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
+            return -1
+        }
 	}
 	
 	err = tx.Commit()
-	util.CheckError(err)
+	if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 	
     return 0
 }
 
 func (s *StockListDB) Query(id string) entity.Stock {
+    stock := entity.Stock{}
     db := s.Open()
     defer db.Close()
     
     sql := s.getSql(ListSelect)
     stmt, err := db.Prepare(sql)
     defer stmt.Close()
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return stock
+    }
     
     var stockid, stockname, exchange string
     err = stmt.QueryRow(id).Scan(&stockid, &stockname, &exchange)
     if err != nil{
         s.Logger.Error("Cannot query the stock with id: ", id, err)
     }
+    
+    stock.Id = stockid
+    stock.Name = stockname
+    stock.Exchange = exchange
 
-    return entity.Stock{
-        Id: stockid,
-        Name: stockname,
-        Exchange: exchange,
-    }
+    return stock
 }
 
 func (s *StockListDB) QueryIds() []string {
@@ -167,13 +207,16 @@ func (s *StockListDB) QueryIds() []string {
 }
 
 func (s *StockListDB) GetIdExchange() []entity.Stock {
+    idexchs := make([]entity.Stock, 0)
+
     db := s.Open()
     defer db.Close()
-   
+    
     sql := s.getSql(ListQueryCount)
     rows, err := db.Query(sql)
     if err != nil {
         s.Logger.Error("Cannot get stock count.", err)
+        return idexchs
     }
 
     var count int
@@ -183,8 +226,11 @@ func (s *StockListDB) GetIdExchange() []entity.Stock {
     
     sql = s.getSql(ListQueryIdExchange)
     rows, err = db.Query(sql)
-    util.CheckError(err)
-    idexchs := make([]entity.Stock, 0, count + 1)
+    if err != nil {
+        s.Logger.Error("Cannot query the stock list id.", err)
+        return idexchs
+    }
+    
 
     var id, exch string
     for rows.Next() {

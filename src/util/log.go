@@ -4,6 +4,8 @@ import(
     "log"
     "fmt"
     "time"
+    "runtime"
+    "path/filepath"
 )
 
 type StockLog struct {
@@ -13,8 +15,17 @@ type StockLog struct {
 
 func (l *StockLog) Init(){
     format := "../log/log-%v-%v-%v-%v-%v.log"
+    lfilename := ""
+    pc, filename, line, ok := runtime.Caller(0)
+    if pc < 0 || line < 0 || !ok {
+        fmt.Println("Cannot read the file log.go")
+        lfilename = format
+    } else {
+        lfilename = filepath.Dir(filename) + "/" + format
+    }
+    
     now := time.Now()
-    l.filename = fmt.Sprintf(format, now.Year(), int(now.Month()), now.Day(), now.Minute(), now.Second())
+    l.filename = fmt.Sprintf(lfilename, now.Year(), int(now.Month()), now.Day(), now.Minute(), now.Second())
     logfile, err := Create(l.filename)
     //defer logfile.Close()
     if err != nil {

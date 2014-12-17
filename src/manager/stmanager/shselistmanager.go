@@ -10,11 +10,9 @@ import(
     "os"
     "entity"
     "util"
-    //"encoding/json"
 )
 
 type SHSEListManager struct {
-    //config config.StockListConfig
     exchmanager *config.ExchangeConfigManager
     download *download.SHSEDownloader
     db *stockdb.StockListDB
@@ -23,7 +21,6 @@ type SHSEListManager struct {
 }
 
 func (m *SHSEListManager) Init() {
-    //m.config = config.Parse(filename)
     m.exchmanager = config.NewExchangeConfigManager()
     m.download = download.NewSHSEDownloader()
     m.db = stockdb.NewStockListDB("chinastock")
@@ -38,26 +35,6 @@ func (m *SHSEListManager) Process() {
         m.logger.Info("New stock added from SE:", len(newstocks))
         m.newdb.TranInsert(newstocks)
     }
-    
-    //for _, c := range categories {
-        //fmt.Println(i,c)
-        //pageStr := s.download.GetPage(baseUrl, c.Type, c.Class)
-        
-        //s.parser.ParseStr(pageStr)
-        //h := handler.NewStockHandler()
-        //parser := parser.NewTextParser(h)
-        //parser.ParseStr(pageStr)
-        //fmt.Println(len(h.Stocks))
-        //stockstr := h.ToJson()
-        //s.WriteFile(c.Type + c.Class, stockstr)
-        //s.db.TranInsert(c.Exchange, h.Stocks)
-        //exchange := c.Exchange
-        //for _, st := range s.h.Stocks {
-        //    fmt.Println(id)
-        //    s.db.DeleteStock(st)
-        //    s.db.InsertStock(exchange, st)
-        //}
-    //}
 }
 
 func (m *SHSEListManager) ProcessList(stockids []string) []entity.Stock {
@@ -67,7 +44,7 @@ func (m *SHSEListManager) ProcessList(stockids []string) []entity.Stock {
     stlist := m.download.GetList()
     p := shseparser.NewListParser()
     p.Parse(stlist)
-    //fmt.Println(shparser.Stocks)
+    m.logger.Info("SH SE new stock count: ", len(p.Stocks))
     
     newstocks := make([]entity.Stock, 0)
     for _, stockitem := range p.Stocks {

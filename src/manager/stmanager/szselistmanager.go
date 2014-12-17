@@ -11,7 +11,6 @@ import(
     "os"
     "entity"
     "util"
-    //"encoding/json"
 )
 
 type SZSEListManager struct {
@@ -47,6 +46,8 @@ func (m *SZSEListManager) ProcessList(stockids []string) []entity.Stock {
     h := szsehandler.NewStockListHandler()
     p := parser.NewTextParser(h)
     p.ParseStr(stlist)
+    
+    m.logger.Info("SZ SE new stock count: ", len(h.Companies))
 
     newstocks := make([]entity.Stock, 0)
     for _, company := range h.Companies {
