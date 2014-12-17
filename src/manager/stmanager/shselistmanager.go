@@ -1,10 +1,10 @@
-package manager
+package stmanager
 
 import(
     "download"
     "stockdb"
     "stockdb/stsummary"
-    "shseparser"
+    "parser/shseparser"
     "config"
     //"fmt"
     "os"
@@ -33,10 +33,10 @@ func (m *SHSEListManager) Init() {
 
 func (m *SHSEListManager) Process() {
     stockids := m.db.QueryIds()
-    shnewstocks := m.ProcessShanghai(stockids)
-    if len(shnewstocks) > 0 {
-        m.logger.Info("New stock added from Shanghai SE:", len(shnewstocks))
-        m.newdb.TranInsert(shnewstocks)
+    newstocks := m.ProcessList(stockids)
+    if len(newstocks) > 0 {
+        m.logger.Info("New stock added from SE:", len(newstocks))
+        m.newdb.TranInsert(newstocks)
     }
     
     //for _, c := range categories {
@@ -60,17 +60,17 @@ func (m *SHSEListManager) Process() {
     //}
 }
 
-func (m *SHSEListManager) ProcessShanghai(stockids []string) []entity.Stock {
+func (m *SHSEListManager) ProcessList(stockids []string) []entity.Stock {
     exchange, _ := m.exchmanager.GetExchange("CHS", "Shanghai")
 
-    //get Shanghai stocklist
+    //get stocklist
     stlist := m.download.GetList()
-    shparser := shseparser.NewListParser()
-    shparser.Parse(stlist)
+    p := shseparser.NewListParser()
+    p.Parse(stlist)
     //fmt.Println(shparser.Stocks)
     
     newstocks := make([]entity.Stock, 0)
-    for _, stockitem := range shparser.Stocks {
+    for _, stockitem := range p.Stocks {
         isExisted := m.Contains(stockids, stockitem.Id)
         if !isExisted {
             stockitem.Exchange = exchange.Code

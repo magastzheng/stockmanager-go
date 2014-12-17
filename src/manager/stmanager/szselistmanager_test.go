@@ -8,7 +8,7 @@ import(
     //"encoding/json"
 )
 
-func Test_SHSEListManager_Process(t *testing.T){
-    m := stmanager.NewSHSEListManager()
+func Test_SZSEListManager_Process(t *testing.T){
+    m := stmanager.NewSZSEListManager()
     m.Process()
 }
