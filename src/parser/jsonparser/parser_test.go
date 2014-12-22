@@ -31,6 +31,7 @@ func readFile(filename string) string {
     return string(chunks)
 }
 
+/*
 func Test_JsonParser_ParseArray(t *testing.T){
     filename := "../../resource/json/testarr.json"
     str := readFile(filename)
@@ -57,6 +58,14 @@ func Test_JsonParser_ParseObject(t *testing.T){
 
 func Test_JsonParser_ParseMix(t *testing.T){
     filename := "../../resource/json/test.json"
+    str := readFile(filename)
+    h := new(parser.JsonHandler)
+    p := parser.NewJsonParser(h)
+    p.ParseStr(str)
+}*/
+
+func Test_JsonParser_ParseShSeCompany(t *testing.T){
+    filename := "../../resource/json/shsecompany.json"
     str := readFile(filename)
     h := new(parser.JsonHandler)
     p := parser.NewJsonParser(h)

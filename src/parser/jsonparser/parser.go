@@ -15,7 +15,7 @@ const (
     STAT_PRE_KEY
     STAT_KEY
     STAT_KEY_VALUE_DELIMITER
-    STAT_PRE_VALUE
+    //STAT_PRE_VALUE
     STAT_VALUE
     STAT_MEMBER_DELIMITER
     STAT_PRE_ELEMENT
@@ -171,7 +171,9 @@ func (p *JsonParser) ParseStartObject(key string) {
             case STAT_KEY_VALUE_DELIMITER:
                 if ch == valueQuot {
                     start = p.current
-                    status = STAT_PRE_VALUE
+                    isStr = true
+                    status = STAT_VALUE
+                    //status = STAT_PRE_VALUE
                 } else if ch == LeftBracket {
                     p.current = p.current + 1
                     p.ParseStartArray(name)
@@ -191,9 +193,9 @@ func (p *JsonParser) ParseStartObject(key string) {
                 } else {
                     //fmt.Println("Do nothing in key-value delimiter")
                 }
-            case STAT_PRE_VALUE:
-                isStr = true
-                status = STAT_VALUE
+            //case STAT_PRE_VALUE:
+                //isStr = true
+                //status = STAT_VALUE
             case STAT_VALUE:
                 if ch == valueQuot {
                     isStr = false
@@ -201,7 +203,7 @@ func (p *JsonParser) ParseStartObject(key string) {
                     value = string(p.buffer[start+1: end])
                     keyValues[name] = value
                     status = STAT_MEMBER_DELIMITER
-                } else if ch == Comma {
+                } else if !isStr && ch == Comma {
                     end = p.current 
                     value = string(p.buffer[start: end])
                     keyValues[name] = value
@@ -264,6 +266,8 @@ func (p *JsonParser) ParseStartArray(key string) {
                     status = STAT_PRE_CHILD_ELEMENT
                 } else if ch == LeftBrace {
                     status = STAT_ARR_OBJ_START
+                } else if ch == RightBracket {
+                    status = STAT_END_ARR
                 } else if !p.Skip(ch) {
                     isNoStr = true
                     start = p.current
