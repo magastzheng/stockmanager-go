@@ -44,3 +44,9 @@ func Test_StockListDBIdExchange(t *testing.T){
     fmt.Println("IDEXCH num:", len(idexchs))
     //fmt.Println(idexchs)
 }
+
+func Test_StockListDB_QueryIdsByExchange(t *testing.T){
+    stdb := stockdb.NewStockListDB("chinastock")
+    ids := stdb.QueryIdsByExchange("EX$$$$XSHG")
+    fmt.Println("ID num in EX$$$$XSHG:", len(ids))
+}

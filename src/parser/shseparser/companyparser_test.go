@@ -19,5 +19,5 @@ func Test_CompanyParser_Parse(t *testing.T){
     p := shseparser.NewCompanyParser()
     p.Parse(str)
 
-    fmt.Println(p.Companies)
+    fmt.Println(p.Company)
 }

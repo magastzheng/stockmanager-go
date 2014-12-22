@@ -9,11 +9,10 @@ import(
 )
 
 type CompanyParser struct {
-    Companies []stentity.Company
+    Company stentity.Company
 }
 
 func (p *CompanyParser) Parse(data string) int {
-    p.Companies = make([]stentity.Company, 0)
     start := strings.Index(data, "({")
     end := strings.LastIndex(data, "})")
     str := string(data[start+1: end+1])
@@ -23,8 +22,7 @@ func (p *CompanyParser) Parse(data string) int {
     parser := jsonparser.NewJsonParser(handler)
     parser.ParseStr(str)
     
-    p.Companies = append(p.Companies, handler.Company)
-
+    p.Company = handler.Company
     return 0
 }
 

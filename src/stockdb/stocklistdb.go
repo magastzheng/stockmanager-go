@@ -126,6 +126,36 @@ func (s *StockListDB) Query(id string) entity.Stock {
     }
 }
 
+func (s *StockListDB) QueryIdsByExchange(exchange string) []string {
+    db := s.Open()
+    defer db.Close()
+    
+    ids := make([]string, 0)
+    stmt, err := db.Prepare("select id from stocklist where exchange = ?")
+    defer stmt.Close()
+    if err != nil {
+        return ids
+    }
+    
+    rows, err := stmt.Query(exchange)
+    defer rows.Close()
+    if err != nil {
+        return ids
+    }
+    
+    var id string
+    for rows.Next() {
+        err = rows.Scan(&id)
+        if err != nil {
+            continue
+        }
+
+        ids = append(ids, id)
+    }
+
+    return ids
+}
+
 func (s *StockListDB) QueryIds() []string {
     db := s.Open()
     defer db.Close()

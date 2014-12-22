@@ -19,7 +19,7 @@ func (h *CompanyHandler) OnObject(key string, keyValues map[string]string) {
                 Name: keyValues["FULLNAME"],
                 Name_en: keyValues["FULL_NAME_IN_ENGLISH"],
                 RegAddr: keyValues["COMPANY_ADDRESS"],
-                InceptDate: "",
+                InceptDate: keyValues["LISTINGDATEA"],
                 Region: "",
                 State: keyValues["AREA_NAME_DESC"],
                 City: "",
