@@ -4,6 +4,7 @@ import(
     "download"
     "entity/stentity"
     "parser/shseparser"
+    "time"
     //"fmt"
 )
 
@@ -25,7 +26,11 @@ func (m *SHSECompanyManager) GetCompanies() []stentity.Company {
     companies := make([]stentity.Company, 0)
     for _, code := range stockids {
         c := m.GetCompany(code)
-        companies = append(companies, c)
+        time.Sleep(300 * time.Millisecond)
+
+        if len(c.Code) > 0 {
+            companies = append(companies, c)
+        }
     }
 
     return companies
