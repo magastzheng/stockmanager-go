@@ -137,7 +137,7 @@ func (h *StockListHandler) OnText(text string) {
             case 18:
                 h.tempComp.City = text
             case 19:
-                h.tempComp.Industry = text
+                h.tempComp.CSRCCategory = text
             case 20:
                 h.tempComp.Website = text
         }

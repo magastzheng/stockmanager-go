@@ -27,6 +27,9 @@ func (m *SHSECompanyManager) Init() {
 func (m *SHSECompanyManager) Process() {
     exchange, _ := m.exchmanager.GetExchange("CHS", "Shanghai")
     stockids := m.db.QueryIdsByExchange(exchange.Code)
+    
+    fmt.Println(stockids)
+    stockids = stockids[0: 2]
 
     companies := make([]stentity.Company, 0)
     for _, code := range stockids {

@@ -11,10 +11,10 @@ import (
 )
 
 const(
-    CompanyInsert = "insert %s set id=?, name=?, fullname=?, fullname_en=?, inceptdate=?, regaddr=?, website=?, states=?, city=?"
+    CompanyInsert = "insert %s set id=?, name=?, fullname=?, fullname_en=?, inceptdate=?, regaddr=?, website=?, states=?, city=?, legalrepresent=?, boardsecretary=?, email=?, phone=?, csrccategory=?, csrcbigcategory=?, csrcmidcategory=?, sseindustry=?, status=?, shsample=?"
     CompanyDelete = "delete from %s where id=?"
-    CompanyUpdate = "update %s set name=?, fullname=?, fullname_en=?, inceptdate=?, regaddr=?, website=?, states=?, city=? where id=?"
-    CompanySelect = "select id, name, fullname, fullname_en, inceptdate, regaddr, website, states, city from %s where id = ?"
+    CompanyUpdate = "update %s set name=?, fullname=?, fullname_en=?, inceptdate=?, regaddr=?, website=?, states=?, city=?, legalrepresent=?, boardsecretary=?, email=?, phone=?, csrccategory=?, csrcbigcategory=?, csrcmidcategory=?, sseindustry=?, status=?, shsample=? where id=?"
+    CompanySelect = "select id, name, fullname, fullname_en, inceptdate, regaddr, website, states, city, legalrepresent, boardsecretary, email, phone, csrccategory, csrcbigcategory, csrcmidcategory, sseindustry, status, shsample from %s where id = ?"
     //ListQueryCount = "select count(id) from %s"
     //ListQueryId = "select id from %s"
     //ListQueryIdExchange = "select id, exchange from %s"
@@ -41,7 +41,7 @@ func (s *CompanyDB) Insert(c stentity.Company) int {
         return -1
     }
     
-    res, err := stmt.Exec(c.Code, c.AbbrName, c.Name, c.Name_en, c.InceptDate, c.RegAddr, c.Website, c.State, c.City)
+    res, err := stmt.Exec(c.Code, c.AbbrName, c.Name, c.Name_en, c.InceptDate, c.RegAddr, c.Website, c.State, c.City, c.LegalRepresent, c.BoardSecretary, c.Email, c.Phone, c.CSRCCategory, c.CSRCBigCategory, c.CSRCMidCategory, c.SSEIndustry, c.Status, c.IsSample)
     if err != nil {
         s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
         return -1
@@ -95,7 +95,7 @@ func (s *CompanyDB) Update(c stentity.Company) int {
         return -1
     }
 
-    res, err := stmt.Exec(c.AbbrName, c.Name, c.Name_en, c.InceptDate, c.RegAddr, c.Website, c.State, c.City)
+    res, err := stmt.Exec(c.AbbrName, c.Name, c.Name_en, c.InceptDate, c.RegAddr, c.Website, c.State, c.City, c.LegalRepresent, c.BoardSecretary, c.Email, c.Phone, c.CSRCCategory, c.CSRCBigCategory, c.CSRCMidCategory, c.SSEIndustry, c.Status, c.IsSample)
     if err != nil {
         s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
         return -1
@@ -129,7 +129,7 @@ func (s *CompanyDB) TranInsert(companies []stentity.Company) int {
             continue
         }
         
-		_, reserr := stmt.Exec(c.Code, c.AbbrName, c.Name, c.Name_en, c.InceptDate, c.RegAddr, c.Website, c.State, c.City)
+		_, reserr := stmt.Exec(c.Code, c.AbbrName, c.Name, c.Name_en, c.InceptDate, c.RegAddr, c.Website, c.State, c.City, c.LegalRepresent, c.BoardSecretary, c.Email, c.Phone, c.CSRCCategory, c.CSRCBigCategory, c.CSRCMidCategory, c.SSEIndustry, c.Status, c.IsSample)
         if reserr != nil {
             s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
             return -1
@@ -158,7 +158,7 @@ func (s *CompanyDB) Query(id string) stentity.Company {
         return c
     }
     
-    err = stmt.QueryRow(id).Scan(&c.Code, &c.AbbrName, &c.Name, &c.Name_en, &c.InceptDate, &c.RegAddr, &c.Website, &c.State, &c.City)
+    err = stmt.QueryRow(id).Scan(&c.Code, &c.AbbrName, &c.Name, &c.Name_en, &c.InceptDate, &c.RegAddr, &c.Website, &c.State, &c.City, &c.LegalRepresent, &c.BoardSecretary, &c.Email, &c.Phone, &c.CSRCCategory, &c.CSRCBigCategory, &c.CSRCMidCategory, &c.SSEIndustry, &c.Status, &c.IsSample)
     if err != nil{
         s.Logger.Error("Cannot query the stock with id: ", id, err)
     }
