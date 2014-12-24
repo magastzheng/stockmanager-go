@@ -32,6 +32,8 @@ func main() {
             m = manager.NewStockRtDataManager()
         case "sthdata": //get stock historical data
             m = manager.NewStockHistDataManager()
+        case "nsthdata": //get new stock historical data
+            m = stmanager.NewStockHistDataManager()
         case "accdata": //get account data
             m = accmanager.NewAccountManager()
     }

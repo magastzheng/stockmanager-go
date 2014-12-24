@@ -38,9 +38,9 @@ func Test_StockListDBQueryIds(t *testing.T) {
     //fmt.Println(ids)
 }
 
-func Test_StockListDBIdExchange(t *testing.T){
+func Test_StockList_GetStocks(t *testing.T){
     stdb := db.NewStockListDB("stocktest", "stlistunittest")
-    idexchs := stdb.GetIdExchange()
-    fmt.Println("IDEXCH num:", len(idexchs))
-    //fmt.Println(idexchs)
+    stocks := stdb.GetStocks()
+    fmt.Println("stocks num:", len(stocks))
+    //fmt.Println(stocks)
 }

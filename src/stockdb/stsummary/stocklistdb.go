@@ -17,7 +17,7 @@ const(
     ListSelect = "select id, name, exchange from %s where id = ?"
     ListQueryCount = "select count(id) from %s"
     ListQueryId = "select id from %s"
-    ListQueryIdExchange = "select id, exchange from %s"
+    ListQueryStocks = "select id, name, exchange from %s"
 )
 
 type StockListDB struct {
@@ -206,8 +206,8 @@ func (s *StockListDB) QueryIds() []string {
     return ids
 }
 
-func (s *StockListDB) GetIdExchange() []entity.Stock {
-    idexchs := make([]entity.Stock, 0)
+func (s *StockListDB) GetStocks() []entity.Stock {
+    stocks := make([]entity.Stock, 0)
 
     db := s.Open()
     defer db.Close()
@@ -216,7 +216,7 @@ func (s *StockListDB) GetIdExchange() []entity.Stock {
     rows, err := db.Query(sql)
     if err != nil {
         s.Logger.Error("Cannot get stock count.", err)
-        return idexchs
+        return stocks
     }
 
     var count int
@@ -224,28 +224,31 @@ func (s *StockListDB) GetIdExchange() []entity.Stock {
         err = rows.Scan(&count)
     }
     
-    sql = s.getSql(ListQueryIdExchange)
+    sql = s.getSql(ListQueryStocks)
     rows, err = db.Query(sql)
     if err != nil {
         s.Logger.Error("Cannot query the stock list id.", err)
-        return idexchs
+        return stocks
     }
     
 
-    var id, exch string
+    var id, name, exch string
     for rows.Next() {
-         err = rows.Scan(&id, &exch)
-         util.CheckError(err)
+         err = rows.Scan(&id, &name, &exch)
+         if err != nil {
+			continue
+		 }
          
-         idexch := entity.Stock{
+         stock := entity.Stock{
             Id: id,
+			Name: name,
             Exchange: exch,
          }
 
-         idexchs = append(idexchs, idexch)
+         stocks = append(stocks, stock)
     }
     
-    return idexchs
+    return stocks
 }
 
 func NewStockListDB(dbname, dbtable string) *StockListDB {
