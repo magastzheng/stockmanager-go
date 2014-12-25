@@ -6,3 +6,8 @@ type Industry struct {
     Name string
     Name_en string
 }
+
+type StockCategory struct {
+    Id string
+    Code string
+}

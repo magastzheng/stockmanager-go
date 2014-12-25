@@ -91,7 +91,7 @@ func (s *IndustryDB) Update(industry xlsentity.Industry) int {
         return -1
     }
 
-    res, err := stmt.Exec(industry.Parent, industry.Name, industry.Name_en)
+    res, err := stmt.Exec(industry.Parent, industry.Name, industry.Name_en, industry.Code)
     if err != nil {
         s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
         return -1
@@ -112,7 +112,7 @@ func (s *IndustryDB) Query(code string) xlsentity.Industry {
 
     industry := xlsentity.Industry{}
     
-    sql := s.getSql(IndustrySelect)
+    sql := s.getSql(IndustryUpdate)
     stmt, err := db.Prepare(sql)
     defer stmt.Close()
     if err != nil {
