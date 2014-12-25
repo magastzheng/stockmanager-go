@@ -1,11 +1,11 @@
-package manager_test
+package nsmanager_test
 
 import(
     "testing"
-    "manager"
+    "manager/nsmanager"
 )
 
 func Test_NationStatManager_GetData(t *testing.T){
-    m := manager.NewNationStatManager()
+    m := nsmanager.NewNationStatManager()
     m.Process()
 }

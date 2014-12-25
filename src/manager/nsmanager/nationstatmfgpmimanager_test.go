@@ -1,13 +1,13 @@
-package manager_test
+package nsmanager_test
 
 import(
     "testing"
-    "manager"
+    "manager/nsmanager"
     //"stockdb"
     //"fmt"
 )
 
 func Test_NSMfgPmiManager_Process(t *testing.T){
-    m := manager.NewNSMfgPmiManager()
+    m := nsmanager.NewNSMfgPmiManager()
     m.Process()
 }

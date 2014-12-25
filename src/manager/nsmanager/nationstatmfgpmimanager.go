@@ -1,20 +1,20 @@
-package manager
+package nsmanager
 
 import(
     "parser"
-    "stockdb"
+    nsdb "stockdb/nationstatdb"
     //"fmt"
 )
 
 type NSMfgPmiManager struct{
     NSManagerBase
     parser *parser.NSMfgPmiParser
-    db *stockdb.NSMfgPmiDB
+    db *nsdb.NSMfgPmiDB
 }
 
 func (m *NSMfgPmiManager) Init(){
     m.parser = parser.NewNSMfgPmiParser()
-    m.db = stockdb.NewNSMfgPmiDB("macroindecis")
+    m.db = nsdb.NewNSMfgPmiDB("macroindecis")
     m.NSManagerBase.Init()
 }
 
