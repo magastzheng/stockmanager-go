@@ -1,6 +1,7 @@
-package stockdb
+package accountdb
 
 import(
+    "stockdb"
 //  "util"
     "fmt"
 )
@@ -8,11 +9,11 @@ import(
 const (
     Truncate = "truncate table %s"
 )
-type AccountFinancialIndexDB struct{
-    DBBase
+type FinancialIndexDB struct{
+    stockdb.DBBase
 }
 
-func (s *AccountFinancialIndexDB) Create(sqls []string) int {
+func (s *FinancialIndexDB) Create(sqls []string) int {
     //db := s.Open()
     
     for _, sql := range sqls {
@@ -22,7 +23,7 @@ func (s *AccountFinancialIndexDB) Create(sqls []string) int {
     return 0
 }
 
-func (s *AccountFinancialIndexDB) Clear(tables []string) int {
+func (s *FinancialIndexDB) Clear(tables []string) int {
     sqls := make([]string, 0)
 
     for _, table := range tables {
@@ -37,8 +38,8 @@ func (s *AccountFinancialIndexDB) Clear(tables []string) int {
     return 0
 }
 
-func NewAccountFinancialIndexDB(dbname string) *AccountFinancialIndexDB {
-    db := new(AccountFinancialIndexDB)
+func NewFinancialIndexDB(dbname string) *FinancialIndexDB {
+    db := new(FinancialIndexDB)
     db.Init(dbname)
 
     return db
