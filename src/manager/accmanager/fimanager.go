@@ -2,9 +2,10 @@ package accmanager
 
 import(
     "stockdb"
-    "dbcreator"
+    "stockdb/accountdb"
+    "dbcreator/accgenerator"
     "parser"
-    "excel"
+    "excel/account"
     "handler/acchandler"
     "download/accdownload"
     acc "entity/accountentity"
@@ -16,8 +17,8 @@ import(
 
 type FiManager struct {
 	AccManagerBase
-    ep *excel.AccountColumnParser
-    db *stockdb.AccountFinancialIndexDB
+    ep *account.AccountColumnParser
+    db *accountdb.FinancialIndexDB
     listdb *stockdb.StockListDB
     down *accdownload.FiDownloader
 	
@@ -26,12 +27,10 @@ type FiManager struct {
 
 func (m *FiManager) Init() {
 	m.AccManagerBase.Init()
-    m.ep = excel.NewAccountColumnParser()
-    m.db = new(stockdb.AccountFinancialIndexDB)
+    m.ep = account.NewAccountColumnParser()
+    m.db = accountdb.NewFinancialIndexDB("chinastock")
 
-    m.db.Init("chinastock")
-    m.listdb = new(stockdb.StockListDB)
-    m.listdb.Init("chinastock")
+    m.listdb = stockdb.NewStockListDB("chinastock")
     m.down = accdownload.NewFiDownloader()
 
     filename := m.baseDir + "resource/account/financialindexdb.xlsx"
@@ -42,7 +41,7 @@ func (m *FiManager) Init() {
 
 func (m *FiManager) Process() {
     categoryMap := m.ep.GetSheetMap("findex")
-    tables := dbcreator.ConvertToDBTable(categoryMap)
+    tables := accgenerator.ConvertToDBTable(categoryMap)
     columnMap := m.ep.ColumnMap
     
     now := time.Now()
@@ -112,7 +111,7 @@ func (m *FiManager) Insert(datedatamap map[string]map[string]float32, code strin
 }
 
 func (m *FiManager) ClearDB() {
-    tables := dbcreator.ConvertToDBTable(m.categoryMap)
+    tables := accgenerator.ConvertToDBTable(m.categoryMap)
     tabNames := make([]string, 0)
     for _, table := range tables {
         tabNames = append(tabNames, table.TableName)

@@ -1,8 +1,8 @@
-package excel_test
+package account_test
 
 import(
     "testing"
-    "excel"
+    "excel/account"
     "io/ioutil"
 	"fmt"
 	"code.google.com/p/mahonia"
@@ -10,7 +10,7 @@ import(
 
 func Test_TestAccountParser(t *testing.T){
     //filename := "../resource/account/balancesheet-300028.xls"
-    filename := "../resource/account/cashflowstatement-300028.xls"
+    filename := "../../resource/account/cashflowstatement-300028.xls"
     buf, err := ioutil.ReadFile(filename)
     if err != nil{
         t.Error("Cannot load file:", filename)
@@ -19,7 +19,7 @@ func Test_TestAccountParser(t *testing.T){
     data := string(buf)
 	decoder := mahonia.NewDecoder("gbk")
 	data = decoder.ConvertString(data)
-    p := excel.NewAccountParser()
+    p := account.NewAccountParser()
     dataMap := p.Parse(data)
 	Output_DataMap(dataMap)
 }

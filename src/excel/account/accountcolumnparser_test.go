@@ -1,15 +1,15 @@
-package excel_test
+package account_test
 
 import(
     "testing"
-    "excel"
+    "excel/account"
     acc "entity/accountentity"
     "fmt"
 )
 
 func Test_AccountColumnParser_Parse(t *testing.T){
-    filename := "../resource/account/financialindexdb.xlsx"
-    p := excel.NewAccountColumnParser()
+    filename := "../../resource/account/financialindexdb.xlsx"
+    p := account.NewAccountColumnParser()
     p.Parse(filename)
     fmt.Println(len(p.ColumnMap))
     fmt.Println(len(p.ColumnTableMap))

@@ -1,13 +1,13 @@
-package dbcreator_test
+package accgenerator_test
 
 import(
     "testing"
-    "dbcreator"
+    "dbcreator/accgenerator"
     //"fmt"
 )
 
 func Test_FiDBCreator_Process(t *testing.T){
-    m := dbcreator.NewFiDBCreator()
+    m := accgenerator.NewFiDBCreator()
     m.Process()
 }
 

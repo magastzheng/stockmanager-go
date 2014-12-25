@@ -1,10 +1,10 @@
 package main
 
 import(
-    "dbcreator"
+    "dbcreator/accgenerator"
 )
 
 func main() {
-    m := dbcreator.NewAccDBCreator()
+    m := accgenerator.NewAccDBCreator()
     m.Process()
 }

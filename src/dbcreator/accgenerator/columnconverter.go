@@ -1,4 +1,4 @@
-package dbcreator
+package accgenerator
 
 import(
     acc "entity/accountentity"

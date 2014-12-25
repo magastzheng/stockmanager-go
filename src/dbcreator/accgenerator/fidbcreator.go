@@ -1,4 +1,4 @@
-package dbcreator
+package accgenerator
 
 //import(
 //
@@ -9,7 +9,7 @@ type FiDBCreator struct{
 }
 
 func (m *FiDBCreator) Process() {
-    m.parser.Parse("../resource/account/financialindexdb.xlsx")
+    m.parser.Parse("../../resource/account/financialindexdb.xlsx")
 	category := m.parser.GetSheetMap("findex")
     dbTabs := ConvertToDBTable(category) 
 

@@ -2,9 +2,10 @@ package accmanager
 
 import(
     "stockdb"
-    "dbcreator"
+    "stockdb/accountdb"
+    "dbcreator/accgenerator"
     //"parser"
-    "excel"
+    "excel/account"
     //"handler/acchandler"
     "download/accdownload"
     acc "entity/accountentity"
@@ -22,9 +23,9 @@ const(
 
 type AccountManager struct{
     AccManagerBase
-    ep *excel.AccountColumnParser
-    dp *excel.AccountParser
-    db *stockdb.AccountFinancialIndexDB
+    ep *account.AccountColumnParser
+    dp *account.AccountParser
+    db *accountdb.FinancialIndexDB
     listdb *stockdb.StockListDB
     down *accdownload.AccountDownloader
 
@@ -33,13 +34,11 @@ type AccountManager struct{
 
 func (m *AccountManager) Init() {
 	m.AccManagerBase.Init()
-    m.ep = excel.NewAccountColumnParser()
-    m.dp = excel.NewAccountParser()
-    m.db = new(stockdb.AccountFinancialIndexDB)
+    m.ep = account.NewAccountColumnParser()
+    m.dp = account.NewAccountParser()
+    m.db = accountdb.NewFinancialIndexDB("chinastock")
 
-    m.db.Init("chinastock")
-    m.listdb = new(stockdb.StockListDB)
-    m.listdb.Init("chinastock")
+    m.listdb = stockdb.NewStockListDB("chinastock")
     m.down = accdownload.NewAccountDownloader()
 
     filename := m.baseDir + "resource/account/accountdb.xlsx"
@@ -66,7 +65,7 @@ func (m *AccountManager) Process() {
 
 func (m *AccountManager) ProcessSheet(sheet string, ids []string, columnMap map[string]*acc.Column) {
     categoryMap := m.ep.GetSheetMap(sheet)
-    tables := dbcreator.ConvertToDBTable(categoryMap)
+    tables := accgenerator.ConvertToDBTable(categoryMap)
     tableSqlMap := m.GetTableSql(tables)
     
     for _, id := range ids {
@@ -106,7 +105,7 @@ func (m *AccountManager) ClearDB() {
     
     for _, sheet := range m.sheets {
         categoryMap := m.ep.GetSheetMap(sheet)
-        tables := dbcreator.ConvertToDBTable(categoryMap)
+        tables := accgenerator.ConvertToDBTable(categoryMap)
 
         tabNames := make([]string, 0)
         for _, table := range tables {

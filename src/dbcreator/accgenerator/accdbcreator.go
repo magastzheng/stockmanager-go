@@ -1,4 +1,4 @@
-package dbcreator
+package accgenerator
 
 //import(
 //
@@ -9,7 +9,7 @@ type AccDBCreator struct{
 }
 
 func (m *AccDBCreator) Process() {
-    m.parser.Parse("../resource/account/accountdb.xlsx")
+    m.parser.Parse("../../resource/account/accountdb.xlsx")
 	
 	for sheet, category := range m.parser.CategoryColumnMap{
 		m.logger.Info("Start to create table for the sheet:", sheet)
@@ -19,7 +19,7 @@ func (m *AccDBCreator) Process() {
 }
 
 func (m *AccDBCreator) Delete(){
-	m.parser.Parse("../resource/account/accountdb.xlsx")
+	m.parser.Parse("../../resource/account/accountdb.xlsx")
 	
 	for sheet, category := range m.parser.CategoryColumnMap{
 		m.logger.Info("Start to create table for the sheet:", sheet)

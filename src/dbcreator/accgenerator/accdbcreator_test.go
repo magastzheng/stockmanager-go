@@ -1,4 +1,4 @@
-package dbcreator_test
+package accgenerator_test
 
 import(
     "testing"
@@ -7,7 +7,7 @@ import(
 )
 
 func Test_FiDBCreator_Process(t *testing.T){
-    m := dbcreator.NewAccDBCreator()
+    m := accgenerator.NewAccDBCreator()
     //m.Process()
 	m.Delete()
 }

@@ -1,24 +1,25 @@
-package dbcreator
+package accgenerator
 
 import(
     "stockdb"
-    "excel"
+    "stockdb/accountdb"
+    "excel/account"
     "util"
 	"entity/dbentity"
     "fmt"
 )
 
 type AccDBCreatorBase struct {
-    parser *excel.AccountColumnParser
+    parser *account.AccountColumnParser
     generator *stockdb.SqlGenerator
-    db *stockdb.AccountFinancialIndexDB
+    db *accountdb.FinancialIndexDB
     logger *util.StockLog
 }
 
 func (m *AccDBCreatorBase) Init(){
-    m.parser = excel.NewAccountColumnParser()
+    m.parser = account.NewAccountColumnParser()
     m.generator = stockdb.NewSqlGenerator()
-    m.db = stockdb.NewAccountFinancialIndexDB("chinastock")
+    m.db = accountdb.NewFinancialIndexDB("chinastock")
     m.logger = util.NewLog()
 }
 
