@@ -1,13 +1,14 @@
-package stockdb
+package nationstatdb
 
 import(
     _ "github.com/go-sql-driver/mysql"
+    "stockdb"
     "entity"
     "util"
 )
 
 type NSMfgPmiDB struct{
-    DBBase
+    stockdb.DBBase
 }
 
 func (s *NSMfgPmiDB) Insert(ms entity.NSMfgPmi) int {

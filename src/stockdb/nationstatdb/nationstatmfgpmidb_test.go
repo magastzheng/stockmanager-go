@@ -1,8 +1,8 @@
-package stockdb_test
+package nationstatdb_test
 
 import(
     "testing"
-    "stockdb"
+    "stockdb/nationstatdb"
     "entity"
 )
 
@@ -26,7 +26,7 @@ func Test_NSMfgPmiDB_Insert(t *testing.T){
         PbizActExpectation: 44.51,
     }
 
-    db := stockdb.NewNSMfgPmiDB("macroindecis")
+    db := nationstatdb.NewNSMfgPmiDB("macroindecis")
     db.Delete(ms.Date)
     db.Insert(ms)
 }

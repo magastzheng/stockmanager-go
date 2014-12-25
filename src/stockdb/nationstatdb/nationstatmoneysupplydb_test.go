@@ -1,14 +1,14 @@
-package stockdb_test
+package nationstatdb_test
 
 import(
     "testing"
-    "stockdb"
+    "stockdb/nationstatdb"
     "entity"
     "fmt"
 )
 
 func Test_NSMoneySupportInsert(t *testing.T) {
-    db := stockdb.NewMSMoneySupplyDB("macroindecis")
+    db := nationstatdb.NewMSMoneySupplyDB("macroindecis")
     db.Delete("2013-01-31")
     ms := entity.MoneySupply{
         Date: "2013-01-31",
