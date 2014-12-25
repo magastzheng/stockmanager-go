@@ -1,110 +1,175 @@
-package stockdb
+package industrydb
 
 import (
     _ "github.com/go-sql-driver/mysql"
-    "excel"
-    "util"
+    "stockdb"
+    "entity/xlsentity"
+    "fmt"
+    //"excel"
+    //"util"
 )
 
-type IndustryDatabase struct {
-    DBBase
+const(
+    IndustryInsert = "insert %s set code=?, parent=?, name=?, name_en=?"
+    IndustryDelete = "delete from %s where code=?"
+    IndustryUpdate = "update %s set parent=?, name=?, name_en=? where code=?"
+    IndustrySelect = "select code, parent, name, name_en from %s where code=?"
+)
+
+type IndustryDB struct {
+    stockdb.DBBase
+    dbtable string
 }
 
-func (s *IndustryDatabase) InsertIndustry(industry excel.Industry) int {
-    db := s.Open()
-    
-    stmt, err := db.Prepare("insert csrcbigindustry set code=?, name=?, name_en=?")
-    util.CheckError(err)
+func (s *IndustryDB) getSql(sql string) string{
+    return fmt.Sprintf(sql, s.dbtable)
+}
 
-    res, err := stmt.Exec(industry.BigCode, industry.Name, industry.Name_en)
-    util.CheckError(err)
+func (s *IndustryDB) Insert(industry xlsentity.Industry) int {
+    db := s.Open()
+    defer db.Close()
+    
+    sql := s.getSql(IndustryInsert)
+    stmt, err := db.Prepare(sql)
     defer stmt.Close()
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
+
+    res, err := stmt.Exec(industry.Code, industry.Parent, industry.Name, industry.Name_en)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 
     _, reserr := res.LastInsertId()
-    util.CheckError(reserr)
+    if reserr != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
+        return -1
+    }
     
-    db.Close()
     return 0
 }
 
-func (s *IndustryDatabase) DeleteIndustry(code string) int {
+func (s *IndustryDB) Delete(code string) int {
     db := s.Open()
-
-    stmt, err := db.Prepare("delete from csrcbigindustry where code=?")
-    util.CheckError(err)
+    defer db.Close()
+    
+    sql := s.getSql(IndustryDelete)
+    stmt, err := db.Prepare(sql)
+    defer stmt.Close()
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 
     res, err := stmt.Exec(code)
-    util.CheckError(err)
-    defer stmt.Close()
-
-    _, reserr := res.RowsAffected()
-    util.CheckError(reserr)
-
-    db.Close()
-    return 0
-}
-
-func (s *IndustryDatabase) UpdateIndustry(industry excel.Industry) int {
-    db := s.Open()
-    
-    stmt, err := db.Prepare("update csrcbigindustry set name=?, name_en=? where code=?")
-    util.CheckError(err)
-
-    res, err := stmt.Exec(industry.Name, industry.Name_en, industry.BigCode)
-    util.CheckError(err)
-    defer stmt.Close()
-
-    _, reserr := res.RowsAffected()
-    util.CheckError(reserr)
-
-    db.Close()
-    return 0
-}
-
-func (s *IndustryDatabase) QueryIndustry(code string) excel.Industry {
-    db := s.Open()
-    
-    stmt, err := db.Prepare("select code, name, name_en from csrcbigindustry where code = ?")
-    util.CheckError(err)
-    defer stmt.Close()
-
-    var newcode, name, name_en string
-    err = stmt.QueryRow(code).Scan(&newcode, &name, &name_en)
-    util.CheckError(err)
-
-    db.Close()
-
-    return excel.Industry{
-        BigCode: newcode,
-        Name: name,
-        Name_en: name_en,
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
     }
+
+    _, reserr := res.RowsAffected()
+    if reserr != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
+        return -1
+    }
+
+    return 0
 }
 
-func (s *IndustryDatabase) TranInsertIndustry(industries map[string] excel.Industry) int {
+func (s *IndustryDB) Update(industry xlsentity.Industry) int {
     db := s.Open()
+    defer db.Close()
+    
+    sql := s.getSql(IndustryDelete)
+    stmt, err := db.Prepare(sql)
+    defer stmt.Close()
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
+
+    res, err := stmt.Exec(industry.Parent, industry.Name, industry.Name_en)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
+
+    _, reserr := res.RowsAffected()
+    if reserr != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, reserr)
+        return -1
+    }
+
+    return 0
+}
+
+func (s *IndustryDB) Query(code string) xlsentity.Industry {
+    db := s.Open()
+    defer db.Close()
+
+    industry := xlsentity.Industry{}
+    
+    sql := s.getSql(IndustrySelect)
+    stmt, err := db.Prepare(sql)
+    defer stmt.Close()
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return industry
+    }
+
+    err = stmt.QueryRow(code).Scan(&industry.Code, &industry.Parent, &industry.Name, &industry.Name_en)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return industry
+    }
+
+    return industry
+}
+
+func (s *IndustryDB) TranInsert(industries map[string] xlsentity.Industry) int {
+    db := s.Open()
+    defer db.Close()
     
     tx, err := db.Begin()
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
+
+    sql := s.getSql(IndustryInsert)
 
     for key, industry := range industries {
-        stmt, err := tx.Prepare("insert csrcbigindustry set code=?, name=?, name_en=?")
-        util.CheckError(err)
+        stmt, err := tx.Prepare(sql)
+        if err != nil {
+            s.Logger.Error("Database error in transaction insert industry: ", s.Dbtype, s.Dbcon, err, industry)
+            continue
+        }
 
         _, reserr := stmt.Exec(key, industry.Name, industry.Name_en)
-        util.CheckError(reserr)
+        if reserr != nil {
+            s.Logger.Error("Database error in transaction insert industry: ", s.Dbtype, s.Dbcon, err, industry)
+            continue
+        }
+
         defer stmt.Close()
     }
     
     err = tx.Commit()
-    util.CheckError(err)
+    if err != nil {
+        s.Logger.Error("Database error - cannot commit in transaction insert industry: ", s.Dbtype, s.Dbcon, err)
+        return -1
+    }
 
-    db.Close()
     return 0
 } 
 
-func NewIndustryDB(dbname string) *IndustryDatabase {
-    stdb := new(IndustryDatabase)
+func NewIndustryDB(dbname, dbtable string) *IndustryDB {
+    stdb := new(IndustryDB)
     stdb.Init(dbname)
+    stdb.dbtable = dbtable
+
     return stdb
 }

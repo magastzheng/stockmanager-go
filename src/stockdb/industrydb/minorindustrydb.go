@@ -1,13 +1,14 @@
-package stockdb
+package industrydb
 
 import (
     _ "github.com/go-sql-driver/mysql"
+    "stockdb"
     "excel"
     "util"
 )
 
 type MinorIndustryDatabase struct {
-    DBBase
+    stockdb.DBBase
 }
 
 func (s *MinorIndustryDatabase) InsertIndustry(industry excel.MinorIndustry) int {

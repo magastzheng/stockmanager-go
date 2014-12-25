@@ -1,14 +1,14 @@
-package stockdb_test
+package industrydb_test
 
 import (
     "testing"
     "excel"
     "fmt"
-    "stockdb"
+    "stockdb/industrydb"
 )
 
 func Test_BigIndustryInsert(t *testing.T) {
-    db := stockdb.NewMinorIndustryDB("chinastock")
+    db := industrydb.NewMinorIndustryDB("chinastock")
     industry := excel.MinorIndustry {
         MinorCode: 12,
         BigCode: "A",
