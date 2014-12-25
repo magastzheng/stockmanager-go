@@ -3,14 +3,14 @@ package nationstatdb_test
 import(
     "testing"
     "stockdb/nationstatdb"
-    "entity"
+    ns "entity/nsentity"
     "fmt"
 )
 
 func Test_NSMoneySupportInsert(t *testing.T) {
     db := nationstatdb.NewMSMoneySupplyDB("macroindecis")
     db.Delete("2013-01-31")
-    ms := entity.MoneySupply{
+    ms := ns.MoneySupply{
         Date: "2013-01-31",
         M0: 12548778,
         M0pct: 2.5,

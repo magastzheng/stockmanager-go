@@ -1,4 +1,4 @@
-package entity
+package nsentity
 
 type NSBase struct {
     Id string `json: "id,string"`

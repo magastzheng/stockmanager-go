@@ -3,12 +3,12 @@ package nationstatdb_test
 import(
     "testing"
     "stockdb/nationstatdb"
-    "entity"
+    ns "entity/nsentity"
 )
 
 func Test_NSMfgPmiDB_Insert(t *testing.T){
-    ms := entity.NSMfgPmi{
-        NSPmiCommon:entity.NSPmiCommon{
+    ms := ns.NSMfgPmi{
+        NSPmiCommon:ns.NSPmiCommon{
             "2014-10-31",
             52.12,
             51.23,

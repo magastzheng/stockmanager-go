@@ -1,20 +1,20 @@
-package parser_test
+package nsparser_test
 
 import(
     "testing"
     "io/ioutil"
     "util"
-    "parser"
+    "parser/nsparser"
     "fmt"
 )
 
 func Test_NSParseData(t *testing.T){
-    filename := "../resource/nationstat-data.dat"
+    filename := "../../resource/nationstat-data.dat"
     bytes, err := ioutil.ReadFile(filename)
     util.CheckError(err)
     data := string(bytes)
 
-    p := parser.NewNSParser()
+    p := nsparser.NewNSParser()
     result := p.ParseData(data)
     
     if len(result.TableData) == 0 {
@@ -24,12 +24,12 @@ func Test_NSParseData(t *testing.T){
 }
 
 func Test_NSParseIndexData(t *testing.T){
-    filename := "../resource/nationstat-index-fail.dat"
+    filename := "../../resource/nationstat-index-fail.dat"
     bytes, err := ioutil.ReadFile(filename)
     util.CheckError(err)
     data := string(bytes)
 
-    p := parser.NewNSParser()
+    p := nsparser.NewNSParser()
     result := p.ParseIndex(data)
     
     if len(result) == 0 {
@@ -48,12 +48,12 @@ func Test_NSParseIndexData(t *testing.T){
 }
 
 func Test_NSParsePeriodData(t *testing.T){
-    filename := "../resource/nationstat-period.dat"
+    filename := "../../resource/nationstat-period.dat"
     bytes, err := ioutil.ReadFile(filename)
     util.CheckError(err)
     data := string(bytes)
 
-    p := parser.NewNSParser()
+    p := nsparser.NewNSParser()
     result := p.ParsePeriod(data)
     
     if len(result) == 0 {

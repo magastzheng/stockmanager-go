@@ -1,7 +1,7 @@
-package parser
+package nsparser
 
 import(
-    "entity"
+    ns "entity/nsentity"
     "util"
     //"strings"
     //"fmt"
@@ -9,13 +9,13 @@ import(
 
 type NSMSParser struct {
     NSParserBase
-    Data []entity.MoneySupply
+    Data []ns.MoneySupply
 }
 
 func (p *NSMSParser) Parse(mapData map[string] string) {
-    p.Data = make([]entity.MoneySupply, 0)
+    p.Data = make([]ns.MoneySupply, 0)
 
-    tempMap := make(map[string]entity.MoneySupply)
+    tempMap := make(map[string]ns.MoneySupply)
     for k, v := range mapData {
         id, date := p.ParseKey(k)
         

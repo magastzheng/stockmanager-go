@@ -1,9 +1,9 @@
-package parser
+package nsparser
 
 import(
     "encoding/json"
     "util"
-    "entity"
+    ns "entity/nsentity"
     //"fmt"
 )
 
@@ -11,8 +11,8 @@ type NSParser struct{
 
 }
 
-func (p *NSParser) ParseData(data string) entity.NSData {
-    var nsdata entity.NSData
+func (p *NSParser) ParseData(data string) ns.NSData {
+    var nsdata ns.NSData
     bytes := []byte(data)
     err := json.Unmarshal(bytes, &nsdata)
     if err != nil {
@@ -23,8 +23,8 @@ func (p *NSParser) ParseData(data string) entity.NSData {
     return nsdata
 }
 
-func (p *NSParser) ParseIndex(data string) []entity.NSIndex {
-    var nsdata []entity.NSIndex
+func (p *NSParser) ParseIndex(data string) []ns.NSIndex {
+    var nsdata []ns.NSIndex
     bytes := []byte(data)
     err := json.Unmarshal(bytes, &nsdata)
     if err != nil {
@@ -35,8 +35,8 @@ func (p *NSParser) ParseIndex(data string) []entity.NSIndex {
     return nsdata
 }
 
-func (p *NSParser) ParsePeriod(data string) []entity.NSBase {
-    var nsdata []entity.NSBase
+func (p *NSParser) ParsePeriod(data string) []ns.NSBase {
+    var nsdata []ns.NSBase
     bytes := []byte(data)
     err := json.Unmarshal(bytes, &nsdata)
     if err != nil {

@@ -1,8 +1,8 @@
-package parser_test
+package nsparser_test
 
 import(
     "testing"
-    "parser"
+    "parser/nsparser"
     //"entity"
     "strings"
     "os"
@@ -11,7 +11,7 @@ import(
 )
 
 func Test_NSNonMfgPmiParser_Parse(t *testing.T) {
-    filename := "../data/actualdata-A090201-198301--1.dat"
+    filename := "../../data/actualdata-A090201-198301--1.dat"
     f, err := os.Open(filename)
     if err != nil {
         fmt.Println("Cannot open file:", filename, err)
@@ -38,7 +38,7 @@ func Test_NSNonMfgPmiParser_Parse(t *testing.T) {
         }
     }
     
-    p := parser.NewNSNonMfgPmiParser()
+    p := nsparser.NewNSNonMfgPmiParser()
     p.Parse(dataMap)
 
     fmt.Println(len(p.Data))

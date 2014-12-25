@@ -3,7 +3,7 @@ package nationstatdb
 import(
     _ "github.com/go-sql-driver/mysql"
     "stockdb"
-    "entity"
+    ns "entity/nsentity"
     "util"
 )
 
@@ -11,7 +11,7 @@ type NSMoneySupplyDB struct{
     stockdb.DBBase
 }
 
-func (s *NSMoneySupplyDB) Insert(ms entity.MoneySupply) int {
+func (s *NSMoneySupplyDB) Insert(ms ns.MoneySupply) int {
     db := s.Open()
     defer db.Close()
 
@@ -45,7 +45,7 @@ func (s *NSMoneySupplyDB) Delete(date string) int {
     return 0
 }
 
-func (s *NSMoneySupplyDB)Update(ms entity.MoneySupply) int {
+func (s *NSMoneySupplyDB)Update(ms ns.MoneySupply) int {
     db := s.Open()
     defer db.Close()
 
@@ -62,7 +62,7 @@ func (s *NSMoneySupplyDB)Update(ms entity.MoneySupply) int {
     return 0
 }
 
-func (s *NSMoneySupplyDB)Query(date string) entity.MoneySupply {
+func (s *NSMoneySupplyDB)Query(date string) ns.MoneySupply {
     db := s.Open()
     defer db.Close()
 
@@ -70,7 +70,7 @@ func (s *NSMoneySupplyDB)Query(date string) entity.MoneySupply {
     defer stmt.Close()
     util.CheckError(err)
     
-    ms := entity.MoneySupply{
+    ms := ns.MoneySupply{
         Date: date,
     }
 
@@ -80,7 +80,7 @@ func (s *NSMoneySupplyDB)Query(date string) entity.MoneySupply {
     return ms
 }
 
-func (s *NSMoneySupplyDB) TranInsert(mses []entity.MoneySupply) int {
+func (s *NSMoneySupplyDB) TranInsert(mses []ns.MoneySupply) int {
     db := s.Open()
     defer db.Close()
     

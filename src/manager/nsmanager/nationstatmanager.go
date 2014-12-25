@@ -2,8 +2,8 @@ package nsmanager
 
 import(
     "download"
-    "parser"
-    "entity"
+    "parser/nsparser"
+    ns "entity/nsentity"
     "util"
     "fmt"
     "strings"
@@ -16,16 +16,16 @@ const(
 
 type NationStatManager struct {
     downloader *download.NationStatDownloader
-    parser *parser.NSParser
+    parser *nsparser.NSParser
     logger *util.StockLog
-    idxmap map[string] []entity.NSDataIndex
+    idxmap map[string] []ns.NSDataIndex
 }
 
 func (m *NationStatManager) Init() {
     m.downloader = download.NewNationStatDownloader()
-    m.parser = parser.NewNSParser()
+    m.parser = nsparser.NewNSParser()
     m.logger = util.NewLog()
-    m.idxmap = make(map[string] []entity.NSDataIndex)
+    m.idxmap = make(map[string] []ns.NSDataIndex)
 }
 
 func (m *NationStatManager) Process() {
@@ -46,7 +46,7 @@ func (m *NationStatManager) Process() {
     m.WriteIndex()
 }
 
-func (m *NationStatManager) GetIndex(idxdata entity.NSIndex, level int) {
+func (m *NationStatManager) GetIndex(idxdata ns.NSIndex, level int) {
     datastr := m.downloader.GetChild(idxdata.Id, level)
     if len(datastr) == 0 {
         m.logger.Error("Cannot get the children of:", idxdata.Id, " in level: ", level)
@@ -133,7 +133,7 @@ func (m *NationStatManager) WriteIndex() {
     util.WriteFile(filename, content)
 }
 
-func (m *NationStatManager) OutputIndex(idxdata []entity.NSIndex){
+func (m *NationStatManager) OutputIndex(idxdata []ns.NSIndex){
     var str string
     for _, v := range idxdata {
         str += fmt.Sprintf("Id: %v, Name: %v, PId: %v, EName: %v, IfData: %v, IsParent: %v\n", v.Id, v.Name, v.PId, v.EName, v.IfData, v.IsParent)

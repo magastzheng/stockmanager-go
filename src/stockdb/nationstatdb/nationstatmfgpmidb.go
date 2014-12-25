@@ -3,7 +3,7 @@ package nationstatdb
 import(
     _ "github.com/go-sql-driver/mysql"
     "stockdb"
-    "entity"
+    ns "entity/nsentity"
     "util"
 )
 
@@ -11,7 +11,7 @@ type NSMfgPmiDB struct{
     stockdb.DBBase
 }
 
-func (s *NSMfgPmiDB) Insert(ms entity.NSMfgPmi) int {
+func (s *NSMfgPmiDB) Insert(ms ns.NSMfgPmi) int {
     db := s.Open()
     defer db.Close()
 
@@ -45,7 +45,7 @@ func (s *NSMfgPmiDB) Delete(date string) int {
     return 0
 }
 
-func (s *NSMfgPmiDB)Update(ms entity.NSMfgPmi) int {
+func (s *NSMfgPmiDB)Update(ms ns.NSMfgPmi) int {
     db := s.Open()
     defer db.Close()
 
@@ -62,7 +62,7 @@ func (s *NSMfgPmiDB)Update(ms entity.NSMfgPmi) int {
     return 0
 }
 
-func (s *NSMfgPmiDB)Query(date string) entity.NSMfgPmi {
+func (s *NSMfgPmiDB)Query(date string) ns.NSMfgPmi {
     db := s.Open()
     defer db.Close()
 
@@ -70,15 +70,15 @@ func (s *NSMfgPmiDB)Query(date string) entity.NSMfgPmi {
     defer stmt.Close()
     util.CheckError(err)
     
-    //ms := entity.NSMfgPmi{
-    //    entity.NSPmiCommon{
+    //ms := ns.NSMfgPmi{
+    //    ns.NSPmiCommon{
     //        Date: date,
     //        Pmi: 0.0,
     //    },
     //    Production: 0.0,
     //}
     
-    var ms entity.NSMfgPmi
+    var ms ns.NSMfgPmi
     ms.Date = date
 
     err = stmt.QueryRow(date).Scan(&ms.Pmi, &ms.NewOrder, &ms.NewExportOrder, &ms.InHandOrder, &ms.Inventory, &ms.Employees, &ms.SupplierDeliveryTime, &ms.Production, &ms.PurchasingVolume, &ms.Import, &ms.MainRawMaterial, &ms.RawMaterialInventory, &ms.PbizActExpectation)
@@ -87,7 +87,7 @@ func (s *NSMfgPmiDB)Query(date string) entity.NSMfgPmi {
     return ms
 }
 
-func (s *NSMfgPmiDB) TranInsert(mses []entity.NSMfgPmi) int {
+func (s *NSMfgPmiDB) TranInsert(mses []ns.NSMfgPmi) int {
     db := s.Open()
     defer db.Close()
     

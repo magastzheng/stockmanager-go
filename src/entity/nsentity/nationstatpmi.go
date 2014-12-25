@@ -1,4 +1,4 @@
-package entity
+package nsentity
 
 type NSPmiCommon struct{
     Date string

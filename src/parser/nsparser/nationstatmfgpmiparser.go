@@ -1,20 +1,20 @@
-package parser
+package nsparser
 
 import(
-    "entity"
+    ns "entity/nsentity"
     "util"
     //"fmt"
 )
 
 type NSMfgPmiParser struct {
     NSParserBase
-    Data []entity.NSMfgPmi
+    Data []ns.NSMfgPmi
 }
 
 func (p *NSMfgPmiParser) Parse(mapData map[string] string) {
-    p.Data = make([]entity.NSMfgPmi, 0)
+    p.Data = make([]ns.NSMfgPmi, 0)
 
-    tempMap := make(map[string]entity.NSMfgPmi)
+    tempMap := make(map[string]ns.NSMfgPmi)
     for k, v := range mapData {
         id, date := p.ParseKey(k)
         
