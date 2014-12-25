@@ -1,13 +1,13 @@
-package excel_test
+package industry_test
 
 import(
     "testing"
-    "excel"
+    "excel/industry"
     "fmt"
 )
 
 func Test_ParseIndustry(t *testing.T) {
-    parser := excel.NewIndustryParser("../resource/hyflbz.xlsx")
+    parser := industry.NewIndustryParser("../../resource/industry/hyflbz.xlsx")
     fmt.Println(len(parser.NewRows))
     fmt.Println(len(parser.OldRows))
     fmt.Println("BigMap", len(parser.BigMap))
@@ -23,7 +23,7 @@ func Test_ParseIndustry(t *testing.T) {
     fmt.Println(parser.MinorMap)
 }
 
-func PrintRows(rows []*excel.IndustryRow) {
+func PrintRows(rows []*industry.IndustryRow) {
     for _, row := range rows {
         fmt.Println(row)
         fmt.Println(row.Column1, row.Column2, row.Column3)

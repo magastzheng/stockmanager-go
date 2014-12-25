@@ -1,9 +1,10 @@
-package excel
+package industry
 
 import(
     "github.com/tealeg/xlsx"
-    "strconv"
 	"util"
+    "entity/xlsentity"
+    "strings"
     //"fmt"
 )
 
@@ -14,8 +15,8 @@ type IndustryRow struct {
 }
 
 type IndustryParser struct {
-    MinorMap map[int] MinorIndustry
-    BigMap map[string] Industry
+    MinorMap map[string] xlsentity.Industry
+    BigMap map[string] xlsentity.Industry
     NewRows []*IndustryRow
     OldRows []*IndustryRow
 }
@@ -32,8 +33,8 @@ func (p *IndustryParser) Parse(filename string) {
         switch i {
             case 0:
                 p.NewRows = make([]*IndustryRow, rowlen)
-                p.MinorMap = make(map[int] MinorIndustry)
-                p.BigMap = make(map[string] Industry)
+                p.MinorMap = make(map[string] xlsentity.Industry)
+                p.BigMap = make(map[string] xlsentity.Industry)
 				bigCode = p.ParseIndustryRow(bigCode, true, sheet.Rows)
             case 1:
 				
@@ -53,7 +54,7 @@ func (p *IndustryParser) ParseIndustryRow(bigCode string, newStd bool, rows []*x
 		
 		rowInfo := new(IndustryRow)
 		for cidx, cell := range row.Cells {
-			value := cell.String()
+			value := strings.TrimSpace(cell.String())
 			switch cidx {
 				case 0:
 					rowInfo.Column1 = value
@@ -74,8 +75,8 @@ func (p *IndustryParser) ParseIndustryRow(bigCode string, newStd bool, rows []*x
 		if util.IsStringNotEmpty(rowInfo.Column1) {
 			bigCode = rowInfo.Column1
 			if _, ok := p.BigMap[bigCode]; !ok {
-				bigInds := Industry {
-					BigCode : bigCode,
+				bigInds := xlsentity.Industry {
+					Code : bigCode,
 				}
 				
 				if newStd {
@@ -99,14 +100,11 @@ func (p *IndustryParser) ParseIndustryRow(bigCode string, newStd bool, rows []*x
                 return bigCode
             }
 
-			minorCode, err := strconv.Atoi(rowInfo.Column2)
-			if err != nil {
-				panic(err)
-			}
+            minorCode := rowInfo.Column2
 			if _, ok := p.MinorMap[minorCode]; !ok {
-				minorInds := MinorIndustry{
-					MinorCode : minorCode,
-					BigCode : bigCode,
+				minorInds := xlsentity.Industry{
+					Code : minorCode,
+					Parent : bigCode,
 					//Name : rowInfo.MinorName,
 				}
 				

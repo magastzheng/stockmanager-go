@@ -1,23 +1,11 @@
-package excel
+package industry
 
 import(
     "github.com/tealeg/xlsx"
-    "strconv"
+    "entity/xlsentity"
+    //"strconv"
     //"fmt"
 )
-
-type MinorIndustry struct {
-    MinorCode int
-    BigCode string
-    Name string
-    Name_en string
-}
-
-type Industry struct {
-    BigCode string
-    Name string
-    Name_en string
-}
 
 type RowInfo struct {
     StockId string
@@ -27,14 +15,14 @@ type RowInfo struct {
     BigCode string
     BigName string
     BigName_en string
-    MinorCode int
+    MinorCode string
     MinorName string
     MinorName_en string
 }
 
 type StockIndustryParser struct {
-    MinorMap map[int] MinorIndustry
-    BigMap map[string] Industry
+    MinorMap map[string] xlsentity.Industry
+    BigMap map[string] xlsentity.Industry
     Rows []*RowInfo
 }
 
@@ -44,10 +32,12 @@ func (p *StockIndustryParser) Parse(filename string) {
         panic(err)
     }
 
+    p.MinorMap = make(map[string] xlsentity.Industry)
+    p.BigMap = make(map[string] xlsentity.Industry)
+    p.Rows = make([]*RowInfo, 0)
+
     for _, sheet := range file.Sheets {
-        p.Rows = make([]*RowInfo, len(sheet.Rows))
-        p.MinorMap = make(map[int] MinorIndustry)
-        p.BigMap = make(map[string] Industry)
+       
         for ridx, row := range sheet.Rows {
             if ridx == 0 {
                 continue
@@ -72,12 +62,7 @@ func (p *StockIndustryParser) Parse(filename string) {
                     case 7:
                         rowInfo.BigName_en = value
                     case 8:
-                        minorCode, err := strconv.Atoi(value)
-                        if err != nil {
-                            panic(err)
-                        }
-
-                        rowInfo.MinorCode = minorCode
+                        rowInfo.MinorCode = value
                     case 9:
                         rowInfo.MinorName = value
                     case 10:
@@ -87,9 +72,9 @@ func (p *StockIndustryParser) Parse(filename string) {
 
             p.Rows = append(p.Rows, rowInfo)
             if _, ok := p.MinorMap[rowInfo.MinorCode]; !ok {
-                minorInds := MinorIndustry{
-                    MinorCode : rowInfo.MinorCode,
-                    BigCode : rowInfo.BigCode,
+                minorInds := xlsentity.Industry{
+                    Code : rowInfo.MinorCode,
+                    Parent : rowInfo.BigCode,
                     Name : rowInfo.MinorName,
                     Name_en : rowInfo.MinorName_en,
                 }
@@ -98,8 +83,8 @@ func (p *StockIndustryParser) Parse(filename string) {
             }
 
             if _, ok := p.BigMap[rowInfo.BigCode]; !ok {
-                bigInds := Industry {
-                    BigCode : rowInfo.BigCode,
+                bigInds := xlsentity.Industry {
+                    Code : rowInfo.BigCode,
                     Name : rowInfo.BigName,
                     Name_en : rowInfo.BigName_en,
                 }

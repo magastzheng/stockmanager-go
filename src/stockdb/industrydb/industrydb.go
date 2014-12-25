@@ -140,17 +140,16 @@ func (s *IndustryDB) TranInsert(industries map[string] xlsentity.Industry) int {
     }
 
     sql := s.getSql(IndustryInsert)
-
     for key, industry := range industries {
         stmt, err := tx.Prepare(sql)
         if err != nil {
-            s.Logger.Error("Database error in transaction insert industry: ", s.Dbtype, s.Dbcon, err, industry)
+            s.Logger.Error("Database error in transaction insert industry: ", s.Dbtype, s.Dbcon, err, sql)
             continue
         }
 
-        _, reserr := stmt.Exec(key, industry.Name, industry.Name_en)
+        _, reserr := stmt.Exec(key, industry.Parent, industry.Name, industry.Name_en)
         if reserr != nil {
-            s.Logger.Error("Database error in transaction insert industry: ", s.Dbtype, s.Dbcon, err, industry)
+            s.Logger.Error("Database error in transaction insert industry: ", s.Dbtype, s.Dbcon, reserr, industry)
             continue
         }
 
