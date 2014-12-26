@@ -1,7 +1,7 @@
 package nsmanager
 
 import(
-    "download"
+    "download/nsdownload"
     "parser/nsparser"
     ns "entity/nsentity"
     "util"
@@ -15,14 +15,14 @@ const(
 )
 
 type NationStatManager struct {
-    downloader *download.NationStatDownloader
+    downloader *nsdownload.NationStatDownloader
     parser *nsparser.NSParser
     logger *util.StockLog
     idxmap map[string] []ns.NSDataIndex
 }
 
 func (m *NationStatManager) Init() {
-    m.downloader = download.NewNationStatDownloader()
+    m.downloader = nsdownload.NewNationStatDownloader()
     m.parser = nsparser.NewNSParser()
     m.logger = util.NewLog()
     m.idxmap = make(map[string] []ns.NSDataIndex)

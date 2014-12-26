@@ -1,19 +1,19 @@
-package download_test
+package nsdownload_test
 
 import (
     "testing"
-    "download"
+    "download/nsdownload"
     "fmt"
 )
 
 func Test_NationStatGetRoot(t *testing.T) {
-    d := download.NewNationStatDownloader()
+    d := nsdownload.NewNationStatDownloader()
     res := d.GetRoot()
     fmt.Println(len(res))
 }
 
 func Test_NationStatGetChild(t *testing.T){
-    d := download.NewNationStatDownloader()
+    d := nsdownload.NewNationStatDownloader()
     code := "A01"
     result := d.GetChild(code, 1)
     if len(result) == 0 {
@@ -34,7 +34,7 @@ func Test_NationStatGetChild(t *testing.T){
 }
 
 func Test_NationStatGetPeriod(t *testing.T){
-    d := download.NewNationStatDownloader()
+    d := nsdownload.NewNationStatDownloader()
     result := d.GetPeriod()
     if len(result) == 0 {
         t.Error("Cannot get period")
@@ -42,7 +42,7 @@ func Test_NationStatGetPeriod(t *testing.T){
 }
 
 func Test_NationStatGetData(t *testing.T){
-    d := download.NewNationStatDownloader()
+    d := nsdownload.NewNationStatDownloader()
     codes := []string{"A01010101"}
     result := d.GetData(codes, "200101", "-1")
     if len(result) == 0{

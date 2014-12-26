@@ -1,9 +1,10 @@
-package download
+package nsdownload
 
 import(
     "strings"
     "fmt"
     "config"
+    "download"
 )
 
 type NationStatDownloader struct{
@@ -32,17 +33,17 @@ func (d *NationStatDownloader) GetServiceData(api config.ServiceAPI, v string) s
     switch api.Method {
         case "GET":
             url := fmt.Sprintf(api.Uri, v)
-            result = HttpGet(url)
+            result = download.HttpGet(url)
         case "POST":
             query := fmt.Sprintf(api.Data, v)
-            result = HttpPostForm(api.Uri, query)
+            result = download.HttpPostForm(api.Uri, query)
     }
 
     return result
 }
 
 func (d *NationStatDownloader) GetRoot() string {
-    return HttpGet(d.root.Uri)
+    return download.HttpGet(d.root.Uri)
 }
 
 func (d *NationStatDownloader) GetChild(code string, level int) string {
@@ -61,7 +62,7 @@ func (d *NationStatDownloader) GetChild(code string, level int) string {
 }
 
 func (d *NationStatDownloader) GetPeriod() string {
-    return HttpGet(d.period.Uri)
+    return download.HttpGet(d.period.Uri)
 }
 
 func (d *NationStatDownloader) GetData(codes []string, start string, end string) string {
@@ -75,7 +76,7 @@ func (d *NationStatDownloader) GetData(codes []string, start string, end string)
     }
     
     url := fmt.Sprintf(d.data.Uri, querycode, period)
-    return HttpGet(url)
+    return download.HttpGet(url)
 }
 
 func NewNationStatDownloader() *NationStatDownloader {
