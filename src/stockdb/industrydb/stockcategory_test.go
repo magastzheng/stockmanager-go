@@ -33,12 +33,18 @@ func Test_StockCategoryDB_TranInsert(t *testing.T) {
         Id: "000112",
         Code: "AAA",
     }
+
+    sc3 := xlsentity.StockCategory {
+        Id: "000113",
+        Code: "AAA",
+    }
     
     scs := make([]xlsentity.StockCategory, 0)
-    scs = append(scs, sc1, sc2)
+    scs = append(scs, sc1, sc2, sc3)
 
     res := db.Delete(sc1.Id)
     res = db.Delete(sc2.Id)
+    res = db.Delete(sc3.Id)
     if res = db.TranInsert(scs); res == -1 {
         t.Error("Cannot insert")
     }
@@ -81,10 +87,11 @@ func Test_StockCategoryDB_QueryAll(t *testing.T) {
 func Test_StockCategoryDB_QueryStockIds(t *testing.T) {
     db := industrydb.NewStockCategoryDB("chinastock", "csrcstockcategory")
     
-    if ids := db.QueryStockIds("AAA"); len(ids) == 0 {
+    ids := db.QueryStockIds("AAA")
+    if len(ids) == 0 {
         t.Error("Cannot query")
     }
    
-    //fmt.Println(industry)
+    fmt.Println(ids)
 }
 

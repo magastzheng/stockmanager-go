@@ -24,6 +24,7 @@ type StockIndustryParser struct {
     MinorMap map[string] xlsentity.Industry
     BigMap map[string] xlsentity.Industry
     Rows []*RowInfo
+    Scs []xlsentity.StockCategory
 }
 
 func (p *StockIndustryParser) Parse(filename string) {
@@ -35,6 +36,7 @@ func (p *StockIndustryParser) Parse(filename string) {
     p.MinorMap = make(map[string] xlsentity.Industry)
     p.BigMap = make(map[string] xlsentity.Industry)
     p.Rows = make([]*RowInfo, 0)
+    p.Scs = make([]xlsentity.StockCategory, 0)
 
     for _, sheet := range file.Sheets {
        
@@ -71,6 +73,14 @@ func (p *StockIndustryParser) Parse(filename string) {
             }
 
             p.Rows = append(p.Rows, rowInfo)
+            
+            sc := xlsentity.StockCategory {
+                Id: rowInfo.StockId,
+                Code: rowInfo.MinorCode,
+            }
+
+            p.Scs = append(p.Scs, sc)
+
             if _, ok := p.MinorMap[rowInfo.MinorCode]; !ok {
                 minorInds := xlsentity.Industry{
                     Code : rowInfo.MinorCode,

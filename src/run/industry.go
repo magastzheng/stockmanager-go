@@ -17,6 +17,8 @@ func main() {
     switch *t {
         case "csrc":
             m = industrymanager.NewIndustryManager()
+        case "csrc2": //get stock category data
+            m = industrymanager.NewCSRCManager()
     }
 
     m.Process()
