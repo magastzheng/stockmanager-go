@@ -5,6 +5,7 @@ import(
     "fmt"
     "config"
     "download"
+    "time"
 )
 
 type NationStatDownloader struct{
@@ -43,7 +44,8 @@ func (d *NationStatDownloader) GetServiceData(api config.ServiceAPI, v string) s
 }
 
 func (d *NationStatDownloader) GetRoot() string {
-    return download.HttpGet(d.root.Uri)
+    uri := fmt.Sprintf(d.root.Uri, d.getRand())
+    return download.HttpGet(uri)
 }
 
 func (d *NationStatDownloader) GetChild(code string, level int) string {
@@ -62,12 +64,15 @@ func (d *NationStatDownloader) GetChild(code string, level int) string {
 }
 
 func (d *NationStatDownloader) GetPeriod() string {
-    return download.HttpGet(d.period.Uri)
+    uri := fmt.Sprintf(d.period.Uri, d.getRand())
+    return download.HttpGet(uri)
 }
 
 func (d *NationStatDownloader) GetData(codes []string, start string, end string) string {
     //start, end should be yyyyMM. The period like '-1,200101' means start from 2001-01 to current
     querycode := strings.Join(codes, ",")
+
+    randn := d.getRand()
     var period string
     if end == "-1" {
         period = fmt.Sprintf("%v,%v", end, start)
@@ -75,8 +80,13 @@ func (d *NationStatDownloader) GetData(codes []string, start string, end string)
         period = fmt.Sprintf("%v,%v", start, end)
     }
     
-    url := fmt.Sprintf(d.data.Uri, querycode, period)
+    url := fmt.Sprintf(d.data.Uri, randn, querycode, period)
     return download.HttpGet(url)
+}
+
+func (d *NationStatDownloader) getRand() int {
+    nanos := time.Now().UnixNano()
+    return int(nanos / 1000000)
 }
 
 func NewNationStatDownloader() *NationStatDownloader {

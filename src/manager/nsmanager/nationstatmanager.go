@@ -4,34 +4,36 @@ import(
     "download/nsdownload"
     "parser/nsparser"
     ns "entity/nsentity"
+    "manager"
     "util"
     "fmt"
     "strings"
 )
 
 const(
-    NSStart = "198301"
+    //NSStart = "198301"
+    NSStart = "201401"
     NSEnd = "-1"
 )
 
 type NationStatManager struct {
+    manager.ManagerBase
     downloader *nsdownload.NationStatDownloader
     parser *nsparser.NSParser
-    logger *util.StockLog
     idxmap map[string] []ns.NSDataIndex
 }
 
 func (m *NationStatManager) Init() {
+    m.ManagerBase.Init()
     m.downloader = nsdownload.NewNationStatDownloader()
     m.parser = nsparser.NewNSParser()
-    m.logger = util.NewLog()
     m.idxmap = make(map[string] []ns.NSDataIndex)
 }
 
 func (m *NationStatManager) Process() {
     datastr := m.downloader.GetRoot()
     if len(datastr) == 0 {
-        m.logger.Error("Cannot get the children of root")
+        m.Logger.Error("Cannot get the children of root")
     }
 
     m.WriteIndexData("root", 0, datastr)
@@ -49,7 +51,7 @@ func (m *NationStatManager) Process() {
 func (m *NationStatManager) GetIndex(idxdata ns.NSIndex, level int) {
     datastr := m.downloader.GetChild(idxdata.Id, level)
     if len(datastr) == 0 {
-        m.logger.Error("Cannot get the children of:", idxdata.Id, " in level: ", level)
+        m.Logger.Error("Cannot get the children of:", idxdata.Id, " in level: ", level)
     }
     m.WriteIndexData(idxdata.Id, level, datastr)
     idxchild := m.parser.ParseIndex(datastr)
@@ -72,7 +74,7 @@ func (m *NationStatManager) GetIndex(idxdata ns.NSIndex, level int) {
 func (m *NationStatManager) GetData(pid string, ids []string, start string, end string) {
     datastr := m.downloader.GetData(ids, start, end)
     if len(datastr) == 0 {
-        m.logger.Error("Cannot get data of: ", ids, start, end)
+        m.Logger.Error("Cannot get data of: ", ids, start, end)
     }
     m.WriteData(ids, start, end, datastr)
     nsvalue := m.parser.ParseData(datastr)
@@ -94,15 +96,16 @@ func (m *NationStatManager) GetData(pid string, ids []string, start string, end 
 }
 
 func (m *NationStatManager) WriteIndexData(id string, level int, content string) {
-    format := "../data/index-%v-%v.dat"
-    filename := fmt.Sprintf(format, level, id)
+    format := "%sdata/ns/index-%v-%v.dat"
+    filename := fmt.Sprintf(format, m.BaseDir, level, id)
+    fmt.Println(filename)
     util.WriteFile(filename, content)
 }
 
 func (m *NationStatManager) WriteData(ids []string, start, end, content string) {
     idstr := strings.Join(ids, "-")
-    format := "../data/data-%v-%v-%v.dat"
-    filename := fmt.Sprintf(format, ids[0], start, end)
+    format := "%sdata/ns/data-%v-%v-%v.dat"
+    filename := fmt.Sprintf(format, m.BaseDir, ids[0], start, end)
     content += idstr + "\n" + content
     util.WriteFile(filename, content)
 }
@@ -110,8 +113,8 @@ func (m *NationStatManager) WriteData(ids []string, start, end, content string) 
 func (m *NationStatManager) WriteValue(ids []string, start string, end string, data map[string]string) {
     idstr := strings.Join(ids, "-")
 
-    format := "../data/actualdata-%v-%v-%v.dat"
-    filename := fmt.Sprintf(format, ids[0], start, end)
+    format := "%sdata/ns/actualdata-%v-%v-%v.dat"
+    filename := fmt.Sprintf(format, m.BaseDir, ids[0], start, end)
     content := idstr + "\n"
     for k, v := range data{
         content += k + ": " + v + "\n"
@@ -120,11 +123,12 @@ func (m *NationStatManager) WriteValue(ids []string, start string, end string, d
 }
 
 func (m *NationStatManager) WriteIndex() {
-    filename := "../data/macroindex.dat"
+    format := "%sdata/ns/macroindex.dat"
+    filename := fmt.Sprintf(format, m.BaseDir)
 
     var content string
     for k, vs := range m.idxmap {
-        content += fmt.Sprintf("=============Parent: %v", k)
+        content += fmt.Sprintf("=============Parent: %v\n", k)
         for _, v := range vs {
             content += fmt.Sprintf("%v: %v\n", v.Id, v.Name)
         }
@@ -140,7 +144,7 @@ func (m *NationStatManager) OutputIndex(idxdata []ns.NSIndex){
         //fmt.Println(str)
         
     }
-    m.logger.Info(str)
+    m.Logger.Info(str)
 }
 
 func NewNationStatManager() *NationStatManager{

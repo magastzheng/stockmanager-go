@@ -47,6 +47,8 @@ create table nonmfgpmi(
     bizactexpectation float
 );
 
+drop table if exists currentcpi;
+
 create table currentcpi(
     cpi float,
     food float,
@@ -59,6 +61,7 @@ create table currentcpi(
     residence float
 );
 
+drop table if exists currenturbancpi;
 create table currenturbancpi(
     cpi float,
     food float,
@@ -71,6 +74,7 @@ create table currenturbancpi(
     residence float
 );
 
+drop table if exists currentruralcpi;
 create table currentruralcpi(
     cpi float,
     food float,
@@ -83,7 +87,7 @@ create table currentruralcpi(
     residence float
 );
 
-
+drop table if exists foodcpi;
 create table foodcpi(
     grain float,
     grease float,
