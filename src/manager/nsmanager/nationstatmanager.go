@@ -8,12 +8,15 @@ import(
     "util"
     "fmt"
     "strings"
+    "time"
 )
 
 const(
     //NSStart = "198301"
     NSStart = "201401"
     NSEnd = "-1"
+    NSDateFormat = "2006-01"
+    NSInputDateFormat = "200601"
 )
 
 type NationStatManager struct {
@@ -21,6 +24,8 @@ type NationStatManager struct {
     downloader *nsdownload.NationStatDownloader
     parser *nsparser.NSParser
     idxmap map[string] []ns.NSDataIndex
+    nsstart string //"yyyyMM" or "-1" as to present
+    nsend string
 }
 
 func (m *NationStatManager) Init() {
@@ -65,9 +70,9 @@ func (m *NationStatManager) GetIndex(idxdata ns.NSIndex, level int) {
             //do nothing
         }
     }
-
+    
     if len(dataid) > 0 {
-        m.GetData(idxdata.Id, dataid, NSStart, NSEnd)
+        m.GetData(idxdata.Id, dataid, m.nsstart, m.nsend)
     }
 }
 
@@ -147,9 +152,25 @@ func (m *NationStatManager) OutputIndex(idxdata []ns.NSIndex){
     m.Logger.Info(str)
 }
 
-func NewNationStatManager() *NationStatManager{
+func NewNationStatManager(start, end string) *NationStatManager{
     m := new(NationStatManager)
     m.Init()
+    
+    t, err := time.Parse(NSDateFormat, start)
+    if err != nil {
+        m.nsstart = "-1"
+    } else {
+        m.nsstart = t.Format(NSInputDateFormat)
+    }
+
+    t, err = time.Parse(NSDateFormat, end)
+    if err != nil {
+        m.nsend = "-1"
+    } else {
+        m.nsend = t.Format(NSInputDateFormat)
+    }
+
+    fmt.Println("start: ", m.nsstart, " end: ", m.nsend)
 
     return m
 }
