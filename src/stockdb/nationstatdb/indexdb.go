@@ -1,9 +1,9 @@
-package indexdb
+package nationstatdb
 
 import(
     "stockdb"
     ns "entity/nsentity"
-    "util"
+    //"util"
     "fmt"
 )
 
@@ -16,15 +16,18 @@ type IndexDB struct {
     dbtable string
 }
 
-func (s *IndexDB) getSql(sql string) {
+func (s *IndexDB) getSql(sql string) string {
     return fmt.Sprintf(sql, s.dbtable)
 }
 
-func (s *IndexDB) Insert(idx ns.NSDataIndex) {
-    
+func (s *IndexDB) Insert(idx ns.NSDataIndex) int {
+    return 0
 }
 
 func NewIndexDB(dbname, dbtable string) *IndexDB {
     db := new(IndexDB)
-    db.Init()
+    db.Init(dbname)
+    db.dbtable = dbtable
+
+    return db
 }
