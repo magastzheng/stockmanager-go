@@ -11,39 +11,40 @@ import(
     "time"
 )
 
-const(
+//const(
     //NSStart = "198301"
-    NSStart = "201401"
-    NSEnd = "-1"
-    NSDateFormat = "2006-01"
-    NSInputDateFormat = "200601"
-)
+    //NSStart = "201401"
+    //NSEnd = "-1"
+    //NSDateFormat = "2006-01"
+    //NSInputDateFormat = "200601"
+//)
 
-type NationStatManager struct {
+type NSIndexManager struct {
     manager.ManagerBase
     downloader *nsdownload.NationStatDownloader
     parser *nsparser.NSParser
-    idxmap map[string] []ns.NSDataIndex
+    indexes []ns.NSDBIndex
     nsstart string //"yyyyMM" or "-1" as to present
     nsend string
 }
 
-func (m *NationStatManager) Init() {
+func (m *NSIndexManager) Init() {
     m.ManagerBase.Init()
     m.downloader = nsdownload.NewNationStatDownloader()
     m.parser = nsparser.NewNSParser()
-    m.idxmap = make(map[string] []ns.NSDataIndex)
+    m.indexes = make([]ns.NSDBIndex, 0)
 }
 
-func (m *NationStatManager) Process() {
+func (m *NSIndexManager) Process() {
     datastr := m.downloader.GetRoot()
     if len(datastr) == 0 {
         m.Logger.Error("Cannot get the children of root")
     }
 
-    m.WriteIndexData("root", 0, datastr)
+    //m.WriteIndexData("root", 0, datastr)
     rootData := m.parser.ParseIndex(datastr)
-    m.OutputIndex(rootData)
+    m.AddIndex("root", rootData)
+    //m.OutputIndex(rootData)
     for _, root := range rootData {
         if root.IsParent {
             m.GetIndex(root, 1)
@@ -53,13 +54,15 @@ func (m *NationStatManager) Process() {
     m.WriteIndex()
 }
 
-func (m *NationStatManager) GetIndex(idxdata ns.NSIndex, level int) {
+func (m *NSIndexManager) GetIndex(idxdata ns.NSIndex, level int) {
     datastr := m.downloader.GetChild(idxdata.Id, level)
     if len(datastr) == 0 {
         m.Logger.Error("Cannot get the children of:", idxdata.Id, " in level: ", level)
     }
     m.WriteIndexData(idxdata.Id, level, datastr)
     idxchild := m.parser.ParseIndex(datastr)
+    m.AddIndex(idxdata.Id, idxchild)
+
     dataid := make([]string, 0)
     for _, idx := range idxchild {
         if idx.IfData == "1" {
@@ -76,7 +79,7 @@ func (m *NationStatManager) GetIndex(idxdata ns.NSIndex, level int) {
     }
 }
 
-func (m *NationStatManager) GetData(pid string, ids []string, start string, end string) {
+func (m *NSIndexManager) GetData(pid string, ids []string, start string, end string) {
     datastr := m.downloader.GetData(ids, start, end)
     if len(datastr) == 0 {
         m.Logger.Error("Cannot get data of: ", ids, start, end)
@@ -85,27 +88,44 @@ func (m *NationStatManager) GetData(pid string, ids []string, start string, end 
     nsvalue := m.parser.ParseData(datastr)
     m.WriteValue(ids, start, end, nsvalue.TableData)
 
-    m.AddIndex(pid, nsvalue.Value.Index)
+    m.AddDataIndex(pid, nsvalue.Value.Index)
 }
 
-func (m *NationStatManager) AddIndex(pid string, indexes []ns.NSDataIndex) {
-    values, ok := m.idxmap[pid]
-    if !ok {
-        m.idxmap[pid] = indexes
-    } else {
-        values = append(values, indexes ...)
-        m.idxmap[pid] = values
+func (m *NSIndexManager) AddIndex(pid string, idxes []ns.NSIndex) {
+    for _, idx := range idxes {
+        dbidx := ns.NSDBIndex{}
+        dbidx.Id = idx.Id
+        dbidx.Name = idx.Name
+        dbidx.EName = idx.EName
+
+        if len(idx.PId) > 0 {
+            dbidx.Parent = idx.PId
+        } else {
+            dbidx.Parent = pid
+        }
+
+        m.indexes = append(m.indexes, dbidx)
     }
 }
 
-func (m *NationStatManager) WriteIndexData(id string, level int, content string) {
+func (m *NSIndexManager) AddDataIndex(pid string, dataIdxes []ns.NSDataIndex) {
+    for _, idx := range dataIdxes {
+        dbidx := ns.NSDBIndex {}
+        dbidx.NSDataIndex = idx
+        dbidx.Parent = pid
+
+        m.indexes = append(m.indexes, dbidx)
+    }
+}
+
+func (m *NSIndexManager) WriteIndexData(id string, level int, content string) {
     format := "%sdata/ns/index-%v-%v.dat"
     filename := fmt.Sprintf(format, m.BaseDir, level, id)
     fmt.Println(filename)
     util.WriteFile(filename, content)
 }
 
-func (m *NationStatManager) WriteData(ids []string, start, end, content string) {
+func (m *NSIndexManager) WriteData(ids []string, start, end, content string) {
     idstr := strings.Join(ids, "-")
     format := "%sdata/ns/data-%v-%v-%v.dat"
     filename := fmt.Sprintf(format, m.BaseDir, ids[0], start, end)
@@ -113,7 +133,7 @@ func (m *NationStatManager) WriteData(ids []string, start, end, content string) 
     util.WriteFile(filename, content)
 }
 
-func (m *NationStatManager) WriteValue(ids []string, start string, end string, data map[string]string) {
+func (m *NSIndexManager) WriteValue(ids []string, start string, end string, data map[string]string) {
     idstr := strings.Join(ids, "-")
 
     format := "%sdata/ns/actualdata-%v-%v-%v.dat"
@@ -125,22 +145,20 @@ func (m *NationStatManager) WriteValue(ids []string, start string, end string, d
     util.WriteFile(filename, content)
 }
 
-func (m *NationStatManager) WriteIndex() {
+func (m *NSIndexManager) WriteIndex() {
     format := "%sdata/ns/macroindex.dat"
     filename := fmt.Sprintf(format, m.BaseDir)
 
     var content string
-    for k, vs := range m.idxmap {
-        content += fmt.Sprintf("=============Parent: %v\n", k)
-        for _, v := range vs {
-            content += fmt.Sprintf("%v: %v\n", v.Id, v.Name)
-        }
+    for _, idx := range m.indexes {
+        content += fmt.Sprintf("=============Parent: %v\n", idx.Parent)
+        content += fmt.Sprintf("%v: %v\n", idx.Id, idx.Name)
     }
 
     util.WriteFile(filename, content)
 }
 
-func (m *NationStatManager) OutputIndex(idxdata []ns.NSIndex){
+func (m *NSIndexManager) OutputIndex(idxdata []ns.NSIndex){
     var str string
     for _, v := range idxdata {
         str += fmt.Sprintf("Id: %v, Name: %v, PId: %v, EName: %v, IfData: %v, IsParent: %v\n", v.Id, v.Name, v.PId, v.EName, v.IfData, v.IsParent)
@@ -150,8 +168,8 @@ func (m *NationStatManager) OutputIndex(idxdata []ns.NSIndex){
     m.Logger.Info(str)
 }
 
-func NewNationStatManager(start, end string) *NationStatManager{
-    m := new(NationStatManager)
+func NewNSIndexManager(start, end string) *NSIndexManager{
+    m := new(NSIndexManager)
     m.Init()
     
     t, err := time.Parse(NSDateFormat, start)

@@ -32,7 +32,6 @@ func (s *IndexDB) Insert(idx ns.NSDBIndex) int {
     stmt, err := db.Prepare(sql)
     defer stmt.Close()
     if err != nil {
-        //fmt.Println(sql)
         s.Logger.Error("Database error: ", s.Dbtype, s.Dbcon, err)
         return -1
     }
