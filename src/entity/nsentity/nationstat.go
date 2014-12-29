@@ -35,3 +35,9 @@ type NSData struct {
     TableData map[string] string `json: "tableData"`
     Value NSValue `json: "value"`
 }
+
+type NSDBIndex struct {
+	NSDataIndex
+	Parent string
+	Readid string
+}

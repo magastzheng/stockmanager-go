@@ -83,7 +83,7 @@ func (s *IndustryDB) Update(industry xlsentity.Industry) int {
     db := s.Open()
     defer db.Close()
     
-    sql := s.getSql(IndustryDelete)
+    sql := s.getSql(IndustryUpdate)
     stmt, err := db.Prepare(sql)
     defer stmt.Close()
     if err != nil {
@@ -112,7 +112,7 @@ func (s *IndustryDB) Query(code string) xlsentity.Industry {
 
     industry := xlsentity.Industry{}
     
-    sql := s.getSql(IndustryUpdate)
+    sql := s.getSql(IndustrySelect)
     stmt, err := db.Prepare(sql)
     defer stmt.Close()
     if err != nil {

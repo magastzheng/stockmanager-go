@@ -10,4 +10,5 @@ create table nsindex(
 	eunit varchar(15),
 	note varchar(2048),
 	enote varchar(2048),
+	readid varchar(50)
 );
