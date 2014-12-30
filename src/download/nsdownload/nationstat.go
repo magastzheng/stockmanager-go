@@ -6,6 +6,7 @@ import(
     "config"
     "download"
     "time"
+    "util"
 )
 
 type NationStatDownloader struct{
@@ -34,9 +35,11 @@ func (d *NationStatDownloader) GetServiceData(api config.ServiceAPI, v string) s
     switch api.Method {
         case "GET":
             url := fmt.Sprintf(api.Uri, v)
+            util.NewLog().Info(url)
             result = download.HttpGet(url)
         case "POST":
             query := fmt.Sprintf(api.Data, v)
+            util.NewLog().Info(api.Uri, query)
             result = download.HttpPostForm(api.Uri, query)
     }
 
@@ -81,6 +84,7 @@ func (d *NationStatDownloader) GetData(codes []string, start string, end string)
     }
     
     url := fmt.Sprintf(d.data.Uri, randn, querycode, period)
+    util.NewLog().Info(url)
     return download.HttpGet(url)
 }
 

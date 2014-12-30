@@ -3,6 +3,7 @@ package nsmanager
 import(
     "download/nsdownload"
     "parser/nsparser"
+    nsdb "stockdb/nationstatdb"
     ns "entity/nsentity"
     "manager"
     "util"
@@ -22,6 +23,7 @@ import(
 type NSIndexManager struct {
     manager.ManagerBase
     downloader *nsdownload.NationStatDownloader
+    db *nsdb.IndexDB
     parser *nsparser.NSParser
     indexes []ns.NSDBIndex
     nsstart string //"yyyyMM" or "-1" as to present
@@ -31,6 +33,7 @@ type NSIndexManager struct {
 func (m *NSIndexManager) Init() {
     m.ManagerBase.Init()
     m.downloader = nsdownload.NewNationStatDownloader()
+    m.db = nsdb.NewIndexDB("macroindecis", "nsindex")
     m.parser = nsparser.NewNSParser()
     m.indexes = make([]ns.NSDBIndex, 0)
 }
@@ -50,7 +53,8 @@ func (m *NSIndexManager) Process() {
             m.GetIndex(root, 1)
         }
     }
-
+    
+    m.db.TranInsert(m.indexes)
     m.WriteIndex()
 }
 
