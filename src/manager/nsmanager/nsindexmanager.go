@@ -65,7 +65,7 @@ func (m *NSIndexManager) GetIndex(idxdata ns.NSIndex, level int) {
     }
     m.WriteIndexData(idxdata.Id, level, datastr)
     idxchild := m.parser.ParseIndex(datastr)
-    m.AddIndex(idxdata.Id, idxchild)
+    //m.AddIndex(idxdata.Id, idxchild)
 
     dataid := make([]string, 0)
     for _, idx := range idxchild {
