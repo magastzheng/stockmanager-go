@@ -30,12 +30,16 @@ func (m *StockRtDataManager) Process() {
 
     for _, idexch := range idexchs {
         str := m.downloader.GetData(idexch.Id, idexch.Exchange)
-        p := parser.NewStockRtParser()
-        p.ParseStr(str)
-        data := p.Data
+		if len(str) == 0 {
+			m.logger.Error("Cannot get realtime date", idexch)
+		} else {
+			p := parser.NewStockRtParser()
+			p.ParseStr(str)
+			data := p.Data
         
-        //fmt.Println(data)
-        m.datadb.Insert(idexch.Id, data)
+			//fmt.Println(data)
+			m.datadb.Insert(idexch.Id, data)
+		}
     }
 }
 
