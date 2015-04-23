@@ -10,19 +10,25 @@ type SPDB struct {
 
 func (d *SPDB) CallStoreProc(code string) {
     db := d.Open()
+	
+	//rows, err := db.Query("select id from csrcstockcategory")
     
-    stmt, err := db.Prepare("CALL getcsrccategorystock('?')")
+    stmt, err := db.Prepare("CALL getcsrccategorystock(?)")
     if err != nil {
         panic(err)
     }
     
     rows, err := stmt.Query(code)
-
-    fmt.Println(code)
-    //rows, err := db.Query("CALL getcsrccategorystock(?)", code)
+	//res, err := db.Exec("call getcsrccategorystock('?')", code)
+	//if err != nil {
+	//	fmt.Println(err)
+	//}
+    //fmt.Println(code)
+    //rows, err := db.Query("call getcsrccategorystock(?)", code)
     if err != nil {
         fmt.Println(err)
-        panic(err)
+        //panic(err)
+		//return
     }
     
     ids := make([]string, 0)
@@ -39,7 +45,8 @@ func (d *SPDB) CallStoreProc(code string) {
 
 func NewSPDB() *SPDB {
     db := new(SPDB)
-    db.Init("csrcstockcategory")
+    //db.Init("csrcstockcategory")
+	db.Init("chinastock")
 
     return db
 }
